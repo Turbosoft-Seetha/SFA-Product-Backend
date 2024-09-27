@@ -908,7 +908,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4 form-group" style="padding-top: 10px;">
-                                        <label class="control-label col-lg-12">Invoice  Payment Mode<span class="required"> </span></label>
+                                        <label class="control-label col-lg-12">Invoice   Mode<span class="required"> </span></label>
                                         <div class="col-lg-12">
                                             <telerik:RadDropDownList ID="ddlInvoiceMode" runat="server" Width="100%" DefaultMessage="Please Select">
                                                 <Items>
