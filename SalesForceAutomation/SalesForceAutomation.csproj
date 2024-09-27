@@ -13219,6 +13219,7 @@
     <Content Include="BO_Digits\en\DailyActivityReview.aspx" />
     <Content Include="BO_Digits\en\DailyActivityReviewHeader.aspx" />
     <Content Include="BO_Digits\en\DeliveryRouteDashboard.aspx" />
+    <Content Include="BO_Digits\en\DeliverySummary.aspx" />
     <Content Include="BO_Digits\en\DisplayAgreementApproval.aspx" />
     <Content Include="BO_Digits\en\DisputeNoteApprovalDetail.aspx" />
     <Content Include="BO_Digits\en\DisputeNotReqApprovalHeader.aspx" />
@@ -13262,6 +13263,7 @@
     <Content Include="BO_Digits\en\ListAssignedSurvey.aspx" />
     <Content Include="BO_Digits\en\ListBalanceStock.aspx" />
     <Content Include="BO_Digits\en\ListBatchdetails.aspx" />
+    <Content Include="BO_Digits\en\ListCompanies.aspx" />
     <Content Include="BO_Digits\en\ListCompetitorActivities.aspx" />
     <Content Include="BO_Digits\en\ListCompetitorActivitiess.aspx" />
     <Content Include="BO_Digits\en\ListCompetitorActivityAnalysis.aspx" />
@@ -13332,12 +13334,15 @@
     <Content Include="BO_Digits\en\NotDeliveredOrderDetail.aspx" />
     <Content Include="BO_Digits\en\NotDeliveredOrders.aspx" />
     <Content Include="BO_Digits\en\NotstartedRoutes.aspx" />
+    <Content Include="BO_Digits\en\OpenCustomers.aspx" />
     <Content Include="BO_Digits\en\OpenFSJobDetails.aspx" />
     <Content Include="BO_Digits\en\OpenFSJobs.aspx" />
     <Content Include="BO_Digits\en\OpenServiceJobs.aspx" />
+    <Content Include="BO_Digits\en\OrderOrQuatationCancel.aspx" />
     <Content Include="BO_Digits\en\OrderPrint.aspx" />
     <Content Include="BO_Digits\en\OrderStatusDashboard.aspx" />
     <Content Include="BO_Digits\en\OrderStatusDetail.aspx" />
+    <Content Include="BO_Digits\en\OrderSummaryDashboard.aspx" />
     <Content Include="BO_Digits\en\OutOfStockAnalysis.aspx" />
     <Content Include="BO_Digits\en\OutOfStockDetails.aspx" />
     <Content Include="BO_Digits\en\OutOfStockItems.aspx" />
@@ -13355,6 +13360,8 @@
     <Content Include="BO_Digits\en\PendingReturnRequest.aspx" />
     <Content Include="BO_Digits\en\PickingDetail.aspx" />
     <Content Include="BO_Digits\en\PickingHeader.aspx" />
+    <Content Include="BO_Digits\en\PlanogramCustomerMapping.aspx" />
+    <Content Include="BO_Digits\en\PlanogramTransactions.aspx" />
     <Content Include="BO_Digits\en\PriceUpdateDetail.aspx" />
     <Content Include="BO_Digits\en\PriceUpdateHeader.aspx" />
     <Content Include="BO_Digits\en\ProfileHeader.aspx" />
@@ -13377,6 +13384,7 @@
     <Content Include="BO_Digits\en\ReturnReqApprovalDetail.aspx" />
     <Content Include="BO_Digits\en\ReturnReqApprovalHeader.aspx" />
     <Content Include="BO_Digits\en\ReturnReqApprovalWorkflow.aspx" />
+    <Content Include="BO_Digits\en\RevertLoadIn.aspx" />
     <Content Include="BO_Digits\en\RouteCustomerSettings.aspx" />
     <Content Include="BO_Digits\en\RouteDashboards.aspx" />
     <Content Include="BO_Digits\en\RouteDeliveries.aspx" />
@@ -13384,6 +13392,7 @@
     <Content Include="BO_Digits\en\RouteDeliveryDetail.aspx" />
     <Content Include="BO_Digits\en\RouteFieldServiceDashboard.aspx" />
     <Content Include="BO_Digits\en\RouteMerchDashboard.aspx" />
+    <Content Include="BO_Digits\en\RouteNotificationDetail.aspx" />
     <Content Include="BO_Digits\en\RouteSalesDashboard.aspx" />
     <Content Include="BO_Digits\en\RouteSalesDetail.aspx" />
     <Content Include="BO_Digits\en\RouteSettingsMaster.aspx" />
@@ -13408,6 +13417,7 @@
     <Content Include="BO_Digits\en\ServiceRequestHeader.aspx" />
     <Content Include="BO_Digits\en\ServiceRequestLifeCycle.aspx" />
     <Content Include="BO_Digits\en\SettlementApproval.aspx" />
+    <Content Include="BO_Digits\en\SettlementSummary.aspx" />
     <Content Include="BO_Digits\en\ShowUOMsForProduct.aspx" />
     <Content Include="BO_Digits\en\SJDetailFromFSRoute.aspx" />
     <Content Include="BO_Digits\en\SpecialPriceAssign.aspx" />
@@ -16399,6 +16409,12 @@
     <Compile Include="BO_Digits\en\DeliveryRouteDashboard.aspx.designer.cs">
       <DependentUpon>DeliveryRouteDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\DeliverySummary.aspx.cs">
+      <DependentUpon>DeliverySummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\DeliverySummary.aspx.designer.cs">
+      <DependentUpon>DeliverySummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\DisplayAgreementApproval.aspx.cs">
       <DependentUpon>DisplayAgreementApproval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16692,6 +16708,12 @@
     </Compile>
     <Compile Include="BO_Digits\en\ListBatchdetails.aspx.designer.cs">
       <DependentUpon>ListBatchdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\ListCompanies.aspx.cs">
+      <DependentUpon>ListCompanies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\ListCompanies.aspx.designer.cs">
+      <DependentUpon>ListCompanies.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\ListCompetitorActivities.aspx.cs">
       <DependentUpon>ListCompetitorActivities.aspx</DependentUpon>
@@ -17183,6 +17205,12 @@
     <Compile Include="BO_Digits\en\NotstartedRoutes.aspx.designer.cs">
       <DependentUpon>NotstartedRoutes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\OpenCustomers.aspx.cs">
+      <DependentUpon>OpenCustomers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\OpenCustomers.aspx.designer.cs">
+      <DependentUpon>OpenCustomers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\OpenFSJobDetails.aspx.cs">
       <DependentUpon>OpenFSJobDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -17204,6 +17232,12 @@
     <Compile Include="BO_Digits\en\OpenServiceJobs.aspx.designer.cs">
       <DependentUpon>OpenServiceJobs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\OrderOrQuatationCancel.aspx.cs">
+      <DependentUpon>OrderOrQuatationCancel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\OrderOrQuatationCancel.aspx.designer.cs">
+      <DependentUpon>OrderOrQuatationCancel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\OrderPrint.aspx.cs">
       <DependentUpon>OrderPrint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -17224,6 +17258,12 @@
     </Compile>
     <Compile Include="BO_Digits\en\OrderStatusDetail.aspx.designer.cs">
       <DependentUpon>OrderStatusDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\OrderSummaryDashboard.aspx.cs">
+      <DependentUpon>OrderSummaryDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\OrderSummaryDashboard.aspx.designer.cs">
+      <DependentUpon>OrderSummaryDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\OutOfStockAnalysis.aspx.cs">
       <DependentUpon>OutOfStockAnalysis.aspx</DependentUpon>
@@ -17343,6 +17383,18 @@
     </Compile>
     <Compile Include="BO_Digits\en\PickingHeader.aspx.designer.cs">
       <DependentUpon>PickingHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\PlanogramCustomerMapping.aspx.cs">
+      <DependentUpon>PlanogramCustomerMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\PlanogramCustomerMapping.aspx.designer.cs">
+      <DependentUpon>PlanogramCustomerMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\PlanogramTransactions.aspx.cs">
+      <DependentUpon>PlanogramTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\PlanogramTransactions.aspx.designer.cs">
+      <DependentUpon>PlanogramTransactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\PriceUpdateDetail.aspx.cs">
       <DependentUpon>PriceUpdateDetail.aspx</DependentUpon>
@@ -17498,6 +17550,12 @@
     <Compile Include="BO_Digits\en\ReturnReqApprovalWorkflow.aspx.designer.cs">
       <DependentUpon>ReturnReqApprovalWorkflow.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\RevertLoadIn.aspx.cs">
+      <DependentUpon>RevertLoadIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\RevertLoadIn.aspx.designer.cs">
+      <DependentUpon>RevertLoadIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\RouteCustomerSettings.aspx.cs">
       <DependentUpon>RouteCustomerSettings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -17546,6 +17604,12 @@
     </Compile>
     <Compile Include="BO_Digits\en\RouteMerchDashboard.aspx.designer.cs">
       <DependentUpon>RouteMerchDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\RouteNotificationDetail.aspx.cs">
+      <DependentUpon>RouteNotificationDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\RouteNotificationDetail.aspx.designer.cs">
+      <DependentUpon>RouteNotificationDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\RouteSalesDashboard.aspx.cs">
       <DependentUpon>RouteSalesDashboard.aspx</DependentUpon>
@@ -17714,6 +17778,12 @@
     </Compile>
     <Compile Include="BO_Digits\en\SettlementApproval.aspx.designer.cs">
       <DependentUpon>SettlementApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\SettlementSummary.aspx.cs">
+      <DependentUpon>SettlementSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\SettlementSummary.aspx.designer.cs">
+      <DependentUpon>SettlementSummary.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\ShowUOMsForProduct.aspx.cs">
       <DependentUpon>ShowUOMsForProduct.aspx</DependentUpon>
@@ -21229,6 +21299,13 @@
     <Content Include="BO_Digits\assets\plugins\global\fonts\line-awesome\la-solid-900.woff2" />
     <Content Include="BO_Digits\assets\plugins\global\sourcemaps\tiny-slider.css.map" />
     <Content Include="BO_Digits\en\en_master.Master" />
+    <Content Include="BO_Digits\en\Reports\Credit&amp;CashInvoice.mrt" />
+    <Content Include="BO_Digits\en\Reports\InventoryReconfirm.mrt" />
+    <Content Include="BO_Digits\en\Reports\license.key" />
+    <Content Include="BO_Digits\en\Reports\LoadRequests.mrt" />
+    <Content Include="BO_Digits\en\Reports\Orders.mrt" />
+    <Content Include="BO_Digits\en\Reports\ReturnRequest.mrt" />
+    <Content Include="BO_Digits\en\Reports\SettlementReport.mrt" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
