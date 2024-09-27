@@ -15,6 +15,8 @@
             $('#modalConfirm').modal('hide');
             $('#kt_modal_1_5').modal('show');
         }
+
+
     </script>
 </asp:Content>
 <asp:Content ID="ContentAction" ContentPlaceHolderID="Actions" runat="server">
