@@ -1,0 +1,34 @@
+04-05-2024 14:25:19: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 14:53:06: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 15:43:27: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 15:43:59: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 16:06:44: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 16:14:00: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 16:19:35: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 16:47:41: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 17:00:13: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 17:55:38: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 18:00:50: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 18:40:44: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 18:51:35: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 19:07:35: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 19:15:05: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+04-05-2024 21:42:09: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 
+04-05-2024 21:42:21: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 
+04-05-2024 21:42:51: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 
+04-05-2024 21:53:25: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 

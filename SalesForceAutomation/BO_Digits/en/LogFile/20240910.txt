@@ -1,0 +1,3 @@
+10-09-2024 12:49:21: General Functions  :- sp_NotificationsError : Incorrect syntax near the keyword 'User'. - 
+10-09-2024 17:44:02: General Functions  :- sp_LeftNavigationError : Conversion failed when converting from a character string to uniqueidentifier. - 
+10-09-2024 17:54:01: General Functions  :- sp_LeftNavigationError : A transport-level error has occurred when sending the request to the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) - An existing connection was forcibly closed by the remote host

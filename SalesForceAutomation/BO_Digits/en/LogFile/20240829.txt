@@ -1,0 +1,13 @@
+29-08-2024 13:01:47: General Functions  :- sp_InsBulkSalesOrderError : Trying to pass a table-valued parameter with 9 column(s) where the corresponding user-defined table type requires 10 column(s). - 
+29-08-2024 13:05:48: General Functions  :- sp_InsBulkSalesOrderError : Trying to pass a table-valued parameter with 9 column(s) where the corresponding user-defined table type requires 10 column(s). - 
+29-08-2024 13:12:07: General Functions  :- sp_InsBulkSalesOrderError : Trying to pass a table-valued parameter with 9 column(s) where the corresponding user-defined table type requires 10 column(s). - 
+29-08-2024 13:20:24: General Functions  :- sp_InsBulkSalesOrderError : Cannot drop the table 'temp_SalesOrder', because it does not exist or you do not have permission. - 
+29-08-2024 13:21:15: General Functions  :- sp_InsBulkSalesOrderError : There is already an object named 'temp_SalesOrder' in the database. - 
+29-08-2024 13:38:11: General Functions  :- sp_InsBulkSalesOrderError : There is already an object named 'temp_SalesOrder' in the database. - 
+29-08-2024 13:47:27: General Functions  :- sp_InsBulkSalesOrderError : There is already an object named 'temp_SalesOrder' in the database. - 
+29-08-2024 13:49:42: General Functions  :- sp_InsBulkSalesOrderError : Invalid object name 'temp_SalesOrder'. - 
+29-08-2024 13:50:43: General Functions  :- sp_InsBulkSalesOrderError : Invalid object name 'temp_SalesOrder'. - 
+29-08-2024 13:51:54: General Functions  :- sp_InsBulkSalesOrderError : Invalid object name 'temp_SalesOrder'. - 
+29-08-2024 13:57:13: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+29-08-2024 13:59:42: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+29-08-2024 14:27:42: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 

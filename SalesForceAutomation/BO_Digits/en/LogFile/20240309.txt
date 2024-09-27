@@ -1,0 +1,18 @@
+09-03-2024 00:28:03: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+09-03-2024 08:31:12: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+09-03-2024 08:32:36: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+09-03-2024 08:32:38: ARHeader.aspx PageLoad() :- Error : Multiple controls with the same ID 'hl0' were found. FindControl requires that controls have unique IDs. - 
+09-03-2024 08:36:13: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+09-03-2024 08:41:14: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+09-03-2024 08:46:30: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+09-03-2024 08:47:08: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+09-03-2024 08:56:26: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+09-03-2024 14:28:14: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+09-03-2024 14:30:44: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+09-03-2024 14:32:05: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+09-03-2024 19:31:16: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+09-03-2024 19:34:16: General Functions  :- sp_ServiceRequestError : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.) - The wait operation timed out
+09-03-2024 19:34:47: General Functions  :- sp_ServiceRequestError : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.) - The wait operation timed out
+09-03-2024 19:36:04: General Functions  :- sp_ServiceRequestError : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.) - The wait operation timed out
+09-03-2024 19:36:19: General Functions  :- sp_ServiceRequestError : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.) - The wait operation timed out
+09-03-2024 19:36:19: General Functions  :- sp_ServiceRequestError : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.) - The wait operation timed out

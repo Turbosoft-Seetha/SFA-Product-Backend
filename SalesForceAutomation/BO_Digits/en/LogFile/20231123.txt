@@ -1,0 +1,10 @@
+23-11-2023 08:13:40: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 08:14:29: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+23-11-2023 08:16:25: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+23-11-2023 08:30:59: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 18:16:26: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 18:16:39: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 18:19:22: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 18:19:26: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 19:11:18: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-11-2023 21:58:11: General Functions  :- sp_LeftNavigationError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out

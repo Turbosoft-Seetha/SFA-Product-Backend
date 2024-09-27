@@ -1,0 +1,3 @@
+20-07-2024 21:34:05: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+20-07-2024 21:38:24: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+20-07-2024 21:38:56: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 

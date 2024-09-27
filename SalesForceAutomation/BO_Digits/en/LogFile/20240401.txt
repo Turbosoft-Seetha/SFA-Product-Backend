@@ -1,0 +1,1 @@
+01-04-2024 19:33:45: General Functions 4 :- sp_Masters:SelCustomerforTransactionError : Invalid column name 'ord_rot_ID'. - 

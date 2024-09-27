@@ -1,0 +1,1 @@
+04-03-2024 16:56:50: General Functions  :- sp_LeftNavigationError : A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: TCP Provider, error: 0 - The specified network name is no longer available.) - The specified network name is no longer available

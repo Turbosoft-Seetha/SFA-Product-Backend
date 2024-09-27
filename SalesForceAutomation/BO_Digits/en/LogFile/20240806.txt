@@ -1,0 +1,8 @@
+06-08-2024 12:48:40: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:24:04: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:27:15: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:27:57: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:29:17: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:40:13: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:41:18: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+06-08-2024 13:45:52: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 

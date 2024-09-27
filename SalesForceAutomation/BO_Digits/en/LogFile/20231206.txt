@@ -1,0 +1,12 @@
+06-12-2023 12:14:16: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+06-12-2023 12:28:20: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+06-12-2023 12:29:44: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+06-12-2023 12:30:53: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+06-12-2023 12:31:09: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+06-12-2023 12:37:44: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+06-12-2023 12:38:35: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+06-12-2023 12:39:55: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 
+06-12-2023 13:23:28: General Functions  :- sp_ReportError : Invalid column name 'cus_CreditDays'. - 
+06-12-2023 13:26:29: General Functions  :- sp_ReportError : Invalid column name 'cus_CreditDays'. - 
+06-12-2023 13:27:38: General Functions  :- sp_ReportError : Invalid column name 'cus_CreditDays'. - 
+06-12-2023 19:10:09: AddEditTask.aspx PageLoad() :- Error : Could not find a part of the path. - 

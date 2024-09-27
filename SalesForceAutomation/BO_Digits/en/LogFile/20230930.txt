@@ -1,0 +1,16 @@
+30-09-2023 11:54:50: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+30-09-2023 11:54:52: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'.
+Invalid column name 'crf_EligibleQty'.
+Invalid column name 'crf_BalanceQty'. - 
+30-09-2023 11:54:56: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'.
+Invalid column name 'crf_EligibleQty'.
+Invalid column name 'crf_BalanceQty'. - 
+30-09-2023 11:55:18: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+30-09-2023 11:55:20: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'.
+Invalid column name 'crf_EligibleQty'.
+Invalid column name 'crf_BalanceQty'. - 

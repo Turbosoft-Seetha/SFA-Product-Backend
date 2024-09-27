@@ -1,0 +1,12 @@
+02-12-2023 18:49:44: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+02-12-2023 18:54:15: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+02-12-2023 18:54:40: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+02-12-2023 19:08:09: General Functions  :- sp_ReportError : Incorrect syntax near 'C'. - 
+02-12-2023 19:08:09: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'group'. - 
+02-12-2023 19:08:09: General Functions  :- sp_ReportError : Incorrect syntax near 'C'. - 
+02-12-2023 19:08:09: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'group'. - 
+02-12-2023 19:08:10: General Functions  :- sp_ReportError : Incorrect syntax near 'C'. - 
+02-12-2023 19:09:28: General Functions  :- sp_ReportError : Incorrect syntax near 'C'. - 
+02-12-2023 19:21:13: General Functions  :- sp_ReportError : Incorrect syntax near 'and'. - 
+02-12-2023 19:21:19: General Functions  :- sp_ReportError : Incorrect syntax near 'and'. - 
+02-12-2023 19:22:01: General Functions  :- sp_ReportError : Incorrect syntax near 'and'. - 

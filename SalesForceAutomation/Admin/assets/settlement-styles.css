@@ -1,0 +1,54 @@
+.demo-container .RadWizard {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    *border: 1px solid #ddd;
+}
+ 
+.demo-container .RadWizard_BlackMetroTouch {
+    border: 1px solid #333;
+}
+ 
+.demo-container .RadWizard_Black,
+.demo-container .RadWizard_Glow,
+.demo-container .RadWizard_Office2010Black {
+    *border: 0;
+}
+ 
+.demo-container .rwzStep {
+    padding: 35px 0 0;
+}
+ 
+.demo-container .rwzStep label {
+    width: 300px;
+    display: block;
+    margin: 10px auto 0;
+}
+ 
+.demo-container .loginStep {
+    padding-top: 8px;
+}
+ 
+.demo-container .ruFakeInput {
+    width: 220px !important;
+}
+ 
+.demo-container .riSingle,
+.demo-container .RadAsyncUpload,
+.demo-container .RadComboBox,
+.demo-container .rwzStep .RadInput {
+    display: block;
+    width: 300px !important;
+    margin: 0 auto;
+}
+ 
+.demo-container .RadUpload {
+    width: auto;
+    text-align: center;
+}
+ 
+.demo-container label {
+    white-space: nowrap;
+}
+ 
+.demo-container .RadUpload .ruSelectWrap {
+    margin: 0 auto;
+}

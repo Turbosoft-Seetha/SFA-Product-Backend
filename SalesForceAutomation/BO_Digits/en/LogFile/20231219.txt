@@ -1,0 +1,1 @@
+19-12-2023 08:06:10: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 

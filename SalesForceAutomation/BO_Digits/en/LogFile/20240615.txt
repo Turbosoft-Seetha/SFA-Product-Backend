@@ -1,0 +1,2 @@
+15-06-2024 19:22:45: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 
+15-06-2024 19:42:00: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 

@@ -1,0 +1,54 @@
+08-12-2023 07:27:17: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 07:30:16: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 07:32:24: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 07:32:57: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 07:33:13: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:03:27: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:03:57: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:04:14: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:05:26: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:07:33: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:10:35: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:11:54: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:12:11: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:15:37: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:15:39: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:16:32: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:16:34: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:16:54: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:16:57: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:17:24: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:17:27: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:17:45: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:17:59: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:18:38: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:18:47: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 17:21:56: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 17:22:05: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 18:53:05: General Functions  :- sp_wb_merch_othersError : Invalid column name 'cst_rot_ID'. - 
+08-12-2023 18:53:09: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near ')'. - 
+08-12-2023 18:54:40: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near ')'. - 
+08-12-2023 18:54:43: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near ')'. - 
+08-12-2023 18:57:19: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 18:57:24: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 18:59:01: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:00:24: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 19:00:52: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:00:57: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 19:01:41: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:01:47: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 19:01:57: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:03:39: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+08-12-2023 19:03:43: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:03:48: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'where'. - 
+08-12-2023 19:03:58: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:04:46: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'where'. - 
+08-12-2023 19:05:37: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:05:50: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'where'. - 
+08-12-2023 19:07:00: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:08:42: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'where'. - 
+08-12-2023 19:08:57: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:09:45: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'where'. - 
+08-12-2023 19:09:51: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:20:03: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+08-12-2023 19:22:41: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 

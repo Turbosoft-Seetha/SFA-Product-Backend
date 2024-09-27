@@ -1,0 +1,12 @@
+17-12-2023 17:43:16: General Functions  :- sp_MastersError : Invalid column name 'dsp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+17-12-2023 17:45:38: General Functions  :- sp_MastersError : Invalid column name 'dsp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+17-12-2023 17:57:36: General Functions  :- sp_MastersError : Invalid column name 'dsp_rot_ID'.
+Invalid column name 'dsp_rot_ID'. - 
+17-12-2023 18:08:47: General Functions  :- sp_MastersError : Invalid column name 'dsp_rot_ID'.
+Invalid column name 'dsp_rot_ID'. - 
+17-12-2023 18:23:06: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+17-12-2023 18:29:41: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+17-12-2023 18:35:04: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+17-12-2023 23:27:17: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 

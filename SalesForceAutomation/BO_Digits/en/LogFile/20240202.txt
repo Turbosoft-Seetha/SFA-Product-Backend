@@ -1,0 +1,7 @@
+02-02-2024 10:30:08: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 
+02-02-2024 15:31:51: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+02-02-2024 17:03:42: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+02-02-2024 17:04:03: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+02-02-2024 17:07:04: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+02-02-2024 17:08:58: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+02-02-2024 17:11:00: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 

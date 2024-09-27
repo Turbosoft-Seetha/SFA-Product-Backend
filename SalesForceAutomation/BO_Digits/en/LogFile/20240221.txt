@@ -1,0 +1,2 @@
+21-02-2024 08:42:24: General Functions  :- sp_MerchandisingError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The specified network name is no longer available.) - The specified network name is no longer available
+21-02-2024 15:42:52: General Functions  :- sp_LeftNavigationError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 

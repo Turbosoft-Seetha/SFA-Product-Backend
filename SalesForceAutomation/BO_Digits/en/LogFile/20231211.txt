@@ -1,0 +1,30 @@
+11-12-2023 12:50:36: General Functions  :- sp_LeftNavigationError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) - The semaphore timeout period has expired
+11-12-2023 13:05:15: General Functions  :- sp_LeftNavigationError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+11-12-2023 13:08:01: General Functions  :- sp_ReportError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+11-12-2023 19:09:52: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:11:06: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:12:23: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:12:45: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:13:07: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:35:55: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:36:07: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:36:17: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:44:24: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:50:40: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:52:38: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:53:50: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 19:54:22: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 22:52:58: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:27:04: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:27:55: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:28:23: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:28:59: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:30:34: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:32:01: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:33:21: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:33:37: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:33:48: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:33:54: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:43:18: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:44:07: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+11-12-2023 23:59:35: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 

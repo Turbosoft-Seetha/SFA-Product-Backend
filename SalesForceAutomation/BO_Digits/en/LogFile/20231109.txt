@@ -1,0 +1,7 @@
+09-11-2023 00:01:28: General Functions  :- sp_TransactionError : Incorrect syntax near ','. - 
+09-11-2023 00:01:35: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+09-11-2023 01:21:17: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+09-11-2023 01:21:48: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+09-11-2023 19:10:26: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+09-11-2023 19:32:04: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+09-11-2023 19:42:23: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 

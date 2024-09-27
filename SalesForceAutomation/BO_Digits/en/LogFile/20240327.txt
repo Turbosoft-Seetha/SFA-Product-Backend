@@ -1,0 +1,4 @@
+27-03-2024 07:38:11: General Functions 4 :- sp_Transaction:LisPriceUpdateApprovalDetailError : Error converting data type varchar to numeric. - 
+27-03-2024 07:38:31: General Functions 4 :- sp_Transaction:LisPriceUpdateApprovalDetailError : Error converting data type varchar to numeric. - 
+27-03-2024 07:40:35: General Functions 4 :- sp_Transaction:LisPriceUpdateApprovalDetailError : Error converting data type varchar to numeric. - 
+27-03-2024 07:41:50: General Functions 4 :- sp_Transaction:LisPriceUpdateApprovalDetailError : Error converting data type varchar to numeric. - 

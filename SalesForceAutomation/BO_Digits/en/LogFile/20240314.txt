@@ -1,0 +1,2 @@
+14-03-2024 17:29:15: General Functions  :- sp_LeftNavigationError : Conversion failed when converting the nvarchar value 'NULL' to data type int. - 
+14-03-2024 21:40:30: General Functions  :- sp_LeftNavigationError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out

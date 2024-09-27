@@ -1,0 +1,2 @@
+24-05-2024 16:32:18: General Functions  :- sp_MastersError : Procedure or function sp_Masters has too many arguments specified. - 
+24-05-2024 17:48:31: General Functions  :- sp_MastersError : Procedure or function sp_Masters has too many arguments specified. - 

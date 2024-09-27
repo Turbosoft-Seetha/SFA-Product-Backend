@@ -1,0 +1,5 @@
+18-07-2024 19:14:23: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'rcs_cus_ID'. - 
+18-07-2024 19:16:57: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'rcs_cus_ID'. - 
+18-07-2024 19:18:12: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'rcs_cus_ID'. - 
+18-07-2024 19:18:58: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near 'rcs_cus_ID'. - 
+18-07-2024 22:13:06: RouteDAshboard.aspx :-  Error : Thread was being aborted. - 

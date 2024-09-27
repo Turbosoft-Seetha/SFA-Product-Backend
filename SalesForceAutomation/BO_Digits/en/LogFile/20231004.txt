@@ -1,0 +1,2 @@
+04-10-2023 07:24:30: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+04-10-2023 07:24:31: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 

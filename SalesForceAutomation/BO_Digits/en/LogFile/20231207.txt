@@ -1,0 +1,19 @@
+07-12-2023 07:35:36: General Functions  :- sp_MerchandisingError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The specified network name is no longer available.) - The specified network name is no longer available
+07-12-2023 07:42:21: General Functions  :- sp_wb_merch_othersError : Invalid column name 'cst_rot_ID'. - 
+07-12-2023 07:48:52: General Functions  :- sp_wb_merch_othersError : Invalid column name 'cst_rot_ID'. - 
+07-12-2023 07:49:42: General Functions  :- sp_wb_merch_othersError : Invalid column name 'cst_rot_ID'. - 
+07-12-2023 08:04:40: General Functions  :- sp_wb_merch_othersError : Invalid column name 'cst_rot_ID'. - 
+07-12-2023 08:05:18: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 08:05:18: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 17:22:49: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 17:22:49: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 17:25:13: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 17:25:13: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 18:32:08: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 18:32:08: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 18:33:07: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 18:33:07: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 18:33:10: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 18:33:10: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+07-12-2023 19:06:01: General Functions  :- sp_TransactionError : Invalid column name 'inh_rot_ID'. - 
+07-12-2023 19:06:15: General Functions  :- sp_MastersError : An expression of non-boolean type specified in a context where a condition is expected, near ','. - 

@@ -1,0 +1,15 @@
+12-12-2023 00:05:02: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 00:05:24: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 00:05:31: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 00:06:19: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 00:15:41: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 00:16:02: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 00:22:25: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:33:23: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:34:22: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:35:23: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:35:53: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:37:43: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:40:31: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 07:41:11: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+12-12-2023 13:24:48: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 

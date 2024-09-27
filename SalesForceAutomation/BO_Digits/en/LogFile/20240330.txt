@@ -1,0 +1,21 @@
+30-03-2024 11:12:49: General Functions 4 :- sp_Report:SelOutstandingCountSplitError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+30-03-2024 11:12:49: General Functions 4 :- sp_Report:SelOutstandingCountError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+30-03-2024 11:12:50: General Functions 4 :- sp_Report:SelOutstandingCountSplitsError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+30-03-2024 11:14:10: General Functions 4 :- sp_Report:SelOutstandingCountSplitsError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+30-03-2024 11:14:50: General Functions 4 :- sp_Report:SelOutstandingCountSplitsError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+30-03-2024 11:30:54: General Functions 4 :- sp_Report:SelOutstandingCountSplitsError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 

@@ -1,0 +1,2 @@
+04-11-2023 14:19:11: General Functions  :- sp_LeftNavigationError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+04-11-2023 15:33:06: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 

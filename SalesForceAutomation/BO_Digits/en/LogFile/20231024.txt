@@ -1,0 +1,132 @@
+24-10-2023 08:06:49: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+24-10-2023 08:06:56: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+24-10-2023 08:07:28: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+24-10-2023 08:07:30: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+24-10-2023 08:07:30: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+24-10-2023 08:07:31: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+24-10-2023 08:07:49: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 

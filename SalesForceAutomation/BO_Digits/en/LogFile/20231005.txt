@@ -1,0 +1,24 @@
+05-10-2023 12:33:35: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:35:11: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:35:38: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:36:46: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:41:35: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:42:49: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:42:59: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:43:22: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 12:43:50: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+05-10-2023 15:00:33: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+05-10-2023 15:00:57: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
+05-10-2023 15:02:20: General Functions  :- sp_MastersError : Invalid column name 'req_dph_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+05-10-2023 15:03:27: General Functions  :- sp_MastersError : Invalid column name 'req_dph_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'.
+Invalid column name 'udp_rot_ID'. - 
+05-10-2023 15:04:05: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+05-10-2023 15:05:55: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+05-10-2023 15:16:28: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+05-10-2023 15:17:18: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 
+05-10-2023 15:29:11: General Functions  :- sp_MastersError : Invalid object name 'dbo.tb_RouteCustomerSequence'. - 

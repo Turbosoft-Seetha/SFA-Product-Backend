@@ -1,0 +1,1 @@
+26-04-2024 14:19:05: General Functions  :- sp_WTDashboardError : An expression of non-boolean type specified in a context where a condition is expected, near 'mrh_str_ID in(mrh_str_ID)'. - 

@@ -1,0 +1,1 @@
+24-12-2023 07:34:58: General Functions  :- sp_ReturnRequestError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The specified network name is no longer available.) - The specified network name is no longer available

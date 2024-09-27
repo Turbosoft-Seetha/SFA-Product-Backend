@@ -1,0 +1,2 @@
+13-12-2023 22:07:58: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+13-12-2023 22:08:15: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 

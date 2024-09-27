@@ -1,0 +1,6 @@
+13-06-2024 15:58:54: General Functions  :- sp_ProfileSettingsError : Conversion failed when converting the nvarchar value 'tb_Route' to data type int. - 
+13-06-2024 15:59:02: General Functions  :- sp_ProfileSettingsError : Conversion failed when converting the nvarchar value 'tb_CustomerRoute' to data type int. - 
+13-06-2024 16:07:23: General Functions  :- sp_ProfileSettingsError : Conversion failed when converting the nvarchar value 'tb_CustomerRoute' to data type int. - 
+13-06-2024 16:08:30: General Functions  :- sp_ProfileSettingsError : Conversion failed when converting the nvarchar value 'tb_CustomerRoute' to data type int. - 
+13-06-2024 16:08:37: General Functions  :- sp_ProfileSettingsError : Conversion failed when converting the nvarchar value 'tb_CustomerRoute' to data type int. - 
+13-06-2024 16:09:07: General Functions  :- sp_ProfileSettingsError : Conversion failed when converting the nvarchar value 'tb_CustomerRoute' to data type int. - 

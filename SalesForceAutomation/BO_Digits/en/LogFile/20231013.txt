@@ -1,0 +1,6 @@
+13-10-2023 09:54:59: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 
+13-10-2023 09:55:36: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 
+13-10-2023 09:56:20: AddLoadIn.aspx PageLoad() :- Error : Input string was not in a correct format. - 
+13-10-2023 09:56:30: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 
+13-10-2023 10:07:21: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 
+13-10-2023 10:08:21: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 

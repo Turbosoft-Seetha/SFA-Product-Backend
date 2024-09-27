@@ -1,0 +1,2 @@
+23-05-2024 20:55:47: General Functions  :- sp_MastersError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+23-05-2024 20:58:06: General Functions  :- sp_MastersError : Procedure or function sp_Masters has too many arguments specified. - 

@@ -1,0 +1,5 @@
+06-03-2024 12:09:57: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+06-03-2024 12:10:41: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+06-03-2024 12:10:54: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+06-03-2024 12:29:17: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+06-03-2024 12:32:59: General Functions  :- sp_ServiceRequestError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out

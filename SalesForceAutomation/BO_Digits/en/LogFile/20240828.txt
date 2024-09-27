@@ -1,0 +1,2 @@
+28-08-2024 10:43:16: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+28-08-2024 10:43:32: General Functions  :- sp_ServiceRequestError : Incorrect syntax near 'iner'. - 

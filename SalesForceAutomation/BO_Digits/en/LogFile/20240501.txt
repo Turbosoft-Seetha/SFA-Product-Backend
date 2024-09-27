@@ -1,0 +1,4 @@
+01-05-2024 10:25:34: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 
+01-05-2024 10:26:13: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 
+01-05-2024 10:26:50: General Functions  :- sp_TargetDashboardError : Column 'tb_Route.rot_Type' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause. - 
+01-05-2024 10:39:20: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 

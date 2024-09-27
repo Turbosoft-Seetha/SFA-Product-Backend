@@ -1,0 +1,9 @@
+13-11-2023 21:21:58: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:34:04: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:34:52: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:36:32: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:37:02: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:37:31: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:38:51: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:41:01: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+13-11-2023 21:41:33: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 

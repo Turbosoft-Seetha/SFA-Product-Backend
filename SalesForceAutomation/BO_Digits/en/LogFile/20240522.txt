@@ -1,0 +1,12 @@
+22-05-2024 18:05:59: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:06:23: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:07:11: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:07:48: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:07:59: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:08:07: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:08:37: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:09:01: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'Group'. - 
+22-05-2024 18:56:01: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 
+22-05-2024 19:14:34: General Functions  :- sp_Masters_UOMError : Incorrect syntax near ')'. - 
+22-05-2024 19:43:30: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+22-05-2024 19:52:39: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 

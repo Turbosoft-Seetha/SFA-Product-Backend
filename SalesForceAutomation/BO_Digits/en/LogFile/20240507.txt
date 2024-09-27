@@ -1,0 +1,4 @@
+07-05-2024 12:22:39: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+07-05-2024 12:22:41: General Functions  :- sp_wb_merch_othersError : The multi-part identifier "B.CreatedDate" could not be bound.
+The multi-part identifier "B.CreatedDate" could not be bound. - 

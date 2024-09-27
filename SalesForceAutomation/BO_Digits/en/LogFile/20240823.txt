@@ -1,0 +1,15 @@
+23-08-2024 11:34:13: General Functions  :- sp_JourneyPlanRequestError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+23-08-2024 11:35:42: General Functions  :- sp_JourneyPlanRequestError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+23-08-2024 14:23:12: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+23-08-2024 14:35:11: General Functions  :- sp_wb_merch_othersError : Invalid column name 'udp_rot_ID'. - 
+23-08-2024 15:46:56: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-08-2024 15:47:54: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-08-2024 15:48:39: General Functions  :- sp_TransactionError : Invalid column name 'udp_rot_ID'. - 
+23-08-2024 15:50:48: General Functions  :- sp_TransactionError : Invalid column name 'sah_rot_ID'. - 
+23-08-2024 15:54:04: General Functions  :- sp_TransactionError : Invalid column name 'sah_rot_ID'. - 
+23-08-2024 16:10:12: General Functions  :- sp_ServiceRequestError : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.) - The wait operation timed out
+23-08-2024 16:14:59: General Functions  :- sp_TransactionError : Invalid column name 'sah_rot_ID'. - 
+23-08-2024 16:15:01: ServiceApprovalHeader.aspx PageLoad() :- Error : You should not call DataBind in NeedDataSource event handler. DataBind would take place automatically right after NeedDataSource handler finishes execution. - 
+23-08-2024 16:15:09: General Functions  :- sp_TransactionError : Invalid column name 'sah_rot_ID'. - 
+23-08-2024 16:15:10: ServiceApprovalHeader.aspx PageLoad() :- Error : You should not call DataBind in NeedDataSource event handler. DataBind would take place automatically right after NeedDataSource handler finishes execution. - 
+23-08-2024 19:12:04: General Functions  :- sp_SettlementError : Object reference not set to an instance of an object. - 

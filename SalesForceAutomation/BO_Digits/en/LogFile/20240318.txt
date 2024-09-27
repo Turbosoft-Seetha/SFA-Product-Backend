@@ -1,0 +1,1 @@
+18-03-2024 16:34:42: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 

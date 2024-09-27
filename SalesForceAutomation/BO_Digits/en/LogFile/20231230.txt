@@ -1,0 +1,1 @@
+30-12-2023 19:37:23: General Functions  :- sp_ReturnRequestError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) - The semaphore timeout period has expired

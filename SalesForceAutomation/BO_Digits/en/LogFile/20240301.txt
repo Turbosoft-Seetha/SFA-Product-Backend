@@ -1,0 +1,21 @@
+01-03-2024 07:26:59: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 07:42:42: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 07:52:26: General Functions  :- sp_ServiceRequestError : Conversion failed when converting the nvarchar value 'cust00000' to data type int. - 
+01-03-2024 07:59:17: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 08:24:46: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 08:37:57: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 08:39:29: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 08:40:51: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 12:21:27: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 12:52:54: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 13:48:17: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 14:20:09: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 14:33:47: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 14:34:55: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 16:17:52: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 16:19:53: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 16:21:33: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 16:27:57: General Functions  :- sp_ServiceRequestError : Subquery returned more than 1 value. This is not permitted when the subquery follows =, !=, <, <= , >, >= or when the subquery is used as an expression. - 
+01-03-2024 16:54:52: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 20:07:33: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 
+01-03-2024 20:19:15: General Functions  :- sp_TransactionError : Invalid column name 'snr_rot_ID'. - 

@@ -1,0 +1,13 @@
+26-12-2023 19:40:30: General Functions  :- sp_ReturnRequestError : Incorrect syntax near the keyword 'and'. - 
+26-12-2023 19:40:35: General Functions  :- sp_ReturnRequestError : Incorrect syntax near 'the'.
+Incorrect syntax near 'rah_ReturnType'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon. - 
+26-12-2023 19:46:28: General Functions  :- sp_ReturnRequestError : Incorrect syntax near 'the'.
+Incorrect syntax near 'rah_ReturnType'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon. - 
+26-12-2023 19:47:48: General Functions  :- sp_ReturnRequestError : Incorrect syntax near 'the'.
+Incorrect syntax near 'rah_ReturnType'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon. - 
+26-12-2023 19:47:53: General Functions  :- sp_ReturnRequestError : Incorrect syntax near the keyword 'and'. - 
+26-12-2023 19:49:30: General Functions  :- sp_ReturnRequestError : Incorrect syntax near the keyword 'and'. - 
+26-12-2023 19:50:23: General Functions  :- sp_ReturnRequestError : Incorrect syntax near the keyword 'and'. - 

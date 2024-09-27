@@ -1,0 +1,11 @@
+2024-09-26 8.06.17 PM: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
+2024-09-26 8.06.20 PM: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
+2024-09-26 8.06.22 PM: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
+2024-09-26 10.38.44 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 10.39.37 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 10.47.06 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 11.01.10 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 11.04.19 PM: AddEditUser.aspx btnSave_Click() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 11.16.43 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 11.52.31 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+2024-09-26 11.55.54 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 

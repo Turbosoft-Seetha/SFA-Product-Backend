@@ -1,0 +1,4 @@
+02-05-2024 10:40:30: General Functions  :- sp_wb_merch_othersError : Invalid column name 'crf_prd_ID'.
+Invalid column name 'crf_rcs_ID'. - 
+02-05-2024 11:17:47: General Functions  :- sp_Masters_UOMError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) - The semaphore timeout period has expired
+02-05-2024 14:25:41: General Functions  :- sp_MerchandisingError : Incorrect syntax near '<'. - 

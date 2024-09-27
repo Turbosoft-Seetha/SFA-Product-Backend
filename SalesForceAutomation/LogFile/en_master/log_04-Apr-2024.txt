@@ -1,0 +1,3 @@
+04-Apr-2024 23.42.39-Exception from en page load: System.NullReferenceException: Object reference not set to an instance of an object.
+   at SalesForceAutomation.BO_Digits.en.en_master.LoadMenu() in D:\Turbosoft Projects\SFA_Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 178
+   at SalesForceAutomation.BO_Digits.en.en_master.Page_Load(Object sender, EventArgs e) in D:\Turbosoft Projects\SFA_Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 30

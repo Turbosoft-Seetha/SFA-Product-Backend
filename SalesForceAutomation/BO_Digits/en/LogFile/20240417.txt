@@ -1,0 +1,20 @@
+17-04-2024 09:46:17: UserDailyProcess.aspx EndDayNotDone() :- Error : You should not call DataBind in NeedDataSource event handler. DataBind would take place automatically right after NeedDataSource handler finishes execution. - 
+17-04-2024 09:50:39: UserDailyProcess.aspx EndDayNotDone() :- Error : You should not call DataBind in NeedDataSource event handler. DataBind would take place automatically right after NeedDataSource handler finishes execution. - 
+17-04-2024 09:51:39: UserDailyProcess.aspx EndDayNotDone() :- Error : You should not call DataBind in NeedDataSource event handler. DataBind would take place automatically right after NeedDataSource handler finishes execution. - 
+17-04-2024 10:14:52: UserDailyProcess.aspx EndDayNotDone() :- Error : There was a problem extracting DataKeyValues from the DataSource. Please ensure that DataKeyNames are specified correctly and all fields specified exist in the DataSource. - udp_ID is neither a DataColumn nor a DataRelation for table TT.
+17-04-2024 10:25:24: UserDailyProcess.aspx lnkEndday_Click() :- Error : There is no row at position 0. - 
+17-04-2024 16:02:35: AddEditCustomer.aspx Save() :- Error : Input string was not in a correct format. - Value:Cannot insert duplicate key row in object 'dbo.tb_Customer' with unique index 'IX_tb_Customer'. The duplicate key value is (6745bhbjjf).
+The statement has been terminated.
+17-04-2024 16:46:25: AddEditCustomer.aspx Save() :- Error : Input string was not in a correct format. - Value:Cannot insert duplicate key row in object 'dbo.tb_Customer' with unique index 'IX_tb_Customer'. The duplicate key value is (6745bhbjjf).
+Cannot insert duplicate key row in object 'dbo.tb_Customer' with unique index 'IX_tb_Customer'. The duplicate key value is (6745bhbjjf).
+The statement has been terminated.
+The statement has been terminated.
+17-04-2024 16:53:44: AddEditCustomer.aspx Save() :- Error : Input string was not in a correct format. - Value:Cannot insert duplicate key row in object 'dbo.tb_Customer' with unique index 'IX_tb_Customer'. The duplicate key value is (SH001).
+The statement has been terminated.
+17-04-2024 16:55:19: AddEditCustomer.aspx Save() :- Error : Input string was not in a correct format. - Value:Cannot insert duplicate key row in object 'dbo.tb_Customer' with unique index 'IX_tb_Customer'. The duplicate key value is (SH001).
+Cannot insert duplicate key row in object 'dbo.tb_Customer' with unique index 'IX_tb_Customer'. The duplicate key value is (SH001).
+The statement has been terminated.
+The statement has been terminated.
+17-04-2024 20:08:47: General Functions 4 :- sp_Settlement:SelectRouteTypeError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) - The semaphore timeout period has expired
+17-04-2024 20:14:00: General Functions 3 :- sp_VisitReportsError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) - The semaphore timeout period has expired
+17-04-2024 20:14:48: General Functions 3 :- sp_VisitReportsError : A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) - The semaphore timeout period has expired

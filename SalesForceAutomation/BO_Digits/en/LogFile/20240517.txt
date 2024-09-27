@@ -1,0 +1,9 @@
+17-05-2024 17:03:32: General Functions  :- sp_PromotionError : Could not find stored procedure 'sp_Promotion'. - 
+17-05-2024 17:04:19: General Functions  :- sp_PromotionError : Could not find stored procedure 'sp_Promotion'. - 
+17-05-2024 17:06:08: General Functions  :- sp_PromotionError : Could not find stored procedure 'sp_Promotion'. - 
+17-05-2024 17:39:51: General Functions  :- SelTableforDropdownError : Could not find stored procedure 'SelTableforDropdown'. - 
+17-05-2024 17:40:45: General Functions  :- SelTableforDropdownError : Could not find stored procedure 'SelTableforDropdown'. - 
+17-05-2024 17:40:47: General Functions  :- sp_PromotionError : Could not find stored procedure 'sp_Promotion'. - 
+17-05-2024 17:42:41: General Functions  :- SelTableforDropdownError : Could not find stored procedure 'SelTableforDropdown'. - 
+17-05-2024 17:42:58: General Functions  :- sp_PromotionError : Could not find stored procedure 'sp_Promotion'. - 
+17-05-2024 17:44:28: General Functions  :- sp_PromotionError : Could not find stored procedure 'sp_Promotion'. - 

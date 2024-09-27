@@ -1,0 +1,3 @@
+28-05-2024 23:21:09: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near ')'. - 
+28-05-2024 23:21:12: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 
+28-05-2024 23:21:13: General Functions  :- sp_wb_merch_othersError : Incorrect syntax near the keyword 'order'. - 

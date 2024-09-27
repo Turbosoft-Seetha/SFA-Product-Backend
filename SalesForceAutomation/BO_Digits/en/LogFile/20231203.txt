@@ -1,0 +1,8 @@
+03-12-2023 20:36:40: General Functions  :- sp_ReportError : Incorrect syntax near 'C'. - 
+03-12-2023 20:36:40: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'group'. - 
+03-12-2023 20:36:40: General Functions  :- sp_ReportError : Incorrect syntax near 'C'. - 
+03-12-2023 20:36:41: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'group'. - 
+03-12-2023 20:36:41: General Functions  :- sp_ReportError : Incorrect syntax near 'N'. - 
+03-12-2023 20:37:56: General Functions  :- sp_ReportError : Incorrect syntax near 'N'. - 
+03-12-2023 20:38:08: General Functions  :- sp_ReportError : Incorrect syntax near 'N'. - 
+03-12-2023 20:38:58: General Functions  :- sp_ReportError : Incorrect syntax near 'N'. - 

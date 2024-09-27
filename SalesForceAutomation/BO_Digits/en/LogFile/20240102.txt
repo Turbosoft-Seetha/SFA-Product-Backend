@@ -1,0 +1,5 @@
+02-01-2024 07:27:23: General Functions  :- sp_LeftNavigationError : Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. - The wait operation timed out
+02-01-2024 21:38:51: General Functions  :- sp_ReturnRequestError : Incorrect syntax near ']'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon. - 
+02-01-2024 21:38:52: General Functions  :- sp_ReturnRequestError : Incorrect syntax near ']'.
+Incorrect syntax near the keyword 'with'. If this statement is a common table expression, an xmlnamespaces clause or a change tracking context clause, the previous statement must be terminated with a semicolon. - 

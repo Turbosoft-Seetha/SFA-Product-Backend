@@ -1,0 +1,9 @@
+27-08-2024 12:40:45: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'udp_rot_ID'. - 
+27-08-2024 12:41:57: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'udp_rot_ID'. - 
+27-08-2024 12:42:48: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'udp_rot_ID'. - 
+27-08-2024 12:42:53: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'udp_rot_ID'. - 
+27-08-2024 12:43:39: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'and'. - 
+27-08-2024 12:43:46: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'and'. - 
+27-08-2024 12:44:33: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near 'and'. - 
+27-08-2024 12:46:47: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near ')'. - 
+27-08-2024 12:49:02: General Functions  :- sp_MerchandisingError : An expression of non-boolean type specified in a context where a condition is expected, near ')'. - 

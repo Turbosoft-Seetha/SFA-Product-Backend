@@ -1,0 +1,40 @@
+Product Name:
+-------------
+Multiple UOM - SFA
+
+Product By:
+-----------
+Turbosoft Technology
+
+Product Category:
+-----------------
+DigiTS 
+
+Product Platform:
+-----------------
+Backend Web Application
+ASP & C# 
+MS SQL Server Management Studio
+
+Product Description:
+--------------------
+A product developed under DigiTS, a part of Turbosoft's portfolio. 
+A web application that is best suited to adopt a new paperless environment for all transactions. 
+A completely new step towards digitalization and automation.
+A different module from the normal SFA which instead of the case and piece concept here uses the multiple UOM (unit of measurement) for the same products.
+
+Product Designer:
+-----------------
+Vipin Goutham 
+
+Lead Developers:
+----------------
+Muhammed Illyas A
+Hari Sankar N C
+
+Junior Developers:
+------------------
+Sruthi Sreedharan
+Seetha 
+Rajalakshmi
+
