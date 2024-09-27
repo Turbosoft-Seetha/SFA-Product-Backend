@@ -13202,6 +13202,7 @@
     <Content Include="BO_Digits\en\CreditNoteApprovalWorkflow.aspx" />
     <Content Include="BO_Digits\en\CreditNoteReqApprovalDetail.aspx" />
     <Content Include="BO_Digits\en\CreditNoteReqApprovalHeader.aspx" />
+    <Content Include="BO_Digits\en\CustomerConnectSettings.aspx" />
     <Content Include="BO_Digits\en\CustomerInventoryAnalysis.aspx" />
     <Content Include="BO_Digits\en\CustomerNotAvailable.aspx" />
     <Content Include="BO_Digits\en\CustomerNotAvailableDetail.aspx" />
@@ -13658,6 +13659,7 @@
     <Content Include="Media\excel.png" />
     <Content Include="Media\loader.gif" />
     <Content Include="Password.aspx" />
+    <Content Include="QRCodeImages\digitssfauat_benchmarkfoods_ae\qr_code.png" />
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\chart.min.js" />
     <Content Include="SignIn.aspx" />
@@ -16290,6 +16292,13 @@
     <Compile Include="BO_Digits\en\CreditNoteReqApprovalHeader.aspx.designer.cs">
       <DependentUpon>CreditNoteReqApprovalHeader.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\CustomerConnectSettings.aspx.cs">
+      <DependentUpon>CustomerConnectSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\CustomerConnectSettings.aspx.designer.cs">
+      <DependentUpon>CustomerConnectSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\CustomerInventoryAnalysis.aspx.cs">
       <DependentUpon>CustomerInventoryAnalysis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16411,6 +16420,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\DeliverySummary.aspx.cs">
       <DependentUpon>DeliverySummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\DeliverySummary.aspx.designer.cs">
       <DependentUpon>DeliverySummary.aspx</DependentUpon>
@@ -17207,6 +17217,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\OpenCustomers.aspx.cs">
       <DependentUpon>OpenCustomers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\OpenCustomers.aspx.designer.cs">
       <DependentUpon>OpenCustomers.aspx</DependentUpon>
@@ -17234,6 +17245,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\OrderOrQuatationCancel.aspx.cs">
       <DependentUpon>OrderOrQuatationCancel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\OrderOrQuatationCancel.aspx.designer.cs">
       <DependentUpon>OrderOrQuatationCancel.aspx</DependentUpon>
@@ -17261,6 +17273,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\OrderSummaryDashboard.aspx.cs">
       <DependentUpon>OrderSummaryDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\OrderSummaryDashboard.aspx.designer.cs">
       <DependentUpon>OrderSummaryDashboard.aspx</DependentUpon>
@@ -17386,12 +17399,14 @@
     </Compile>
     <Compile Include="BO_Digits\en\PlanogramCustomerMapping.aspx.cs">
       <DependentUpon>PlanogramCustomerMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\PlanogramCustomerMapping.aspx.designer.cs">
       <DependentUpon>PlanogramCustomerMapping.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\PlanogramTransactions.aspx.cs">
       <DependentUpon>PlanogramTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\PlanogramTransactions.aspx.designer.cs">
       <DependentUpon>PlanogramTransactions.aspx</DependentUpon>
@@ -17552,6 +17567,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\RevertLoadIn.aspx.cs">
       <DependentUpon>RevertLoadIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\RevertLoadIn.aspx.designer.cs">
       <DependentUpon>RevertLoadIn.aspx</DependentUpon>
@@ -17607,6 +17623,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\RouteNotificationDetail.aspx.cs">
       <DependentUpon>RouteNotificationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\RouteNotificationDetail.aspx.designer.cs">
       <DependentUpon>RouteNotificationDetail.aspx</DependentUpon>
@@ -17781,6 +17798,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\SettlementSummary.aspx.cs">
       <DependentUpon>SettlementSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\SettlementSummary.aspx.designer.cs">
       <DependentUpon>SettlementSummary.aspx</DependentUpon>
