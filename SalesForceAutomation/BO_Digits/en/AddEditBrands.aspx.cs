@@ -37,9 +37,6 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         public void FillForm()
         {
-            //Edit details 
-            //test
-            
 
             DataTable lstDatas = Obj.loadList("EditBrand", "sp_Masters", ResponseID.ToString());
             if (lstDatas.Rows.Count > 0)
