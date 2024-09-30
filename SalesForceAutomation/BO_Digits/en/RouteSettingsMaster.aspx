@@ -14,7 +14,11 @@
         function Failure() {
             $('#modalConfirm').modal('hide');
             $('#kt_modal_1_5').modal('show');
-        }
+         }
+         function FailureSave() {
+             $('#modalConfirm').modal('hide');
+             $('#kt_modal_1_7').modal('show');
+         }
      </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Actions" runat="server">
@@ -207,7 +211,21 @@
         </div>
     </div>
     <!--end::SuccessModal-->
-
+    <div class="modal fade" id="kt_modal_1_7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="height:auto" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Oops..!</h5>
+            </div>
+            <div class="modal-body">
+                <span>Please select atleast one Route.</span>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(kt_modal_1_7);">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
     <!--begin::FailedModal-->
     <div class="modal fade" id="kt_modal_1_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height:auto;">
         <div class="modal-dialog" role="document">

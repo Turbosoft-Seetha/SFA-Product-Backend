@@ -226,8 +226,16 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkSave_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+            if (grvRpt.SelectedItems.Count > 0)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureSave();</script>", false);
+            }
         }
+            
 
         protected void save_Click(object sender, EventArgs e)
         {
