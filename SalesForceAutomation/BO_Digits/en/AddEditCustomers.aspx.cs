@@ -334,6 +334,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
 
 
                 }
@@ -440,6 +452,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
 
 
                 }
@@ -541,6 +565,18 @@ namespace SalesForceAutomation.BO_Digits.en
                         foreach (RadComboBoxItem items in CusProfile.Items)
                         {
                             if (items.Value == ary[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
                             {
                                 items.Checked = true;
                             }
@@ -670,6 +706,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
                 }
                 else if (custype == "CR")
                 {
@@ -769,6 +817,18 @@ namespace SalesForceAutomation.BO_Digits.en
                         foreach (RadComboBoxItem items in CusProfile.Items)
                         {
                             if (items.Value == ary[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
                             {
                                 items.Checked = true;
                             }
@@ -886,6 +946,18 @@ namespace SalesForceAutomation.BO_Digits.en
                         foreach (RadComboBoxItem items in CusProfile.Items)
                         {
                             if (items.Value == ary[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
                             {
                                 items.Checked = true;
                             }
@@ -1024,6 +1096,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
                 }
                 else if (custype == "CR")
                 {
@@ -1141,6 +1225,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
                 }
                 else if (custype == "TC")
                 {
@@ -1258,6 +1354,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -1365,7 +1473,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
-
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
 
                 }
                 else if (custype == "CR")
@@ -1471,7 +1590,18 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     }
-
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
 
                 }
                 else if (custype == "TC")
@@ -1578,7 +1708,18 @@ namespace SalesForceAutomation.BO_Digits.en
                         }
                     }
 
-
+                    string ARPayMode = "HC-POS-OP";
+                    string[] aryARPay = ARPayMode.Split('-');
+                    for (int i = 0; i < aryARPay.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdARPayMode.Items)
+                        {
+                            if (items.Value == aryARPay[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
                 }
 
 
@@ -2118,6 +2259,21 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             return retStr;
         }
+        public string ARPaymentMode()
+        {
+            string retStr = "";
+            var checkedItems = rdARPayMode.CheckedItems;
+            foreach (var item in checkedItems)
+            {
+                retStr += item.Value.ToString() + "-";
+            }
+            if (retStr != "")
+            {
+                retStr = retStr.Remove(retStr.Length - 1, 1);
+
+            }
+            return retStr;
+        }
         public void SaveData()
         {
             string rot, cus, IsInvoicing, IsSO, IsMerchandising, IsAR, IsI_Sales, IsI_GR, IsI_BR, IsI_FG, TCL, CDays, VoidEnable, PT, RoundAmount, UIC, PDCAmount, custCategoryType,
@@ -2125,7 +2281,7 @@ namespace SalesForceAutomation.BO_Digits.en
             Salsign, Ordsign, InvMode, AltInvReq, FGsep, Insight, FS, FSFeatures, NegativeInvAmt, profile, MinInvoiceValue, MustSellItemCount, IsArManualAllocation, GraceAmount, GracePeriod, PartialDelivery, PriceChange,
             OrdPriceChange, eInvoice, AlertDays, CusDocExpiryAlert, invhcimgmand, invposimgmand, invopimgmand, arhcimgmand, arposimgmand, arpoimgmand, archimgmand, ActManage, CusService,
             ActManageMand, CusServiceMand, IsAvtManage, IsCusService, EnableForecastSales, EnableQuotation, EnableSuggestedOrd, IsPriceChange, CusLocation, RecentSales, RecentOrder, MinOrderValue,
-            ARRemarks, GRSettings, BrSettings, VoidEnableCusInsight, EnableDelPriceChange;
+            ARRemarks, GRSettings, BrSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackFree; ;
 
             GracePeriod = "0";
             GraceAmount = "0";
@@ -2220,7 +2376,9 @@ namespace SalesForceAutomation.BO_Digits.en
             EnableDelPriceChange = ddlDelPriceChange.SelectedValue.ToString();
 
             string productgroup = ddlproductgroup.SelectedValue.ToString();
-           
+            ARPayMode = ARPaymentMode();
+            rcs_EnforceBuyBackFree = ddlEnforceBuyBackfree.SelectedValue.ToString();
+
 
             if ((cusType == "CS" && Session["CusID"].ToString() == "0") || (cusType == "CS" && txtGraceamount.Text.ToString() == ""))
             {
@@ -2270,7 +2428,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     Mandfeatures,enforcecussel,Ordsign,Salsign,InvMode,AltInvReq,usr,FGsep,Insight,FS,FSFeatures,NegativeInvAmt,profile,
                     MinInvoiceValue,MustSellItemCount,IsArManualAllocation,GraceAmount,GracePeriod,PartialDelivery,PriceChange,OrdPriceChange,
                     eInvoice,CusDocExpiryAlert,AlertDays,invhcimgmand,invposimgmand,invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,
-                    ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange};
+                    ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackFree};
                 string[] array = { cus, ddlrot.SelectedValue.ToString() };
 
                 string Value = ObjclsFrms.SaveData("sp_Merchandising", "InsertCusRoute", rot, arr);
@@ -2283,7 +2441,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 if (res > 0)
                 {
-                    DataTable dt = ObjclsFrms.loadList("InsMappingProducts", "sp_Masters", productgroup, arr);
+                    DataTable dt = ObjclsFrms.loadList("InsMappingProducts", "sp_Masters", productgroup, array);
 
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess9('Customer Route has been saved sucessfully');</script>", false);
                 }
@@ -2300,7 +2458,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             Ordsign,Salsign,InvMode,AltInvReq,usr,FGsep,Insight,FS,FSFeatures,NegativeInvAmt,profile,
                     MinInvoiceValue, MustSellItemCount,IsArManualAllocation,GraceAmount,GracePeriod,PartialDelivery,PriceChange,OrdPriceChange,eInvoice,CusDocExpiryAlert,AlertDays,invhcimgmand,invposimgmand,
                     invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales,
-                    EnableQuotation, EnableSuggestedOrd,IsPriceChange, CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange};
+                    EnableQuotation, EnableSuggestedOrd,IsPriceChange, CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackFree};
                 string value = ObjclsFrms.SaveData("sp_Merchandising", "UpdateCusRoute", id, arr);
                 int res = Int32.Parse(value.ToString());
                 if (res > 0)
@@ -2854,6 +3012,14 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
                     Paymode();
+                    //ARPaymodes ---- to select hard cash and online payment selected
+                    foreach (RadComboBoxItem items in rdARPayMode.Items)
+                    {
+                        if ((items.Value == "HC") || (items.Value == "OP"))
+                        {
+                            items.Checked = true;
+                        }
+                    }
 
                 }
 
@@ -2865,7 +3031,7 @@ namespace SalesForceAutomation.BO_Digits.en
                         {
                         // Customer();
                         // RouteLike();
-                        RouteMapped();
+                            RouteMapped();
                             Paymode();
 
                             ddlrot.Enabled = false;
@@ -2875,7 +3041,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             Insight, FS, FSFeatures, NegativeInvAmt, profile, MinInvoiceValue, MustSellItemCount, IsArManualAllocation, GracePeriod, GraceAmount, PartialDelivery, PriceChange, OrdPriceChange, eInvoive,
                             CusDocExpiryAlert, AlertDays, invhcimgmand, invposimgmand, invopimgmand, arhcimgmand, arposimgmand, arpoimgmand, archimgmand, ActvityManage, CusService,
                             ActManageMand, CusServiceMand, IsActivityManage, IsCustomerService, rcs_EnableForecastSales, rcs_EnableQuotation, EnableSuggestedOrd, IsPriceChange, CusLocation,
-                            RecentSales, RecentOrder, MinOrderValue, ARRemark, GRSettings, BRSettings, VoidEnableCusInsight, EnableDelPriceChange;
+                            RecentSales, RecentOrder, MinOrderValue, ARRemark, GRSettings, BRSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackfree;
 
                             invhcimgmand = lstDatas.Rows[0]["rcs_INV_HCRcpt_Img_Mand"].ToString();
                             invposimgmand = lstDatas.Rows[0]["rcs_INV_POSRcpt_Img_Mand"].ToString();
@@ -2984,6 +3150,11 @@ namespace SalesForceAutomation.BO_Digits.en
                             ARRemark = lstDatas.Rows[0]["rcs_IsRemarkAR"].ToString();//[rcs_IsRemarkAR]
                             VoidEnableCusInsight = lstDatas.Rows[0]["rcs_VoidEnableInsightCustomer"].ToString();
                             EnableDelPriceChange = lstDatas.Rows[0]["rcs_EnableDelPriceChange"].ToString();//rcs_EnableDelPriceChange
+                            ARPayMode = lstDatas.Rows[0]["rcs_ArPaymodes"].ToString();
+                            string[] ARPayModeArray = ARPayMode.Split('-');
+                            rcs_EnforceBuyBackfree = lstDatas.Rows[0]["rcs_EnforceBuyBackfree"].ToString();
+
+                            ddlEnforceBuyBackfree.SelectedValue = rcs_EnforceBuyBackfree.ToString();
 
                             ddARRemarks.SelectedValue = ARRemark.ToString();
                             HCimgMand.SelectedValue = invhcimgmand.ToString();
@@ -3189,8 +3360,18 @@ namespace SalesForceAutomation.BO_Digits.en
                                     }
                                 }
                             }
+                            for (int i = 0; i < ARPayModeArray.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdARPayMode.Items)
+                                {
+                                    if (items.Value == ARPayModeArray[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
 
-                            if (cusType == "CS")
+                        if (cusType == "CS")
                             {
                                 Custype.Visible = false;
                             }
