@@ -591,6 +591,44 @@ namespace SalesForceAutomation.BO_Digits.en
 
         //}
 
+
+
+        protected void grvRpt_ItemDataBound(object sender, Telerik.Web.UI.GridItemEventArgs e)
+        {
+            if (e.Item is GridDataItem)
+            {
+
+                GridDataItem dataItem = (GridDataItem)e.Item;
+                string imah = dataItem["plg_Image"].Text.ToString();
+                string[] values = imah.Split(',');
+                imah = imah.Replace("&nbsp;", null);
+                for (int i = 0; i < values.Length; i++)
+                {
+                    if (!values[i].Equals("&nbsp;") && !values[i].Equals(""))
+                    {
+                        Image img = new Image();
+                        img.ID = "Image1" + i.ToString();
+                        img.ImageUrl = "../" + values[i].ToString();
+                        img.Height = 20;
+                        img.Width = 20;
+                        img.BorderStyle = BorderStyle.Groove;
+                        img.BorderWidth = 2;
+                        img.BorderColor = System.Drawing.Color.Black;
+                        HyperLink hl = new HyperLink();
+                        hl.NavigateUrl = "../" + values[i].ToString();
+                        hl.ID = "hl" + i.ToString();
+                        hl.Target = "_blank";
+                        hl.Controls.Add(img);
+
+                        dataItem["Images"].Controls.Add(hl);
+                    }
+                }
+                //dataItem["mei_Images"].Text = imah.Replace("../", "http://93.177.125.68/");
+            }
+        }
+
+       
+
         protected void btnOK_Click1(object sender, EventArgs e)
         {
 

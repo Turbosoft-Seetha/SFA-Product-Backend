@@ -23,7 +23,6 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 int UID;
                 int.TryParse(Request.Params["UID"], out UID);
-
                 return UID;
             }
         }

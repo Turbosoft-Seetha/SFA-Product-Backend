@@ -230,9 +230,9 @@
                 <div class="col-lg-12">
                     <telerik:RadComboBox ID="ddlApp" runat="server" Width="100%" Filter="Contains" EmptyMessage="Select platform" RenderMode="Lightweight" Skin="Silk">
                         <Items>
-                            <telerik:RadComboBoxItem Text="Inventory" Value="I" />
-                            <telerik:RadComboBoxItem Text="SFA" Value="S" />
                             <telerik:RadComboBoxItem Text="Customer Connect" Value="C" />
+                            <telerik:RadComboBoxItem Text="Inventory" Value="I" />
+                            <telerik:RadComboBoxItem Text="SFA" Value="S" />                           
                         </Items>
                     </telerik:RadComboBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="form"
@@ -270,7 +270,7 @@
                 <br />
                 <div class="col-lg-12 row" style="margin-left: 0px;"    >
                     <telerik:RadAsyncUpload RenderMode="Lightweight" runat="server" MaxFileInputsCount="1"
-                        ID="upd1" AllowedFileExtensions=".apk,.APK" MultipleFileSelection="Disabled" MaxFileSize="62914560"
+                        ID="upd1" AllowedFileExtensions=".apk,.APK" MultipleFileSelection="Disabled" MaxFileSize="104857600" 
                         UploadedFilesRendering="BelowFileInput" HideFileInput="true" Width="100px" Skin="Silk" OnClientValidationFailed="OnClientValidationFailed"
                         OnClientFileUploadRemoved="OnClientFileUploadRemoved1" OnClientFileSelected="OnClientFileSelected1"
                          Style="padding: 10px; text-align:end; padding-bottom: 10px; height:100px;" >

@@ -116,11 +116,25 @@
 
                                         </div>
                                     </div>
+                                        <div class="col-lg-2">
+                                            <label class="control-label col-lg-12">Transaction Type</label>
+                                            <div class="col-lg-12">
+                                                <telerik:RadComboBox ID="ddlTrType" Width="80%" runat="server" EmptyMessage="Select Route Type" Filter="Contains" RenderMode="Lightweight" OnSelectedIndexChanged="ddlTrType_SelectedIndexChanged" AutoPostBack="true">
+                                                    <Items>
+                                                        <telerik:RadComboBoxItem Text="All" Value="AL" Selected="true" />
+                                                        <telerik:RadComboBoxItem Text="Free Good" Value="FG" />
+                                                        <telerik:RadComboBoxItem Text="Free of Cost" Value="FC" />
+                                                    </Items>
+                                                </telerik:RadComboBox>
+                                            </div>
+                                        </div>
 
-                                    <div class="col-lg-2">
-                                        <label class="control-label col-lg-12">From Date</label>
-                                        <div class="col-lg-10">
-                                            <telerik:RadDatePicker RenderMode="Lightweight" ID="rdfromDate"  DateInput-DateFormat="dd-MMM-yyyy" runat="server" Width="100%">
+
+
+                                        <div class="col-lg-2">
+                                            <label class="control-label col-lg-12">From Date</label>
+                                            <div class="col-lg-10">
+                                                <telerik:RadDatePicker RenderMode="Lightweight" ID="rdfromDate" DateInput-DateFormat="dd-MMM-yyyy" runat="server" Width="100%">
                                             </telerik:RadDatePicker>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="From Date is mandatory" ForeColor="Red" ControlToValidate="rdfromDate"></asp:RequiredFieldValidator>
                                         </div>

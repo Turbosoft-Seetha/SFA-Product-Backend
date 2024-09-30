@@ -15,6 +15,15 @@ namespace SalesForceAutomation.BO_Digits.en
     {
 
         /// <summary>
+        /// RadAjaxPanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel2;
+
+        /// <summary>
         /// ddlParNode control.
         /// </summary>
         /// <remarks>
@@ -60,13 +69,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.LinkButton Add;
 
         /// <summary>
-        /// RadAjaxPanel2 control.
+        /// Remove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel2;
+        protected global::System.Web.UI.WebControls.LinkButton Remove;
 
         /// <summary>
         /// RadSkinManager1 control.
@@ -94,5 +103,32 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel4;
+
+        /// <summary>
+        /// RadAjaxPanel6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel6;
+
+        /// <summary>
+        /// lnkDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkDelete;
+
+        /// <summary>
+        /// RadAjaxLoadingPanel10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel10;
     }
 }

@@ -170,7 +170,7 @@
                                                 <telerik:GridTemplateColumn HeaderStyle-Width="80px" AllowFiltering="false" HeaderText="CC Settings" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
                                                     <ItemTemplate>
                                                         <asp:ImageButton CommandName="CCSettings" ID="CCSettings" Visible="true" AlternateText="CCSettings" runat="server"
-                                                            ImageUrl="../assets/media/icons/Group 206513@2x.png"></asp:ImageButton>
+                                                            ImageUrl="../assets/media/icons/settingssmall.png" Width="22px" Height="22px"></asp:ImageButton>
                                                     </ItemTemplate>
                                                 </telerik:GridTemplateColumn>
 

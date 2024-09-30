@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoogleApi.Entities.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -158,20 +159,34 @@ namespace SalesForceAutomation.BO_Digits.en
         public string mainConditions(string rotID)
         {
             string dateCondition = "";
-            string mainCondition = rotID;           
-           
+            string mainCondition = rotID;
+            string TypeCondition = "";
+
             try
             {
                 string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
                 string endDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
                 dateCondition = " ) and (cast(S.CreatedDate as date) between cast('" + fromDate + "' as date) and cast('" + endDate + "' as date)) ";
 
+                if ((ddlTrType.SelectedValue.ToString() == "AL") || (ddlTrType.SelectedValue.ToString() == ""))
+                {
+                    TypeCondition = " and A.sld_transtype in('FG','FC') ";
+                }
+                else if (ddlTrType.SelectedValue.ToString() == "FG")
+                {
+                    TypeCondition = " and A.sld_TransType='FG'";
+                }
+                else
+                {
+                    TypeCondition = " and A.sld_TransType='FC'";
+                }
             }
             catch (Exception ex)
             {
 
             }
             mainCondition += dateCondition;
+            mainCondition += TypeCondition;
             return mainCondition;
         }
         public void Route(string DposubAreaCondition)
@@ -743,6 +758,11 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 Response.Redirect("~/SignIn.aspx");
             }
+
+        }
+
+        protected void ddlTrType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
 
         }
     }

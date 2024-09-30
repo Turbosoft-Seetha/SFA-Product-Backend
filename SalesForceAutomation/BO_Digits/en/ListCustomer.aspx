@@ -136,6 +136,16 @@
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                 HeaderStyle-Font-Bold="true" UniqueName="cus_NameArabic" Display="false">
                                             </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="com_Code" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Company Code" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="com_Code">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="com_Name" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText=" Company Name" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="com_Name">
+                                            </telerik:GridBoundColumn>
 
                                             <telerik:GridBoundColumn DataField="cus_ShortName" AllowFiltering="true" HeaderStyle-Width="100px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Short Name" FilterControlWidth="100%"

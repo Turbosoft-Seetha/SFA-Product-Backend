@@ -17,7 +17,6 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class CustomerConnectSettings : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
-
         public int UID
         {
             get
@@ -27,18 +26,15 @@ namespace SalesForceAutomation.BO_Digits.en
                 return UID;
             }
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                ListParentNodes();
-                //ListChildNodes();
+                ListParentNodes();               
             }
         }
-
         public void ListParentNodes()
-        {           
+        {
             DataTable lstchild = ObjclsFrms.loadList("SelParentNodes", "sp_CusConSettings");
             if (lstchild.Rows.Count > 0)
             {
@@ -46,18 +42,15 @@ namespace SalesForceAutomation.BO_Digits.en
                 ddlParNode.DataValueField = "node";
                 ddlParNode.DataTextField = "descr";
                 ddlParNode.DataBind();
-
             }
         }
-
         public void ListChildNodes(List<string> parentNodes)
         {
-            // Join the selected parent nodes into a comma-separated string for your stored procedure
-            string parentNodesParam = string.Join(",", parentNodes);
+            string parentNodesParam = string.Join(",", parentNodes.Select(p => $"'{p}'"));
+            string user = Request.Params["UID"].ToString();
+            string[] arr = { user.ToString() };
 
-            // Fetch the child nodes based on selected parent nodes
-            DataTable lstchild = ObjclsFrms.loadList("SelChildNodesbyParent", "sp_CusConSettings", parentNodesParam);
-
+            DataTable lstchild = ObjclsFrms.loadList("SelChildNodesbyParent", "sp_CusConSettings", parentNodesParam, arr);
             if (lstchild.Rows.Count > 0)
             {
                 ddlChiNode.DataSource = lstchild;
@@ -67,29 +60,21 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                ddlChiNode.Items.Clear();  // Clear child nodes if no data is found
+                ddlChiNode.Items.Clear();
             }
         }
-
-
-        protected void ddlParNode_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+        protected void ddlParNode_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            // Create a list to store selected parent node values
             List<string> selectedParentNodes = new List<string>();
-
-            // Iterate over the checked items in the RadComboBox
             foreach (RadComboBoxItem item in ddlParNode.CheckedItems)
             {
-                selectedParentNodes.Add(item.Value);  // Get the value of each selected parent node
+                selectedParentNodes.Add(item.Value);
             }
-
-            // Call ListChildNodes and pass the selected parent nodes
             if (selectedParentNodes.Count > 0)
             {
                 ListChildNodes(selectedParentNodes);
             }
         }
-
         protected void Add_Click(object sender, EventArgs e)
         {
             addTable();
@@ -100,15 +85,14 @@ namespace SalesForceAutomation.BO_Digits.en
         public void addTable()
         {
             string Nodes;
-            Nodes = GetSelectedItemsFromDropdowns();           
+            Nodes = GetSelectedItemsFromDropdowns();
             string user = Request.Params["UID"].ToString();
-
-            string[] arr = { Nodes, UICommon.GetCurrentUserID().ToString() };
+            string createdby = UICommon.GetCurrentUserID().ToString();
+            string[] arr = { Nodes, createdby };
             string Value = ObjclsFrms.SaveData("sp_CusConSettings", "InsCusConSettings", user.ToString(), arr);
             int LID = Int32.Parse(Value.ToString());
             if (LID > 0)
             {
-
                 Response.Redirect("CustomerConnectSettings.aspx?UID=" + user);
             }
             else
@@ -141,24 +125,36 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     writer.WriteStartDocument(true);
                     writer.WriteStartElement("r");
+                    var uniqueParentChildSet = new HashSet<string>();
+                    var selectedParentItems = ddlParNode.CheckedItems;
+                    var selectedChildItems = ddlChiNode.CheckedItems;
 
-                    string selectedParentValue = ddlParNode.SelectedValue;
-                    string selectedChildValue = ddlChiNode.SelectedValue;
-
-                    if (!string.IsNullOrEmpty(selectedParentValue))
+                    if (selectedParentItems.Count > 0)
                     {
-                        if (string.IsNullOrEmpty(selectedChildValue))
+                        if (selectedChildItems.Count == 0)
                         {
                             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>RequiredModal();</script>", false);
                         }
                         else
-                        {                           
-                            createDropdownNode(selectedParentValue, selectedChildValue, writer);
-                            c++;
+                        {
+                            foreach (var parentItem in selectedParentItems)
+                            {
+                                string selectedParentValue = parentItem.Value;
+                                foreach (var childItem in selectedChildItems)
+                                {
+                                    string selectedChildValue = childItem.Value;
+                                    string uniqueKey = $"{selectedParentValue}_{selectedChildValue}";
+                                    if (!uniqueParentChildSet.Contains(uniqueKey))
+                                    {
+                                        uniqueParentChildSet.Add(uniqueKey);
+                                        createDropdownNode(selectedParentValue, selectedChildValue, writer);
+                                        c++;
+                                    }
+                                }
+                            }
                         }
                     }
-
-                    writer.WriteEndElement(); // End 'r' element
+                    writer.WriteEndElement();
                     writer.WriteEndDocument();
                     writer.Close();
                 }
@@ -172,7 +168,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
             }
         }
-
         private void createDropdownNode(string ParentNode, string ChildNode, XmlWriter writer)
         {
             writer.WriteStartElement("Values");
@@ -188,7 +183,6 @@ namespace SalesForceAutomation.BO_Digits.en
             writer.WriteEndElement();
         }
 
-
         protected void grvRpt_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
         {
             LoadData();
@@ -198,7 +192,41 @@ namespace SalesForceAutomation.BO_Digits.en
         {
 
         }
+        protected void Remove_Click(object sender, EventArgs e)
+        {
+            int removeCount = Int32.Parse(grvRpt.SelectedItems.Count.ToString());
+            if (removeCount == 0)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Delete();</script>", false);
+            }
+        }
 
-        
+        protected void lnkDelete_Click(object sender, EventArgs e)
+        {
+            string user = Request.Params["UID"].ToString();           
+            List<string> selectedIDs = new List<string>();
+            foreach (GridDataItem item in grvRpt.SelectedItems)
+            {
+                string ID = item.GetDataKeyValue("ccs_ID").ToString();
+                selectedIDs.Add(ID);
+            }
+            string selectedIDsString = string.Join(",", selectedIDs.ToArray());
+            string[] arr = { user };
+            string result = ObjclsFrms.SaveData("sp_CusConSettings", "DelCusConSettings", selectedIDsString, arr);
+
+            int LID = Int32.Parse(result);
+            if (LID > 0)
+            {               
+                Response.Redirect("CustomerConnectSettings.aspx?UID=" + user);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure('Something went wrong, Try again later.');</script>", false);
+            }
+        }
     }
 }

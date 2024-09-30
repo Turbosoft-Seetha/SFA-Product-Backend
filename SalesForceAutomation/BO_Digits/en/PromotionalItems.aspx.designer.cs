@@ -114,6 +114,15 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox rdRoute;
 
         /// <summary>
+        /// ddlTrType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox ddlTrType;
+
+        /// <summary>
         /// rdfromDate control.
         /// </summary>
         /// <remarks>

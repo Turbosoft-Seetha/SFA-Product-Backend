@@ -97,6 +97,7 @@
                         ID="grvRpt" GridLines="None"
                         ShowFooter="True" AllowSorting="True"
                         OnNeedDataSource="grvRpt_NeedDataSource"
+                        OnItemDataBound="grvRpt_ItemDataBound"
                         AllowFilteringByColumn="true"
                         ClientSettings-Resizing-ClipCellContentOnResize="true"
                         EnableAjaxSkinRendering="true"
@@ -155,7 +156,7 @@
                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                     HeaderStyle-Font-Bold="true" UniqueName="plg_Name">
                                 </telerik:GridBoundColumn>
-                               <%-- <telerik:GridTemplateColumn AllowFiltering="false" HeaderStyle-Width="50px" HeaderText="Image" HeaderStyle-Font-Size="Smaller"
+                                <%-- <telerik:GridTemplateColumn AllowFiltering="false" HeaderStyle-Width="50px" HeaderText="Image" HeaderStyle-Font-Size="Smaller"
                                     HeaderStyle-Font-Bold="true">
                                     <ItemTemplate>
                                         <asp:HyperLink ID="img" runat="server" NavigateUrl=' <%#  Eval("plt_Image") %>' Target="_blank">
@@ -163,6 +164,18 @@
                                         </asp:HyperLink>
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>--%>
+                                <telerik:GridBoundColumn DataField="plg_Image" AllowFiltering="true" HeaderStyle-Width="100px" Display="false"
+                                    HeaderStyle-Font-Size="Smaller" HeaderText="" FilterControlWidth="100%"
+                                    CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                    HeaderStyle-Font-Bold="true" UniqueName="plg_Image">
+                                </telerik:GridBoundColumn>
+
+                                <telerik:GridTemplateColumn HeaderStyle-Width="100px" HeaderText="Images" UniqueName="Images" HeaderStyle-Font-Bold="true" AllowFiltering="false">
+                                    <ItemTemplate>
+                                    </ItemTemplate>
+                                </telerik:GridTemplateColumn>
+
+
 
                                 <telerik:GridBoundColumn DataField="plg_Remarks" AllowFiltering="true" HeaderStyle-Width="150px"
                                     HeaderStyle-Font-Size="Smaller" HeaderText="Remarks" FilterControlWidth="100%"
