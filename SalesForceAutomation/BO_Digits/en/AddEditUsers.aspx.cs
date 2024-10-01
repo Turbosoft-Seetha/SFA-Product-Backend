@@ -40,12 +40,14 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey);
+                    string Platform = "INV";
+                    string IsStatusChange = "N";
+                    obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx , " + "LicenseKey : " + LicenseKey);
+                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
                 }
                 catch (Exception ex)
                 {
-                    obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Page_Load() Error: " + ex);
+                    obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx , " + "Page_Load() Error: " + ex.Message.ToString() );
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
                 }
 
@@ -192,29 +194,43 @@ namespace SalesForceAutomation.BO_Digits.en
             catch (Exception ex)
             {
                 String innerMessage = (ex.InnerException != null) ? ex.InnerException.Message : "";
-                obj.TraceService(UICommon.GetLogFileName() + " InvoiceDetail.aspx PageLoad() , " + "Error : " + ex.Message.ToString() + " - " + innerMessage);
+                obj.TraceService(UICommon.GetLogFileName() + "  AddEditUsers.aspx - WebServiceCall()  , " + "Error : " + ex.Message.ToString() + " - " + innerMessage);
                 return ex.Message.ToString();
             }
         }
-        public void LicenseCounts(string LicenseKey)
+        public void LicenseCounts(string LicenseKey, string Platform, string IsStatusChange)
         {
-            obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Inside LicenseCounts()");
+            obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + "Inside LicenseCounts()");
 
             try
             {
+                DataTable lstActive = obj.loadList("LicenseMasterCounts", "sp_LicenseManagement");
+                string RouteCount = lstActive.Rows[0]["RouteCount"].ToString();
+                string InventoryUserCount = lstActive.Rows[0]["InventoryUserCount"].ToString();
+                string BackOfficeUserCount = lstActive.Rows[0]["BackOfficeUserCount"].ToString();
+                string CustomerConnectUserCount = lstActive.Rows[0]["CustomerConnectUserCount"].ToString();
+                string SFA_AppUserCount = lstActive.Rows[0]["SFA_AppUserCount"].ToString();
+
                 LicenseInpara LicenseIn = new LicenseInpara();
                 LicenseIn = new LicenseInpara
                 {
-                    LicenseKey = LicenseKey.ToString()
+                    LicenseKey = LicenseKey.ToString(),
+                    RouteCount = RouteCount.ToString(),
+                    InventoryUserCount = InventoryUserCount.ToString(),
+                    BackOfficeUserCount = BackOfficeUserCount.ToString(),
+                    CustomerConnectUserCount = CustomerConnectUserCount.ToString(),
+                    SFA_AppUserCount = SFA_AppUserCount.ToString(),
+                    Platform = Platform.ToString(),
+                    IsStatusChange = IsStatusChange.ToString()
                 };
 
                 string JSONStr = JsonConvert.SerializeObject(LicenseIn);
                 string url = ConfigurationManager.AppSettings.Get("LicenseURL");
                 string Json = WebServiceCall(url, JSONStr);
 
-                obj.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "JSONStr : " + JSONStr);
-                obj.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "url : " + url);
-                obj.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "Json : " + Json);
+                obj.TraceService(UICommon.GetLogFileName() + "AddEditUsers.aspx  , " + "JSONStr : " + JSONStr);
+                obj.TraceService(UICommon.GetLogFileName() + "AddEditUsers.aspx  , " + "url : " + url);
+                obj.TraceService(UICommon.GetLogFileName() + "AddEditUsers.aspx  , " + "Json : " + Json);
 
                 if (Json != null)
                 {
@@ -231,6 +247,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     // Extract values from the result object
                     string resCode = result["Res"].ToString();
                     string message = result["Message"].ToString();
+                    string ResponseMessage = result["ResponseMessage"].ToString();
 
                     // Extract the LicenseData array
                     JArray licenseDataArray = (JArray)result["LicenseData"];
@@ -253,45 +270,36 @@ namespace SalesForceAutomation.BO_Digits.en
 
                         if (resCode == "200")
                         {
-                            DataTable lstActive = obj.loadList("LicenseMasterCounts", "sp_Masters");                          
-                            string InventoryUserCount = lstActive.Rows[0]["InventoryUserCount"].ToString();
-                           
-                            int AppUserBal = Int32.Parse(InvLimit.ToString()) - Int32.Parse(InventoryUserCount.ToString());
-                            if (AppUserBal < 0)
-                            {
-                                AppUserBal = 0;
-                            }
-
-                            ViewState["InventoryUserCount"] = AppUserBal.ToString();
+                            ViewState["ResponseMessage"] = ResponseMessage.ToString();
                         }
                         else
                         {
-                            obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Error: " + message);
+                            obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + "Error: " + message);
                             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
                         }
                     }
                     else
                     {
-                        obj.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "Error: licenseDataArray count 0.");
+                        obj.TraceService(UICommon.GetLogFileName() + "AddEditUsers.aspx  , " + "Error: licenseDataArray count 0.");
                         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
 
                     }
                 }
                 else
                 {
-                    obj.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "Error: Json Null.");
+                    obj.TraceService(UICommon.GetLogFileName() + "AddEditUsers.aspx  , " + "Error: Json Null.");
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
 
                 }
             }
             catch (Exception ex)
             {
-                obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Error: " + ex);
+                obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + "Error: " + ex);
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
 
             }
 
-            obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "LicenseCounts() ends here.");
+            obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + "LicenseCounts() ends here.");
         }
 
         public class LicenseData
@@ -325,6 +333,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             public string Res { get; set; }
             public string Message { get; set; }
+            public string ResponseMessage { get; set; }
             public List<LicenseData> LicenseData { get; set; }
         }
         public class ResponseData
@@ -334,6 +343,13 @@ namespace SalesForceAutomation.BO_Digits.en
         public class LicenseInpara
         {
             public string LicenseKey { get; set; }
+            public string RouteCount { get; set; }
+            public string InventoryUserCount { get; set; }
+            public string BackOfficeUserCount { get; set; }
+            public string CustomerConnectUserCount { get; set; }
+            public string SFA_AppUserCount { get; set; }
+            public string Platform { get; set; }
+            public string IsStatusChange { get; set; }
         }
 
         public void Store()
@@ -407,15 +423,16 @@ namespace SalesForceAutomation.BO_Digits.en
             IsInstatStockCount= this.rdInsStockCounts.SelectedValue.ToString();
             usertype = this.rdappUsrtypes.SelectedValue.ToString();
 
-            string userCount = ViewState["InventoryUserCount"].ToString();
-            int AppUserCount = Int32.Parse(userCount);
+            //string userCount = ViewState["InventoryUserCount"].ToString();
+            //int AppUserCount = Int32.Parse(userCount);
 
             if (ResponseID.Equals("") || ResponseID == 0)
             {
-               
-                if(usertype == "INV")
+                string ResponseMessage = ViewState["ResponseMessage"].ToString();
+
+                if (usertype == "INV")
                 {
-                    if (AppUserCount > 0)
+                    if (ResponseMessage == "Proceed")
                     {
                         string[] arr = { code, pass, User, Status, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
                         string Value = obj.SaveData("sp_Masters", "InsertUser", name, arr);
@@ -441,7 +458,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                     else
                     {
-                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('User Limit Exceeded, Kindly contact DigiTS team to increase the user limit.');</script>", false);
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('" + ResponseMessage + "');</script>", false);
                     }
                 }
                 else
@@ -473,78 +490,28 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                string CurrentUserType = ViewState["CurrentUserType"].ToString();
-                string ChangedUserType = rdappUsrtypes.SelectedValue.ToString();
-
-                string CurrentStatus = ViewState["CurrentStatus"].ToString();
-                string ChangedStatus = ddlStatus.SelectedValue.ToString();
-
-                if (CurrentUserType == "SFA" && ChangedUserType == "INV")
+                try
                 {
-                    if (ChangedStatus == "Y")
-                    {
-                        if (AppUserCount > 0)
-                        {
-                            string ID = ResponseID.ToString();
-                            string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
-                            string value = obj.SaveData("sp_Masters", "UpdateUser", name, arr);
-                            int res = Int32.Parse(value.ToString());
-                            if (res > 0)
-                            {
-                                try
-                                {
-                                    DataTable delData = obj.loadList("DeleteUserStores", "sp_Masters", ID.ToString());
-                                    UserStoresSave("");
-                                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('User details has been updated successfully');</script>", false);
-                                }
-                                catch (Exception ex)
-                                {
-                                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
-                                }
-                            }
-                            else
-                            {
-                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
-                            }
-                        }
-                        else
-                        {
-                            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('User Limit Exceeded, Kindly contact DigiTS team to increase the user limit.');</script>", false);
-                        }
-                    }
-                    else
-                    {
-                        string ID = ResponseID.ToString();
-                        string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
-                        string value = obj.SaveData("sp_Masters", "UpdateUser", name, arr);
-                        int res = Int32.Parse(value.ToString());
-                        if (res > 0)
-                        {
-                            try
-                            {
-                                DataTable delData = obj.loadList("DeleteUserStores", "sp_Masters", ID.ToString());
-                                UserStoresSave("");
-                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('User details has been updated successfully');</script>", false);
-                            }
-                            catch (Exception ex)
-                            {
-                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
-                            }
-                        }
-                        else
-                        {
-                            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
-                        }
-                    }
+                    string CurrentUserType = ViewState["CurrentUserType"].ToString();
+                    string ChangedUserType = rdappUsrtypes.SelectedValue.ToString();
 
-                }
-                else
-                {
-                    if (CurrentStatus == "N" && ChangedStatus == "Y")
+                    string CurrentStatus = ViewState["CurrentStatus"].ToString();
+                    string ChangedStatus = ddlStatus.SelectedValue.ToString();
+
+                    if (CurrentUserType == "SFA" && ChangedUserType == "INV")
                     {
-                        if (ChangedUserType == "INV")
+                        if (ChangedStatus == "Y")
                         {
-                            if (AppUserCount > 0)
+                            string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                            string Platform = "INV";
+                            string IsStatusChange = "N";
+                            obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + "LicenseKey : " + LicenseKey);
+                            LicenseCounts(LicenseKey, Platform, IsStatusChange);
+
+
+                            string ResponseMessage = ViewState["ResponseMessage"].ToString();
+
+                            if (ResponseMessage == "Proceed")
                             {
                                 string ID = ResponseID.ToString();
                                 string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
@@ -570,7 +537,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                             else
                             {
-                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('User Limit Exceeded, Kindly contact DigiTS team to increase the user limit.');</script>", false);
+                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('"+ ResponseMessage + "');</script>", false);
                             }
                         }
                         else
@@ -597,35 +564,109 @@ namespace SalesForceAutomation.BO_Digits.en
                                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
                             }
                         }
+
                     }
                     else
                     {
-                        string ID = ResponseID.ToString();
-                        string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
-                        string value = obj.SaveData("sp_Masters", "UpdateUser", name, arr);
-                        int res = Int32.Parse(value.ToString());
-                        if (res > 0)
+                        if (CurrentStatus == "N" && ChangedStatus == "Y")
                         {
-                            try
+                            if (ChangedUserType == "INV")
                             {
-                                DataTable delData = obj.loadList("DeleteUserStores", "sp_Masters", ID.ToString());
-                                UserStoresSave("");
-                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('User details has been updated successfully');</script>", false);
+                                string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                                string Platform = "INV";
+                                string IsStatusChange = "Y";
+                                obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + "LicenseKey : " + LicenseKey);
+                                LicenseCounts(LicenseKey, Platform, IsStatusChange);
+
+                                string ResponseMessage = ViewState["ResponseMessage"].ToString();
+
+                                if (ResponseMessage == "Proceed")
+                                {
+                                    string ID = ResponseID.ToString();
+                                    string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
+                                    string value = obj.SaveData("sp_Masters", "UpdateUser", name, arr);
+                                    int res = Int32.Parse(value.ToString());
+                                    if (res > 0)
+                                    {
+                                        try
+                                        {
+                                            DataTable delData = obj.loadList("DeleteUserStores", "sp_Masters", ID.ToString());
+                                            UserStoresSave("");
+                                            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('User details has been updated successfully');</script>", false);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                                    }
+                                }
+                                else
+                                {
+                                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('"+ ResponseMessage + "');</script>", false);
+                                }
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                                string ID = ResponseID.ToString();
+                                string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
+                                string value = obj.SaveData("sp_Masters", "UpdateUser", name, arr);
+                                int res = Int32.Parse(value.ToString());
+                                if (res > 0)
+                                {
+                                    try
+                                    {
+                                        DataTable delData = obj.loadList("DeleteUserStores", "sp_Masters", ID.ToString());
+                                        UserStoresSave("");
+                                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('User details has been updated successfully');</script>", false);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                                    }
+                                }
+                                else
+                                {
+                                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                                }
                             }
                         }
                         else
                         {
-                            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                            string ID = ResponseID.ToString();
+                            string[] arr = { code, pass, User, Status, ID, istracking, TrackDuration, arabic, IsInstatStockCount, usertype };
+                            string value = obj.SaveData("sp_Masters", "UpdateUser", name, arr);
+                            int res = Int32.Parse(value.ToString());
+                            if (res > 0)
+                            {
+                                try
+                                {
+                                    DataTable delData = obj.loadList("DeleteUserStores", "sp_Masters", ID.ToString());
+                                    UserStoresSave("");
+                                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('User details has been updated successfully');</script>", false);
+                                }
+                                catch (Exception ex)
+                                {
+                                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                                }
+                            }
+                            else
+                            {
+                                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                            }
                         }
+
+
                     }
-
-
                 }
-
+                catch(Exception ex)
+                {
+                    obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx  , " + " Error: " + ex.Message.ToString());
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                }
             }
         }
         protected void lnkSave_Click(object sender, EventArgs e)

@@ -28,12 +28,14 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey);
+                    string Platform = "BO";
+                    string IsStatusChange = "N";
+                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , Page_Load() - " + "LicenseKey : " + LicenseKey);
+                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
                 }
                 catch (Exception ex)
                 {
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Page_Load() Error: " + ex);
+                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , Page_Load() - " + "Page_Load() Error: " + ex.Message.ToString());
 
                 }
 
@@ -51,7 +53,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
                 catch(Exception ex)
                 {
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Page_Load() Error: " + ex);
+                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , " + "Page_Load() Error: " + ex);
                 }
             }
         }
@@ -109,29 +111,43 @@ namespace SalesForceAutomation.BO_Digits.en
             catch (Exception ex)
             {
                 String innerMessage = (ex.InnerException != null) ? ex.InnerException.Message : "";
-                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " InvoiceDetail.aspx PageLoad() , " + "Error : " + ex.Message.ToString() + " - " + innerMessage);
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "  Users.aspx - WebServiceCall()  , " + "Error : " + ex.Message.ToString() + " - " + innerMessage);
                 return ex.Message.ToString();
             }
         }
-        public void LicenseCounts(string LicenseKey)
+        public void LicenseCounts(string LicenseKey, string Platform, string IsStatusChange)
         {
-            ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Inside LicenseCounts()");
+            ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx.aspx  , " + "Inside LicenseCounts()");
 
             try
             {
+                DataTable lstActive = ObjclsFrms.loadList("LicenseMasterCounts", "sp_LicenseManagement");
+                string RouteCount = lstActive.Rows[0]["RouteCount"].ToString();
+                string InventoryUserCount = lstActive.Rows[0]["InventoryUserCount"].ToString();
+                string BackOfficeUserCount = lstActive.Rows[0]["BackOfficeUserCount"].ToString();
+                string CustomerConnectUserCount = lstActive.Rows[0]["CustomerConnectUserCount"].ToString();
+                string SFA_AppUserCount = lstActive.Rows[0]["SFA_AppUserCount"].ToString();
+
                 LicenseInpara LicenseIn = new LicenseInpara();
                 LicenseIn = new LicenseInpara
                 {
-                    LicenseKey = LicenseKey.ToString()
+                    LicenseKey = LicenseKey.ToString(),
+                    RouteCount = RouteCount.ToString(),
+                    InventoryUserCount = InventoryUserCount.ToString(),
+                    BackOfficeUserCount = BackOfficeUserCount.ToString(),
+                    CustomerConnectUserCount = CustomerConnectUserCount.ToString(),
+                    SFA_AppUserCount = SFA_AppUserCount.ToString(),
+                    Platform = Platform.ToString(),
+                    IsStatusChange = IsStatusChange.ToString()
                 };
 
                 string JSONStr = JsonConvert.SerializeObject(LicenseIn);
                 string url = ConfigurationManager.AppSettings.Get("LicenseURL");
                 string Json = WebServiceCall(url, JSONStr);
 
-                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "JSONStr : " + JSONStr);
-                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "url : " + url);
-                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "Json : " + Json);
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "Users.aspx.aspx  , " + "JSONStr : " + JSONStr);
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "Users.aspx.aspx  , " + "url : " + url);
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + "Users.aspx.aspx  , " + "Json : " + Json);
 
                 if (Json != null)
                 {
@@ -148,6 +164,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     // Extract values from the result object
                     string resCode = result["Res"].ToString();
                     string message = result["Message"].ToString();
+                    string ResponseMessage = result["ResponseMessage"].ToString();
 
                     // Extract the LicenseData array
                     JArray licenseDataArray = (JArray)result["LicenseData"];
@@ -170,45 +187,36 @@ namespace SalesForceAutomation.BO_Digits.en
 
                         if (resCode == "200")
                         {
-                            DataTable lstActive = ObjclsFrms.loadList("LicenseMasterCounts", "sp_Masters");
-                            string BOUserCount = lstActive.Rows[0]["BackOfficeUserCount"].ToString();
-
-                            int BOUserBal = Int32.Parse(BOLimit.ToString()) - Int32.Parse(BOUserCount.ToString());
-                            if (BOUserBal < 0)
-                            {
-                                BOUserBal = 0;
-                            }
-
-                            ViewState["BOUserCount"] = BOUserBal.ToString();
+                            ViewState["ResponseMessage"] = ResponseMessage.ToString();
                         }
                         else
                         {
-                            ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Error: " + message);
+                            ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx.aspx  , " + "Error: " + message);
                             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
                         }
                     }
                     else
                     {
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "Error: licenseDataArray count 0.");
+                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + "Users.aspx.aspx  , " + "Error: licenseDataArray count 0.");
                         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
 
                     }
                 }
                 else
                 {
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + "LicenseManagement.aspx-1 , " + "Error: Json Null.");
+                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + "Users.aspx.aspx  , " + "Error: Json Null.");
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
 
                 }
             }
             catch (Exception ex)
             {
-                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Error: " + ex);
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx.aspx  , " + "Error: " + ex);
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
 
             }
 
-            ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "LicenseCounts() ends here.");
+            ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx.aspx  , " + "LicenseCounts() ends here.");
         }
 
         public class LicenseData
@@ -242,6 +250,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             public string Res { get; set; }
             public string Message { get; set; }
+            public string ResponseMessage { get; set; }
             public List<LicenseData> LicenseData { get; set; }
         }
         public class ResponseData
@@ -251,8 +260,14 @@ namespace SalesForceAutomation.BO_Digits.en
         public class LicenseInpara
         {
             public string LicenseKey { get; set; }
+            public string RouteCount { get; set; }
+            public string InventoryUserCount { get; set; }
+            public string BackOfficeUserCount { get; set; }
+            public string CustomerConnectUserCount { get; set; }
+            public string SFA_AppUserCount { get; set; }
+            public string Platform { get; set; }
+            public string IsStatusChange { get; set; }
         }
-
         public void ListData(string StatusCondition)
         {
             DataTable lstUser = default(DataTable);
@@ -262,17 +277,16 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkAddUser_Click(object sender, EventArgs e)
         {
-            string BOuserCount = ViewState["BOUserCount"].ToString();
-            int UserBOCount = Int32.Parse(BOuserCount);
+            string ResponseMessage = ViewState["ResponseMessage"].ToString();
 
-            if (UserBOCount > 0)
+            if (ResponseMessage == "Proceed")
             {
                 Response.Redirect("AddEditUser.aspx");
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('User Limit Exceeded, Kindly contact DigiTS team to increase the user limit.');</script>", false);
-            }
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('" + ResponseMessage + "');</script>", false);
+            }          
         }
 
         protected void grvRpt_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
