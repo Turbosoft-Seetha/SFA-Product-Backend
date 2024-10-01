@@ -146,7 +146,10 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
 
                 DataTable lstDatas = new DataTable();
-                lstDatas = ObjclsFrms.loadList("ListSalesHeader", "sp_Merchandising_UOM", mainCondition);
+                string[] ar = { mainCondition };
+                lstDatas = ObjclsFrms.loadList("ListSalesHeader", "sp_Merchandising_UOM", UICommon.GetCurrentUserID().ToString(), ar);
+               
+                //  lstDatas = ObjclsFrms.loadList("ListSalesHeader", "sp_Merchandising_UOM", mainCondition);
                 grvRpt.DataSource = lstDatas;
             }
 

@@ -23,6 +23,16 @@ namespace SalesForceAutomation.BO_Digits.en
                 return Type;
             }
         }
+        public int Mode
+        {
+            get
+            {
+                int Mode;
+                int.TryParse(Request.Params["mode"], out Mode);
+
+                return Mode;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -63,7 +73,8 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                         }
                     
-                }
+                }              
+
                 else
                 {
                     
@@ -75,18 +86,41 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                     rotID = Rot();
                 }
+                string routeCondition = " ord_rot_ID in (" + rotID + ")";
+                Customers(routeCondition);
+
+                if (Mode == 1 && Session["OSDcusID"] != null)
+                {                    
+                        int a = rdCustomer.Items.Count;
+                        string cusID = Session["OSDcusID"].ToString();
+                        string[] ar = cusID.Split(',');
+                        for (int i = 0; i < ar.Length; i++)
+                        {
+                            foreach (RadComboBoxItem items in rdCustomer.Items)
+                            {
+                                if (items.Value == ar[i])
+                                {
+                                    items.Checked = true;
+                                }
+                            }
+                        }
+                    
+                }
+                else
+                {                    
+                    int i = 1;
+                    foreach (RadComboBoxItem itmss in rdCustomer.Items)
+                    {
+                        itmss.Checked = true;
+                        i++;
+                    }
+                }
               //  rdfromDate.SelectedDate = DateTime.Now;
 
-                string routeCondition = " ord_rot_ID in (" + rotID + ")";
+               
                
 
-                Customers(routeCondition);
-                int i= 1;
-                foreach (RadComboBoxItem itmss in rdCustomer.Items)
-                {
-                    itmss.Checked = true;
-                    i++;
-                }
+               
                 rotID = Rot();
                 LoadQuotation();
                 LoadSalesOrder();

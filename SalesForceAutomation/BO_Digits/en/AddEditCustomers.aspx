@@ -499,7 +499,15 @@
 
                                                 </div>
                                             </div>
-
+                                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                <label class="control-label col-lg-12">Company<span class="required"></span></label>
+                                                <div class="col-lg-12">
+                                                    <telerik:RadComboBox ID="ddlCusCom" runat="server" Width="100%" DefaultMessage="Select Company" Filter="Contains"></telerik:RadComboBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator72" runat="server" ValidationGroup="form"
+                                                        ControlToValidate="ddlCusCom" ErrorMessage="Please Choose Company" ForeColor="Red" Display="Dynamic"
+                                                        SetFocusOnError="True"></asp:RequiredFieldValidator><br />
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 form-group pt-4">
                                                 <label class="control-label col-lg-12">Status <span class="required"></span></label>
                                                 <div class="col-lg-12">

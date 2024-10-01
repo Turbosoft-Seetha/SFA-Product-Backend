@@ -70,6 +70,38 @@ namespace SalesForceAutomation.BO_Digits.en
 
                   
                 }
+                else if (Mode == 2) // While loading page from customer dashboard 
+                {
+                    try
+                    {
+                        if (Session["FromDate"] != null)
+                        {
+                            rdFromDate.SelectedDate = DateTime.Parse(Session["FromDate"].ToString());
+                        }
+                        else
+                        {
+                            rdFromDate.SelectedDate = DateTime.Now;
+                            Session["FromDate"] = rdFromDate.SelectedDate.ToString();
+                        }
+                        if (Session["ToDate"] != null)
+                        {
+                            rdEndDate.SelectedDate = DateTime.Parse(Session["ToDate"].ToString());
+
+                        }
+                        else
+                        {
+                            rdEndDate.SelectedDate = DateTime.Now;
+                            Session["ToDate"] = rdEndDate.SelectedDate.ToString();
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+
+
+                }
                 else
                 {
                     //ViewState["FromDate"] = DateTime.Parse(Session["FromDate"].ToString());
@@ -103,7 +135,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     {
 
                     }
-                }
+                }              
                
 
                 Route();
@@ -112,8 +144,35 @@ namespace SalesForceAutomation.BO_Digits.en
                     itmss.Checked = true;
 
                 }
-                string rotID = Rot();
-                Customers();
+                if (Mode == 2 && Session["RDBcusID"] != null)
+                {
+                    string cusID = Session["RDBcusID"].ToString();
+                    if (!string.IsNullOrEmpty(cusID))
+                    {
+                        HashSet<string> customerIDs = new HashSet<string>(cusID.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                                                               .Select(id => id.Trim()),
+                                                                         StringComparer.OrdinalIgnoreCase);
+                        Customers();
+                        foreach (RadComboBoxItem item in rdCustomer.Items)
+                        {
+                            item.Checked = customerIDs.Contains(item.Value);
+                        }
+                    }
+                }
+
+                else
+                {
+                    int i = 1;
+                    foreach (RadComboBoxItem itmss in rdCustomer.Items)
+                    {
+                        itmss.Checked = true;
+                        i++;
+                    }
+                    string rotID = Rot();
+
+                    Customers();
+                }
+                
                 SelAllDelivery();
                 SelFDDelivery();
                 SelNDDelivery();
@@ -135,7 +194,7 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else if (type == "FD")
             {
-                liFullyDelivered.Attributes["class"] += " active"; 
+                liFullyDelivered.Attributes["class"] += " active";               
             }
             else if (type == "PD")
             {
@@ -465,5 +524,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 Response.Redirect("RouteDeliveryDetail.aspx?Id=" + ID);
             }
         }
+
     }
 }

@@ -62,8 +62,8 @@ namespace SalesForceAutomation.BO_Digits.en
                 // Route();
                 // List();
                 Pricelist();
+                company();
 
-            
 
 
             //  Routes();
@@ -97,6 +97,16 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
             }
+        }
+        public void company()
+        {
+
+            string userID = UICommon.GetCurrentUserID().ToString();
+            DataTable dt = ObjclsFrms.loadList("selectCompanyForDropDown", "sp_Masters", userID);
+            ddlCusCom.DataSource = dt;
+            ddlCusCom.DataTextField = "com_Name";
+            ddlCusCom.DataValueField = "com_Code";
+            ddlCusCom.DataBind();
         }
 
         protected void txtCode_TextChanged(object sender, EventArgs e)
@@ -1842,7 +1852,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
         {
             string name, code, shortname, total, used, creditdays, addres, vat, phe, email, geo, area, cls, status, nameArabic, addressArabic, shortnameArabic,
-            custype, whatsapp, cntctperson, cntctpersonAR, recaptureGeo, AltHOCOde, EnableInvoiceApproval, TRN, cusHead;
+            custype, whatsapp, cntctperson, cntctpersonAR, recaptureGeo, AltHOCOde, EnableInvoiceApproval, TRN, cusHead,company;
 
 
             name = txtName.Text.ToString();
@@ -1860,6 +1870,7 @@ namespace SalesForceAutomation.BO_Digits.en
             recaptureGeo = ddlRecapture.SelectedValue.ToString();
             AltHOCOde = txtAltHOCode.Text.ToString();
             EnableInvoiceApproval = EnableInvAppr.SelectedValue.ToString();
+
 
             //if (txtTotCrLimit.Text == "")
             //{
@@ -1893,8 +1904,10 @@ namespace SalesForceAutomation.BO_Digits.en
             addressArabic = txtArabAddress.Text.ToString();
             custype = ddlcustype.SelectedValue.ToString();
             TRN = txtTRN.Text.ToString();
+            company = ddlCusCom.SelectedValue.ToString();
             string user = UICommon.GetCurrentUserID().ToString();
             string CloseStatus = rblStatus.SelectedValue;
+
             if (string.IsNullOrEmpty(CloseStatus))
             {
                 CloseStatus = "N";
@@ -1932,8 +1945,9 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     ViewState["Value"] = "";
-                    string[] arr = { code, shortname, total, used, creditdays, addres, email, vat, phe, geo, area, cls, status, nameArabic, shortnameArabic, addressArabic ,
-                    custype ,whatsapp,cntctperson,cntctpersonAR,recaptureGeo,AltHOCOde,EnableInvoiceApproval, cusHead ,TRN , user};
+                    string[] arr = {code,shortname,total, used,creditdays, addres, email, vat,phe, geo, area,cls, status, 
+                        nameArabic,shortnameArabic, addressArabic,custype,whatsapp, cntctperson, cntctpersonAR, recaptureGeo,AltHOCOde,
+                        EnableInvoiceApproval, cusHead, TRN,  user, CloseStatus,  company   };
 
                     string Value = ObjclsFrms.SaveData("sp_Masters", "InsertCustomer", name, arr);
                     ViewState["Value"] = Value.ToString();
@@ -1963,7 +1977,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     string id = ID;
                     string[] arr = { code, shortname, total, used, creditdays, addres, email, vat, phe, geo, area, cls, status, nameArabic, shortnameArabic, addressArabic, id,
-                    custype, whatsapp, cntctperson, cntctpersonAR,recaptureGeo,AltHOCOde,EnableInvoiceApproval , cusHead ,TRN, user,CloseStatus};
+                    custype, whatsapp, cntctperson, cntctpersonAR,recaptureGeo,AltHOCOde,EnableInvoiceApproval , cusHead ,TRN, user,CloseStatus,company};
                     string Value = ObjclsFrms.SaveData("sp_Masters", "UpdateCustomer", name, arr);
                     int res = Int32.Parse(Value.ToString());
                     Session["CusID"] = id;
@@ -2161,7 +2175,6 @@ namespace SalesForceAutomation.BO_Digits.en
             IsVAT = ddIsVAT.SelectedValue.ToString();
             IsHold = ddlIsHold.SelectedValue.ToString();
             status = ddlstatus.SelectedValue.ToString();
-
             selectiontype = ddltype.SelectedValue.ToString();
             radius = txtradius.Text.ToString();
             oncall = OnCall();
@@ -2270,7 +2283,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     Mandfeatures,enforcecussel,Ordsign,Salsign,InvMode,AltInvReq,usr,FGsep,Insight,FS,FSFeatures,NegativeInvAmt,profile,
                     MinInvoiceValue,MustSellItemCount,IsArManualAllocation,GraceAmount,GracePeriod,PartialDelivery,PriceChange,OrdPriceChange,
                     eInvoice,CusDocExpiryAlert,AlertDays,invhcimgmand,invposimgmand,invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,
-                    ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange};
+                    ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , 
+                    CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange};
                 string[] array = { cus, ddlrot.SelectedValue.ToString() };
 
                 string Value = ObjclsFrms.SaveData("sp_Merchandising", "InsertCusRoute", rot, arr);
@@ -3909,7 +3923,8 @@ namespace SalesForceAutomation.BO_Digits.en
             if (lstDatas.Rows.Count > 0)
             {
                 string name, code, shortname, total, used, creditdays, addres, watsap, contactperson, contactpersonAR,
-                    vat, phe, email, geo, area, cls, status, nameArabic, shortnameArabic, addressArabic, custype, recaptureGeo, AltHOCode, EnableInvoiceApproval, TRN, cusHead;
+                    vat, phe, email, geo, area, cls, status, nameArabic, shortnameArabic, addressArabic, custype, 
+                    recaptureGeo, AltHOCode, EnableInvoiceApproval, TRN, cusHead,company;
                 name = lstDatas.Rows[0]["cus_Name"].ToString();
                 nameArabic = lstDatas.Rows[0]["cus_NameArabic"].ToString();
                 shortnameArabic = lstDatas.Rows[0]["cus_ShortNameArabic"].ToString();
@@ -3938,6 +3953,8 @@ namespace SalesForceAutomation.BO_Digits.en
                 EnableInvoiceApproval = lstDatas.Rows[0]["cus_EnableInvoiceApproval"].ToString();
                 cusHead = lstDatas.Rows[0]["cus_csh_ID"].ToString();
                 TRN = lstDatas.Rows[0]["TRN_Number"].ToString();
+                company = lstDatas.Rows[0]["cus_CompanyCode"].ToString();
+
 
                 txtName.Text = name.ToString();
                 txtCode.Text = code.ToString();
@@ -3966,6 +3983,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 EnableInvAppr.SelectedValue = EnableInvoiceApproval.ToString();
                 ddlCusHeader.SelectedValue = cusHead.ToString();
                 txtTRN.Text = TRN.ToString();
+                ddlCusCom.SelectedValue = company.ToString();
 
                 if (custype == "NC")
                 {

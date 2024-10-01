@@ -31,7 +31,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                if ((Mode == 1) || (Mode == 2))
+                if ((Mode == 1) || (Mode == 2) || Mode == 3)
                 {
                     plhFilter.Visible = false;
                     rdRoute.Enabled = false;
@@ -100,6 +100,40 @@ namespace SalesForceAutomation.BO_Digits.en
                         string rotID = Rot();
                         string routeCondition = " rcs_rot_ID in (" + rotID + ")";
                         Customers(routeCondition);
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+                }
+                else if (Mode == 3) // While loading page from customer dashboard
+                {
+                    try
+                    {
+                        if (Session["LOFDate"] != null)
+                        {
+
+                            rdfromDate.SelectedDate = DateTime.Parse(Session["LOFDate"].ToString());
+                        }
+                        else
+                        {
+                            rdfromDate.SelectedDate = DateTime.Now;
+
+
+                        }
+                        rdfromDate.MaxDate = DateTime.Now;
+
+                        if (Session["LOTDate"] != null)
+                        {
+
+                            rdendDate.SelectedDate = DateTime.Parse(Session["LOTDate"].ToString());
+                        }
+                        else
+                        {
+                            rdendDate.SelectedDate = DateTime.Now;
+
+                        }
+                        rdendDate.MaxDate = DateTime.Now;
                     }
                     catch (Exception ex)
                     {
@@ -221,6 +255,68 @@ namespace SalesForceAutomation.BO_Digits.en
                             string routeCondition = " rcs_rot_ID in (" + rotID + ")";
                             Customers(routeCondition);
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+                }
+                else if (Mode ==3)
+                {
+                    try
+                    {
+                        if (Session["LOrotID"] != null)
+                        {
+                            int a = rdRoute.Items.Count;
+                            string route = Session["LOrotID"].ToString();
+                            string[] ar = route.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdRoute.Items)
+                                {
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                            string routeCondition = " rcs_rot_ID in (" + route + ")";
+                            Customers(routeCondition);
+
+                        }
+                        else
+                        {
+                            string rotID = Rot();
+                            string routeCondition = " 1=1 ";
+                            Customers(routeCondition);
+
+
+                        }
+
+                        if (Session["LOcusID"] != null)
+                        {
+                            int a = rdCustomer.Items.Count;
+                            string cusID = Session["LOcusID"].ToString();
+                            string[] ar = cusID.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdCustomer.Items)
+                                {
+
+
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            string cusID = Cus();
+                            string cusCondition = "A.cus_ID in (" + cusID + ")";
+                        }
+
                     }
                     catch (Exception ex)
                     {
@@ -411,7 +507,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 if (cusID.Equals("0"))
                 {
                     customerCondition = "";
-                }
+                }                
                 else
                 {
                     customerCondition = " and ord_cus_ID in (" + cusID + ")";
