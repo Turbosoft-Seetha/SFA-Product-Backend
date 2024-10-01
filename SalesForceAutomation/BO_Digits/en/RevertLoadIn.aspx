@@ -60,6 +60,23 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<style>
+         .rwzNav{
+             display:none;
+         }
+
+       .RadPicker .rcCalPopup, .RadPicker .rcTimePopup {
+    display:inline;
+}
+
+
+
+		 </style>
+
+
+
+
+
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -79,7 +96,7 @@
 
                                      <div class=" col-lg-12 row" style="padding-bottom: 10px">
                                     <div class="col-lg-4 form-group" style="padding-top: 10px;">
-                                        <label class="control-label col-lg-12">Enter Customer to Populate Load in Number <span class="required"></span></label>
+                                        <label class="control-label col-lg-12">Enter Route code/Load in Number </label>
                                         <div class="col-lg-12">
                                             <telerik:RadTextBox ID="LoadTxtBOX" runat="server" CssClass="form-control" Width="100%" Enabled="true">
 
@@ -89,13 +106,30 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-lg-2" style="text-align: center; padding-top: 15px;  width: auto;">
+
+
+                                         <%--<div class="col-lg-3"  style="padding-top: 10px;">
+                                             <label class="control-label col-lg-12">Date</label>
+                                             <div class="col-lg-12">
+                                                 <telerik:RadDatePicker ID="rddate" DateInput-DateFormat="dd-MMM-yyyy" runat="server" Skin="Silk" Width="100%" RenderMode="Lightweight"></telerik:RadDatePicker>
+                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="From Date is mandatory" ForeColor="Red" ControlToValidate="rddate"></asp:RequiredFieldValidator>
+                                             </div>
+                                         </div>--%>
+                                         <div class="col-lg-3 " style="padding-top: 10px;">
+                                             <label class="control-label col-lg-12"> Date</label>
+                                             <div class="col-lg-12">
+                                                 <telerik:RadDatePicker RenderMode="Lightweight" ID="rddate" DateInput-DateFormat="dd-MMM-yyyy" runat="server" AutoPostBack="true" >
+                                                 </telerik:RadDatePicker>
+                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="From Date is mandatory" ForeColor="Red" ControlToValidate="rddate"></asp:RequiredFieldValidator>
+                                             </div>
+  </div>
+                                    <%--<div class="col-lg-2" style="text-align: center; padding-top: 15px;  width: auto;">
                                         <asp:LinkButton ID="lnkFilter" runat="server" CssClass="btn btn-sm btn-light-primary me-2 border-1" OnClick="lnkFilter_Click">
                                                     Search
                                         </asp:LinkButton>
-                                    </div>
+                                    </div>--%>
 
-                                                     <div class="col-lg-4">
+                                                     <%--<div class="col-lg-4">
                                             <label class="control-label col-lg-12">Load in Number</label>
                                             <div class="col-lg-12">
                                                 <telerik:RadComboBox Skin="Material" Filter="Contains"  RenderMode="Lightweight" Width="100%"
@@ -103,9 +137,9 @@
                                                 </telerik:RadComboBox>
 
                                             </div>
-                                        </div>
+                                        </div>--%>
 
-                                                  <div class="col-lg-2" style="padding-top: 15px;">
+                                                  <div class="col-lg-3" style="padding-top: 15px;">
                                         <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-sm btn-light-primary me-2 border-1" CausesValidation="false" OnClick="LinkButton1_Click">
                                                     Filter
                                         </asp:LinkButton>

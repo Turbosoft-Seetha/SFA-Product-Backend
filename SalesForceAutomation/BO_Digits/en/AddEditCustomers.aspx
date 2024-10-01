@@ -1440,6 +1440,21 @@
                                                                     </div>
                                                                 </div>
 
+                                                                  <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Enforce Buy Back free<span class="required"> </span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadDropDownList ID="ddlEnforceBuyBackfree" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" >
+                                                                            <Items>
+                                                                                <telerik:DropDownListItem Text="Enable" Value="Y" />
+                                                                                <telerik:DropDownListItem Text="Disable" Value="N" />
+                                                                            </Items>
+                                                                        </telerik:RadDropDownList>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator72" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                            ControlToValidate="ddlEnforceBuyBackfree" ErrorMessage="Please select" ForeColor="Red"
+                                                                            SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                    </div>
+                                                                </div>
+
                                                                 </div>
                                                                 <div class="col-lg-12 row" style="padding-top: 25px;"><b>Transactional Settings </b></div>
                                                                 <br />
@@ -2076,6 +2091,22 @@
                                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator46" runat="server" Display="Dynamic" ValidationGroup="RotMap"
                                                                                 ControlToValidate="ARCHimgMnad" ErrorMessage="Please select" ForeColor="Red"
                                                                                 SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                        <label class="control-label col-lg-12">AR Payment Modes</label>
+                                                                        <div class="col-lg-12">
+                                                                            <telerik:RadComboBox ID="rdARPayMode" runat="server" Width="100%" CheckBoxes="true" EnaeckAllItemsCheckBox="true" EmptyMessage="Select AR Payment">
+                                                                                <Items>
+                                                                                    <telerik:RadComboBoxItem Text="Hard Cash" Value="HC" />
+                                                                                    <telerik:RadComboBoxItem Text="POS" Value="POS" />
+                                                                                    <telerik:RadComboBoxItem Text="Online Payment" Value="OP" />
+
+                                                                                </Items>
+                                                                            </telerik:RadComboBox>
+
                                                                         </div>
                                                                     </div>
 

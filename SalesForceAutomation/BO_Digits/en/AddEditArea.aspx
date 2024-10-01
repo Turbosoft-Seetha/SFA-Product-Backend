@@ -2,6 +2,7 @@
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageHeader" runat="server">
+
      <script type="text/javascript">
         function Confim() {
             $('#modalConfirm').modal('show');

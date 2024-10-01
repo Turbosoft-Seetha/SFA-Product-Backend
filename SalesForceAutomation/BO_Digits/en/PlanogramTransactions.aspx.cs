@@ -18,10 +18,7 @@ namespace SalesForceAutomation.BO_Digits.en
             if (!Page.IsPostBack)
             {
 
-                // rdfromDate.SelectedDate = DateTime.Now;
-                // rdendDate.SelectedDate = DateTime.Now.AddDays(1);
-                //Customers();
-                //Route();
+                
 
                 try
                 {
@@ -36,7 +33,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     else
                     {
                         rdfromDate.SelectedDate = DateTime.Now;
-                        // Session["FDate"] = DateTime.Parse(rdfromDate.SelectedDate.ToString());
 
                     }
                     rdfromDate.MaxDate = DateTime.Now;
