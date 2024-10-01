@@ -33,7 +33,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     else
                     {
                         rdfromDate.SelectedDate = DateTime.Now;
-                        // Session["FDate"] = DateTime.Parse(rdfromDate.SelectedDate.ToString());
 
                     }
                     rdfromDate.MaxDate = DateTime.Now;
