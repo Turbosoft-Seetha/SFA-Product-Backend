@@ -12,15 +12,13 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class PlanogramTransactions : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
 
-                // rdfromDate.SelectedDate = DateTime.Now;
-                // rdendDate.SelectedDate = DateTime.Now.AddDays(1);
-                //Customers();
-                //Route();
+                
 
                 try
                 {
