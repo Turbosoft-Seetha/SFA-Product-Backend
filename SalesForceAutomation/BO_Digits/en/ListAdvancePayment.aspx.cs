@@ -28,7 +28,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                if (Mode == 1)
+                if (Mode == 1 || Mode == 3)
                 {
                     plhFilter.Visible = false;
                     rdRoute.Enabled = false;
@@ -65,6 +65,40 @@ namespace SalesForceAutomation.BO_Digits.en
 						Response.Redirect("~/SignIn.aspx");
 					}
 				}
+                else if (Mode == 3) // While loading page from transaction menu
+                {
+                    try
+                    {
+                        if (Session["OHFDate"] != null)
+                        {
+
+                            rdfromDate.SelectedDate = DateTime.Parse(Session["OHFDate"].ToString());
+                        }
+                        else
+                        {
+                            rdfromDate.SelectedDate = DateTime.Now;
+
+
+                        }
+                        rdfromDate.MaxDate = DateTime.Now;
+
+                        if (Session["OHTDate"] != null)
+                        {
+
+                            rdendDate.SelectedDate = DateTime.Parse(Session["OHTDate"].ToString());
+                        }
+                        else
+                        {
+                            rdendDate.SelectedDate = DateTime.Now;
+
+                        }
+                        rdendDate.MaxDate = DateTime.Now;
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+                }
                 else // While loading page from transaction menu
                 {
                     try
@@ -185,65 +219,131 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     Response.Redirect("~/SignIn.aspx");
                 }
-                try
+                if (Mode == 3)
                 {
-                    if (Session["OHrotID"] != null)
+                    try
                     {
-                        int a = rdRoute.Items.Count;
-                        string route = Session["OHrotID"].ToString();                        
-                        string[] ar = route.Split(',');
-                        for (int i = 0; i < ar.Length; i++)
+                        if (Session["OHrotID"] != null)
                         {
-                            foreach (RadComboBoxItem items in rdRoute.Items)
+                            int a = rdRoute.Items.Count;
+                            string route = Session["OHrotID"].ToString();
+                            string[] ar = route.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
                             {
-                                if (items.Value == ar[i])
+                                foreach (RadComboBoxItem items in rdRoute.Items)
                                 {
-                                    items.Checked = true;
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                            string routeCondition = " rcs_rot_ID in (" + route + ")";
+                            Customers(routeCondition);
+
+                        }
+                        else
+                        {
+                            string rotID = Rot();
+                            string routeCondition = " 1=1 ";
+                            Customers(routeCondition);
+
+
+                        }
+
+                        if (Session["OHcusID"] != null)
+                        {
+                            int a = rdCustomer.Items.Count;
+                            string cusID = Session["OHcusID"].ToString();
+                            string[] ar = cusID.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdCustomer.Items)
+                                {
+
+
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
                                 }
                             }
                         }
-                        string routeCondition = " rcs_rot_ID in (" + route + ")";
-                        Customers(routeCondition);
-
-                    }
-                    else
-                    {
-                        string rotID = Rot();
-                        string routeCondition = " rcs_rot_ID in (" + rotID + ")";
-                        Customers(routeCondition);
-
-
-                    }
-
-                    if (Session["OHcusID"] != null)
-                    {
-                        int a = rdCustomer.Items.Count;
-                        string cusID = Session["OHcusID"].ToString();
-                        string[] ar = cusID.Split(',');
-                        for (int i = 0; i < ar.Length; i++)
+                        else
                         {
-                            foreach (RadComboBoxItem items in rdCustomer.Items)
+                            string cusID = Cus();
+                            string cusCondition = "A.cus_ID in (" + cusID + ")";
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+                }
+                else 
+                {
+                    try
+                    {
+                        if (Session["OHrotID"] != null)
+                        {
+                            int a = rdRoute.Items.Count;
+                            string route = Session["OHrotID"].ToString();
+                            string[] ar = route.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
                             {
-
-
-                                if (items.Value == ar[i])
+                                foreach (RadComboBoxItem items in rdRoute.Items)
                                 {
-                                    items.Checked = true;
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                            string routeCondition = " rcs_rot_ID in (" + route + ")";
+                            Customers(routeCondition);
+
+                        }
+                        else
+                        {
+                            string rotID = Rot();
+                            string routeCondition = " rcs_rot_ID in (" + rotID + ")";
+                            Customers(routeCondition);
+
+
+                        }
+
+                        if (Session["OHcusID"] != null)
+                        {
+                            int a = rdCustomer.Items.Count;
+                            string cusID = Session["OHcusID"].ToString();
+                            string[] ar = cusID.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdCustomer.Items)
+                                {
+
+
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        string cusID = Cus();
-                        string cusCondition = "A.cus_ID in (" + cusID + ")";
-                    }
+                        else
+                        {
+                            string cusID = Cus();
+                            string cusCondition = "A.cus_ID in (" + cusID + ")";
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Response.Redirect("~/SignIn.aspx");
-                }
+                    
 
                 try
                 {
