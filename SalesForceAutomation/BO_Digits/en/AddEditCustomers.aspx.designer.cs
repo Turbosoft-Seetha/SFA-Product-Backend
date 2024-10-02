@@ -276,6 +276,24 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadDropDownList EnableInvAppr;
 
         /// <summary>
+        /// ddlCusCom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox ddlCusCom;
+
+        /// <summary>
+        /// RequiredFieldValidator72 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator72;
+
+        /// <summary>
         /// ddlStatuses control.
         /// </summary>
         /// <remarks>
@@ -1221,13 +1239,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadDropDownList ddlEnforceBuyBackfree;
 
         /// <summary>
-        /// RequiredFieldValidator72 control.
+        /// RequiredFieldValidator75 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator72;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator75;
 
         /// <summary>
         /// plsSalesorder control.

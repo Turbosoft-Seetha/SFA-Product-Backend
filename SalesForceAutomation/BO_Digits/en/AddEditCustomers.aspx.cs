@@ -18,9 +18,6 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class AddEditCustomers : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
-
-
-
         public int Mode
         {
             get
@@ -41,8 +38,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 return ResponseID;
             }
         }
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
