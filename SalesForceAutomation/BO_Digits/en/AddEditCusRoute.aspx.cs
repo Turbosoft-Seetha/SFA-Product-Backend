@@ -38,14 +38,12 @@ namespace SalesForceAutomation.BO_Digits.en
                 return RouteID;
             }
         }
-
         public int Mode
         {
             get
             {
                 int Mode;
                 int.TryParse(Request.Params["Mode"], out Mode);
-
                 return Mode;
             }
         }

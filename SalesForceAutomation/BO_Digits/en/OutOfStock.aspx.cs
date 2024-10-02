@@ -580,7 +580,9 @@ namespace SalesForceAutomation.BO_Digits.en
                     mainCondition = mainConditions(rotID);
                 }
                
-                DataTable lstdata = ObjclsFrms.loadList("SelectOutOfSock", "sp_Transaction", mainCondition);
+                string[] ar = { mainCondition };
+                DataTable lstdata = ObjclsFrms.loadList("SelectOutOfSock", "sp_Transaction", UICommon.GetCurrentUserID().ToString(), ar);
+               
                 grvRpt.DataSource = lstdata;
             }
         }
