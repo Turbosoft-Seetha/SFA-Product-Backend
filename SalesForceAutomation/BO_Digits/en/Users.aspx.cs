@@ -476,5 +476,25 @@ namespace SalesForceAutomation.BO_Digits.en
             ListData(" where IsNull(Active,1)=0");
             grvRpt.DataBind();
         }
+
+        protected void grvRpt_ItemDataBound(object sender, GridItemEventArgs e)
+        {
+            if (e.Item is GridDataItem)
+            {
+                GridDataItem item = (GridDataItem)e.Item;
+                ImageButton CCBtn = (ImageButton)item.FindControl("CCSettings");
+
+                string IsCustomerConnectUser = item["IsCustomerConnectUser"].Text.ToString();
+
+                if (IsCustomerConnectUser == "Enable")
+                {
+                    CCBtn.Visible = true;                 
+                }
+                else
+                {
+                    CCBtn.Visible = false;
+                }
+            }
+        }
     }
 }

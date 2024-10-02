@@ -653,13 +653,15 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 if (user.IsApproved ==  true && CurrentStatus == false)
                 {
-                    
+
+                    string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                    string Platform = "BO";
+                    string IsStatusChange = "Y";
+                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
+
                     if (CCUser == "Y")
                     {
-                        string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                        string Platform = "CC";
-                        string IsStatusChange = "Y";
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx  , " + "LicenseKey : " + LicenseKey);
+                        Platform = "CC";
                         LicenseCounts(LicenseKey, Platform, IsStatusChange);
 
                         string ResponseMessage = ViewState["ResponseMessage"].ToString();
@@ -823,7 +825,6 @@ namespace SalesForceAutomation.BO_Digits.en
                         string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
                         string Platform = "CC";
                         string IsStatusChange = "N";
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx  , " + "LicenseKey : " + LicenseKey);
                         LicenseCounts(LicenseKey, Platform, IsStatusChange);
 
                         string ResponseMessage = ViewState["ResponseMessage"].ToString();
