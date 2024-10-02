@@ -75,10 +75,10 @@ namespace SalesForceAutomation.BO_Digits.en
         //}
         public void Route()
         {
-            ddlRoute.DataSource = ObjclsFrms.loadList("SelectRotforPlanogram", "sp_MerchandisingWebServices");
-            ddlRoute.DataTextField = "rot_Name";
-            ddlRoute.DataValueField = "rot_ID";
-            ddlRoute.DataBind();
+            ddlRout.DataSource = ObjclsFrms.loadList("SelectRotforPlanogram", "sp_MerchandisingWebServices");
+            ddlRout.DataTextField = "rot_Name";
+            ddlRout.DataValueField = "rot_ID";
+            ddlRout.DataBind();
         }
 
         //public void Customers(string routeCondition)
@@ -106,12 +106,12 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 txtcode.Text = code.ToString();
                 txtname.Text = name.ToString();
-                ddlRoute.SelectedValue= route.ToString();
+                ddlRout.SelectedValue= route.ToString();
                 hpl1.NavigateUrl = plgImage.ToString();
                 hlval1.Value = ResponseID.ToString();
                 img1.ImageUrl = plgImage.ToString();
                 ViewState["plgImage"] = plgImage.ToString();
-                ddlplgcompany.SelectedValue = company.ToString();
+                ddlplgcomp.SelectedValue = company.ToString();
 
             }
         }
@@ -120,22 +120,91 @@ namespace SalesForceAutomation.BO_Digits.en
 
             string userID = UICommon.GetCurrentUserID().ToString();
             DataTable dt = ObjclsFrms.loadList("selectCompanyForDropDown", "sp_Masters", userID);
-            ddlplgcompany.DataSource = dt;
-            ddlplgcompany.DataTextField = "com_Name";
-            ddlplgcompany.DataValueField = "com_Code";
-            ddlplgcompany.DataBind();
+            ddlplgcomp.DataSource = dt;
+            ddlplgcomp.DataTextField = "com_Name";
+            ddlplgcomp.DataValueField = "com_Code";
+            ddlplgcomp.DataBind();
         }
+
+        //protected void Save()
+        //{
+        //    string code, name, route,company;
+        //    name = txtname.Text.ToString();
+        //    code = txtcode.Text.ToString();
+        //    route = ddlRout.SelectedValue.ToString();
+        //    string user = UICommon.GetCurrentUserID().ToString();
+        //    string plgImage = "";
+        //    company = ddlplgcomp.SelectedValue.ToString();
+
+
+
+        //    int ImageID = 0;
+        //    foreach (UploadedFile uploadedFile in upd1.UploadedFiles)
+        //    {
+        //        ImageID += 1;
+        //        string csvPath = Server.MapPath(("..") + @"/../UploadFiles/MerchPlanogram/") + ImageID.ToString() + "_" + uploadedFile.FileName;
+        //        uploadedFile.SaveAs(csvPath);
+        //        plgImage = @"../../UploadFiles/MerchPlanogram/" + ImageID.ToString() + "_" + uploadedFile.FileName.ToString();
+        //        ViewState["Image"] = plgImage.ToString();
+
+        //        //string csvPath1 = Server.MapPath(("..") + @"/../UploadFiles/MerchPlanogram/") + uploadedFile.FileName;
+        //        //uploadedFile.SaveAs(csvPath);
+        //        //plImage = @"../../UploadFiles/MerchPlanogram/" + uploadedFile.FileName.ToString();
+        //        //ViewState["image"] = plImage.ToString();
+
+
+        //    }
+
+        //    plgImage = "";
+        //    if (ViewState["image"] != null)
+        //    {
+        //        plgImage = ViewState["image"].ToString();
+        //    }
+        //    if (ResponseID.Equals("") || ResponseID == 0)
+        //    {
+        //        string[] arr = { name, route, user, plgImage,company };
+        //        string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "InsertPlanogram", code, arr);
+        //        int res = Int32.Parse(Value.ToString());
+        //        if (res >= 0)
+        //        {
+        //            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('Saved Successfully');</script>", false);
+        //        }
+        //        else
+        //        {
+        //            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+        //        }
+
+
+        //    }
+
+        //    else
+        //    {
+        //        string id = ResponseID.ToString();
+        //        string[] arr = { name, route, id, user, plgImage,company };
+        //        string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "UpdatePlanogram", code, arr);
+        //        int res = Int32.Parse(Value.ToString());
+        //        if (res > 0)
+
+        //        {
+        //            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('Updated Successfully');</script>", false);
+        //        }
+        //        else
+        //        {
+        //            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+        //        }
+        //    }
+        //}
+
 
         protected void Save()
         {
             string code, name, route, plgImage,company;
             name = txtname.Text.ToString();
             code = txtcode.Text.ToString();
-            route = ddlRoute.SelectedValue.ToString();
+            route = ddlRout.SelectedValue.ToString();
+            company = ddlplgcomp.SelectedValue.ToString();
             string user = UICommon.GetCurrentUserID().ToString();
             string plImage = "";
-            company = ddlplgcompany.SelectedValue.ToString();
-
 
             int ImageID = 0;
             foreach (UploadedFile uploadedFile in upd1.UploadedFiles)
@@ -153,7 +222,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
             }
-             plgImage = "";
+            plgImage = "";
             if (ViewState["image"] != null)
             {
                 plgImage = ViewState["image"].ToString();
@@ -192,16 +261,19 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
             }
         }
-        
+
+
+
+
         //protected void rdRoute_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         //{
-            //string rotID = rdRoute.SelectedValue.ToString();
-            //if (rotID.Equals("ord_rot_ID"))
-            //{
-            //    rotID = "0";
-            //}
-            //string routeCondition = " rcs_rot_ID in (" + rotID + ")";
-            //Customers(routeCondition);
+        //string rotID = rdRoute.SelectedValue.ToString();
+        //if (rotID.Equals("ord_rot_ID"))
+        //{
+        //    rotID = "0";
+        //}
+        //string routeCondition = " rcs_rot_ID in (" + rotID + ")";
+        //Customers(routeCondition);
 
         //}
 
@@ -210,11 +282,21 @@ namespace SalesForceAutomation.BO_Digits.en
 
         }
 
-        protected void lnkAdd_Click(object sender, EventArgs e)
+        protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
-        }
+            //string planogram = img1.ImageUrl.ToString();
 
+            if ((upd1.UploadedFiles.Count == 0) && (ViewState["taskimage"] == null))
+            {
+
+
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failModal();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+            }
+        }
         protected void rdCustomer_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
 
@@ -224,6 +306,10 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             Save();
         }
+
+       
+
+        
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
@@ -237,12 +323,12 @@ namespace SalesForceAutomation.BO_Digits.en
             if (lstCodeChecker.Rows.Count > 0)
             {
                 lblCodeDupli.Text = "Code Already Exist";
-                lnkAdd.Enabled = false;
+                LinkButton2.Enabled = false;
                 lblCodeDupli.Visible = true;
             }
             else
             {
-                lnkAdd.Enabled = true;
+                LinkButton2.Enabled = true;
                 lblCodeDupli.Visible = false;
             }
         }

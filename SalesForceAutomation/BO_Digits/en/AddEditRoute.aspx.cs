@@ -32,20 +32,6 @@ namespace SalesForceAutomation.BO_Digits.en
 
             if (!Page.IsPostBack)
             {
-                try
-                {
-                    string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    string Platform = "USER";
-                    string IsStatusChange = "N";
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " ListRoute.aspx  , " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
-                }
-                catch (Exception ex)
-                {
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Page_Load() Error: " + ex.Message.ToString());
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
-                }
-
                 user();
                 DepotSubArea();
                 Vehicles();
@@ -793,6 +779,20 @@ namespace SalesForceAutomation.BO_Digits.en
             else
             {
                 promode = "SL";
+            }
+
+            try
+            {
+                string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                string Platform = "USER";
+                string IsStatusChange = "N";
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " ListRoute.aspx  , " + "LicenseKey : " + LicenseKey);
+                LicenseCounts(LicenseKey, Platform, IsStatusChange);
+            }
+            catch (Exception ex)
+            {
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx-1 , " + "Page_Load() Error: " + ex.Message.ToString());
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
             }
 
             if (ResponseID.Equals("") || ResponseID == 0)

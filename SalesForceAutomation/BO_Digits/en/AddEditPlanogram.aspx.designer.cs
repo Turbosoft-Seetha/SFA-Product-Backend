@@ -15,31 +15,22 @@ namespace SalesForceAutomation.BO_Digits.en
     {
 
         /// <summary>
-        /// rdd control.
+        /// RadAjaxPanel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel rdd;
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel3;
 
         /// <summary>
-        /// lnkCancel control.
+        /// LinkButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCancel;
-
-        /// <summary>
-        /// lnkAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAdd;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
 
         /// <summary>
         /// RadAjaxLoadingPanel1 control.
@@ -105,13 +96,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
 
         /// <summary>
-        /// ddlRoute control.
+        /// ddlRout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlRoute;
+        protected global::Telerik.Web.UI.RadComboBox ddlRout;
 
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -123,13 +114,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// ddlplgcompany control.
+        /// ddlplgcomp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlplgcompany;
+        protected global::Telerik.Web.UI.RadComboBox ddlplgcomp;
 
         /// <summary>
         /// RequiredFieldValidator4 control.
