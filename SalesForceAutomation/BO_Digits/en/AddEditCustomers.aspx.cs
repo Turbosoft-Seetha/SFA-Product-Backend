@@ -14,8 +14,7 @@ using Telerik.Web.UI;
 using Telerik.Windows.Documents.Spreadsheet.Expressions.Functions;
 
 namespace SalesForceAutomation.BO_Digits.en
-{
-    
+{    
     public partial class AddEditCustomers : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();

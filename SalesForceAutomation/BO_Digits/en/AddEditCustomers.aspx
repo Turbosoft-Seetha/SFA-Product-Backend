@@ -11,6 +11,7 @@
             $('#modalConfirmRoute').modal('show');
         }
 
+
         function hideModalAndReload() {
             $('#kt_modal_1_4').modal('hide');
             setTimeout(function () {

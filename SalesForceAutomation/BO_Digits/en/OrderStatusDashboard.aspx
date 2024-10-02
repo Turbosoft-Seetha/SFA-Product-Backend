@@ -12,35 +12,49 @@
         <telerik:AjaxSetting AjaxControlID="lblQtncount">
             <UpdatedControls>
                 <telerik:AjaxUpdatedControl ControlID="grvRptQuatation" />
-                
+
             </UpdatedControls>
         </telerik:AjaxSetting>
         <telerik:AjaxSetting AjaxControlID="lblSOcount">
-    <UpdatedControls>
-        <telerik:AjaxUpdatedControl ControlID="grvRptSalesOrder" />
-        
-    </UpdatedControls>
-</telerik:AjaxSetting>
+            <UpdatedControls>
+                <telerik:AjaxUpdatedControl ControlID="grvRptSalesOrder" />
+
+            </UpdatedControls>
+        </telerik:AjaxSetting>
         <telerik:AjaxSetting AjaxControlID="lblCSOcount">
-    <UpdatedControls>
-        <telerik:AjaxUpdatedControl ControlID="grvRptConfirmSO" />
-        
-    </UpdatedControls>
-</telerik:AjaxSetting>
-                <telerik:AjaxSetting AjaxControlID="liConSalesOrd">
-    <UpdatedControls>
-        <telerik:AjaxUpdatedControl ControlID="grvRptConfirmSO" />
-        
-    </UpdatedControls>
-</telerik:AjaxSetting>
+            <UpdatedControls>
+                <telerik:AjaxUpdatedControl ControlID="grvRptConfirmSO" />
+
+            </UpdatedControls>
+        </telerik:AjaxSetting>
+        <telerik:AjaxSetting AjaxControlID="liQuotation">
+            <UpdatedControls>
+                <telerik:AjaxUpdatedControl ControlID="grvRptSalesOrder" />
+                <telerik:AjaxUpdatedControl ControlID="grvRptQuatation" />
+                <telerik:AjaxUpdatedControl ControlID="grvRptConfirmSO" />
+
+            </UpdatedControls>
+        </telerik:AjaxSetting>
+         <telerik:AjaxSetting AjaxControlID="liSalesOrd">
+     <UpdatedControls>
+         <telerik:AjaxUpdatedControl ControlID="grvRptSalesOrder" />
+         <telerik:AjaxUpdatedControl ControlID="grvRptQuatation" />
+         <telerik:AjaxUpdatedControl ControlID="grvRptConfirmSO" />
+
+     </UpdatedControls>
+ </telerik:AjaxSetting>
+         <telerik:AjaxSetting AjaxControlID="liConSalesOrd">
+     <UpdatedControls>
+         <telerik:AjaxUpdatedControl ControlID="grvRptSalesOrder" />
+         <telerik:AjaxUpdatedControl ControlID="grvRptQuatation" />
+         <telerik:AjaxUpdatedControl ControlID="grvRptConfirmSO" />
+
+     </UpdatedControls>
+ </telerik:AjaxSetting>
 
     </AjaxSettings>
 
 </telerik:RadAjaxManagerProxy>
-
-
-
-    
    
 
 
@@ -116,7 +130,7 @@
 
                 <ul class="nav nav-pills nav-pills-custom mb-3" style="justify-content:space-around;">
 
-                    <li id="liQuotation" class="nav-item col-lg-4 nav-link btn  btn-sm text-hover-white  btn-active btn-active-purple fs-4 fw-bold px-4 me-1 text-dark text-white" 
+                    <li id="liQuotation" class="nav-item col-lg-4 nav-link btn btn-sm btn-color-muted btn-active btn-active-purple fs-4 fw-bold px-4 me-1 " 
                         data-kt-timeline-widget-1="tab" data-bs-toggle="tab" style="background-color: white; width: 31rem; height: 6.5rem; padding-top: 20px; " 
                         href="#kt_timeline_widget_1" runat="server" >
                     <%--<li class="nav-item col-lg-3 nav-link btn btn-sm text-hover-white btn-active btn-active-purple fs-4 fw-bold px-4 me-1 text-dark active text-white" data-kt-timeline-widget-1="tab" data-bs-toggle="tab" style="width: 19.5rem; height: 6.5rem; padding-top: 20px;" href="#kt_timeline_widget_1">--%>
@@ -217,7 +231,7 @@
                                 ShowFooter="True" AllowSorting="True"
                                 OnNeedDataSource="grvRptQuatation_NeedDataSource"
                                  OnItemCommand="grvRptQuatation_ItemCommand"
-
+                               
                                 AllowFilteringByColumn="true"
                                 ClientSettings-Resizing-ClipCellContentOnResize="true"
                                 EnableAjaxSkinRendering="true"

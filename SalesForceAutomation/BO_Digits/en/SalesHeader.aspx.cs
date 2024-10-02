@@ -42,7 +42,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                if ((Mode == 1) || (Mode == 2))
+                if ((Mode == 1) || (Mode == 2) || Mode == 3)
                 {
                     plhFilter.Visible = false;
                     rdRoute.Enabled = false;
@@ -81,6 +81,42 @@ namespace SalesForceAutomation.BO_Digits.en
 					{
 						Response.Redirect("~/SignIn.aspx");
 					}                   
+                }
+                else if (Mode == 3) // While loading page from customer dashboard
+                {
+                    try
+                    {
+                        if (Session["SHFDate"] != null)
+                        {
+
+                            rdfromDate.SelectedDate = DateTime.Parse(Session["SHFDate"].ToString());
+                        }
+                        else
+                        {
+                            rdfromDate.SelectedDate = DateTime.Now;
+
+
+                        }
+                        rdfromDate.MaxDate = DateTime.Now;
+
+                        if (Session["SHTDate"] != null)
+                        {
+
+                            rdendDate.SelectedDate = DateTime.Parse(Session["SHTDate"].ToString());
+                        }
+                        else
+                        {
+                            rdendDate.SelectedDate = DateTime.Now;
+
+                        }
+                        rdendDate.MaxDate = DateTime.Now;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+
                 }
                 else // While loading page from transaction menu
                 {
@@ -237,6 +273,84 @@ namespace SalesForceAutomation.BO_Digits.en
                         Response.Redirect("~/SignIn.aspx");
                     }
                 }
+                else if (Mode == 3)
+                {
+                    try
+                    {
+                        if (Session["SHrotID"] != null)
+                        {
+                            int a = rdRoute.Items.Count;
+                            string route = Session["SHrotID"].ToString();
+                            string[] ar = route.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdRoute.Items)
+                                {
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                            string routeCondition = " rcs_rot_ID in (" + route + ")";
+                            Customers(routeCondition);
+
+                        }
+                        else
+                        {
+                            string rotID = Rot();
+                            string routeCondition = " 1=1 ";
+                            Customers(routeCondition);
+
+
+                        }
+                        if (Session["SHcusID"] != null)
+                        {
+
+                            string cusID = Session["SHcusID"].ToString();
+                            string[] ar = cusID.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdCustomer.Items)
+                                {
+
+
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            string cusID = Cus();
+                            string cusCondition = "A.cus_ID in (" + cusID + ")";
+                        }
+                        //invType
+                        if (Session["SHInvID"] != null)
+                        {
+                            string cusID = Session["SHInvID"].ToString();
+                            string[] ar = cusID.Split(',');
+                            for (int i = 0; i < ar.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdInvType.Items)
+                                {
+
+
+                                    if (items.Value == ar[i])
+                                    {
+                                        items.Checked = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Redirect("~/SignIn.aspx");
+                    }
+                }
                 else
                 {
                     try
@@ -315,7 +429,7 @@ namespace SalesForceAutomation.BO_Digits.en
                         Response.Redirect("~/SignIn.aspx");
                     }
                 }
-               
+
                 try
                 {
                     GetGridSession(grvRpt, "SalesH");
@@ -340,7 +454,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 mainCondition = mainConditions(rotID);
 
 
-                if (Mode == 1)
+                if (Mode == 1 || Mode == 3)
                 {
                     string type = Request.Params["type"].ToString();
                     if (type.Equals("SL"))

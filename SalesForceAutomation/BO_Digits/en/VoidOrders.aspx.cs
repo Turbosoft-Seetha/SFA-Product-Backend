@@ -142,7 +142,8 @@ namespace SalesForceAutomation.BO_Digits.en
                 string mainCondition = "";
                 mainCondition = mainConditions(rotID);
                 DataTable lstDatas = new DataTable();
-                lstDatas = ObjclsFrms.loadList("ListOrder", "sp_Merchandising_UOM", mainCondition);
+                string[] ar = { mainCondition };
+                lstDatas = ObjclsFrms.loadList("ListOrder", "sp_Merchandising_UOM", UICommon.GetCurrentUserID().ToString(), ar);
                 grvRpt.DataSource = lstDatas;
             }
 

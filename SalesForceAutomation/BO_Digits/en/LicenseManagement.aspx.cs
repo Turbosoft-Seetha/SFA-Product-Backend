@@ -28,8 +28,10 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    obj.TraceService(UICommon.GetLogFileName()+ " LicenseManagement.aspx-1 , " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey);
+                    string Platform = "";
+                    string IsStatusChange = "N";
+                    obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx  , " + "LicenseKey : " + LicenseKey);
+                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
                 }
                 catch(Exception ex)
                 {
@@ -93,20 +95,35 @@ namespace SalesForceAutomation.BO_Digits.en
             catch (Exception ex)
             {
                 String innerMessage = (ex.InnerException != null) ? ex.InnerException.Message : "";
-                obj.TraceService(UICommon.GetLogFileName()+ " InvoiceDetail.aspx PageLoad() , "+ "Error : " + ex.Message.ToString() + " - " + innerMessage);
+                obj.TraceService(UICommon.GetLogFileName()+ " LicenseManagement.aspx  -  WebServiceCall() , " + "Error : " + ex.Message.ToString() + " - " + innerMessage);
                 return ex.Message.ToString();
             }
         }
-        public void LicenseCounts(string LicenseKey)
+        public void LicenseCounts(string LicenseKey, string Platform, string IsStatusChange)
         {
             obj.TraceService(UICommon.GetLogFileName()+ " LicenseManagement.aspx-1 , "+ "Inside LicenseCounts()");
 
             try
             {
+
+                DataTable lstActive = obj.loadList("LicenseMasterCounts", "sp_LicenseManagement");
+                string RouteCount = lstActive.Rows[0]["RouteCount"].ToString();
+                string SFA_AppUserCount = lstActive.Rows[0]["SFA_AppUserCount"].ToString();
+                string InvUserCount = lstActive.Rows[0]["InventoryUserCount"].ToString();
+                string BOUserCount = lstActive.Rows[0]["BackOfficeUserCount"].ToString();
+                string CCUserCount = lstActive.Rows[0]["CustomerConnectUserCount"].ToString();
+
                 LicenseInpara LicenseIn = new LicenseInpara();
                 LicenseIn = new LicenseInpara
                 {
-                    LicenseKey = LicenseKey.ToString()
+                    LicenseKey = LicenseKey.ToString(),
+                    RouteCount = RouteCount.ToString(),
+                    InventoryUserCount = InvUserCount.ToString(),
+                    BackOfficeUserCount = BOUserCount.ToString(),
+                    CustomerConnectUserCount = CCUserCount.ToString(),
+                    SFA_AppUserCount = SFA_AppUserCount.ToString(),
+                    Platform = Platform.ToString(),
+                    IsStatusChange = IsStatusChange.ToString()
                 };
 
                 string JSONStr = JsonConvert.SerializeObject(LicenseIn);
@@ -132,6 +149,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     // Extract values from the result object
                     string resCode = result["Res"].ToString();
                     string message = result["Message"].ToString();
+                    string ResponseMessage = result["ResponseMessage"].ToString();
 
                     // Extract the LicenseData array
                     JArray licenseDataArray = (JArray)result["LicenseData"];
@@ -158,20 +176,14 @@ namespace SalesForceAutomation.BO_Digits.en
                         if (resCode == "200")
                         {
                             lblLicNum.Text = LicsNum;
-                            lblLicKey.Text = LicsKey;                           
+                            lblLicKey.Text = LicsKey;
+                            //txtLicKey.Value = LicsKey;
                             lblLicStDate.Text = StartDate;
                             lblExpOn.Text = ExpDate;
                             lblConPer.Text = ContPerson;
                             lblConNum.Text = ContNumber;
                             lblType.Text = LicsType;
                             lblStatus.Text = Status;
-
-                            DataTable lstActive = obj.loadList("LicenseManageMasterCounts", "sp_LicenseManagement");
-                            string RouteCount = lstActive.Rows[0]["RouteCount"].ToString();
-                            string SFA_AppUserCount = lstActive.Rows[0]["SFA_AppUserCount"].ToString();
-                            string InvUserCount = lstActive.Rows[0]["InventoryUserCount"].ToString();
-                            string BOUserCount = lstActive.Rows[0]["BackOfficeUserCount"].ToString();
-                            string CCUserCount = lstActive.Rows[0]["CustomerConnectUserCount"].ToString();
 
                             lblRoute.Text = RouteCount.ToString();
                             //lblAppUsr.Text = SFA_AppUserCount.ToString();
@@ -256,6 +268,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             public string Res { get; set; }
             public string Message { get; set; }
+            public string ResponseMessage { get; set; }
             public List<LicenseData> LicenseData { get; set; }
         }
         public class ResponseData
@@ -265,6 +278,13 @@ namespace SalesForceAutomation.BO_Digits.en
         public class LicenseInpara
         {
             public string LicenseKey { get; set; }
+            public string RouteCount { get; set; }
+            public string InventoryUserCount { get; set; }
+            public string BackOfficeUserCount { get; set; }
+            public string CustomerConnectUserCount { get; set; }
+            public string SFA_AppUserCount { get; set; }
+            public string Platform { get; set; }
+            public string IsStatusChange { get; set; }
         }
     }
 }

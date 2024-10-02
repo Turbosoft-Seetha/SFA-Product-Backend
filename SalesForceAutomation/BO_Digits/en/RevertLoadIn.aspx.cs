@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using Telerik.Web.UI;
+using Telerik.Windows.Documents.Spreadsheet.Expressions.Functions;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -18,9 +19,54 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                ViewState["Filter"] = "";
-                grvRpt.DataSource = null;
-                grvRpt.DataBind();
+
+                try
+                {
+
+                    if (Session["RCode"] != null)
+                    {
+                       
+                   
+                    
+                        LoadTxtBOX.Text = Session["RCode"].ToString();
+                    }
+                   
+
+
+
+                    if (Session["RDate"] != null)
+                    {
+
+                        rddate.SelectedDate = DateTime.Parse(Session["RDate"].ToString());
+                    }
+                    else
+                    {
+                        rddate.SelectedDate = DateTime.Now;
+
+
+                    }
+                    rddate.MaxDate = DateTime.Now;
+
+                    
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/SignIn.aspx");
+                }
+                try
+                {
+                    GetGridSession(grvRpt, "RVTL");
+
+                    grvRpt.Rebind();
+                }
+
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/SignIn.aspx");
+                }
+                //ViewState["Filter"] = "";
+                //grvRpt.DataSource = null;
+                //grvRpt.DataBind();
             }
         }
 
@@ -30,14 +76,17 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         public void LoadData()
         {
+            string  date;
 
+            DataTable lstDatas = new DataTable();
+            date = DateTime.Parse(rddate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            
+            string code = LoadTxtBOX.Text.Trim();
+            string[] ar = { date };
+            //string Lid = rdLoadinNum.SelectedValue.ToString();
+            Session["LihID"] = code;
 
-           DataTable lstDatas = new DataTable();
-
-            string Lid = rdLoadinNum.SelectedValue.ToString();
-            Session["LihID"] = Lid;
-
-            lstDatas = ObjclsFrms.loadList("ListCompletedLoadIn", "sp_Backend", Lid);
+            lstDatas = ObjclsFrms.loadList("ListCompletedLoadIn", "sp_Backend", code,ar);
             grvRpt.DataSource = lstDatas;
             Session["lstLih"] = lstDatas;
 
@@ -45,6 +94,42 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
+            try
+            { 
+
+            
+                Session["RCode"] = LoadTxtBOX.Text.ToString();
+            
+
+
+
+
+              if (Session["RDate"] != null)
+               {
+                string fromdate = rddate.SelectedDate.ToString();
+                if (fromdate == Session["RDate"].ToString())
+                {
+                    rddate.SelectedDate = DateTime.Parse(Session["RDate"].ToString());
+                }
+                else
+                {
+                    Session["RDate"] = DateTime.Parse(rddate.SelectedDate.ToString());
+                }
+              }
+              else
+              {
+                rddate.SelectedDate = DateTime.Parse(rddate.SelectedDate.ToString());
+                Session["RDate"] = DateTime.Parse(rddate.SelectedDate.ToString());
+
+              }
+
+
+               rddate.MaxDate = DateTime.Now;
+            }
+             catch (Exception ex)
+            {
+                Response.Redirect("~/SignIn.aspx");
+            }
             LoadData();
             grvRpt.Rebind();
         }
@@ -63,30 +148,32 @@ namespace SalesForceAutomation.BO_Digits.en
             }
         }
 
-        protected void lnkFilter_Click(object sender, EventArgs e)
-        {
-            FillLoadInNum();
-        }
+        //protected void lnkFilter_Click(object sender, EventArgs e)
+        //{
+        //    FillLoadInNum();
+        //}
 
-        public void FillLoadInNum()
-        {
-            rdLoadinNum.DataSource = ObjclsFrms.loadList("selLoadInIdforRevertLoadIn", "sp_Masters", LoadTxtBOX.Text.ToString());
-            rdLoadinNum.DataTextField = "lih_TransID";
-            rdLoadinNum.DataValueField = "lih_ID";
-            rdLoadinNum.DataBind();
+        //public void FillLoadInNum()
+        //{
+        //    rdLoadinNum.DataSource = ObjclsFrms.loadList("selLoadInIdforRevertLoadIn", "sp_Masters", LoadTxtBOX.Text.ToString());
+        //    rdLoadinNum.DataTextField = "lih_TransID";
+        //    rdLoadinNum.DataValueField = "lih_ID";
+        //    rdLoadinNum.DataBind();
 
-        }
+        //}
 
         protected void grvRpt_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            if (ViewState["Filter"].ToString().Equals("Yes"))
-            {
-                grvRpt.DataSource = Session["lstLih"] as DataTable;
-            }
-            else
-            {
-                grvRpt.DataSource = new DataTable(); // Ensure no data is bound initially
-            }
+
+            LoadData();
+            //if (ViewState["Filter"].ToString().Equals("Yes"))
+            //{
+            //    grvRpt.DataSource = Session["lstLih"] as DataTable;
+            //}
+            //else
+            //{
+            //    grvRpt.DataSource = new DataTable(); // Ensure no data is bound initially
+            //}
         }
         public string GetItemFromGrid()
         {
@@ -172,11 +259,134 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
+            try
+            {
+                RadGrid grd = (RadGrid)sender;
 
+                SetGridSession(grd, "RVTL");
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/SignIn.aspx");
+            }
         }
 
         protected void grvRpt_ItemDataBound(object sender, Telerik.Web.UI.GridItemEventArgs e)
         {
+
+        }
+        public void SetGridSession(RadGrid grd, string SessionPrefix)
+
+        {
+
+            try
+
+            {
+
+                foreach (GridColumn column in grd.MasterTableView.Columns)
+
+                {
+
+                    if (column is GridBoundColumn boundColumn)
+
+                    {
+
+                        string columnName = boundColumn.UniqueName;
+
+                        string filterValue = column.CurrentFilterValue;
+
+                        Session[SessionPrefix + columnName] = filterValue;
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+
+                Response.Redirect("~/SignIn.aspx");
+
+            }
+
+
+
+        }
+        public void GetGridSession(RadGrid grd, string SessionPrefix)
+
+        {
+
+            try
+
+            {
+
+                string filterExpression = string.Empty;
+
+                foreach (GridColumn column in grd.MasterTableView.Columns)
+
+                {
+
+                    if (column is GridBoundColumn boundColumn)
+
+                    {
+
+                        string columnName = boundColumn.UniqueName;
+
+                        if (Session[SessionPrefix + columnName] != null)
+
+                        {
+
+                            string filterValue = Session[SessionPrefix + columnName].ToString();
+
+
+
+                            if (filterValue != "")
+                            {
+
+                                column.CurrentFilterValue = filterValue;
+
+
+
+                                if (!string.IsNullOrEmpty(filterExpression))
+
+                                {
+
+                                    filterExpression += " AND ";
+
+                                }
+
+                                filterExpression += string.Format("{0} LIKE '%{1}%'", column.UniqueName, column.CurrentFilterValue);
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                if (filterExpression != string.Empty)
+
+                {
+
+                    grvRpt.MasterTableView.FilterExpression = filterExpression;
+
+                }
+
+
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                Response.Redirect("~/SignIn.aspx");
+
+            }
 
         }
     }
