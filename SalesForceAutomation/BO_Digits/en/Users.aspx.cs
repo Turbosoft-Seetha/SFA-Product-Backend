@@ -27,20 +27,6 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 try
                 {
-                    string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    string Platform = "BO";
-                    string IsStatusChange = "N";
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , Page_Load() - " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
-                }
-                catch (Exception ex)
-                {
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , Page_Load() - " + "Page_Load() Error: " + ex.Message.ToString());
-
-                }
-
-                try
-                {
                     lnkALl.Attributes.Add("Style", "background-color:#dae9f8; color:#60acf9");
                     DataTable lstUser = default(DataTable);
                     lstUser = ObjclsFrms.loadList("SelUserCount", "sp_Masters");
@@ -277,6 +263,19 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkAddUser_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                string Platform = "BO";
+                string IsStatusChange = "N";
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , lnkAddUser_Click() - " + "LicenseKey : " + LicenseKey);
+                LicenseCounts(LicenseKey, Platform, IsStatusChange);
+            }
+            catch (Exception ex)
+            {
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " Users.aspx , lnkAddUser_Click() - " + "Page_Load() Error: " + ex.Message.ToString());
+
+            }
             string ResponseMessage = ViewState["ResponseMessage"].ToString();
 
             if (ResponseMessage == "Proceed")
