@@ -678,6 +678,7 @@ namespace SalesForceAutomation.BO_Digits.en
             Session["LOrotID"] = null;
 
             Response.Redirect("ListOrders.aspx?mode=3");
+
         }
 
         protected void lnkARColl_Click(object sender, EventArgs e)
