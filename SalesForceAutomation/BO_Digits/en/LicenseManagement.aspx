@@ -497,7 +497,7 @@
     <script>
         window.onload = function () {
             var licenseKey = document.getElementById('<%= txtLicKey.ClientID %>').value;
-            console.error("License Key: ", licenseKey); // This will log the license key in the console
+            console.log("License Key: ", licenseKey); // This will log the license key in the console
         };
 
         function toggleLicenseKey() {
@@ -537,13 +537,20 @@
 
             if (LicenseKeyTextbox) {
 
+                var originalType = LicenseKeyTextbox.type; // Store the original type
+                LicenseKeyTextbox.type = "text"; // Show the value
+
                 LicenseKeyTextbox.select();
                 document.execCommand("copy");
-                console.error("LicenseKey copied!");
+
+                console.log("LicenseKey copied!");
+                console.log("LicenseKey : " + document.getElementById('<%= txtLicKey.ClientID %>').value);
 
                 // Change the clipboard icon to a tick icon
                 toggleCopyIcon.classList.remove("bi-clipboard");                
                 toggleCopyIcon.innerHTML = '<i class="bi bi-check2" style="color: green;"></i> <span style="padding-top: 5px; display: inline-block;">Copied!</span>'; // Change to tick icon and "Copied!" text
+
+                LicenseKeyTextbox.type = originalType;
 
                 // Optionally, revert back to the clipboard icon after 2 seconds
                 setTimeout(function () {
