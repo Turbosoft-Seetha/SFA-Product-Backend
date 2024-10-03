@@ -37,20 +37,6 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 Store();
 
-                try
-                {
-                    string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    string Platform = "INV";
-                    string IsStatusChange = "N";
-                    obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx , " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
-                }
-                catch (Exception ex)
-                {
-                    obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx , " + "Page_Load() Error: " + ex.Message.ToString() );
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
-                }
-
                 if (Id.Equals("") || Id == "0")                                //To check whether there is a value for ResponseID or not. For adding there won't be a value.
                 {
                     
@@ -423,8 +409,19 @@ namespace SalesForceAutomation.BO_Digits.en
             IsInstatStockCount= this.rdInsStockCounts.SelectedValue.ToString();
             usertype = this.rdappUsrtypes.SelectedValue.ToString();
 
-            //string userCount = ViewState["InventoryUserCount"].ToString();
-            //int AppUserCount = Int32.Parse(userCount);
+            try
+            {
+                string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                string Platform = "INV";
+                string IsStatusChange = "N";
+                obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx , " + "LicenseKey : " + LicenseKey);
+                LicenseCounts(LicenseKey, Platform, IsStatusChange);
+            }
+            catch (Exception ex)
+            {
+                obj.TraceService(UICommon.GetLogFileName() + " AddEditUsers.aspx , " + "Save() Error: " + ex.Message.ToString());
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
+            }
 
             if (ResponseID.Equals("") || ResponseID == 0)
             {

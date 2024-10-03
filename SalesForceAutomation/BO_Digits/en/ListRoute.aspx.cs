@@ -25,19 +25,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                try
-                {
-                    string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                    string Platform = "USER";
-                    string IsStatusChange = "N";
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " ListRoute.aspx  , " + "LicenseKey : " + LicenseKey);
-                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
-                }
-                catch (Exception ex)
-                {
-                    ObjclsFrms.TraceService(UICommon.GetLogFileName() + " ListRoute.aspx  , " + "Page_Load() Error: " + ex.Message.ToString());
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
-                }
+                
             }
         }
 
@@ -319,7 +307,21 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkSubCat_Click(object sender, EventArgs e)
         {
-           string ResponseMessage = ViewState["ResponseMessage"].ToString();
+            try
+            {
+                string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                string Platform = "USER";
+                string IsStatusChange = "N";
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " ListRoute.aspx  , " + "LicenseKey : " + LicenseKey);
+                LicenseCounts(LicenseKey, Platform, IsStatusChange);
+            }
+            catch (Exception ex)
+            {
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " ListRoute.aspx  , " + "lnkSubCat_Click() Error: " + ex.Message.ToString());
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+            }
+
+            string ResponseMessage = ViewState["ResponseMessage"].ToString();
 
             if(ResponseMessage == "Proceed")
             {
