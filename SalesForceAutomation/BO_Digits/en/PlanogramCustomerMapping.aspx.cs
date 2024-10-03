@@ -197,7 +197,7 @@ namespace SalesForceAutomation.BO_Digits.en
             Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
         }
 
-   
+
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
@@ -212,18 +212,41 @@ namespace SalesForceAutomation.BO_Digits.en
             }
         }
 
-        protected void btnDeleteOk_Click(object sender, EventArgs e)
+
+
+        protected void radSelectAllDelete_CheckedChanged1(object sender, EventArgs e)
         {
-            Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
-            //LoadList();
-            //grvRpt.Rebind();
+            if (radSelectAllDelete.Checked)
+            {
+                foreach (GridDataItem item in grvRpt.Items)
+                {
+                    RadioButtonList radPresent = (RadioButtonList)item.FindControl("rbActions");
+                    if (radPresent != null)
+                    {
+                        ListItem radApprove = radPresent.Items.FindByValue("A");
+                        if (radApprove != null )
+                        {
+                            radApprove.Selected = true;
+                        }
+                    }
+
+
+                }
+            }
         }
+
+        //protected void btnDeleteOk_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
+        //    //LoadList();
+        //    //grvRpt.Rebind();
+        //}
 
         protected void Delete_Click(object sender, EventArgs e)
         {
             string ID = ViewState["SelectedPlcID"] as string;
             string[] arr = { };
-            string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", ID.ToString(),arr);
+            string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", ID.ToString(), arr);
             int res = Int32.Parse(Value.ToString());
 
             if (res > 0)
@@ -238,6 +261,14 @@ namespace SalesForceAutomation.BO_Digits.en
 
         }
 
- 
+        
+
+        protected void lnkConfirm_Click1(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+
+
+            
+        }
     }
 }
