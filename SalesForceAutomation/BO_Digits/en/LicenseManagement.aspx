@@ -548,7 +548,7 @@
 
                 // Change the clipboard icon to a tick icon
                 toggleCopyIcon.classList.remove("bi-clipboard");                
-                toggleCopyIcon.innerHTML = '<i class="bi bi-check2" style="color: green;"></i> <span style="padding-top: 5px; display: inline-block;">Copied!</span>'; // Change to tick icon and "Copied!" text
+                toggleCopyIcon.innerHTML = '<i class="bi bi-check2" style="color: green;"></i> <span style="padding-top: 6px; display: inline-block;">Copied!</span>'; // Change to tick icon and "Copied!" text
 
                 LicenseKeyTextbox.type = originalType;
 
@@ -562,53 +562,6 @@
             }
         }
     </script>
-
-   <%-- <script>
-        function toggleLicenseKey() {
-            var LicenseKeyTextbox = document.getElementById("txtLicKey");
-
-            // Check if the element exists
-            if (LicenseKeyTextbox) {
-                LicenseKeyTextbox.select();
-                LicenseKeyTextbox.type = "text"; 
-                //var LicsKeys =  document.getElementById("txtLicKey").value = LicsKey;
-                document.execCommand("show");
-
-               // console.error("License key : " + LicsKeys);
-                console.error("License key Showing");
-            } else {
-                console.error("Element with ID 'txtLicKey' not found.");
-            }
-
-        }
-        function ShowLicenseKey() {
-            var LicenseKeyTextbox = document.getElementById("txtLicKey");
-            LicenseKeyTextbox.type = "text";  // Show the license key as plain text
-            LicenseKeyTextbox.select();
-            document.execCommand("show");
-        }
-
-        function HideLicenseKey() {
-            var LicenseKeyTextbox = document.getElementById("txtLicKey");
-            LicenseKeyTextbox.type = "password";  // Hide the license key (show as password)
-        }
-
-        function copyPassword() {
-            var LicenseKeyTextbox = document.getElementById("txtLicKey");
-
-            // Check if the element exists
-            if (LicenseKeyTextbox) {
-                LicenseKeyTextbox.select();
-                document.execCommand("copy");
-                console.error("License key Copy");
-                // Show toast notification
-                toastr.success("LicenseKey copied!");
-            } else {
-                console.error("Element with ID 'txtLicKey' not found.");
-            }
-        }
-    </script>--%>
-
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerScripts" runat="server">
