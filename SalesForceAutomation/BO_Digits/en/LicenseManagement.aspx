@@ -24,29 +24,35 @@
                                                 <span class="text-grey-400 mt-1 fw-semibold fs-4" style="color: black;">License Number:</span>
                                                 <asp:Label ID="lblLicNum" runat="server" Style="font-family: 'Segoe UI'; font-size: medium; font-weight: bold;" Text="10"></asp:Label>
                                             </div>
-                                            <div class="col-lg-6">
+                                           <%-- <div class="col-lg-6">
                                                 <span class="text-grey-400 mt-1 fw-semibold fs-4" style="color: black;">License Key:</span>
                                                 <asp:Label ID="lblLicKey" runat="server" Style="font-family: 'Segoe UI'; font-size: medium; font-weight: bold;" Text="10"></asp:Label>
-                                            </div>
+                                            </div>--%>
 
-                                           <%-- <div class="col-lg-8 row">
+                                            <div class="col-lg-8 row">
                                                 <div class="col-lg-12 row">
                                                     <div class="col-lg-2 pt-4">
                                                         <span class="text-grey-400 mt-1 fw-semibold fs-4" style="color: black;">License Key:</span>
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <!-- License Key Input Field -->
-                                                         <input type="text" id="txtLicKey" class="form-control" readonly runat="server" ClientIDMode="Static" onmouseover="ShowLicenseKey()" />
-                                                       
+
+                                                         <asp:TextBox ID="txtLicKey" runat="server" TextMode="Password" CssClass="form-control" ReadOnly="True" ClientIDMode="Static" />
                                                     </div>
                                                     <div class="col-lg-1">
-                                                        <!-- Copy Button with Clipboard Icon -->
-                                                        <button class="btn btn-outline-secondary" type="button" id="btnCopyPassword" onclick="copyPassword()">
-                                                            <i class="bi bi-clipboard" style="color: gray;"></i>
+                                                        <button class="btn btn-outline-secondary" type="button" id="btnToggleView" onclick="toggleLicenseKey()">
+                                                            <i id="toggleIcon" class="bi bi-eye" style="color: gray;"></i> <!-- Eye icon -->
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-lg-1">                                                       
+                                                        <button class="btn btn-outline-secondary" type="button" id="btnCopy" onclick="copyfun()">
+                                                            <i id="toggleCopyIcon" class="bi bi-clipboard" style="color: gray;"></i>
+                                                           <%-- <i class="fa fa-copy" style="color: gray;"></i>--%>
+                                                           
                                                         </button>
                                                     </div>
                                                 </div>
-                                            </div>--%>
+                                            </div>
 
 
                                         </div>
@@ -488,32 +494,74 @@
 
     </div>
 
+    <script>
+        window.onload = function () {
+            var licenseKey = document.getElementById('<%= txtLicKey.ClientID %>').value;
+            console.log("License Key: ", licenseKey); // This will log the license key in the console
+        };
 
-<%--    <script>
-        function ShowLicenseKey() {
-            // Set the user ID in the modal
+        function toggleLicenseKey() {
+            var LicenseKeyTextbox = document.getElementById("txtLicKey");
+            var toggleIcon = document.getElementById("toggleIcon");
 
-            // Set the new password in the textbox
-            document.getElementById('txtLicKey'). = ;
+            if (LicenseKeyTextbox.type === "password") {
+                LicenseKeyTextbox.type = "text";
+                document.getElementById('<%= txtLicKey.ClientID %>').value
 
+                toggleIcon.classList.remove("bi-eye");
+                toggleIcon.classList.add("bi-eye-slash"); // Change to 'eye-slash' icon
+                toggleIcon.setAttribute("title", "Hide License Key");
+
+                setTimeout(function () {
+                    LicenseKeyTextbox.type = "password";
+                    toggleIcon.classList.remove("bi-eye-slash");
+                    toggleIcon.classList.add("bi-eye");
+                }, 5000); // Revert after 5 seconds
+
+                console.log("LicenseKey Showing");
+                console.log("LicenseKey : " + document.getElementById('<%= txtLicKey.ClientID %>').value);
+
+            } else {
+                LicenseKeyTextbox.type = "password";
+                toggleIcon.classList.remove("bi-eye-slash");
+                toggleIcon.classList.add("bi-eye"); // Change back to 'eye' icon
+                toggleIcon.setAttribute("title", "Show License Key"); 
+
+                console.log("LicenseKey Hiding");
+            }
         }
 
-        function copyPassword() {
+        function copyfun() {
             var LicenseKeyTextbox = document.getElementById("txtLicKey");
+            var copyButtonIcon = document.getElementById("btnCopy"); // Assuming this is the icon element in the button
 
-            // Check if the element exists
             if (LicenseKeyTextbox) {
+
+                var originalType = LicenseKeyTextbox.type; // Store the original type
+                LicenseKeyTextbox.type = "text"; // Show the value
+
                 LicenseKeyTextbox.select();
                 document.execCommand("copy");
 
-                // Show toast notification
-                toastr.success("LicenseKey copied!");
+                console.log("LicenseKey copied!");
+                console.log("LicenseKey : " + document.getElementById('<%= txtLicKey.ClientID %>').value);
+
+                // Change the clipboard icon to a tick icon
+                toggleCopyIcon.classList.remove("bi-clipboard");                
+                toggleCopyIcon.innerHTML = '<i class="bi bi-check2" style="color: green;"></i> <span style="padding-top: 6px; display: inline-block;">Copied!</span>'; // Change to tick icon and "Copied!" text
+
+                LicenseKeyTextbox.type = originalType;
+
+                // Optionally, revert back to the clipboard icon after 2 seconds
+                setTimeout(function () {
+                    toggleCopyIcon.classList.remove("bi-check2");                  
+                    toggleCopyIcon.innerHTML = '<i class="bi-clipboard" style="color: green;"></i>'; // Change to tick icon and "Copied!" text
+                }, 5000); // Revert after 5 seconds
             } else {
                 console.error("Element with ID 'txtLicKey' not found.");
             }
         }
-    </script>--%>
-
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerScripts" runat="server">
