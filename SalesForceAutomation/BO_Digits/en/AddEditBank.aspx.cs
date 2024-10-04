@@ -12,8 +12,6 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class AddEditBank : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
-
-        //Comment for Git
         public int ResponseID
         {
             get

@@ -78,15 +78,6 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.LinkButton lnkFilter;
 
         /// <summary>
-        /// lnkReset control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkReset;
-
-        /// <summary>
         /// RadAjaxPanel3 control.
         /// </summary>
         /// <remarks>
@@ -114,6 +105,15 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadSkinManager RadSkinManager1;
 
         /// <summary>
+        /// HeaderReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton HeaderReset;
+
+        /// <summary>
         /// grvRpt control.
         /// </summary>
         /// <remarks>
@@ -130,6 +130,15 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal Literal1;
+
+        /// <summary>
+        /// OutletReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton OutletReset;
 
         /// <summary>
         /// RadGrid1 control.
@@ -310,15 +319,6 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton freeOfCostLink;
-
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
         /// lblTotalFreeGoods control.
@@ -537,6 +537,15 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.LinkButton lnkInvMonitoring;
 
         /// <summary>
+        /// lblInvMonitoring control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInvMonitoring;
+
+        /// <summary>
         /// pnlActManage control.
         /// </summary>
         /// <remarks>
@@ -553,6 +562,15 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkActManagement;
+
+        /// <summary>
+        /// lblOutlet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOutlet;
 
         /// <summary>
         /// pnlcusservice control.
