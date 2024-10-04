@@ -28,6 +28,9 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                    txtLicKey.Text = LicenseKey;
+                    txtLicKey.Attributes["value"] = LicenseKey;
+                    
                     string Platform = "";
                     string IsStatusChange = "N";
                     obj.TraceService(UICommon.GetLogFileName() + " LicenseManagement.aspx  , " + "LicenseKey : " + LicenseKey);
@@ -176,8 +179,10 @@ namespace SalesForceAutomation.BO_Digits.en
                         if (resCode == "200")
                         {
                             lblLicNum.Text = LicsNum;
-                            lblLicKey.Text = LicsKey;
-                            //txtLicKey.Value = LicsKey;
+                            
+                            txtLicKey.Text = LicsKey;
+                            txtLicKey.Attributes["value"] = LicenseKey;
+
                             lblLicStDate.Text = StartDate;
                             lblExpOn.Text = ExpDate;
                             lblConPer.Text = ContPerson;

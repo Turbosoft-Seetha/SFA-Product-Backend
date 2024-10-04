@@ -139,6 +139,7 @@
                                         ShowFooter="True" AllowSorting="True"
                                         OnNeedDataSource="grvRpt_NeedDataSource"
                                         OnItemCommand="grvRpt_ItemCommand"
+                                        OnItemDataBound="grvRpt_ItemDataBound"
                                         AllowFilteringByColumn="true"
                                         ClientSettings-Resizing-ClipCellContentOnResize="true"
                                         EnableAjaxSkinRendering="true"

@@ -33,19 +33,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 if (!Page.IsPostBack)
                 {
-                    try
-                    {
-                        string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                        string Platform = "BO";
-                        string IsStatusChange = "N";
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx , " + "LicenseKey : " + LicenseKey);
-                        LicenseCounts(LicenseKey, Platform, IsStatusChange);
-                    }
-                    catch (Exception ex)
-                    {
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx , " + "Page_Load() Error: " + ex.Message.ToString());
-                       
-                    }
+                    
 
                     if (string.IsNullOrEmpty(Request.Params["Id"]))
                     {
@@ -604,12 +592,20 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             try
             {
-                string BOuserCount = ViewState["BOUserCount"].ToString();
-                int UserBOCount = Int32.Parse(BOuserCount);
+                string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                string Platform = "BO";
+                string IsStatusChange = "N";
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx , " + "LicenseKey : " + LicenseKey);
+                LicenseCounts(LicenseKey, Platform, IsStatusChange);
+            }
+            catch (Exception ex)
+            {
+                ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx , " + "btnSave_Click() Error: " + ex.Message.ToString());
 
-                string CCuserCount = ViewState["CCUserCount"].ToString();
-                int UserCCCount = Int32.Parse(CCuserCount);
+            }
 
+            try
+            {
                 UserProfile userProfile = new UserProfile();
                 MembershipUser user;
                 //string password = Membership.GeneratePassword(8, 1);
@@ -657,13 +653,15 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 if (user.IsApproved ==  true && CurrentStatus == false)
                 {
-                    
+
+                    string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
+                    string Platform = "BO";
+                    string IsStatusChange = "Y";
+                    LicenseCounts(LicenseKey, Platform, IsStatusChange);
+
                     if (CCUser == "Y")
                     {
-                        string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
-                        string Platform = "CC";
-                        string IsStatusChange = "Y";
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx  , " + "LicenseKey : " + LicenseKey);
+                        Platform = "CC";
                         LicenseCounts(LicenseKey, Platform, IsStatusChange);
 
                         string ResponseMessage = ViewState["ResponseMessage"].ToString();
@@ -826,8 +824,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     {
                         string LicenseKey = ConfigurationManager.AppSettings.Get("LicenseKey");
                         string Platform = "CC";
-                        string IsStatusChange = "Y";
-                        ObjclsFrms.TraceService(UICommon.GetLogFileName() + " AddEditUser.aspx  , " + "LicenseKey : " + LicenseKey);
+                        string IsStatusChange = "N";
                         LicenseCounts(LicenseKey, Platform, IsStatusChange);
 
                         string ResponseMessage = ViewState["ResponseMessage"].ToString();
