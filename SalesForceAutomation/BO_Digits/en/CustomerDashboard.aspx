@@ -8,61 +8,60 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
       <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
-          <script type="text/javascript"> 
-              function HeaderRowClick(sender, args) {
-                  var ClickedIndex = args._itemIndexHierarchical; // Get the index of the clicked row
-                  var grid = $find("<%= grvRpt.ClientID %>"); // Find the RadGrid instance
+      <script type="text/javascript"> 
+          function HeaderRowClick(sender, args) {
+              var ClickedIndex = args._itemIndexHierarchical; // Get the index of the clicked row
+              var grid = $find("<%= grvRpt.ClientID %>"); // Find the RadGrid instance
 
-              if (grid) {
-                  var MasterTable = grid.get_masterTableView(); // Access the MasterTable
-                  var Rows = MasterTable.get_dataItems(); // Get all rows
+    if (grid) {
+        var MasterTable = grid.get_masterTableView(); // Access the MasterTable
+        var Rows = MasterTable.get_dataItems(); // Get all rows
 
-                  // Show the loading panel before triggering the postback
+        // Show the loading panel before triggering the postback
                   var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
-                      if (loadingPanel) {
-                          loadingPanel.show(); // Show the loading panel
-                      }
+                  if (loadingPanel) {
+                      loadingPanel.show(); // Show the loading panel
+                  }
 
-                      for (var i = 0; i < Rows.length; i++) {
-                          var row = Rows[i];
-                          if (ClickedIndex != null && ClickedIndex == i) { // Check if the index matches the clicked row
-                              MasterTable.fireCommand("HeaderClick", ClickedIndex); // Trigger the server-side command
-                              break; // Exit the loop after firing the command
-                          }
+                  for (var i = 0; i < Rows.length; i++) {
+                      var row = Rows[i];
+                      if (ClickedIndex != null && ClickedIndex == i) { // Check if the index matches the clicked row
+                          MasterTable.fireCommand("HeaderClick", ClickedIndex); // Trigger the server-side command
+                          break; // Exit the loop after firing the command
                       }
                   }
               }
+          }
 
+          function OutletRowClick(sender, args) {
+              var ClickedIndex = args._itemIndexHierarchical;
+              var grid = $find("<%= RadGrid1.ClientID %>");
 
-              function OutletRowClick(sender, args) {
-                  var ClickedIndex = args._itemIndexHierarchical;
-                  var grid = $find("<%= RadGrid1.ClientID %>");
-
-              // Find the loading panel
+    // Find the loading panel
               var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
 
-                  if (grid) {
-                      var MasterTable = grid.get_masterTableView();
-                      var Rows = MasterTable.get_dataItems();
+              if (grid) {
+                  var MasterTable = grid.get_masterTableView();
+                  var Rows = MasterTable.get_dataItems();
 
-                      for (var i = 0; i < Rows.length; i++) {
-                          var row = Rows[i];
-                          if (ClickedIndex != null && ClickedIndex == i) {
-                              // Show the loading panel
-                              if (loadingPanel) {
-                                  loadingPanel.show();
-                              }
-
-                              // Fire the command
-                              MasterTable.fireCommand("OutletClick", ClickedIndex);
-                              break; // Exit the loop after firing the command
+                  for (var i = 0; i < Rows.length; i++) {
+                      var row = Rows[i];
+                      if (ClickedIndex != null && ClickedIndex == i) {
+                          // Show the loading panel
+                          if (loadingPanel) {
+                              loadingPanel.show();
                           }
+
+                          // Fire the command
+                          MasterTable.fireCommand("OutletClick", ClickedIndex);
+                          break; // Exit the loop after firing the command
                       }
                   }
               }
+          }
 
 
-          </script>
+      </script>
   </telerik:RadScriptBlock>
 
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
@@ -192,10 +191,10 @@
                                             AllowFilteringByColumn="true"
                                             ClientSettings-Resizing-ClipCellContentOnResize="true"
                                             EnableAjaxSkinRendering="true"
-                                            AllowPaging="true" PageSize="50" CellSpacing="0" PagerStyle-AlwaysVisible="true" AutoGenerateColumns="false"
+                                            AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" AutoGenerateColumns="false"
                                             OnSelectedIndexChanged="grvRpt_SelectedIndexChanged">
                                             <ClientSettings EnablePostBackOnRowClick="true">
-                                                <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>    
+                                                <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px" ></Scrolling>    
                                                 <ClientEvents OnRowClick="HeaderRowClick" /> 
                                             </ClientSettings>
                                             <MasterTableView FilterItemStyle-Font-Size="Small" CanRetrieveAllData="false"
@@ -258,7 +257,7 @@
                                             AllowFilteringByColumn="true"
                                             ClientSettings-Resizing-ClipCellContentOnResize="true"
                                             EnableAjaxSkinRendering="true"
-                                            AllowPaging="true" PageSize="50" CellSpacing="0" PagerStyle-AlwaysVisible="true" 
+                                            AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" 
                                             OnSelectedIndexChanged="RadGrid1_SelectedIndexChanged" AutoGenerateColumns="false">
                                             <ClientSettings EnablePostBackOnRowClick="true">
                                                  <Selecting AllowRowSelect="true" />

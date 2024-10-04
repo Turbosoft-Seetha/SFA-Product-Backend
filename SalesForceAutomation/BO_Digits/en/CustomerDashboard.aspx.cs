@@ -2,6 +2,7 @@
 using SalesForceAutomation.Admin;
 using Stimulsoft.Report.Dictionary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -21,11 +22,16 @@ namespace SalesForceAutomation.BO_Digits.en
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {          
+           
             if (!Page.IsPostBack)
-            {
+            {              
+
                 try
                 {
+                    Session["SelectedHeaderID"] = null;
+                    Session["SelectedCusID"] = null;                   
+
                     if (Session["FromDate"] != null)
                     {
                         rdfromDate.SelectedDate = DateTime.Parse(Session["FromDate"].ToString());
@@ -46,9 +52,6 @@ namespace SalesForceAutomation.BO_Digits.en
                         Session["ToDate"] = rdendDate.SelectedDate.ToString();
                     }
 
-                    Session["SelectedHeaderID"] = null;
-                    Session["SelectedCusID"] = null;
-
                     LoadHeaders("");
                     grvRpt.Rebind();
 
@@ -67,13 +70,15 @@ namespace SalesForceAutomation.BO_Digits.en
                     SelectRotDeliveredCount(fromDate, ToDate, "O");
                     SelOutstandingInvCount(fromDate, ToDate, "O");
                     EnableResetButton();
+
+
                 }
-                
-                catch(Exception ex)
+
+                catch (Exception ex)
                 {
                      Response.Redirect("~/SignIn.aspx");
                 }
-
+               
             }
         }
              
@@ -115,6 +120,7 @@ namespace SalesForceAutomation.BO_Digits.en
             if (lstUser.Rows.Count > 0)
             {
                 grvRpt.DataSource = lstUser;
+                ViewState["HeaderDataSource"] = lstUser;
             }
             else
             {
@@ -133,8 +139,8 @@ namespace SalesForceAutomation.BO_Digits.en
 
             if (lstUser.Rows.Count > 0)
             {
-                RadGrid1.DataSource = lstUser;               
-                
+                RadGrid1.DataSource = lstUser;
+                ViewState["OutletDataSource"] = lstUser;
             }
             else
             {
@@ -198,8 +204,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                     string selectedCusId = item.GetDataKeyValue("cus_ID").ToString();
                     string cus_csh_ID = item["cus_csh_ID"].Text.ToString();
-                    Session["SelectedCusID"] = selectedCusId;
-                   //Session["SelectedHeaderID"] = null;
+                    Session["SelectedCusID"] = selectedCusId;                   
 
                     string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
                     string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
@@ -222,6 +227,7 @@ namespace SalesForceAutomation.BO_Digits.en
         protected void RadGrid1_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
             LoadOutlets("");
+
         }
 
         protected void grvRpt_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,11 +247,11 @@ namespace SalesForceAutomation.BO_Digits.en
                 RadGrid1.Rebind();
 
                 LoadInvoiceAndSales(fromDate, ToDate, "H");
-                    LoadOrderARAdvance(fromDate, ToDate , "H");
-                    SelSaleOrdCount(fromDate, ToDate, "H");
-                    SelectRotDeliveredCount(fromDate, ToDate, "H");
-                    SelOutstandingInvCount(fromDate, ToDate, "H");
-                    EnableResetButton();
+                LoadOrderARAdvance(fromDate, ToDate , "H");
+                SelSaleOrdCount(fromDate, ToDate, "H");
+                SelectRotDeliveredCount(fromDate, ToDate, "H");
+                SelOutstandingInvCount(fromDate, ToDate, "H");
+                EnableResetButton();
                 }                
           
         }
@@ -257,7 +263,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     string selectedCusId = selectedItem.GetDataKeyValue("cus_ID").ToString();
                     string cus_csh_ID = selectedItem["cus_csh_ID"].Text.ToString();
                     Session["SelectedCusID"] = selectedCusId;
-                    //Session["SelectedHeaderID"] = null;
 
                     string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
                     string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
@@ -624,26 +629,27 @@ namespace SalesForceAutomation.BO_Digits.en
                     RadGrid1.PageSize = originalPageSize;
                     RadGrid1.Rebind();
                 }
-            }
+            }            
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable; 
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }  
 
             Session["SHcusID"] = string.Join(",", customerIds);
             Session["SHrotID"] = null;
-            Response.Redirect("SalesHeader.aspx?mode=3&&type=INV");
-            
+            Response.Redirect("SalesHeader.aspx?mode=3&&type=INV");            
         }
         protected void salesLink_Click(object sender, EventArgs e)
         {
@@ -676,17 +682,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["SHcusID"] = string.Join(",", customerIds);
@@ -726,17 +734,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["SHcusID"] = string.Join(",", customerIds);
@@ -776,17 +786,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["SHcusID"] = string.Join(",", customerIds);
@@ -826,17 +838,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["SHcusID"] = string.Join(",", customerIds);
@@ -876,17 +890,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["QORcusID"] = string.Join(",", customerIds);
@@ -925,18 +941,20 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
             }
             else
-            {               
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+            {
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind(); 
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
 
             }
 
@@ -978,17 +996,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["ARcusID"] = string.Join(",", customerIds);
@@ -1027,17 +1047,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["ARcusID"] = string.Join(",", customerIds);
@@ -1077,17 +1099,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["OSDcusID"] = string.Join(",", customerIds);            
@@ -1127,17 +1151,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["RDBcusID"] = string.Join(",", customerIds);
@@ -1174,17 +1200,19 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                int originalPageSize = RadGrid1.PageSize;
-                RadGrid1.PageSize = int.MaxValue;
-                RadGrid1.Rebind();
-                foreach (GridDataItem gridItem in RadGrid1.Items)
+                if (ViewState["OutletDataSource"] != null)
                 {
-                    string cusId = gridItem.GetDataKeyValue("cus_ID").ToString();
-                    customerIds.Add(cusId);
-                }
+                    DataTable dt = ViewState["OutletDataSource"] as DataTable;
 
-                RadGrid1.PageSize = originalPageSize;
-                RadGrid1.Rebind();
+                    if (dt != null)
+                    {
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            string cusId = row["cus_ID"].ToString();
+                            customerIds.Add(cusId);
+                        }
+                    }
+                }
             }
 
             Session["OutcusID"] = string.Join(",", customerIds);
