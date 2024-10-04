@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -38,7 +39,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                
+
                 Customers();
 
 
@@ -47,7 +48,7 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         public void Customers()
         {
-          
+
             DataTable dt = ObjclsFrms.loadList("SelCustomers", "sp_MerchandisingWebServices", RouteID.ToString());
             ddlCustomer.DataSource = dt;
             ddlCustomer.DataTextField = "cus_Name";
@@ -62,14 +63,14 @@ namespace SalesForceAutomation.BO_Digits.en
         }
 
 
-      
+
         public void SaveCustomers()
         {
-            
+
 
             string cus = GetCusFromDropdown();
 
-          
+
             string usr = UICommon.GetCurrentUserID().ToString();
             string[] arr = { ResponseID.ToString(), RouteID.ToString(), usr };
             string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "AddPlanogramCustomer", cus.ToString(), arr);
@@ -91,7 +92,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 using (var writer = XmlWriter.Create(sw))
                 {
                     writer.WriteStartDocument(true);
-                    writer.WriteStartElement("cus"); 
+                    writer.WriteStartElement("cus");
 
                     foreach (RadComboBoxItem item in ddlCustomer.CheckedItems)
                     {
@@ -204,50 +205,41 @@ namespace SalesForceAutomation.BO_Digits.en
             if (e.CommandName.Equals("Delete"))
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
-                string ID = dataItem.GetDataKeyValue("plc_ID").ToString();
-                ViewState["SelectedPlcID"] = ID;
+                string plc_ID = dataItem.GetDataKeyValue("plc_ID").ToString();
+                ViewState["SelectedPlcID"] = plc_ID;
 
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
 
             }
         }
 
-
-
-        protected void radSelectAllDelete_CheckedChanged1(object sender, EventArgs e)
+        protected void lnkDelete_Click(object sender, EventArgs e)
         {
-            if (radSelectAllDelete.Checked)
+            int addCount = Int32.Parse(grvRpt.SelectedItems.Count.ToString());
+            if (addCount == 0)
             {
-                foreach (GridDataItem item in grvRpt.Items)
-                {
-                    RadioButtonList radPresent = (RadioButtonList)item.FindControl("rbActions");
-                    if (radPresent != null)
-                    {
-                        ListItem radApprove = radPresent.Items.FindByValue("A");
-                        if (radApprove != null )
-                        {
-                            radApprove.Selected = true;
-                        }
-                    }
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Delete();</script>", false);
 
-
-                }
             }
         }
 
-        //protected void btnDeleteOk_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
-        //    //LoadList();
-        //    //grvRpt.Rebind();
-        //}
+        protected void btnDeleteOk_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
+            //LoadList();
+            //grvRpt.Rebind();
+        }
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            string ID = ViewState["SelectedPlcID"] as string;
+            string plcID = ViewState["SelectedPlcID"] as string;
             string[] arr = { };
-            string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", ID.ToString(), arr);
-            int res = Int32.Parse(Value.ToString());
+            string result = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", plcID, arr);
+            int res = int.Parse(result);
 
             if (res > 0)
             {
@@ -256,19 +248,11 @@ namespace SalesForceAutomation.BO_Digits.en
 
             else
             {
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModal();</script>", false);
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModal1();</script>", false);
             }
 
         }
 
-        
 
-        protected void lnkConfirm_Click1(object sender, EventArgs e)
-        {
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
-
-
-            
-        }
     }
 }
