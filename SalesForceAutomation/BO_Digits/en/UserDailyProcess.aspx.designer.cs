@@ -15,6 +15,15 @@ namespace SalesForceAutomation.BO_Digits.en
     {
 
         /// <summary>
+        /// Reset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton Reset;
+
+        /// <summary>
         /// RadAjaxPanel7 control.
         /// </summary>
         /// <remarks>
@@ -159,13 +168,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox ddldpoSubArea;
 
         /// <summary>
-        /// ddlRotType control.
+        /// rdRouteType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox ddlRotType;
+        protected global::Telerik.Web.UI.RadComboBox rdRouteType;
 
         /// <summary>
         /// rdRoute control.

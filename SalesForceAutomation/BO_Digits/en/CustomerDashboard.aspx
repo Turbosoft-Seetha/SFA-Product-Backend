@@ -13,9 +13,15 @@
               var ClickedIndex = args._itemIndexHierarchical; // Get the index of the clicked row
               var grid = $find("<%= grvRpt.ClientID %>"); // Find the RadGrid instance
 
-              if (grid) {
-                  var MasterTable = grid.get_masterTableView(); // Access the MasterTable
-                  var Rows = MasterTable.get_dataItems(); // Get all rows
+    if (grid) {
+        var MasterTable = grid.get_masterTableView(); // Access the MasterTable
+        var Rows = MasterTable.get_dataItems(); // Get all rows
+
+        // Show the loading panel before triggering the postback
+                  var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
+                  if (loadingPanel) {
+                      loadingPanel.show(); // Show the loading panel
+                  }
 
                   for (var i = 0; i < Rows.length; i++) {
                       var row = Rows[i];
@@ -27,24 +33,34 @@
               }
           }
 
-
           function OutletRowClick(sender, args) {
-              /*debugger;*/
               var ClickedIndex = args._itemIndexHierarchical;
-              //changed code here 
-              var grid = $find("<%=RadGrid1.ClientID %>");
+              var grid = $find("<%= RadGrid1.ClientID %>");
+
+    // Find the loading panel
+              var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
+
               if (grid) {
                   var MasterTable = grid.get_masterTableView();
                   var Rows = MasterTable.get_dataItems();
+
                   for (var i = 0; i < Rows.length; i++) {
                       var row = Rows[i];
-                      if (ClickedIndex != null && ClickedIndex == i) { // newly added
-                          MasterTable.fireCommand("OutletClick", ClickedIndex); // newly added
-                      } // newly added
+                      if (ClickedIndex != null && ClickedIndex == i) {
+                          // Show the loading panel
+                          if (loadingPanel) {
+                              loadingPanel.show();
+                          }
+
+                          // Fire the command
+                          MasterTable.fireCommand("OutletClick", ClickedIndex);
+                          break; // Exit the loop after firing the command
+                      }
                   }
               }
           }
-          
+
+
       </script>
   </telerik:RadScriptBlock>
 
@@ -52,28 +68,55 @@
     </telerik:RadAjaxManager>
     <telerik:RadAjaxManagerProxy ID="AjaxManagerProxy1" runat="server">
         <AjaxSettings>
+
+
+            <telerik:AjaxSetting AjaxControlID="RadGrid1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" />
+                    <telerik:AjaxUpdatedControl ControlID="grvRpt" />
+                    <telerik:AjaxUpdatedControl ControlID="plcTiles" />
+                    <telerik:AjaxUpdatedControl ControlID="OutletReset" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+
             <telerik:AjaxSetting AjaxControlID="grvRpt">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" />
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-
-            <telerik:AjaxSetting AjaxControlID="RadGrid1">
-                <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="grvRpt" />
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-
-            <telerik:AjaxSetting AjaxControlID="RadGrid1">
-                <UpdatedControls>
                     <telerik:AjaxUpdatedControl ControlID="RadGrid1" />
                     <telerik:AjaxUpdatedControl ControlID="plcTiles" />
+                    <telerik:AjaxUpdatedControl ControlID="HeaderReset" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
 
+            <telerik:AjaxSetting AjaxControlID="HeaderReset">
+                <UpdatedControls>                  
+                    <telerik:AjaxUpdatedControl ControlID="plcTiles" />
+                     <telerik:AjaxUpdatedControl ControlID="grvRpt" />
+                     <telerik:AjaxUpdatedControl ControlID="RadGrid1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="OutletReset">
+                <UpdatedControls>                    
+                    <telerik:AjaxUpdatedControl ControlID="plcTiles" />
+                     <telerik:AjaxUpdatedControl ControlID="RadGrid1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="grvRpt">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="HeaderReset" />
+                    <telerik:AjaxUpdatedControl ControlID="OutletReset" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+
+            <telerik:AjaxSetting AjaxControlID="RadGrid1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="HeaderReset" />
+                    <telerik:AjaxUpdatedControl ControlID="OutletReset" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManagerProxy>
-    
+
 
 
     <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;">
@@ -108,9 +151,6 @@
                                     <asp:LinkButton ID="lnkFilter" runat="server" CssClass="btn btn-sm btn-primary me-2" OnClick="lnkFilter_Click">Apply Filter</asp:LinkButton>
                                 </div>
 
-                                <div class="col-lg-1" style="text-align: center; padding-top: 10px; width: auto; padding-left: 0px;">
-                                    <asp:LinkButton ID="lnkReset" runat="server" CssClass="btn btn-sm btn-warning me-2" OnClick="lnkReset_Click">Reset</asp:LinkButton>
-                                </div>
                             </div>
 
                         </div>
@@ -138,8 +178,10 @@
                                     <asp:Literal ID="ltrlMessage" runat="server"></asp:Literal>
                                     <div class="kt-portlet__body" style="margin-top: 10px;">
                                         <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Material" />
-                                        <div class="col-lg-6">
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <h4>Customer Headers</h4>
+                                            <asp:ImageButton ID="HeaderReset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="20"
+                                                AlternateText="reset" OnClick="HeaderReset_Click" />
                                         </div>
                                         <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="false"
                                             ID="grvRpt" GridLines="None"
@@ -149,9 +191,10 @@
                                             AllowFilteringByColumn="true"
                                             ClientSettings-Resizing-ClipCellContentOnResize="true"
                                             EnableAjaxSkinRendering="true"
-                                            AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" AutoGenerateColumns="false">
-                                            <ClientSettings>
-                                                <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>    
+                                            AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" AutoGenerateColumns="false"
+                                            OnSelectedIndexChanged="grvRpt_SelectedIndexChanged">
+                                            <ClientSettings EnablePostBackOnRowClick="true">
+                                                <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px" ></Scrolling>    
                                                 <ClientEvents OnRowClick="HeaderRowClick" /> 
                                             </ClientSettings>
                                             <MasterTableView FilterItemStyle-Font-Size="Small" CanRetrieveAllData="false"
@@ -201,8 +244,10 @@
 
                                     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                                     <div class="kt-portlet__body" style="margin-top: 10px;">
-                                        <div class="col-lg-6">
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <h4>Customer Outlets</h4>
+                                            <asp:ImageButton ID="OutletReset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="20"
+                                                AlternateText="reset" OnClick="OutletReset_Click" />
                                         </div>
                                         <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="false"
                                             ID="RadGrid1" GridLines="None"
@@ -282,16 +327,16 @@
     </div>
 
     <asp:PlaceHolder ID="plcTiles" runat="server" >
-    <div class="col-lg-12 mt-8">
+    <div class="col-lg-12 mt-8 pb-0">
     <!--begin::Mixed Widget 14-->
-    <div class="card bgi-no-repeat card-xl-stretch mb-lg-6"
+    <div class="card bgi-no-repeat card-xl-stretch mb-lg-12"
          style="background-color: #6397b2; background-image: url(../assets/media/dashboard/custdbsmall.png), linear-gradient(#03CDFD, #3483D9); background-size: 100%;">
         <!--begin::Head-->
         <div class="card-header" style="border-bottom: 0px; display: flex; justify-content: space-between;">
             <!--begin::Title-->
             <h3 class="card-title align-items-start flex-column text-center">
-                <asp:Label ID="lblTotalInvoice" runat="server" Text="0" ForeColor="White" style="font-size: 2rem;"></asp:Label>
-                <asp:LinkButton ID="totalInvoices" runat="server" OnClick="totalInvoices_Click" style="color: white; display: block; margin-top: 10px;">
+                <asp:Label ID="lblTotalInvoice" runat="server" Text="0" ForeColor="White" style="font-size: 20px; margin-top: 10px;"></asp:Label>
+                <asp:LinkButton ID="totalInvoices" runat="server" OnClick="totalInvoices_Click" style="font-size: 20px; color: white; display: block; margin-top: 10px;">
                     Total Invoices
                 </asp:LinkButton>
             </h3>
@@ -299,7 +344,7 @@
             <!--begin::Toolbar-->
             <div class="card-toolbar">
                 <p style="color: white; margin-bottom: 0.5rem !important">
-                    <span style="font-size: 15px;">
+                    <span style="font-size: 20px;">
                         <asp:Label ID="lblCurrency" runat="server"></asp:Label></span>
                     <span style="font-size: 20px;">
                         <asp:Label ID="lblTotalInvoiceSum" runat="server" Text="0.00"></asp:Label></span>
@@ -310,17 +355,17 @@
         <!--end::Head-->
 
         <!--begin::Body-->
-        <div class="card-body" style="padding: 30px; height: 120px;">
+        <div class="card-body" style="padding: 30px; height: 170px;">
             <!--begin::Row-->
             <div class="row" style="display: flex; justify-content: space-between;">
                 <!--begin::Col-->
-                <div class="col-lg-3 col-md-3" style="display: flex; align-items: stretch;">
-                    <div class="card" style="background-color: #c4e5f6; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 80px;">
+                <div class="col-lg-3 col-md-3" style="display: flex; align-items: stretch; ">
+                    <div class="card" style="background-color: #c4e5f6; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 110px; border: 2px solid white;">
                         <!-- Reduced padding and set a fixed height -->
-                        <div class="d-flex mb-12 me-2">
+                        <div class="d-flex mb-12 me-2" style="padding: 10px">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-40px me-3">
-                                <div class="symbol-label bg-white bg-opacity-90" style="width: 40px; height: 40px;">
+                                <div class="symbol-label bg-white bg-opacity-90" style="width: 60px; height: 60px;">
                                     <!-- Adjusted width and height -->
                                     <span class="svg-icon svg-icon-1 svg-icon-dark">
                                         <img src="../assets/media/dashboard/invoices.png" alt="Invoice" width="34" height="34" />
@@ -331,13 +376,13 @@
                             <!--begin::Title-->
                             <div>
                                 <asp:LinkButton ID="salesLink" runat="server" OnClick="salesLink_Click" Style="color: black; padding: 0; border: none; background: none;">
-                                    <div class="fs-5 fw-bolder lh-1" style="color: black;">
+                                    <div class="fs-5 fw-bolder lh-1" style="color: black; padding: 2px">
                                         <asp:Label ID="lblSalesCount" runat="server" Text="0"></asp:Label>
                                     </div>
-                                    <div class="fs-7 fw-bold" style="color: black; font-size: 14px;">Sales</div>
-                                    <div class="fs-7 fw-bold" style="color: black;">
+                                    <div class="fs-5 fw-bold" style="color: black; font-size: 16px; padding: 2px;">Sales</div>
+                                    <div class="fs-5 fw-bold" style="color: black;">
                                         <asp:Label ID="Label6" runat="server"></asp:Label>
-                                        <span class="" style="font-size: 14px;">
+                                        <span class="" style="font-size: 14px; padding: 2px">
                                             <asp:Label ID="lblSalesSum" runat="server" Text="0"></asp:Label>
                                         </span>
                                     </div>
@@ -355,12 +400,12 @@
                 <!--begin::Col-->
 
                 <div class="col-lg-3 col-md-3" style="display: flex; align-items: stretch;">
-                    <div class="card" style="background-color: #def7e3; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 80px;">
+                    <div class="card" style="background-color: #def7e3; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 110px; border: 2px solid white;">
                         <!-- Reduced padding and set a fixed height -->
-                        <div class="d-flex mb-12 me-2">
+                        <div class="d-flex mb-12 me-2" style="padding: 10px;">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-40px me-3">
-                                <div class="symbol-label bg-white bg-opacity-90" style="width: 40px; height: 40px;">
+                                <div class="symbol-label bg-white bg-opacity-90" style="width: 60px; height: 60px;">
                                     <!-- Adjusted width and height -->
                                     <span class="svg-icon svg-icon-1 svg-icon-dark">
                                         <img src="../assets/media/dashboard/gr.png" alt="Invoice" width="34" height="34" />
@@ -371,13 +416,13 @@
                             <!--begin::Title-->
                             <div>
                                 <asp:LinkButton ID="goodReturnLink" runat="server" OnClick="goodReturnLink_Click" Style="color: black; padding: 0; border: none; background: none;">
-                                    <div class="fs-5 fw-bolder lh-1" style="color: black;">
+                                    <div class="fs-5 fw-bolder lh-1" style="color: black; padding: 2px"">
                                         <asp:Label ID="lblTotalGReturns" runat="server" Text="0"></asp:Label>
                                     </div>
-                                    <div class="fs-7 fw-bold" style="color: black; font-size: 14px;">Good Return</div>
-                                    <div class="fs-7 fw-bold" style="color: black;">
+                                    <div class="fs-5 fw-bold" style="color: black; font-size: 14px; padding: 2px"">Good Return</div>
+                                    <div class="fs-5 fw-bold" style="color: black;">
                                         <asp:Label ID="label70" runat="server"></asp:Label>
-                                        <span class="" style="font-size: 14px;">
+                                        <span class="" style="font-size: 14px; padding: 2px"">
                                             <asp:Label ID="lblTotalGReturnsSum" runat="server" Text="0"></asp:Label>
                                         </span>
                                     </div>
@@ -395,12 +440,12 @@
                 <!--begin::Col-->
 
                 <div class="col-lg-3 col-md-3" style="display: flex; align-items: stretch;">
-                    <div class="card" style="background-color: #ffd3e4; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 80px;">
+                    <div class="card" style="background-color: #ffd3e4; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 110px; border: 2px solid white;">
                         <!-- Reduced padding and set a fixed height -->
-                        <div class="d-flex mb-12 me-2">
+                        <div class="d-flex mb-12 me-2" style="padding: 10px;">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-40px me-3">
-                                <div class="symbol-label bg-white bg-opacity-90" style="width: 40px; height: 40px;">
+                                <div class="symbol-label bg-white bg-opacity-90" style="width: 60px; height: 60px;">
                                     <!-- Adjusted width and height -->
                                     <span class="svg-icon svg-icon-1 svg-icon-dark">
                                         <img src="../assets/media/dashboard/invoices.png" alt="Invoice" width="34" height="34" />
@@ -411,13 +456,13 @@
                             <!--begin::Title-->
                             <div>
                                 <asp:LinkButton ID="badReturnLink" runat="server" OnClick="badReturnLink_Click" Style="color: black; padding: 0; border: none; background: none;">
-                                    <div class="fs-5 fw-bolder lh-1" style="color: black;">
+                                    <div class="fs-5 fw-bolder lh-1" style="color: black; padding: 2px"">
                                         <asp:Label ID="lblTotalBReturns" runat="server" Text="0"></asp:Label>
                                     </div>
-                                    <div class="fs-7 fw-bold" style="color: black; font-size: 14px;">Bad Return</div>
-                                    <div class="fs-7 fw-bold" style="color: black;">
+                                    <div class="fs-5 fw-bold" style="color: black; font-size: 14px; padding: 2px"">Bad Return</div>
+                                    <div class="fs-5 fw-bold" style="color: black;">
                                         <asp:Label ID="Label10" runat="server"></asp:Label>
-                                        <span class="" style="font-size: 14px;">
+                                        <span class="" style="font-size: 14px; padding: 2px"">
                                             <asp:Label ID="lblTotalBReturnsSum" runat="server" Text="0"></asp:Label>
                                         </span>
                                     </div>
@@ -435,12 +480,12 @@
                 <!--begin::Col-->
 
                 <div class="col-lg-3 col-md-3" style="display: flex; align-items: stretch;">
-                    <div class="card" style="background-color: #f8f7d4; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 80px;">
+                    <div class="card" style="background-color: #f8f7d4; border-radius: 12px; padding: 10px; width: 100%; display: flex; align-items: flex-start; height: 110px; border: 2px solid white;">
                         <!-- Reduced padding and set a fixed height -->
-                        <div class="d-flex mb-12 me-2">
+                        <div class="d-flex mb-12 me-2" style="padding: 10px;">
                             <!--begin::Symbol-->
                             <div class="symbol symbol-40px me-3">
-                                <div class="symbol-label bg-white bg-opacity-90" style="width: 40px; height: 40px;">
+                                <div class="symbol-label bg-white bg-opacity-90" style="width: 60px; height: 60px;">
                                     <!-- Adjusted width and height -->
                                     <span class="svg-icon svg-icon-1 svg-icon-dark">
                                         <img src="../assets/media/dashboard/gr.png" alt="Invoice" width="34" height="34" />
@@ -452,13 +497,10 @@
                             <div>
                                 <asp:LinkButton ID="freeOfCostLink" runat="server" OnClick="freeOfCostLink_Click" Style="color: black; padding: 0; border: none; background: none;">
                                     <div class="fs-5 fw-bolder lh-1" style="color: black;">
-                                        <asp:Label ID="Label5" runat="server" Text="0"></asp:Label>
+                                        <asp:Label ID="lblTotalFreeGoods" runat="server" Text="0"></asp:Label>
                                     </div>
-                                    <div class="fs-7 fw-bold" style="color: black; font-size: 14px;">Free of cost</div>
-                                    <div class="fs-7 fw-bold" style="color: black;">
-                                        <asp:Label ID="lblTotalFreeGoods" runat="server"></asp:Label>
-                                        
-                                    </div>
+                                    <div class="fs-5 fw-bold" style="color: black; font-size: 14px; padding: 2px;">Free of cost</div>
+                                   
 
                                 </asp:LinkButton>
                             </div>
@@ -477,404 +519,394 @@
 
 
 
-    <div class="row">
-        <div class="col-xl-6 row">
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body" style="padding: 1rem 2rem;">
-                        <div class="py-2">
-                            <asp:LinkButton runat="server" ID="lnkQuotations" OnClick="lnkQuotations_Click">
-                                <div class="col-lg-12 row">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <img src="../assets/media/dashboard/Quotations.png" class="w-30px me-6" alt="" />
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <span style="font-weight: 600;"></span>
-                                        </div>
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex ">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 800;">
-                                                <asp:Label ID="lblQuotations" runat="server" Text="0"></asp:Label></span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-1">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">Quotations</span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">
-                                                <asp:Label ID="Label1" runat="server"></asp:Label>
-                                                <asp:Label ID="lblQuotationSum" runat="server" Text="0.00"></asp:Label>
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                            </asp:LinkButton>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body" style="padding: 1rem 2rem;">
-                        <div class="py-2">
-                            <asp:LinkButton runat="server" ID="lnkSalesOrder" OnClick="lnkSalesOrder_Click">
-                                <div class="col-lg-12 row">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <img src="../assets/media/dashboard/orderreq2.png" class="w-30px me-6" alt="" />
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <span style="font-weight: 600;"></span>
-                                        </div>
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex ">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 800;">
-                                                <asp:Label ID="lblTotalOrder" runat="server" Text="0"></asp:Label></span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-1">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">Sales Order</span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">
-                                                <asp:Label ID="Label2" runat="server"></asp:Label>
-                                                <asp:Label ID="lblTotalOrderSum" runat="server" Text="0.00"></asp:Label></span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                            </asp:LinkButton>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body" style="padding: 1rem 2rem;">
-                        <div class="py-2">
-                            <asp:LinkButton runat="server" ID="lnkARColl" OnClick="lnkARColl_Click">
-                                <div class="col-lg-12 row">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <img src="../assets/media/dashboard/ar2.png" class="w-30px me-6" alt="" />
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <span style="font-weight: 600;"></span>
-                                        </div>
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex ">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 800;">
-                                                <asp:Label ID="lblTotalAR" runat="server" Text="0"></asp:Label></span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-1">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">AR Collection</span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">
-                                                <asp:Label ID="Label7" runat="server"></asp:Label>
-                                                <asp:Label ID="lblTotalARSum" runat="server" Text="0.00"></asp:Label></span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                            </asp:LinkButton>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body" style="padding: 1rem 2rem;">
-                        <div class="py-2">
-                            <asp:LinkButton runat="server" ID="lnkAdvColl" OnClick="lnkAdvColl_Click">
-                                <div class="col-lg-12 row">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <img src="../assets/media/dashboard/advance2.png" class="w-30px me-6" alt="" />
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <span style="font-weight: 600;"></span>
-                                        </div>
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex ">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 800;">
-
-                                                <asp:Label ID="lblTotalAdvance" runat="server" Text="0"></asp:Label>
-
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-1">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">Advance Collection</span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                                <div class="col-lg-12 row pt-2">
-                                    <!--begin::Item-->
-                                    <div class="d-flex flex-stack">
-                                        <div class="d-flex">
-                                            <span style="font-weight: 500;">
-                                                <asp:Label ID="Label8" runat="server"></asp:Label>
-                                                <asp:Label ID="lblTotalAdvanceSum" runat="server" Text="0.00"></asp:Label></span>
-                                        </div>
-
-                                    </div>
-                                    <!--end::Item-->
-                                </div>
-                            </asp:LinkButton>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-lg-6 row">
-            <div class="col-lg-6">
-                <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #69a3bc; background-image: linear-gradient(to right,#4ca0c5, #178abb); background-size: 100% 100%; border-radius: 12px;">
-                    <asp:LinkButton runat="server" ID="lnkSaleOrdiv" OnClick="lnkSaleOrdiv_Click">
-                        <div class=" card-xl-stretch m-4">
-
-                            <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
-                                <div class="symbol symbol-35px me-5">
-                                    <img src="../assets/media/dashboard/so.png" class="w-30px me-6" alt="" />
-                                </div>
-
-                                <span class="text-white fs-3 fw-bold py-1 me-12"><span id="MainContent_lblSalesOrd">
-
-                                    <asp:Label runat="server" ID="lblSaleOrdcount" Text="0" Font-Bold="true"></asp:Label>
-
-                                </span></span>
-
-
-                            </div>
-                            <div class="flex-grow-1 me-6">
-                                <span class="text-white fw-semibold fs-3 d-block">Sales Order Status</span>
-                            </div>
-                        </div>
-
-                    </asp:LinkButton>
-                </div>
-            </div>
-            <div class="col-lg-6">
-
-                <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #5ca356; background-image: linear-gradient(to right,#37972f, #26861e); background-size: 100% 100%; border-radius: 12px;">
-                    <asp:LinkButton runat="server" ID="lnkRotdeliv" OnClick="lnkRotdeliv_Click">
-                        <div class=" card-xl-stretch m-4">
-
-                            <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
-                                <div class="symbol symbol-35px me-5">
-                                    <img src="../assets/media/dashboard/rd.png" class="w-30px me-6" alt="" />
-                                </div>
-
-                                <span class="text-white fs-3 fw-bold py-1 me-12"><span id="MainContent_lblrotDeliverys">
-
-                                    <asp:Label runat="server" ID="lbldelcount" Text="0" Font-Bold="true"></asp:Label>
-
-                                </span></span>
-
-
-                            </div>
-                            <div class="flex-grow-1 me-6">
-                                <span class="text-white fw-semibold fs-3 d-block">Route Deliveries</span>
-                            </div>
-                        </div>
-
-                    </asp:LinkButton>
-                </div>
-              
-            </div>
-            <div class="col-lg-6">
-                <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #7c5c97; background-image: linear-gradient(to right,#5d1498, #6f4095); background-size: 100%; border-radius: 12px;">
-                    <asp:LinkButton runat="server" ID="lnkOutstandingInv" OnClick="lnkOutstandingInv_Click">
-                        <div class=" card-xl-stretch m-4">
-
-                            <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
-                                <div class="symbol symbol-35px me-5">
-                                    <img src="../assets/media/dashboard/oi.png" class="w-30px me-6" alt="" />
-                                </div>
-
-                                <span class="text-white fs-3 fw-bold py-1 me-12"><span id="MainContent_lblOutstanding">
-
-                                    <asp:Label runat="server" ID="lblOutstanding" Text="0" Font-Bold="true"></asp:Label>
-
-                                </span></span>
-
-
-                            </div>
-                            <div class="flex-grow-1 me-6">
-                                <span class="text-white fw-semibold fs-3 d-block">Outstanding Invoices</span>
-                            </div>
-                        </div>
-
-                    </asp:LinkButton>
-                </div>
-            </div>
-           
+        <div class="col-lg-12 row">
+            <div class="col-lg-6 row">
                 <div class="col-lg-6">
-                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #b93e32; background-image: linear-gradient(to right,#b61707, #af554b); background-size: 100%; border-radius: 12px;">
+                    <div class="card">
+                        <div class="card-body" style="padding: 1rem 2rem;">
+                            <div class="py-2">
+                                <asp:LinkButton runat="server" ID="lnkQuotations" OnClick="lnkQuotations_Click">
+                                    <div class="col-lg-12 row">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <img src="../assets/media/dashboard/Quotations.png" class="w-30px me-6" alt="" />
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <span style="font-weight: 600;"></span>
+                                            </div>
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex ">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 800; font-size: 15px;">
+                                                    <asp:Label ID="lblQuotations" runat="server" Text="0"></asp:Label></span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-1">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">Quotations</span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">
+                                                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblQuotationSum" runat="server" Text="0.00"></asp:Label>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div class="card">
+                        <div class="card-body" style="padding: 1rem 2rem;">
+                            <div class="py-2">
+                                <asp:LinkButton runat="server" ID="lnkSalesOrder" OnClick="lnkSalesOrder_Click">
+                                    <div class="col-lg-12 row">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <img src="../assets/media/dashboard/orderreq2.png" class="w-30px me-6" alt="" />
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <span style="font-weight: 600;"></span>
+                                            </div>
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex ">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 800; font-size: 15px;">
+                                                    <asp:Label ID="lblTotalOrder" runat="server" Text="0"></asp:Label></span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-1">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">Sales Order</span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">
+                                                    <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblTotalOrderSum" runat="server" Text="0.00"></asp:Label></span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body" style="padding: 1rem 2rem;">
+                            <div class="py-2">
+                                <asp:LinkButton runat="server" ID="lnkARColl" OnClick="lnkARColl_Click">
+                                    <div class="col-lg-12 row">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <img src="../assets/media/dashboard/ar2.png" class="w-30px me-6" alt="" />
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <span style="font-weight: 600;"></span>
+                                            </div>
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex ">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 800; font-size: 15px;">
+                                                    <asp:Label ID="lblTotalAR" runat="server" Text="0"></asp:Label></span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-1">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">AR Collection</span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">
+                                                    <asp:Label ID="Label7" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblTotalARSum" runat="server" Text="0.00"></asp:Label></span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6  ">
+                    <div class="card">
+                        <div class="card-body" style="padding: 1rem 2rem;">
+                            <div class="py-2">
+                                <asp:LinkButton runat="server" ID="lnkAdvColl" OnClick="lnkAdvColl_Click">
+                                    <div class="col-lg-12 row">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <img src="../assets/media/dashboard/advance2.png" class="w-30px me-6" alt="" />
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <span style="font-weight: 600;"></span>
+                                            </div>
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex ">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 800; font-size: 15px;">
+
+                                                    <asp:Label ID="lblTotalAdvance" runat="server" Text="0"></asp:Label>
+
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-1">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">Advance Collection</span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                    <div class="col-lg-12 row pt-2">
+                                        <!--begin::Item-->
+                                        <div class="d-flex flex-stack">
+                                            <div class="d-flex">
+                                                <span style="font-weight: 500; font-size: 15px;">
+                                                    <asp:Label ID="Label8" runat="server"></asp:Label>
+                                                    <asp:Label ID="lblTotalAdvanceSum" runat="server" Text="0.00"></asp:Label></span>
+                                            </div>
+
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-lg-6 row">
+
+                <div class="col-lg-6">
+                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #69a3bc; background-image: linear-gradient(to right,#1593ca, #6db2ce); background-size: 100% 100%; border-radius: 12px;">
+                        <asp:LinkButton runat="server" ID="lnkSaleOrdiv" OnClick="lnkSaleOrdiv_Click">
+                            <div class="card-xl-stretch m-4">
+                                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
+                                    <div class="symbol symbol-35px me-3">
+                                        <!-- Adjusted margin -->
+                                        <img src="../assets/media/dashboard/so.png" class="w-30px" alt="" />
+                                    </div>
+                                    <span class="text-white fs-3 fw-bold" style="padding: 0;">
+                                        <asp:Label runat="server" ID="lblSaleOrdcount" Style="padding: 0;" Text="0" Font-Bold="true"></asp:Label>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 me-6">
+                                    <span class="text-white fw-semibold fs-5 d-block" style="margin-top: 2px;">
+                                        <!-- Added margin for better spacing -->
+                                        Sales Order Status
+                                    </span>
+                                </div>
+                            </div>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #5ca356; background-image: linear-gradient(to right,#168d0c, #62a05d); background-size: 100% 100%; border-radius: 12px;">
+                        <asp:LinkButton runat="server" ID="lnkRotdeliv" OnClick="lnkRotdeliv_Click">
+                            <div class="card-xl-stretch m-4">
+                                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
+                                    <!-- Increased padding -->
+                                    <div class="symbol symbol-35px me-3">
+                                        <!-- Adjusted margin -->
+                                        <img src="../assets/media/dashboard/rd.png" class="w-30px" alt="" />
+                                    </div>
+                                    <span class="text-white fs-3 fw-bold" style="padding: 0;">
+                                        <asp:Label runat="server" ID="lbldelcount" Text="0" Font-Bold="true"></asp:Label>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 me-6">
+                                    <span class="text-white fw-semibold fs-5 d-block" style="margin-top: 2px;">
+                                        <!-- Added margin for spacing -->
+                                        Route Deliveries
+                                    </span>
+                                </div>
+                            </div>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8 ms-2" style="background-color: #7c5c97; background-image: linear-gradient(to right,#5d1498, #7d599a); background-size: 100%; border-radius: 12px;">
+                        <asp:LinkButton runat="server" ID="lnkOutstandingInv" OnClick="lnkOutstandingInv_Click">
+                            <div class="card-xl-stretch m-4">
+                                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
+                                    <!-- Increased padding -->
+                                    <div class="symbol symbol-35px me-3">
+                                        <!-- Adjusted margin -->
+                                        <img src="../assets/media/dashboard/oi.png" class="w-30px" alt="" />
+                                    </div>
+                                    <span class="text-white fs-3 fw-bold" style="padding: 0;">
+                                        <asp:Label runat="server" ID="lblOutstanding" Text="0" Font-Bold="true"></asp:Label>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1 me-6">
+                                    <span class="text-white fw-semibold fs-5 d-block" style="margin-top: 2px;">
+                                        <!-- Added margin for spacing -->
+                                        Outstanding Invoices
+                                    </span>
+                                </div>
+                            </div>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8 ms-2" style="background-color: #b93e32; background-image: linear-gradient(to right,#b61707, #b0675f); background-size: 100%; border-radius: 12px;">
                         <asp:LinkButton runat="server" ID="lnkInvMonitoring" OnClick="lnkInvMonitoring_Click">
-
-                            <div class=" card-xl-stretch m-4">
-
-                                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
-                                    <div class="symbol symbol-35px me-5">
-                                        <img src="../assets/media/dashboard/im.png" class="w-30px me-6" alt="" />
-                                    </div>
-
-                                   <%-- <span class="text-white fs-3 fw-bold py-1 me-12"><span id="MainContent_lblInvMonitoring">
-
-                                        <asp:Label runat="server" ID="lblInvMonitoring" Text="0" Font-Bold="true"></asp:Label>
-
-                                    </span></span>--%>
-
-
-                                </div>
-                                <div class="flex-grow-1 me-6">
-                                    <span class="text-white fw-semibold fs-3 d-block">Inventory Monitoring</span>
-                                </div>
-                            </div>
+            <div class="card-xl-stretch m-4">
+                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12"> <!-- Increased padding -->
+                    <div class="symbol symbol-35px me-3"> <!-- Adjusted margin -->
+                        <img src="../assets/media/dashboard/im.png" class="w-30px" alt="" />
+                    </div>
+                    <%-- Uncommented label if needed --%>
+                    <!-- 
+                    <span class="text-white fs-3 fw-bold" style="padding: 0;"> 
+                        <asp:Label runat="server" ID="lblInvMonitoring" Text="0" Font-Bold="true"></asp:Label>
+                    </span>
+                    -->
+                </div>
+                <div class="flex-grow-1 me-6">
+                    <span class="text-white fw-semibold fs-5 d-block" style="margin-top: 2px;"> <!-- Added margin for spacing -->
+                        Inventory Monitoring
+                    </span>
+                </div>
+            </div>
                         </asp:LinkButton>
                     </div>
                 </div>
-           
-            <asp:PlaceHolder ID="pnlActManage" runat="server">
-                <div class="col-lg-6">
-                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #8e3a09; background-image: linear-gradient(to right,#933702, #995d3b); background-size: 100%; border-radius: 12px;">
-                        <asp:LinkButton runat="server" ID="lnkActManagement" OnClick="lnkActManagement_Click">
-
-                            <div class=" card-xl-stretch m-4">
-
-                                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
-                                    <div class="symbol symbol-35px me-5">
-                                        <img src="../assets/media/dashboard/am.png" class="w-30px me-6" alt="" />
-                                    </div>
-
-                                   <%-- <span class="text-white fs-3 fw-bold py-1 me-12"><span id="MainContent_lblOutlet">
-
-                                        <asp:Label runat="server" ID="lblOutlet" Text="0" Font-Bold="true"></asp:Label>
-
-                                    </span></span>--%>
 
 
-                                </div>
-                                <div class="flex-grow-1 me-6">
-                                    <span class="text-white fw-semibold fs-3 d-block">Outlet Activities</span>
-                                </div>
-                            </div>
-
-                        </asp:LinkButton>
+                <asp:PlaceHolder ID="pnlActManage" runat="server">
+                    <div class="col-lg-6">
+                        <div class="card bgi-no-repeat card-lg-stretch ms-2" style="background-color: #8e3a09; background-image: linear-gradient(to right,#933702, #a06e52); background-size: 100%; border-radius: 12px;">
+                            <asp:LinkButton runat="server" ID="lnkActManagement" OnClick="lnkActManagement_Click">
+                <div class="card-xl-stretch m-4">
+                    <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12"> <!-- Increased padding -->
+                        <div class="symbol symbol-35px me-3"> <!-- Adjusted margin -->
+                            <img src="../assets/media/dashboard/am.png" class="w-30px" alt="" />
+                        </div>
+                        <%-- Uncomment this if you want to display the label --%>
+                        <!-- 
+                        <span class="text-white fs-3 fw-bold" style="padding: 0;"> 
+                            <asp:Label runat="server" ID="lblOutlet" Text="0" Font-Bold="true"></asp:Label>
+                        </span>
+                        -->
+                    </div>
+                    <div class="flex-grow-1 me-6">
+                        <span class="text-white fw-semibold fs-5 d-block" style="margin-top: 2px;"> <!-- Added margin for spacing -->
+                            Outlet Activities
+                        </span>
                     </div>
                 </div>
-            </asp:PlaceHolder>
-            <asp:PlaceHolder ID="pnlcusservice" runat="server">
-                <div class="col-lg-6">
-                    <div class="card bgi-no-repeat card-lg-stretch mb-lg-8" style="background-color: #21459f; background-image: linear-gradient(to right,#032784, #536187); background-size: 100%; border-radius: 12px;">
-                        <asp:LinkButton runat="server" ID="lnkcusservice" OnClick="lnkcusservice_Click">
-                            <div class=" card-xl-stretch m-4">
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+                </asp:PlaceHolder>
 
-                                <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12">
-                                    <div class="symbol symbol-35px me-5">
-                                        <img src="../assets/media/dashboard/cs.png" class="w-30px me-6" alt="" />
-                                    </div>
-
-                                    <%--<span class="text-white fs-3 fw-bold py-1 me-12"><span id="MainContent_lblCusServe">
-
-                                        <asp:Label runat="server" ID="lblCusServe" Text="0" Font-Bold="true"></asp:Label>
-
-                                    </span></span>--%>
-
-
-                                </div>
-                                <div class="flex-grow-1 me-6">
-                                    <span class="text-white fw-semibold fs-3 d-block">Customer Services</span>
-                                </div>
-                            </div>
-
-                        </asp:LinkButton>
+                <asp:PlaceHolder ID="pnlcusservice" runat="server">
+                    <div class="col-lg-6">
+                        <div class="card bgi-no-repeat card-lg-stretch mb-lg-8 ms-2" style="background-color: #21459f; background-image: linear-gradient(to right,#032784, #6d7a9b); background-size: 100%; border-radius: 12px;">
+                            <asp:LinkButton runat="server" ID="lnkcusservice" OnClick="lnkcusservice_Click">
+                <div class="card-xl-stretch m-4">
+                    <div class="d-flex align-items-center border-1 rounded p-1 mb-0 col-md-12"> <!-- Increased padding -->
+                        <div class="symbol symbol-35px me-3"> <!-- Adjusted margin -->
+                            <img src="../assets/media/dashboard/cs.png" class="w-30px" alt="" />
+                        </div>
+                        
+                    </div>
+                    <div class="flex-grow-1 me-6">
+                        <span class="text-white fw-semibold fs-5 d-block" style="margin-top: 2px;"> <!-- Added margin for spacing -->
+                            Customer Services
+                        </span>
                     </div>
                 </div>
-            </asp:PlaceHolder>
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+                </asp:PlaceHolder>
+
+            </div>
+
         </div>
-    </div>
-        </asp:PlaceHolder>
+
+
+    </asp:PlaceHolder>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerScripts" runat="server">
