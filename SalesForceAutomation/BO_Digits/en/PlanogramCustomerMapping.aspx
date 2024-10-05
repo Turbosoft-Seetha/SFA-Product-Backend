@@ -21,7 +21,7 @@
             
              $('#success').text(a);
     }
-             function Succcess1(a) {
+         function Success1(a) {
                  $('#modalConfirm').modal('hide');
                  $('#kt_modal_1_6').modal('show');
                  $('#kt_modal_1_4').modal('hide');
@@ -321,35 +321,36 @@
      </div>
  </div>
         <!--begin::FailedModal-->
-<div class="modal fade" id="kt_modal_1_8" tabindex="-1" role="dialog" style="height: auto" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Oops..!</h5>
-            </div>
-            <div class="modal-body">
-                <span>Something went wrong, please try again later.</span>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(kt_modal_1_8);">Ok</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                <div class="modal fade" id="kt_modal_1_8" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                   <div class="modal-dialog" role="document">
+                                         <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title">Oops..!</h5>
+                                              </div>
+                                          <div class="modal-body">
+                                            <span id="failtext"></span>
+                                          </div>
+                                     <div class="modal-footer">
+                                              <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(kt_modal_1_8);">Ok</button>
+                                         </div>
+                                  </div>
+                            </div>
+                          </div>
+
         <div class="modal fade" id="kt_modal_1_6" tabindex="-1" role="dialog" style="height: auto" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Success1</h5>
+                <h5 class="modal-title">Success</h5>
             </div>
             <div class="modal-body">
-                <span id="Success1"></span>
+                <span id="success1"></span>
             </div>
             <div class="modal-footer">
-                <telerik:RadAjaxPanel ID="RadAjaxPanel9" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                     <asp:LinkButton ID="btnDeleteOk" runat="server" OnClick="btnDeleteOk_Click" CssClass="btn btn-sm fw-bold btn-secondary">OK</asp:LinkButton>
                 </telerik:RadAjaxPanel>
-                <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel6" EnableEmbeddedSkins="false"
+                <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel3" EnableEmbeddedSkins="false"
                     BackColor="Transparent"
                     ForeColor="Blue">
                     <div class="col-lg-12 text-center mt-5">

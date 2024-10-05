@@ -202,15 +202,15 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Delete"))
-            {
-                GridDataItem dataItem = e.Item as GridDataItem;
-                string plc_ID = dataItem.GetDataKeyValue("plc_ID").ToString();
-                ViewState["SelectedPlcID"] = plc_ID;
+            //if (e.CommandName.Equals("Delete"))
+            //{
+            //    GridDataItem dataItem = e.Item as GridDataItem;
+            //    string plc_ID = dataItem.GetDataKeyValue("plc_ID").ToString();
+            //    ViewState["SelectedPlcID"] = plc_ID;
 
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+            //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
 
-            }
+            //}
         }
 
         protected void lnkDelete_Click(object sender, EventArgs e)
@@ -229,21 +229,77 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void btnDeleteOk_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
+            //Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
+            Response.Redirect("PlanogramCustomerMapping.aspx");
+
             //LoadList();
             //grvRpt.Rebind();
         }
+        public string GetItemFromGrid()
+        {
+            using (var sw = new StringWriter())
+            {
+                using (var writer = XmlWriter.Create(sw))
+                {
+                    writer.WriteStartDocument(true);
+                    writer.WriteStartElement("r");
+                    int c = 0;
 
+                    var ColelctionMarkets = grvRpt.SelectedItems;
+                    int i = 0;
+                    int MarCount = ColelctionMarkets.Count;
+                    if (ColelctionMarkets.Count > 0)
+                    {
+                        foreach (GridDataItem dr in ColelctionMarkets)
+                        {
+                            //where 1 = 1
+                            string uva_ID = dr.GetDataKeyValue("plc_ID").ToString();
+
+                            createNode(uva_ID, writer);
+                            c++;
+
+                        }
+                    }
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+                    writer.Close();
+                    if (c == 0)
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        string ss = sw.ToString();
+                        return sw.ToString();
+                    }
+                }
+            }
+        }
+        private void createNode(string uva_ID, XmlWriter writer)
+        {
+            writer.WriteStartElement("Values");
+
+            writer.WriteStartElement("plc_ID");
+            writer.WriteString(uva_ID);
+            writer.WriteEndElement();
+
+
+
+
+            writer.WriteEndElement();
+        }
         protected void Delete_Click(object sender, EventArgs e)
         {
-            string plcID = ViewState["SelectedPlcID"] as string;
+            string plcID = GetItemFromGrid();
+
             string[] arr = { };
             string result = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", plcID, arr);
             int res = int.Parse(result);
 
             if (res > 0)
             {
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess1('Deleted Successfully');</script>", false);
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Success1('Deleted Successfully');</script>", false);
             }
 
             else
@@ -253,6 +309,6 @@ namespace SalesForceAutomation.BO_Digits.en
 
         }
 
-
+       
     }
 }
