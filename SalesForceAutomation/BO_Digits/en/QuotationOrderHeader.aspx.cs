@@ -299,8 +299,6 @@ namespace SalesForceAutomation.BO_Digits.en
                             {
                                 foreach (RadComboBoxItem items in rdCustomer.Items)
                                 {
-
-
                                     if (items.Value == ar[i])
                                     {
                                         items.Checked = true;

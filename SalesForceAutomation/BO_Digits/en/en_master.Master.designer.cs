@@ -33,6 +33,60 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.ScriptManager sc;
 
         /// <summary>
+        /// DangerAlert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DangerAlert;
+
+        /// <summary>
+        /// lblDangerAlertMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDangerAlertMessage;
+
+        /// <summary>
+        /// WarningAlert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WarningAlert;
+
+        /// <summary>
+        /// lblWarningAlertMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarningAlertMessage;
+
+        /// <summary>
+        /// PrimaryAlert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrimaryAlert;
+
+        /// <summary>
+        /// lblPrimaryAlertMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrimaryAlertMessage;
+
+        /// <summary>
         /// lblName control.
         /// </summary>
         /// <remarks>

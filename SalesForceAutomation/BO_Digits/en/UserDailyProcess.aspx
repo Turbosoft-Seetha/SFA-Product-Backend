@@ -23,13 +23,15 @@
     </script>
 </asp:Content>
 <asp:Content ID="ContentAction" ContentPlaceHolderID="Actions" runat="server">
-
-
-   
-     
+     <div class="reset-icon" style="position: relative; top: 5px; margin-right: 10px;">
+    <asp:ImageButton ID="Reset" runat="server" ImageUrl="../assets/media/UDP/reset.png" 
+        Height="30px" AlternateText="reset" OnClick="Reset_Click" />
+    </div>
     
         <telerik:RadAjaxPanel ID="RadAjaxPanel7" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
-        
+        <div class="actions-wrapper" style="display: flex; align-items: center;">
+            <%--<asp:ImageButton ID="Reset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="25px" AlternateText="reset" OnClick="Reset_Click" CssClass="reset-btn" style="margin-right: 10px;"/>--%>
+             
             
             <asp:LinkButton ID="lnkPrevious"  runat="server" CssClass="btn btn-sm btn-primary me-2" BackColor="#DAE9F8" ForeColor="#009EF7" CausesValidation="false" OnClick="lnkPrevious_Click">
             <asp:Image ID="Image2" runat="server" ImageUrl="../assets/media/icons/arr002.svg" Height="20" />
@@ -42,7 +44,7 @@
             <asp:LinkButton ID="lnkNextDay"  runat="server" CssClass="btn btn-sm btn-primary me-2" BackColor="#DAE9F8" ForeColor="#009EF7" CausesValidation="false" OnClick="lnkNextDay_Click">
             <asp:Image ID="Image1" runat="server" ImageUrl="../assets/media/icons/arr001.svg" Height="20" />
             </asp:LinkButton>
-     
+     </div>
       </telerik:RadAjaxPanel>
 
       <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel3" EnableEmbeddedSkins="false"
@@ -209,10 +211,13 @@
                                         </asp:PlaceHolder>
                          </div>
                         <div class=" col-lg-12 row" style="padding-bottom: 10px">
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <label class="control-label col-lg-12">Route Type</label>
                                 <div class="col-lg-12">
-                                    <telerik:RadComboBox ID="ddlRotType" runat="server" Width="80%" EmptyMessage="Select Route Type" Filter="Contains" RenderMode="Lightweight" OnSelectedIndexChanged="ddlRotType_SelectedIndexChanged" AutoPostBack="true"></telerik:RadComboBox>
+                                    <telerik:RadComboBox Skin="Material" Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight"
+                                        ID="rdRouteType" runat="server" EmptyMessage="Select Route Type" OnSelectedIndexChanged="rdRouteType_SelectedIndexChanged"   AutoPostBack="true" Width="100%">
+                                    </telerik:RadComboBox>
+                                   <%-- <telerik:RadComboBox ID="ddlRotType" runat="server" Width="80%" EmptyMessage="Select Route Type" Filter="Contains" RenderMode="Lightweight" OnSelectedIndexChanged="ddlRotType_SelectedIndexChanged" AutoPostBack="true"></telerik:RadComboBox>--%>
                                 </div>
                             </div>
                             <div class="col-lg-2">

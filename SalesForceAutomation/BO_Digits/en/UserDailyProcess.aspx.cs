@@ -11,6 +11,9 @@ using System.Linq.Expressions;
 using DocumentFormat.OpenXml.Office.CustomUI;
 using System.IO;
 using System.Xml;
+using DocumentFormat.OpenXml.ExtendedProperties;
+using EnvDTE;
+using System.Runtime.InteropServices;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -41,9 +44,9 @@ namespace SalesForceAutomation.BO_Digits.en
             if (!Page.IsPostBack)
             {
                 Session["Status"] = "";
-                string rotID, routeCondition;
+                string rotID, routeCondition, routeTypeCondition;
                 EndDayNotDone();
-                RouteType();
+               
                 try
                 {
 					if (Mode.Equals("tml"))
@@ -159,14 +162,46 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
                 string deposubarea = DPOsubarea();
                 string dposubareacondition = " rot_dsa_ID in (" + deposubarea + ")";
-                Route(dposubareacondition);
+                RouteType();
 
-                if (!Mode.Equals("udd"))
-                {
-                    RouteFromTransaction();
-                }
                 try
                 {
+                    if (Session["UDProtTypeID"] != null)
+                    {
+                        int a = rdRouteType.Items.Count;
+                        string routetype = Session["UDProtTypeID"].ToString();
+                        string[] ar = routetype.Split(',');
+                        for (int i = 0; i < ar.Length; i++)
+                        {
+
+                            string trimmedType = ar[i].Trim('\'');
+                            foreach (RadComboBoxItem items in rdRouteType.Items)
+                            {
+                                
+                                if (items.Value == trimmedType)
+                                {
+                                    items.Checked = true;
+                                }
+                               
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int j = 1;
+                        foreach (RadComboBoxItem itmss in rdRouteType.Items)
+                        {
+                            itmss.Checked = true;
+                            j++;
+                        }
+                        string rotType = RotType();
+                        routeTypeCondition = " rot_Type in (" + rotType + ")";
+
+                    }
+                   
+
+                    Route(dposubareacondition);
+                   
                     if (Session["UDProtID"] != null)
                     {
                         int a = rdRoute.Items.Count;
@@ -185,16 +220,23 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                     else
                     {
-                        int j = 1;
-                        foreach (RadComboBoxItem itmss in rdRoute.Items)
+                        if (!Mode.Equals("udd"))
                         {
-                            itmss.Checked = true;
-                            j++;
+                            RouteFromTransaction();
                         }
-                        rotID = Rot();
-                        routeCondition = "udp_rot_ID in (" + rotID + ")";
+                        else
+                        {
+                            int j = 1;
+                            foreach (RadComboBoxItem itmss in rdRoute.Items)
+                            {
+                                itmss.Checked = true;
+                                j++;
+                            }
+                            rotID = Rot();
+                            routeCondition = "udp_rot_ID in (" + rotID + ")";
+                        }
                     }
-                    
+                   
                 }
                 catch(Exception ex)
                 {
@@ -337,24 +379,30 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             try
             {
-				Session["fDate"] = rdfromDate.SelectedDate.ToString();
-				Session["TDate"] = rdendDate.SelectedDate.ToString();
+                Session["fDate"] = rdfromDate.SelectedDate.ToString();
+                Session["TDate"] = rdendDate.SelectedDate.ToString();
 
                 Session["UDPFromDate"] = rdfromDate.SelectedDate.ToString();
                 Session["UDPToDate"] = rdendDate.SelectedDate.ToString();
-                
 
-            }
-			catch (Exception ex)
-			{
-				Response.Redirect("~/SignIn.aspx");
-			}
-            if (Session["UDProtID"] != null)
-            {
-                string route = Rot();
-                if (route == Session["UDProtID"].ToString())
+
+
+
+
+                if (Session["UDProtID"] != null)
                 {
-                    string rotID = Rot();
+                    string route = Rot();
+                    if (route == Session["UDProtID"].ToString())
+                    {
+                        string rotID = Rot();
+
+                    }
+                    else
+                    {
+                        string rotID = Rot();
+                        Session["UDProtID"] = rotID;
+                    }
+
 
                 }
                 else
@@ -363,14 +411,33 @@ namespace SalesForceAutomation.BO_Digits.en
                     Session["UDProtID"] = rotID;
                 }
 
+                if (Session["UDProtTypeID"] != null)
+                {
+                    string rotType = RotType();
+                    if (rotType == Session["UDProtTypeID"].ToString())
+                    {
+                        string routeType = RotType();
 
+                    }
+                    else
+                    {
+                        string routeType = RotType();
+
+                        Session["UDProtTypeID"] = routeType;
+                    }
+
+
+                }
+                else
+                {
+                    string routeType = RotType();
+                    Session["UDProtTypeID"] = routeType;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string rotID = Rot();
-                Session["UDProtID"] = rotID;
+                Response.Redirect("~/SignIn.aspx");
             }
-
             Session["Status"] = "";
             SelUserDailyProcess();
             LoadList("");
@@ -463,7 +530,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 //    }
                 //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>WayMap('" + geoCodes + "' , '" + cusNames + "' , '" + DtFormat + "'  , '" + type + "');</script>", false);
-                string URL = ConfigurationManager.AppSettings.Get("TrackingUrlID");
+                string URL=System.Configuration.ConfigurationManager.AppSettings.Get("TrackingUrlID");
                 OpenNewBrowserWindow(URL + id + "&&mode=DIGITS-SFA", this);
             }
             if (e.CommandName.Equals("Settlement"))
@@ -558,30 +625,66 @@ namespace SalesForceAutomation.BO_Digits.en
 
         public void RouteType()
         {
-            ddlRotType.DataSource = ObjclsFrms.loadList("SelectRouteTypeforDropdown", "sp_Masters", UICommon.GetCurrentUserID().ToString());
-            ddlRotType.DataTextField = "Type";
-            ddlRotType.DataValueField = "rot_Type";
-            ddlRotType.DataBind();
+            rdRouteType.DataSource = ObjclsFrms.loadList("SelectRouteTypeforDropdown", "sp_Masters", UICommon.GetCurrentUserID().ToString());
+            rdRouteType.DataTextField = "Type";
+            rdRouteType.DataValueField = "rot_Type";
+            rdRouteType.DataBind();
         }
         public void Route(string DposubAreaCondition)
         {
             string TypeCondition;
+            string rotType = RotType();
 
-            if ((ddlRotType.SelectedValue.ToString() == "AL")|| (ddlRotType.SelectedValue.ToString() == ""))
-            {
-                TypeCondition = "";
-            }
-            else
-            {
-                TypeCondition = (DposubAreaCondition == "" ? " rot_Type='" + ddlRotType.SelectedValue.ToString() + "'" : " and rot_Type=' " + ddlRotType.SelectedValue.ToString() + "'");
-            }
-            
+
+            //if ((rdRouteType.SelectedValue.ToString() == "AL")|| (rdRouteType.SelectedValue.ToString() == ""))
+            //{
+            //    TypeCondition = "";
+            //}
+            //else
+            //{
+              //  TypeCondition = (DposubAreaCondition == "" ? " rot_Type='" + ddlRotType.SelectedValue.ToString() + "'" : " and rot_Type=' " + ddlRotType.SelectedValue.ToString() + "'");
+                TypeCondition = (DposubAreaCondition == "" ? " rot_Type in (" + rotType + ")" : " and rot_Type in (" + rotType + ")");
+
+
+            //}
+
             string[] arr = { DposubAreaCondition, TypeCondition };
             rdRoute.DataSource = ObjclsFrms.loadList("SelectRouteforTransactions", "sp_Masters", UICommon.GetCurrentUserID().ToString(), arr);
+            
             rdRoute.DataTextField = "rot_Name";
             rdRoute.DataValueField = "rot_ID";
             rdRoute.DataBind();
         }
+       
+        public string RotType()
+        {
+            var CollectionMarket = rdRouteType.CheckedItems;
+            string rotType = "";
+            int j = 0;
+            int MarCount = CollectionMarket.Count;
+
+            if (CollectionMarket.Count > 0)
+            {
+                foreach (var item in CollectionMarket)
+                {
+                    if (j == 0)
+                    {
+                        rotType += "'" + item.Value + "'";
+                    }
+                    else
+                    {
+                        rotType += ",'" + item.Value + "'";
+                    }
+                    j++;
+                }
+                return rotType;
+            }
+            else
+            {
+                return "'0'";
+            }
+        }
+
         public void Region()
         {
             ddlregion.DataSource = ObjclsFrms.loadList("SelectRegionTransaction", "sp_Masters", UICommon.GetCurrentUserID().ToString());
@@ -1118,10 +1221,271 @@ namespace SalesForceAutomation.BO_Digits.en
             LoadList("");
             grvRpt.Rebind();
         }
-        protected void ddlRotType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        //protected void ddlRotType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        //{
+        //    rdRoute.ClearSelection();
+        //    Route("");
+        //}
+
+        protected void rdRouteType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
             rdRoute.ClearSelection();
             Route("");
+        }
+        private void ClearGridFilterConditions(Telerik.Web.UI.RadGrid grd, string SessionPrefix)
+        {
+            try
+            {
+                foreach (GridColumn column in grd.MasterTableView.Columns)
+                {
+                    if (column is GridBoundColumn boundColumn)
+                    {
+                        string columnName = boundColumn.UniqueName;
+                        column.CurrentFilterValue = string.Empty;
+                        Session[SessionPrefix + columnName] = null;
+                    }
+                }
+                grd.MasterTableView.FilterExpression = string.Empty;
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public void reset()
+        {
+            ClearGridFilterConditions(grvRpt, "UDP");
+            //string mainCondition = "";
+
+            Session["fDate"] = "";
+            Session["TDate"] = "";
+            Session["UDPFromDate"] = "";
+            Session["UDPToDate"] = "";
+
+
+            Session["UDProtID"] = "";
+            Session["UDProtTypeID"] = "";
+            Session["Status"] = "";
+            string rotID, routeCondition, routeTypeCondition;
+            EndDayNotDone();
+            Console.WriteLine("sessiondate",Session["UDPFromDate"]);
+            try
+            {
+                if (Mode.Equals("tml"))
+                {
+
+                    rdfromDate.SelectedDate = DateTime.Parse(Session["FrmDat"].ToString());
+                    rdendDate.SelectedDate = DateTime.Parse(Session["ToDat"].ToString());
+
+
+                }
+                else if (Mode.Equals("udd"))
+                {
+
+                    rdfromDate.SelectedDate = DateTime.Parse(Session["frmdate"].ToString());
+                    rdendDate.SelectedDate = DateTime.Parse(Session["todate"].ToString());
+
+
+
+                }
+                else if (Mode.Equals("SR"))
+                {
+
+                    rdfromDate.SelectedDate = DateTime.Parse(Session["SRFdate"].ToString());
+                    rdendDate.SelectedDate = DateTime.Parse(Session["SRTdate"].ToString());
+
+
+
+                }
+                else if (Mode.Equals("SRC"))
+                {
+
+                    rdfromDate.SelectedDate = DateTime.Parse(Session["SRCFdate"].ToString());
+                    rdendDate.SelectedDate = DateTime.Parse(Session["SRCTdate"].ToString());
+
+
+
+                }
+                else if (Mode.Equals("VAN"))
+                {
+
+                    rdfromDate.SelectedDate = DateTime.Parse(Session["VanFDate"].ToString());
+                    rdendDate.SelectedDate = DateTime.Parse(Session["VanTDate"].ToString());
+
+
+
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(Session["UDPFromDate"] as string))
+                    {
+                        rdfromDate.SelectedDate = DateTime.Parse(Session["UDPFromDate"].ToString());
+                    }
+                    else
+                    {
+                        rdfromDate.SelectedDate = DateTime.Now;
+                    }
+
+                    if (!string.IsNullOrEmpty(Session["UDPToDate"] as string))
+                    {
+                        rdendDate.SelectedDate = DateTime.Parse(Session["UDPToDate"].ToString());
+                    }
+                    else
+                    {
+                        rdendDate.SelectedDate = DateTime.Now;
+                    }
+
+                    //                  rdfromDate.SelectedDate = DateTime.Now;
+                    //rdendDate.SelectedDate = DateTime.Now;
+
+                    plhFilter.Visible = false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/SignIn.aspx");
+            }
+
+            Region();
+            int o = 1;
+            foreach (RadComboBoxItem itmss in ddlregion.Items)
+            {
+                itmss.Checked = true;
+                o++;
+            }
+            string Reg = REG();
+            string regcondition = " dep_reg_ID in (" + Reg + ")";
+            Depot(regcondition);
+
+            int p = 1;
+            foreach (RadComboBoxItem itmss in ddldepot.Items)
+            {
+                itmss.Checked = true;
+                p++;
+            }
+            string depo = DPO();
+            string dpocondition = " dpa_dep_ID in (" + depo + ")";
+            DpoArea(dpocondition);
+            int q = 1;
+            foreach (RadComboBoxItem itmss in ddldpoArea.Items)
+            {
+                itmss.Checked = true;
+                q++;
+            }
+            string depoarea = DPOarea();
+            string dpoareacondition = " dsa_dpa_ID in (" + depoarea + ")";
+            DpoSubArea(dpoareacondition);
+            int R = 1;
+            foreach (RadComboBoxItem itmss in ddldpoSubArea.Items)
+            {
+                itmss.Checked = true;
+                R++;
+            }
+            string deposubarea = DPOsubarea();
+            string dposubareacondition = " rot_dsa_ID in (" + deposubarea + ")";
+            RouteType();
+
+           
+            try
+            {
+                if (!string.IsNullOrEmpty(Session["UDProtTypeID"] as string))
+                {
+                    int a = rdRouteType.Items.Count;
+                    string routetype = Session["UDProtTypeID"].ToString();
+                    string[] ar = routetype.Split(',');
+                    for (int i = 0; i < ar.Length; i++)
+                    {
+                        string trimmedType = ar[i].Trim('\'');
+                        foreach (RadComboBoxItem items in rdRouteType.Items)
+                        {
+                            
+                            if (items.Value == trimmedType)
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    int j = 1;
+                    foreach (RadComboBoxItem itmss in rdRouteType.Items)
+                    {
+                        itmss.Checked = true;
+                        j++;
+                    }
+                    string rotType = RotType();
+                    routeTypeCondition = " rot_Type in (" + rotType + ")";
+
+                }
+                Route(dposubareacondition);
+
+                //if (!Mode.Equals("udd"))
+                //{
+                //    RouteFromTransaction();
+                //}
+                if (!string.IsNullOrEmpty(Session["UDProtID"] as string))
+                {
+                    int a = rdRoute.Items.Count;
+                    string route = Session["UDProtID"].ToString();
+                    string[] ar = route.Split(',');
+                    for (int i = 0; i < ar.Length; i++)
+                    {
+                        foreach (RadComboBoxItem items in rdRoute.Items)
+                        {
+                            if (items.Value == ar[i])
+                            {
+                                items.Checked = true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (!Mode.Equals("udd"))
+                    {
+                        RouteFromTransaction();
+                    }
+                    else
+                    {
+                        int j = 1;
+                        foreach (RadComboBoxItem itmss in rdRoute.Items)
+                        {
+                            itmss.Checked = true;
+                            j++;
+                        }
+                        rotID = Rot();
+                        routeCondition = "udp_rot_ID in (" + rotID + ")";
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/SignIn.aspx");
+            }
+            SelUserDailyProcess();
+        }
+        protected void Reset_Click(object sender, ImageClickEventArgs e)
+        {
+            try 
+            { 
+           
+                reset();
+               
+
+                LoadList("");
+                grvRpt.Rebind();
+
+            }
+            catch (Exception ex)
+            {
+                String innerMessage = (ex.InnerException != null) ? ex.InnerException.Message : "";
+                ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "UserDailyProcess.aspx", "ItemsData() Error : " + ex.Message.ToString() + " - " + innerMessage);
+            }
+
         }
     }
 }

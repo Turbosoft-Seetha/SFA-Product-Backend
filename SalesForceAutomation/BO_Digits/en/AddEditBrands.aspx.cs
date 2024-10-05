@@ -30,13 +30,14 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 FillForm();
                 company();
-              //test pull-push
+
 
             }
 
         }
         public void FillForm()
         {
+
 
             DataTable lstDatas = Obj.loadList("EditBrand", "sp_Masters", ResponseID.ToString());
             if (lstDatas.Rows.Count > 0)
