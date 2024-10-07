@@ -9,6 +9,10 @@
 
     <asp:ImageButton ID="btnPDF" runat="server" ImageUrl="../assets/media/icons/file.png" Height="40" Width="33" ToolTip="Print"
         OnClick="btnPDF_Click" AlternateText="pdf" />--%>
+       <asp:ImageButton ID="imgExcel" runat="server" ImageUrl="../assets/media/icons/excel.png" Height="50" ToolTip="Download" OnClick="imgExcel_Click1" AlternateText="xlsx" >
+
+       </asp:ImageButton>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="card-body" style="background-color: white; padding: 20px;">
@@ -140,7 +144,7 @@
                                             <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
                                         </ClientSettings>
                                         <MasterTableView AutoGenerateColumns="False" FilterItemStyle-Font-Size="XX-Small" CanRetrieveAllData="false"
-                                            ShowFooter="false" DataKeyNames="LoginID"
+                                            ShowFooter="false" DataKeyNames="ID"
                                             EnableHeaderContextMenu="true">
                                             <Columns>
 
@@ -150,7 +154,7 @@
                                                 <telerik:GridBoundColumn DataField="LoginID" AllowFiltering="true" HeaderStyle-Width="90px"
                                                     HeaderStyle-Font-Size="Smaller" HeaderText="Login ID" FilterControlWidth="90%"
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                    HeaderStyle-Font-Bold="true" UniqueName="LoginID">
+                                                    HeaderStyle-Font-Bold="true" UniqueName="LoginID" Display ="false">
                                                 </telerik:GridBoundColumn>
                                             
                                                 <telerik:GridBoundColumn DataField="LoginName" AllowFiltering="true" HeaderStyle-Width="90px"
@@ -164,16 +168,7 @@
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                     HeaderStyle-Font-Bold="true" UniqueName="Role">
                                                 </telerik:GridBoundColumn>
-
-
-
-
-
-                                                <telerik:GridBoundColumn DataField="Status" AllowFiltering="true" HeaderStyle-Width="90px"
-                                                    HeaderStyle-Font-Size="Smaller" HeaderText="Status" FilterControlWidth="90%"
-                                                    CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                    HeaderStyle-Font-Bold="true" UniqueName="Status">
-                                                </telerik:GridBoundColumn>
+                                                
                                                 <telerik:GridBoundColumn DataField="LoginTime" AllowFiltering="true" HeaderStyle-Width="90px"
                                                     HeaderStyle-Font-Size="Smaller" HeaderText="Login Time" FilterControlWidth="90%"
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
@@ -184,7 +179,11 @@
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                     HeaderStyle-Font-Bold="true" UniqueName="LoginIP">
                                                 </telerik:GridBoundColumn>
-
+                                                <telerik:GridBoundColumn DataField="Status" AllowFiltering="true" HeaderStyle-Width="90px"
+                                                    HeaderStyle-Font-Size="Smaller" HeaderText="Status" FilterControlWidth="90%"
+                                                    CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                    HeaderStyle-Font-Bold="true" UniqueName="Status">
+                                                </telerik:GridBoundColumn>
 
                                             </Columns>
                                         </MasterTableView>
