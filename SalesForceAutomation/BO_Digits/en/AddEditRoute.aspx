@@ -755,6 +755,56 @@
 
                                     </div>
                                 </div>
+                                </div>
+                             <div class="col-lg-12 row" style="padding-top: 9px;">
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">KPI Settings<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlKpi" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select KPI Settings">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Journey Plan" Value="JPB" />
+                                                <telerik:RadComboBoxItem Text="Item Pricing" Value="IPB" />
+                                                <telerik:RadComboBoxItem Text="Special Pricing" Value="SPB" />
+                                                <telerik:RadComboBoxItem Text="Promotions" Value="PRB" />
+                                                <telerik:RadComboBoxItem Text="Outstanding" Value="OSB" />
+                                                <telerik:RadComboBoxItem Text="Target and Goals" Value="TGB" />
+                                                <telerik:RadComboBoxItem Text="Attach Sign Copy" Value="ASB" />
+                                                <telerik:RadComboBoxItem Text="Order Status" Value="ODB" />
+                                                <telerik:RadComboBoxItem Text="Customer Visit" Value="CUV" />
+                                                <telerik:RadComboBoxItem Text="Target and Goals - Chart" Value="TAG" />
+                                                <telerik:RadComboBoxItem Text="Outstanding - Chart" Value="OTS" />
+                                                <telerik:RadComboBoxItem Text="Deliveries" Value="DEL" />
+                                                <telerik:RadComboBoxItem Text="Sales Summary" Value="SAS" />
+                                                <telerik:RadComboBoxItem Text="Order Requests" Value="ORS" />
+                                                <telerik:RadComboBoxItem Text="Accounts Receivable" Value="ACR" />
+                                                <telerik:RadComboBoxItem Text="Advance Collection" Value="ADC" />
+                                                <telerik:RadComboBoxItem Text="Load In" Value="LDI" />
+                                                <telerik:RadComboBoxItem Text="Load Transfer" Value="LDT" />
+                                                <telerik:RadComboBoxItem Text="Van to Van Transfer" Value="VTV" />
+                                                <telerik:RadComboBoxItem Text="Inventory Reconfirmation" Value="INR" />
+                                                <telerik:RadComboBoxItem Text="Load Out" Value="LDO" />
+                                                <telerik:RadComboBoxItem Text="Time Duration" Value="TMD" />
+                                                <telerik:RadComboBoxItem Text="Settlement Details" Value="STD" />                                             
+
+                                            </Items>
+                                        </telerik:RadComboBox>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Override Online<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadDropDownList ID="ddlOverride" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                            <Items>
+                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                            </Items>
+                                        </telerik:RadDropDownList>
+
+                                    </div>
+                                </div>
+
                             </div>
 
                         </telerik:RadAjaxPanel>
