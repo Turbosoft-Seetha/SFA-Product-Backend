@@ -4,11 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageHeader" runat="server">
 </asp:Content>
 <asp:Content ID="ContentAction" ContentPlaceHolderID="Actions" runat="server">
-    <%--<asp:ImageButton ID="imgExcel" runat="server" ImageUrl="../assets/media/icons/excel.png" Height="50" ToolTip="Download" OnClick="imgExcel_Click" AlternateText="Xlsx" />
-
-
-    <asp:ImageButton ID="btnPDF" runat="server" ImageUrl="../assets/media/icons/file.png" Height="40" Width="33" ToolTip="Print"
-        OnClick="btnPDF_Click" AlternateText="pdf" />--%>
+    
        <asp:ImageButton ID="imgExcel" runat="server" ImageUrl="../assets/media/icons/excel.png" Height="50" ToolTip="Download" OnClick="imgExcel_Click1" AlternateText="xlsx" >
 
        </asp:ImageButton>
@@ -22,15 +18,7 @@
                 <div class="col-lg-12">
                     <!--begin::Portlet-->
                     <div class="kt-portlet">
-                        <%-- <div class="kt-portlet__head" style="padding-top: 20px;  padding-bottom: 20px;">
-
-                      c
-                        <%--<div class="kt-portlet__head-actions">
-
-                            <asp:ImageButton ID="imgExcel" runat="server" ImageUrl="../Media/excel.png" Height="50" ToolTip="Download" OnClick="imgExcel_Click" AlternateText="Xlsx" />
-
-                         </div>--%>
-                        <%--</div>--%>
+                       
 
 
 
@@ -38,58 +26,7 @@
                             <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                             <div class="kt-portlet__body">
                                 <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-                                    <%--<div class=" col-lg-12 row" style="padding-bottom: 10px">
-                                        <asp:PlaceHolder ID="plhFilter" runat="server">
-                                            <div class="col-lg-2">
-                                                <label class="control-label col-lg-12">Region</label>
-                                                <div class="col-lg-12">
-                                                    <telerik:RadComboBox Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight"
-                                                        ID="ddlregion" runat="server" EmptyMessage="Select Region" AutoPostBack="true" OnSelectedIndexChanged="ddlregion_SelectedIndexChanged">
-                                                    </telerik:RadComboBox>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <label class="control-label col-lg-12">Depot</label>
-                                                <div class="col-lg-12">
-                                                    <telerik:RadComboBox Skin="Material" Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true"
-                                                        RenderMode="Lightweight"
-                                                        ID="ddldepot" runat="server" EmptyMessage="Select Depot"
-                                                        OnSelectedIndexChanged="ddldepot_SelectedIndexChanged" AutoPostBack="true">
-                                                    </telerik:RadComboBox>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <label class="control-label col-lg-12">Area</label>
-                                                <div class="col-lg-12">
-                                                    <telerik:RadComboBox Skin="Material" Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight"
-                                                        ID="ddldpoArea" runat="server" EmptyMessage="Select Area"
-                                                        OnSelectedIndexChanged="ddldpoArea_SelectedIndexChanged" AutoPostBack="true">
-                                                    </telerik:RadComboBox>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <label class="control-label col-lg-12">Subarea</label>
-                                                <div class="col-lg-12">
-                                                    <telerik:RadComboBox Skin="Material" Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight"
-                                                        ID="ddldpoSubArea" runat="server" EmptyMessage="Select Subarea" OnSelectedIndexChanged="ddldpoSubArea_SelectedIndexChanged" AutoPostBack="true">
-                                                    </telerik:RadComboBox>
-
-                                                </div>
-                                            </div>
-                                        </asp:PlaceHolder>
-                                           <div class="col-lg-2" style="margin-left: 4px;">
-                                    <label class="control-label col-lg-12">Route</label>
-                                    <div class="col-lg-12">
-                                        <telerik:RadComboBox Skin="Material" Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight"
-                                            ID="rdRoute" runat="server" EmptyMessage="Select Route" OnSelectedIndexChanged="rdRoute_SelectedIndexChanged" AutoPostBack="true">
-                                        </telerik:RadComboBox>
-
-                                    </div>
-                                </div>
-                                    </div>--%>
+                                    
 
                                     <div class=" col-lg-12 row" style="padding-bottom: 10px">
 
@@ -121,11 +58,7 @@
                                                     Apply Filter
                                             </asp:LinkButton>
                                         </div>
-                                        <%--<div class="col-lg-2" style="text-align: center; padding-top: 15px;">
-                                            <asp:LinkButton ID="lnkAdvFilter" runat="server" CssClass="btn btn-sm btn-light-primary me-2 border-1" OnClick="lnkAdvFilter_Click" Visible="false">
-                                                    Advanced Filter
-                                            </asp:LinkButton>
-                                        </div>--%>
+                                        
 
 
                                     </div>

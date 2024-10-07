@@ -297,16 +297,7 @@ namespace SalesForceAutomation.BO_Digits.en
         }
 
 
-        //protected void imgExcel_Click1(object sender, ImageClickEventArgs e)
-        //{
-
-
-        //    BuildExcel excel = new BuildExcel();
-        //    Response.ContentType = ContentType;
-        //    Response.Headers.Remove("Content-Disposition");
-        //    Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}.{1}", "ListAudit", "xlsx"));
-        //    Response.End();
-        //}
+        
         protected void imgExcel_Click1(object sender, ImageClickEventArgs e)
         {
             DataTable dt = new DataTable();
@@ -432,7 +423,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 Response.ContentType = ContentType;
                 Response.Headers.Remove("Content-Disposition");
-                Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}.{1}", "List Audit", "Xlsx"));
+                Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}.{1}", "Login Audit Summary", "Xlsx"));
                 Response.BinaryWrite(output);
                 Response.End();
             }
