@@ -41,8 +41,8 @@ namespace SalesForceAutomation.BO_Digits.en
             {
 
                 Customers();
-
-                GetCusFromDropdown();
+               
+               
                 LoadList();
                 
             }
@@ -243,11 +243,11 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void btnDeleteOk_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
-            Response.Redirect("PlanogramCustomerMapping.aspx");
+            Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
 
             //LoadList();
             //grvRpt.Rebind();
+
         }
         public string GetItemFromGrid()
         {
@@ -313,16 +313,19 @@ namespace SalesForceAutomation.BO_Digits.en
 
             if (res > 0)
             {
+                
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Success1('Deleted Successfully');</script>", false);
-            }
 
+              
+                
+            }
             else
             {
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModal1();</script>", false);
             }
-
         }
 
-       
+
+
     }
 }
