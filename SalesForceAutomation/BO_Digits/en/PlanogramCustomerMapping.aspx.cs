@@ -42,10 +42,17 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 Customers();
 
-
+                GetCusFromDropdown();
                 LoadList();
+                
             }
         }
+
+        private void GetGridSession(Telerik.Web.UI.RadGrid grvRpt, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Customers()
         {
 
@@ -202,6 +209,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
+            
             //if (e.CommandName.Equals("Delete"))
             //{
             //    GridDataItem dataItem = e.Item as GridDataItem;
@@ -211,6 +219,11 @@ namespace SalesForceAutomation.BO_Digits.en
             //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
 
             //}
+        }
+
+        private void SetGridSession(Telerik.Web.UI.RadGrid grd, string v)
+        {
+            throw new NotImplementedException();
         }
 
         protected void lnkDelete_Click(object sender, EventArgs e)
@@ -225,6 +238,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Delete();</script>", false);
 
             }
+           
         }
 
         protected void btnDeleteOk_Click(object sender, EventArgs e)
