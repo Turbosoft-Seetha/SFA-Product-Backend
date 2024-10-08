@@ -11,169 +11,124 @@ namespace SalesForceAutomation.BO_Digits.en
 {
 
 
-    public partial class en_master
+    public partial class ListAudit
     {
 
         /// <summary>
-        /// PageHeader control.
+        /// imgExcel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder PageHeader;
+        protected global::System.Web.UI.WebControls.ImageButton imgExcel;
 
         /// <summary>
-        /// sc control.
+        /// RadAjaxPanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager sc;
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel2;
 
         /// <summary>
-        /// DangerAlert control.
+        /// Literal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DangerAlert;
+        protected global::System.Web.UI.WebControls.Literal Literal1;
 
         /// <summary>
-        /// lblDangerAlertMessage control.
+        /// RadAjaxPanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDangerAlertMessage;
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel1;
 
         /// <summary>
-        /// WarningAlert control.
+        /// rdfromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WarningAlert;
+        protected global::Telerik.Web.UI.RadDatePicker rdfromDate;
 
         /// <summary>
-        /// lblWarningAlertMessage control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWarningAlertMessage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// PrimaryAlert control.
+        /// rdendDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PrimaryAlert;
+        protected global::Telerik.Web.UI.RadDatePicker rdendDate;
 
         /// <summary>
-        /// lblPrimaryAlertMessage control.
+        /// dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrimaryAlertMessage;
+        protected global::System.Web.UI.WebControls.CompareValidator dd;
 
         /// <summary>
-        /// lblName control.
+        /// l control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator l;
 
         /// <summary>
-        /// lblEmail control.
+        /// lnkFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.LinkButton lnkFilter;
 
         /// <summary>
-        /// lblActlang control.
+        /// RadSkinManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActlang;
+        protected global::Telerik.Web.UI.RadSkinManager RadSkinManager1;
 
         /// <summary>
-        /// rptLmags control.
+        /// grvRpt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptLmags;
+        protected global::Telerik.Web.UI.RadGrid grvRpt;
 
         /// <summary>
-        /// ltrlMenu control.
+        /// RadAjaxLoadingPanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrlMenu;
-
-        /// <summary>
-        /// lblHeading control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHeading;
-
-        /// <summary>
-        /// ltrlCrumbs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrlCrumbs;
-
-        /// <summary>
-        /// Actions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Actions;
-
-        /// <summary>
-        /// MainContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-
-        /// <summary>
-        /// footerScripts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder footerScripts;
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel1;
     }
 }

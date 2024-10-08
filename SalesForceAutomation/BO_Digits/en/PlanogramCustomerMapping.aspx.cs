@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -38,16 +39,23 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                
+
                 Customers();
-
-
+               
+               
                 LoadList();
+                
             }
         }
+
+        private void GetGridSession(Telerik.Web.UI.RadGrid grvRpt, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Customers()
         {
-          
+
             DataTable dt = ObjclsFrms.loadList("SelCustomers", "sp_MerchandisingWebServices", RouteID.ToString());
             ddlCustomer.DataSource = dt;
             ddlCustomer.DataTextField = "cus_Name";
@@ -62,14 +70,14 @@ namespace SalesForceAutomation.BO_Digits.en
         }
 
 
-      
+
         public void SaveCustomers()
         {
-            
+
 
             string cus = GetCusFromDropdown();
 
-          
+
             string usr = UICommon.GetCurrentUserID().ToString();
             string[] arr = { ResponseID.ToString(), RouteID.ToString(), usr };
             string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "AddPlanogramCustomer", cus.ToString(), arr);
@@ -91,7 +99,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 using (var writer = XmlWriter.Create(sw))
                 {
                     writer.WriteStartDocument(true);
-                    writer.WriteStartElement("cus"); 
+                    writer.WriteStartElement("cus");
 
                     foreach (RadComboBoxItem item in ddlCustomer.CheckedItems)
                     {
@@ -197,47 +205,127 @@ namespace SalesForceAutomation.BO_Digits.en
             Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
         }
 
-   
+
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Delete"))
-            {
-                GridDataItem dataItem = e.Item as GridDataItem;
-                string ID = dataItem.GetDataKeyValue("plc_ID").ToString();
-                ViewState["SelectedPlcID"] = ID;
+            
+            //if (e.CommandName.Equals("Delete"))
+            //{
+            //    GridDataItem dataItem = e.Item as GridDataItem;
+            //    string plc_ID = dataItem.GetDataKeyValue("plc_ID").ToString();
+            //    ViewState["SelectedPlcID"] = plc_ID;
 
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+            //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+
+            //}
+        }
+
+        private void SetGridSession(Telerik.Web.UI.RadGrid grd, string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void lnkDelete_Click(object sender, EventArgs e)
+        {
+            int addCount = Int32.Parse(grvRpt.SelectedItems.Count.ToString());
+            if (addCount == 0)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModals();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Delete();</script>", false);
 
             }
+           
         }
 
         protected void btnDeleteOk_Click(object sender, EventArgs e)
         {
             Response.Redirect("PlanogramCustomerMapping.aspx?PID=" + ResponseID.ToString() + "&RID=" + RouteID.ToString());
+
             //LoadList();
             //grvRpt.Rebind();
-        }
 
+        }
+        public string GetItemFromGrid()
+        {
+            using (var sw = new StringWriter())
+            {
+                using (var writer = XmlWriter.Create(sw))
+                {
+                    writer.WriteStartDocument(true);
+                    writer.WriteStartElement("r");
+                    int c = 0;
+
+                    var ColelctionMarkets = grvRpt.SelectedItems;
+                    int i = 0;
+                    int MarCount = ColelctionMarkets.Count;
+                    if (ColelctionMarkets.Count > 0)
+                    {
+                        foreach (GridDataItem dr in ColelctionMarkets)
+                        {
+                            //where 1 = 1
+                            string uva_ID = dr.GetDataKeyValue("plc_ID").ToString();
+
+                            createNode(uva_ID, writer);
+                            c++;
+
+                        }
+                    }
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+                    writer.Close();
+                    if (c == 0)
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        string ss = sw.ToString();
+                        return sw.ToString();
+                    }
+                }
+            }
+        }
+        private void createNode(string uva_ID, XmlWriter writer)
+        {
+            writer.WriteStartElement("Values");
+
+            writer.WriteStartElement("plc_ID");
+            writer.WriteString(uva_ID);
+            writer.WriteEndElement();
+
+
+
+
+            writer.WriteEndElement();
+        }
         protected void Delete_Click(object sender, EventArgs e)
         {
-            string ID = ViewState["SelectedPlcID"] as string;
+            string plcID = GetItemFromGrid();
+
             string[] arr = { };
-            string Value = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", ID.ToString(),arr);
-            int res = Int32.Parse(Value.ToString());
+            string result = ObjclsFrms.SaveData("sp_MerchandisingWebServices", "DelepePlcID", plcID, arr);
+            int res = int.Parse(result);
 
             if (res > 0)
             {
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess1('Deleted Successfully');</script>", false);
-            }
+                
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Success1('Deleted Successfully');</script>", false);
 
+              
+                
+            }
             else
             {
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModal();</script>", false);
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModal1();</script>", false);
             }
-
         }
 
- 
+
+
     }
 }

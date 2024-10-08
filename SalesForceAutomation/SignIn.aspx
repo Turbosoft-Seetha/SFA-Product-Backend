@@ -30,7 +30,55 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <!--end::Head-->
-<script type="text/javascript">  
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Add a click event listener to the show_password element
+        $('#show_password').click(function () {
+            var PasswordTextbox = document.getElementById('<%= txtPassword.ClientID %>'); // Use the ASP.NET ClientID
+                    var toggleIcon = document.getElementById("toggleIcon");
+
+                    // Toggle password visibility
+                    if (PasswordTextbox.type === "password") {
+                        // Change input type to text to show password
+                        PasswordTextbox.type = "text";
+
+                        // Change icon to 'eye-slash'
+                        toggleIcon.classList.remove("bi-eye");
+                        toggleIcon.classList.add("bi-eye-slash");
+
+                        // Auto-hide the password after 5 seconds
+                        setTimeout(function () {
+                            PasswordTextbox.type = "password";
+                            toggleIcon.classList.remove("bi-eye-slash");
+                            toggleIcon.classList.add("bi-eye");
+                        }, 5000); // Revert after 5 seconds
+
+                    } else {
+                        // Change input type back to password
+                        PasswordTextbox.type = "password";
+                        // Change icon to 'eye'
+                        toggleIcon.classList.remove("bi-eye-slash");
+                        toggleIcon.classList.add("bi-eye");
+                    }
+                });
+
+                // Checkbox to show/hide password
+                $('#ShowPassword').click(function () {
+                    $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+                });
+            });
+</script>
+
+<script type="text/javascript">
+    function button_click(objTextBox, objBtnID) {
+        if (window.event.keyCode == 13) {
+            document.getElementById(objBtnID).focus();
+            document.getElementById(objBtnID).click();
+        }
+    }
+</script>
+
+<%--<script type="text/javascript">  
     $(document).ready(function () {
         $('#show_password').hover(function show() {
             //Change the attribute to text  
@@ -47,15 +95,8 @@
             $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
         });
     });
-</script>
-<script type="text/javascript">
-    function button_click(objTextBox, objBtnID) {
-        if (window.event.keyCode == 13) {
-            document.getElementById(objBtnID).focus();
-            document.getElementById(objBtnID).click();
-        }
-    }
-</script>
+</script>--%>
+
 
 <!--begin::Body-->
 <body data-kt-name="metronic" id="kt_body" class="app-blank app-blank">
@@ -104,24 +145,33 @@
                                     <asp:TextBox ID="txtUsername" runat="server" autocomplete="off" placeholder="Email" class="form-control form-control-solid"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" ErrorMessage="Enter username" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
+                                <div class="input-group">                                  
+                                    <asp:TextBox ID="txtPassword" runat="server" autocomplete="off" placeholder="Password" TextMode="Password" class="form-control form-control-solid" data-toogle="txtPassword"></asp:TextBox>
+                                    <div class="input-group-append">
+                                        <span id="show_password" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                                            <i id="toggleIcon" class="bi bi-eye"></i>
+                                        </span>
+                                    </div>
+                                    
+                                    <asp:RequiredFieldValidator ID="reqPass" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter Password" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                                <div class="input-group">
+                                </div>
+
+                                <%--<div class="input-group">
                                     <asp:TextBox ID="txtPassword" runat="server" autocomplete="off" placeholder="Password" TextMode="Password" class="form-control form-control-solid" data-toogle="txtPassword"></asp:TextBox>
                                     <div class="input-group-append">
                                         <button id="show_password" type="button">
                                             <span> <i class="fa fa-eye"></i></span>
                                         </button>
                                     </div>
-                                  <%--  <div class="input-group-append">
-                                        <div class=""><i class="fa fa-eye"></i></div>
-                                    </div>--%>
+                                 
                                     <asp:RequiredFieldValidator ID="reqPass" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter Password" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                                </div>
+                                </div>--%>
 
-                                <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-10" style="padding-top:15px;">
-                                    <div >
-                                        <asp:CheckBox ID="chkRemember" runat="server" Text=" Remember" CssClass="sign-in-custom-checkbox"  />
+                                <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-10" style="padding-top: 15px;">
+                                    <div>
+                                        <asp:CheckBox ID="chkRemember" runat="server" Text=" Remember" CssClass="sign-in-custom-checkbox" />
                                     </div>
                                     <a href="Password.aspx" class="link-primary" data-kt-translate="sign-in-forgot-password">Forgot Password ?</a>
                                 </div>
@@ -161,8 +211,8 @@
     <!--begin::Javascript-->
 
     <script type="text/javascript">
-     document.getElementById('<%= txtPassword.ClientID %>').setAttribute(
-    "onkeypress", "button_click(this, '" + '<%= lnkSignIn.ClientID %>' + "')");
+        document.getElementById('<%= txtPassword.ClientID %>').setAttribute(
+            "onkeypress", "button_click(this, '" + '<%= lnkSignIn.ClientID %>' + "')");
     </script>
 
     <script>var hostUrl = "assets/";</script>

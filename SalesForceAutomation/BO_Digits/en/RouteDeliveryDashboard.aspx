@@ -5,55 +5,69 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Actions" runat="server">
 
-    <div class="col-lg-12 row ">
-
     
-     <div class="col-lg-2">
-         <label class="control-label col-lg-12">From Date</label>
-         <div class="col-lg-12">
-             <telerik:RadDatePicker RenderMode="Lightweight" ID="rdFromDate" runat="server" DateInput-DateFormat="dd-MMM-yyyy" Width="100%">
-             </telerik:RadDatePicker>
-         
-         </div>
-     </div>
-
-         <div class="col-lg-2">
-     <label class="control-label col-lg-12">To Date</label>
-     <div class="col-lg-12">
-         <telerik:RadDatePicker RenderMode="Lightweight" ID="rdEndDate" runat="server" DateInput-DateFormat="dd-MMM-yyyy" Width="100%">
-         </telerik:RadDatePicker>
-     
-     </div>
- </div>
-
-
-     <div class="col-lg-2">
-         <label class="control-label col-lg-12"> Delivery Route</label>
-         <div class="col-lg-12">
-             <telerik:RadComboBox ID="rdRoute" runat="server" EmptyMessage="Select Route" Filter="Contains" Width="100%" RenderMode="Lightweight" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" AutoPostBack="true" OnSelectedIndexChanged="rdRoute_SelectedIndexChanged"></telerik:RadComboBox>
-            <%-- <asp:RequiredFieldValidator ID="dfs" runat="server" ControlToValidate="rdRoute" ForeColor="Red" ErrorMessage="Please Choose Route"
-                 Display="Dynamic"></asp:RequiredFieldValidator>--%>
-         </div>
-     </div>
-
-     <div class="col-lg-2">
-         <label class="control-label col-lg-12">Customer</label>
-         <div class="col-lg-12">
-             <telerik:RadComboBox ID="rdCustomer" runat="server" EmptyMessage="Select Customer" Filter="Contains" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight" AutoPostBack="true"></telerik:RadComboBox>
-             <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="rdCustomer"  ForeColor="Red" ErrorMessage="Please Choose Customer"
-                             Display="Dynamic"></asp:RequiredFieldValidator>--%>
-         </div>
-     </div>
-     <div class="col-lg-2 pt-5" style="text-align: center; ">
-         <asp:LinkButton ID="lnkFilter" runat="server" CssClass="btn btn-sm btn-primary me-2" BackColor="#DAE9F8" ForeColor="#009EF7" OnClick="Filter_Click">
-                                             Apply Filter
-         </asp:LinkButton>
-     </div>
-
- </div>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="col-lg-12" style="padding-left: 20px; padding-right: 0px;">
+        <div class="kt-portlet">
+            <div class="kt-portlet__head" style="padding: 0px; border-bottom: 0px;">
+                <div class="kt-portlet__head-label row" style="padding-bottom: 20px;">
+
+                    <div>
+                        <div class="col-lg-12 row ">
+
+
+                            <div class="col-lg-2">
+                                <label class="control-label col-lg-12">From Date</label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDatePicker RenderMode="Lightweight" ID="rdFromDate" runat="server" DateInput-DateFormat="dd-MMM-yyyy" Width="100%">
+                                    </telerik:RadDatePicker>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <label class="control-label col-lg-12">To Date</label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDatePicker RenderMode="Lightweight" ID="rdEndDate" runat="server" DateInput-DateFormat="dd-MMM-yyyy" Width="100%">
+                                    </telerik:RadDatePicker>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-2">
+                                <label class="control-label col-lg-12">Delivery Route</label>
+                                <div class="col-lg-12">
+                                    <telerik:RadComboBox ID="rdRoute" runat="server" EmptyMessage="Select Route" Filter="Contains" Width="100%" RenderMode="Lightweight" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" AutoPostBack="true" OnSelectedIndexChanged="rdRoute_SelectedIndexChanged"></telerik:RadComboBox>
+                                    <%-- <asp:RequiredFieldValidator ID="dfs" runat="server" ControlToValidate="rdRoute" ForeColor="Red" ErrorMessage="Please Choose Route"
+                Display="Dynamic"></asp:RequiredFieldValidator>--%>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <label class="control-label col-lg-12">Customer</label>
+                                <div class="col-lg-12">
+                                    <telerik:RadComboBox ID="rdCustomer" runat="server" EmptyMessage="Select Customer" Filter="Contains" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" RenderMode="Lightweight" AutoPostBack="true"></telerik:RadComboBox>
+                                    <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="rdCustomer"  ForeColor="Red" ErrorMessage="Please Choose Customer"
+                            Display="Dynamic"></asp:RequiredFieldValidator>--%>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 pt-5" style="text-align: center;">
+                                <asp:LinkButton ID="lnkFilter" runat="server" CssClass="btn btn-sm btn-primary me-2" BackColor="#DAE9F8" ForeColor="#009EF7" OnClick="Filter_Click">
+                                            Apply Filter
+                                </asp:LinkButton>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     <div class="card-body" style="padding: 20px;">
 
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">

@@ -33,6 +33,24 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.LinkButton btnSave;
 
         /// <summary>
+        /// RadAjaxPanel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel5;
+
+        /// <summary>
+        /// lnkDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkDelete;
+
+        /// <summary>
         /// RadAjaxLoadingPanel2 control.
         /// </summary>
         /// <remarks>
@@ -40,15 +58,6 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel2;
-
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
 
         /// <summary>
         /// RadAjaxManager2 control.
@@ -204,13 +213,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel3;
 
         /// <summary>
-        /// Delete control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Delete;
+        protected global::System.Web.UI.WebControls.LinkButton btnDelete;
 
         /// <summary>
         /// RadAjaxLoadingPanel5 control.
@@ -222,13 +231,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel5;
 
         /// <summary>
-        /// RadAjaxPanel5 control.
+        /// RadAjaxPanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel5;
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel2;
 
         /// <summary>
         /// btnDeleteOk control.
@@ -240,12 +249,12 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.LinkButton btnDeleteOk;
 
         /// <summary>
-        /// RadAjaxLoadingPanel6 control.
+        /// RadAjaxLoadingPanel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel6;
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel3;
     }
 }

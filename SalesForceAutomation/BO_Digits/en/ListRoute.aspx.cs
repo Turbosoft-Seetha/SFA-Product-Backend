@@ -252,7 +252,6 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             LoadList();
         }
-
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
             if (e.CommandName.Equals("Edits"))

@@ -693,6 +693,16 @@
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rcs_InsightCustomerSettings" Visible="true">
                                         </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rcs_EnableLPONumber" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Enable LPO Number" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rcs_EnableLPONumber" Visible="true">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rcs_LPONumberMand" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="LPO Number Mandatory" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rcs_LPONumberMand" Visible="true">
+                                        </telerik:GridBoundColumn>
 
                                     </Columns>
                                 </MasterTableView>
