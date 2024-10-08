@@ -237,7 +237,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             }
                             else
                             {
-                                if (RotBal <= 0 || InvBal <= 0 || CCBal <= 0 || BOBal <= 0)
+                                if (RotBal < 0 || InvBal < 0 || CCBal < 0 || BOBal < 0)
                                 {
                                     
                                     if (NeedExpiryNotification == "Yes")

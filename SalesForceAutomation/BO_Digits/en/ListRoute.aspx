@@ -553,6 +553,17 @@
                                             HeaderStyle-Font-Bold="true" UniqueName="rot_IsInventory">
                                         </telerik:GridBoundColumn>
 
+                                        <telerik:GridBoundColumn DataField="rot_KPISettings" AllowFiltering="true" HeaderStyle-Width="400px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="KPI Settings" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_KPISettings">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rot_OverrideOnline" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Override Online" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_OverrideOnline">
+                                        </telerik:GridBoundColumn>
+
 
                                     </Columns>
                                 </MasterTableView>
