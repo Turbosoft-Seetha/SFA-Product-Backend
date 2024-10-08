@@ -125,7 +125,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             ActManageMand, CusServiceMand, IsActivityManage, IsCustomerService, rcs_EnableForecastSales, rcs_EnableQuotation, EnableSuggestedOrd, IsPriceChange, CusLocation,
                             RecentSales, RecentOrder, MinOrderValue, ARRemark, GRSettings, BRSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackfree, MustSell,
                             InstDelivery, AttachmentsAR,IsAttachmentOrder,AttachmentInvoice,FreeSampleOrder,CouponPayMode, CurrentSecurityDeposit, FreeSampleOrderApproval,SuggestedLoadReq, 
-                            CouponEnable, InsCusSettings,fulldelivery;
+                            CouponEnable, InsCusSettings,fulldelivery, EnableLPONumber , LPONumberMand  ;
 
                             invhcimgmand = lstDatas.Rows[0]["rcs_INV_HCRcpt_Img_Mand"].ToString();
                             invposimgmand = lstDatas.Rows[0]["rcs_INV_POSRcpt_Img_Mand"].ToString();
@@ -175,6 +175,8 @@ namespace SalesForceAutomation.BO_Digits.en
                             IsCustomerService = lstDatas.Rows[0]["IsCustomerService"].ToString();
                             eInvoive = lstDatas.Rows[0]["rcs_EInvoiceSend"].ToString();
                             AttachmentInvoice = lstDatas.Rows[0]["rcs_IsAttachmentsInvoice"].ToString();
+                            EnableLPONumber = lstDatas.Rows[0]["rcs_EnableLPONumber"].ToString();
+                            LPONumberMand = lstDatas.Rows[0]["rcs_LPONumberMand"].ToString();
 
                             VoidEnable = lstDatas.Rows[0]["rcs_VoidEnable"].ToString();
                             RoundAmount = lstDatas.Rows[0]["rcs_RoundAmount"].ToString();
@@ -348,6 +350,8 @@ namespace SalesForceAutomation.BO_Digits.en
                             txtCurrentSecDeposit.Text = CurrentSecurityDeposit.ToString();
                             ddlSuggLoadReq.SelectedValue = SuggestedLoadReq.ToString();
                             ddlISCouponEnable.SelectedValue = CouponEnable.ToString();
+                            ddlEnableLPONumber.SelectedValue = EnableLPONumber.ToString();
+                            ddlLPONumberMand.SelectedValue = LPONumberMand.ToString();
 
 
 
@@ -867,7 +871,7 @@ namespace SalesForceAutomation.BO_Digits.en
             OrdPriceChange, eInvoice, AlertDays,CusDocExpiryAlert,invhcimgmand,invposimgmand,invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,
             ActManageMand, CusServiceMand, IsAvtManage, IsCusService, EnableForecastSales, EnableQuotation, EnableSuggestedOrd, IsPriceChange , CusLocation, RecentSales, RecentOrder, MinOrderValue,
             ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight, EnableDelPriceChange,ARPayMode, rcs_EnforceBuyBackfree, MustSell, InstDelivery, AttachmentsAR, IsAttachmentOrder, AttachmentInvoice,FreeSampleOrder,
-            CouponPayMode, CurrentSecurityDeposit,FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings,fulldelivery;
+            CouponPayMode, CurrentSecurityDeposit,FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber,LPONumberMand;
 
             GracePeriod = "0";
             GraceAmount= "0";
@@ -975,6 +979,8 @@ namespace SalesForceAutomation.BO_Digits.en
             CouponEnable = ddlISCouponEnable.SelectedValue.ToString();
             CurrentSecurityDeposit = txtCurrentSecDeposit.Text.ToString();
             fulldelivery=rdFulldelivery.SelectedValue.ToString();
+            EnableLPONumber = ddlEnableLPONumber.SelectedValue.ToString();
+            LPONumberMand = ddlLPONumberMand.SelectedValue.ToString();
 
 
 
@@ -1024,7 +1030,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,
                     RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackfree,MustSell, InstDelivery,
                     AttachmentsAR,IsAttachmentOrder,AttachmentInvoice,FreeSampleOrder,CouponPayMode,CurrentSecurityDeposit,FreeSampleOrderApproval,SuggestedLoadReq,CouponEnable,
-                    InsCusSettings,fulldelivery};
+                    InsCusSettings,fulldelivery,EnableLPONumber,LPONumberMand};
 
                 string Value = ob.SaveData("sp_Merchandising", "InsertCusRoute", RouteID.ToString(), arr);
                 
@@ -1049,7 +1055,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, 
                     EnableQuotation, EnableSuggestedOrd,IsPriceChange, CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,
                     EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackfree,MustSell, InstDelivery,AttachmentsAR,IsAttachmentOrder,AttachmentInvoice,FreeSampleOrder,CouponPayMode,CurrentSecurityDeposit,
-                    FreeSampleOrderApproval,SuggestedLoadReq,CouponEnable,InsCusSettings,fulldelivery};
+                    FreeSampleOrderApproval,SuggestedLoadReq,CouponEnable,InsCusSettings,fulldelivery,EnableLPONumber,LPONumberMand};
                 string value = ob.SaveData("sp_Merchandising", "UpdateCusRoute", id, arr);
                 int res = Int32.Parse(value.ToString());
                 if (res > 0)
@@ -1241,7 +1247,9 @@ namespace SalesForceAutomation.BO_Digits.en
                     HCimgMand.SelectedValue = "0";
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
-                    ddlEnableForecastSales.SelectedValue = "N";               
+                    ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -1377,6 +1385,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -1512,6 +1522,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -1645,6 +1657,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -1793,6 +1807,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "N";
@@ -1951,6 +1967,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "N";
@@ -2109,6 +2127,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "N";
@@ -2266,6 +2286,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "N";
@@ -2427,6 +2449,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -2586,6 +2610,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -2746,6 +2772,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -2906,6 +2934,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -3069,6 +3099,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -3218,6 +3250,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -3366,6 +3400,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";
@@ -3514,6 +3550,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     POSimgMand.SelectedValue = "0";
                     OPimgMand.SelectedValue = "0";
                     ddlEnableForecastSales.SelectedValue = "N";
+                    ddlEnableLPONumber.SelectedValue = "Y";
+                    ddlLPONumberMand.SelectedValue = "Y";
 
                     //Account Receivables
                     ddlIsAR.SelectedValue = "Y";

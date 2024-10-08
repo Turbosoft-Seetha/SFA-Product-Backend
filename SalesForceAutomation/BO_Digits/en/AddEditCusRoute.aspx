@@ -1223,10 +1223,42 @@
                                     </div>
                                 </div>
 
-                                
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">Enable LPO Number<span class="required"> </span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="ddlEnableLPONumber" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                            <telerik:DropDownListItem Text="No" Value="N" />
 
-
+                                        </Items>
+                                    </telerik:RadDropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator61" runat="server" Display="Dynamic" ValidationGroup="form"
+                                        ControlToValidate="ddlEnableLPONumber" ErrorMessage="Please select" ForeColor="Red"
+                                        SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                </div>
                             </div>
+
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">LPO Number Mandatory<span class="required"> </span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="ddlLPONumberMand" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                            <telerik:DropDownListItem Text="No" Value="N" />
+
+                                        </Items>
+                                    </telerik:RadDropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator62" runat="server" Display="Dynamic" ValidationGroup="form"
+                                        ControlToValidate="ddlLPONumberMand" ErrorMessage="Please select" ForeColor="Red"
+                                        SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
 
 
                             <div class="col-lg-12 row">

@@ -240,6 +240,7 @@
 
                                             </Columns>
                                         </MasterTableView>
+                                        <PagerStyle AlwaysVisible="true" />
                                         <GroupingSettings CaseSensitive="false" />
                                         <ClientSettings AllowDragToGroup="True" EnableRowHoverStyle="true" AllowColumnsReorder="True">
                                             <Resizing AllowColumnResize="true"></Resizing>
