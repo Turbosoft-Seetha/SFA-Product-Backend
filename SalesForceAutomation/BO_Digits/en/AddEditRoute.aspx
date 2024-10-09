@@ -22,6 +22,7 @@
         }
         function Fail(b) {
             $('#modalConfirm').modal('hide');
+            $('#modalusrchangeConfirm').modal('hide');
             $('#kt_modal_1_6').modal('show');
             $('#fail').text(b);
         }
@@ -89,6 +90,19 @@
     </telerik:RadAjaxLoadingPanel>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
+ <telerik:RadAjaxManagerProxy ID="AjaxManagerProxy1" runat="server">
+     <AjaxSettings>
+
+         <telerik:AjaxSetting AjaxControlID="rbActions">
+             <UpdatedControls>
+                 <telerik:AjaxUpdatedControl ControlID="plEffDate" />              
+             </UpdatedControls>
+         </telerik:AjaxSetting>
+         
+     </AjaxSettings>
+ </telerik:RadAjaxManagerProxy>
+
 
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
         <div class="row">
@@ -112,7 +126,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Route Code <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadTextBox ID="txtcode" runat="server" CssClass="form-control" Width="100%" OnTextChanged="txtcode_TextChanged" AutoPostBack="true"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtcode" runat="server" CssClass="form-control" Width="100%" OnTextChanged="txtcode_TextChanged" AutoPostBack="true" RenderMode="Lightweight"></telerik:RadTextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="form"
                                             ControlToValidate="txtcode" ErrorMessage="Please Enter  Code" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
@@ -123,7 +137,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Route Name <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadTextBox ID="txtname" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtname" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="form"
                                             ControlToValidate="txtname" ErrorMessage="Please Enter   Name" Display="Dynamic" ForeColor="Red"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -134,34 +148,33 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Arabic Name </label>
                                     <div class="col-lg-12">
-                                        <telerik:RadTextBox ID="txtArabicname" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtArabicname" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
 
                                     </div>
                                 </div>
 
                             </div>
 
-
                             <div class="col-lg-12 row" style="padding-top: 9px;">
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Route Type <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlrotType" runat="server" Width="100%" OnSelectedIndexChanged="ddlrotType_SelectedIndexChanged" AutoPostBack="true" DefaultMessage="Select Route Type">
+                                        <telerik:RadComboBox ID="dllrotType" runat="server" Width="100%" OnSelectedIndexChanged="dllrotType_SelectedIndexChanged" AutoPostBack="true" DefaultMessage="Select Route Type" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="AR" Value="AR" />
-                                                <telerik:DropDownListItem Text="MERCHANDISING" Value="MER" />
-                                                <%--                                            <telerik:DropDownListItem Text="NORMAL" Value="NR" />--%>
-                                                <telerik:DropDownListItem Text="ORDER" Value="OR" />
-                                                <telerik:DropDownListItem Text="SALES" Value="SL" />
-                                                <telerik:DropDownListItem Text="ORDER & AR" Value="OA" />
-                                                <telerik:DropDownListItem Text="FIELD SERVICE" Value="FS" />
-                                                <telerik:DropDownListItem Text="DELIVERY" Value="DL" />
+                                                <telerik:RadComboBoxItem Text="AR" Value="AR" />
+                                                <telerik:RadComboBoxItem Text="MERCHANDISING" Value="MER" />
+                                                <%--    <telerik:RadComboBoxItem Text="NORMAL" Value="NR" />--%>
+                                                <telerik:RadComboBoxItem Text="ORDER" Value="OR" />
+                                                <telerik:RadComboBoxItem Text="SALES" Value="SL" />
+                                                <telerik:RadComboBoxItem Text="ORDER & AR" Value="OA" />
+                                                <telerik:RadComboBoxItem Text="FIELD SERVICE" Value="FS" />
+                                                <telerik:RadComboBoxItem Text="DELIVERY" Value="DL" />
 
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ValidationGroup="form"
-                                            ControlToValidate="ddlrotType" ErrorMessage="<br/>Please Enter Type" ForeColor="Red" Display="Dynamic"
+                                            ControlToValidate="dllrotType" ErrorMessage="<br/>Please Enter Type" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
                                     </div>
                                 </div>
@@ -169,7 +182,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Route Password <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadTextBox ID="txtpass" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtpass" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="form"
                                             ControlToValidate="txtpass" ErrorMessage="<br/>Please Enter password" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
@@ -181,7 +194,7 @@
                                         <div class="col-lg-10">
                                             <label class="control-label col-lg-12">User Name <span class="required"></span></label>
                                             <div class="col-lg-12">
-                                                <telerik:RadComboBox ID="ddlname" runat="server" EmptyMessage="Select User Name" CausesValidation="false" Width="100%" Filter="Contains"></telerik:RadComboBox>
+                                                <telerik:RadComboBox ID="ddlname" runat="server" EmptyMessage="Select User Name" CausesValidation="false" Width="100%" Filter="Contains" RenderMode="Lightweight"></telerik:RadComboBox>
                                                 <br />
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="form"
                                                     ControlToValidate="ddlname" ErrorMessage="Please select User Name" ForeColor="Red" Display="Dynamic"
@@ -199,6 +212,7 @@
                                     </div>
 
                                 </div>
+
                                 <%--   <div class="col-lg-1 form-group" style="padding-top: 20px">
                                     
 
@@ -211,14 +225,12 @@
 
                             <div class="col-lg-12 row" style="padding-top: 9px;">
 
-
-
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Device ID </label>
                                     <div class="col-lg-12">
                                         <%--<telerik:RadNumericTextBox ID="txtdevid" runat="server" CssClass="form-control" Width="90%"></telerik:RadNumericTextBox>--%>
 
-                                        <telerik:RadTextBox ID="txtdeviceid" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtdeviceid" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                                         <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="form"
                                         ControlToValidate="txtdeviceid" ErrorMessage="<br/>Please Enter Device Id" ForeColor="Red" Display="Dynamic"
                                         SetFocusOnError="True"></asp:RequiredFieldValidator><br />--%>
@@ -228,7 +240,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Depot SubArea <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlDepot" runat="server" EmptyMessage="Select Depot SubArea" CausesValidation="false" Width="100%" Filter="Contains"></telerik:RadComboBox>
+                                        <telerik:RadComboBox ID="ddlDepot" runat="server" EmptyMessage="Select Depot SubArea" CausesValidation="false" Width="100%" Filter="Contains" RenderMode="Lightweight"></telerik:RadComboBox>
                                         <br />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="form"
                                             ControlToValidate="ddlDepot" ErrorMessage="Please select Depot SubArea" ForeColor="Red" Display="Dynamic"
@@ -239,56 +251,52 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Alternative Route Code <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadTextBox ID="txtAltRotCode" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                        <telerik:RadTextBox ID="txtAltRotCode" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="form"
                                             ControlToValidate="txtAltRotCode" ErrorMessage="Please Enter  Code" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
-
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="col-lg-12 row" style="padding-top: 9px;">
 
+                            <div class="col-lg-12 row" style="padding-top: 9px;">
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Status <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlStats" runat="server" Width="100%" OnSelectedIndexChanged="ddlStats_SelectedIndexChanged" AutoPostBack="true">
+                                        <telerik:RadComboBox ID="dllStats" runat="server" Width="100%" OnSelectedIndexChanged="dllStats_SelectedIndexChanged" AutoPostBack="true" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Active" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="Inactive" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Active" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Inactive" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
-
-
                                 </div>
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Vehicle ID </label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlVehicleID" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllVehicleID" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Un-assign" Value="0" />
+                                                <telerik:RadComboBoxItem Text="Un-assign" Value="0" />
 
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
-
-
                                 </div>
 
                                 <asp:PlaceHolder runat="server" ID="pnlProdVisits" Visible="false">
 
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">Productive Modes<span class="required"> </span></label>
+
                                         <div class="col-lg-12">
 
                                             <%-- Order & AR --%>
 
                                             <asp:PlaceHolder runat="server" ID="pnlOA" Visible="false">
-                                                <telerik:RadComboBox ID="ddlProdVisitsOA" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                <telerik:RadComboBox ID="ddlProdVisitsOA" runat="server" DefaultMessage="Please Select" Width="100%" Filter="Contains" CausesValidation="false" RenderMode="Lightweight">
                                                     <Items>
                                                         <telerik:RadComboBoxItem Text="Order" Value="OR" />
                                                         <telerik:RadComboBoxItem Text="AR" Value="AR" Selected="true" />
@@ -299,7 +307,7 @@
                                             <%-- Merchandising --%>
 
                                             <asp:PlaceHolder runat="server" ID="pnlMerch" Visible="false">
-                                                <telerik:RadComboBox ID="ddlProdVisitsMerch" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                <telerik:RadComboBox ID="ddlProdVisitsMerch" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
                                                     <Items>
                                                         <telerik:RadComboBoxItem Text="Deliver Check" Value="DEC" />
                                                         <telerik:RadComboBoxItem Text="Out Of Stock" Value="OOS" />
@@ -327,7 +335,7 @@
                                             <%-- Field Services --%>
 
                                             <asp:PlaceHolder runat="server" ID="pnlFS" Visible="false">
-                                                <telerik:RadComboBox ID="ddlProdVisitsFS" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                <telerik:RadComboBox ID="ddlProdVisitsFS" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
                                                     <Items>
                                                         <telerik:RadComboBoxItem Text="Asset Tracking" Value="AT" />
                                                         <telerik:RadComboBoxItem Text="Service Request" Value="SR" />
@@ -343,6 +351,7 @@
                                 </asp:PlaceHolder>
 
                             </div>
+
                         </telerik:RadAjaxPanel>
                         <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel3" EnableEmbeddedSkins="false"
                             BackColor="Transparent"
@@ -356,41 +365,44 @@
                         <div class="col-lg-12 row"><b>General Settings </b></div>
                         <br />
                         <telerik:RadAjaxPanel ID="RadAjaxPanel3" runat="server" LoadingPanelID="RadAjaxLoadingPanel4">
+
                             <div class="col-lg-12 row">
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Routine Check<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlRC" runat="server" Width="100%"
-                                            EmptyMessage="Select Routine Check">
+                                        <telerik:RadComboBox ID="dllRC" runat="server" Width="100%" Filter="Contains"
+                                            EmptyMessage="Select Routine Check" RenderMode="Lightweight">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Endorsement<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlEndorsement" runat="server" Width="100%"
-                                            DefaultMessage="Please Select ">
+                                        <telerik:RadComboBox ID="dllEndorsement" runat="server" Width="100%" Filter="Contains"
+                                            DefaultMessage="Please Select " RenderMode="Lightweight">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Inventory Out Mode <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rdInvOutMode" runat="server" Width="100%" DefaultMessage="Please Select" RenderMode="Lightweight">
+                                        <telerik:RadComboBox ID="dllInvOutMode" runat="server" Width="100%" DefaultMessage="Please Select" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Print" Value="prt" Selected="true" />
-                                                <telerik:DropDownListItem Text="PDF" Value="pdf" />
+                                                <telerik:RadComboBoxItem Text="Print" Value="prt" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="PDF" Value="pdf" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
@@ -401,55 +413,56 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Customer Trans Out Mode <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rdCusOutMode" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight">
+                                        <telerik:RadComboBox ID="ddlCusOutMode" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Print" Value="prt" Selected="true" />
-                                                <telerik:DropDownListItem Text="PDF" Value="pdf" />
+                                                <telerik:RadComboBoxItem Text="Print" Value="prt" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="PDF" Value="pdf" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Odometer<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlodometer" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllodometer" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Opportunity Creation<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlEnOpt" runat="server" Width="100%"
-                                            DefaultMessage="Please Select ">
+                                        <telerik:RadComboBox ID="dllEnOpt" runat="server" Width="100%" Filter="Contains"
+                                            DefaultMessage="Please Select " RenderMode="Lightweight">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Helper<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddEnableHelper" runat="server" Width="100%" OnSelectedIndexChanged="SelectedIndexChanged_EnableHelper" CausesValidation="false" AutoPostBack="true">
+                                        <telerik:RadComboBox ID="dllEnableHelper" runat="server" Width="100%" Filter="Contains" OnSelectedIndexChanged="dllEnableHelper_SelectedIndexChanged" CausesValidation="false" AutoPostBack="true" RenderMode="Lightweight">
                                             <Items>
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
 
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" Display="Dynamic" ValidationGroup="form"
-                                            ControlToValidate="ddEnableHelper" ErrorMessage="Please select" ForeColor="Red"
+                                            ControlToValidate="dllEnableHelper" ErrorMessage="Please select" ForeColor="Red"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
@@ -458,25 +471,28 @@
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">Helper 1</label>
                                         <div class="col-lg-12">
-                                            <telerik:RadComboBox ID="ddlHelper1" runat="server" Width="100%" EmptyMessage="Please select" OnSelectedIndexChanged="ddlHelper1_SelectedIndexChanged" CausesValidation="false" AutoPostBack="true"></telerik:RadComboBox>
+                                            <telerik:RadComboBox ID="ddlHelper1" runat="server" Width="100%" EmptyMessage="Please select" OnSelectedIndexChanged="ddlHelper1_SelectedIndexChanged" CausesValidation="false" AutoPostBack="true" Filter="Contains" RenderMode="Lightweight"></telerik:RadComboBox>
                                         </div>
                                     </div>
                                 </asp:PlaceHolder>
+
                                 <asp:PlaceHolder runat="server" ID="aspHelper2" Visible="false">
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">Helper 2</label>
                                         <div class="col-lg-12">
-                                            <telerik:RadComboBox ID="ddlHelper2" runat="server" EmptyMessage="Please select" Width="100%"></telerik:RadComboBox>
+                                            <telerik:RadComboBox ID="ddlHelper2" runat="server" EmptyMessage="Please select" Width="100%" Filter="Contains" RenderMode="Lightweight"></telerik:RadComboBox>
                                         </div>
                                     </div>
                                 </asp:PlaceHolder>
+
                             </div>
 
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Payment Mode<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlpaymode" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Payment Mode">
+                                        <telerik:RadComboBox ID="ddlpaymode" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Payment Mode" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
 
                                                 <telerik:RadComboBoxItem Text="OP" Value="OP" />
@@ -491,65 +507,52 @@
 
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is Advance Payment<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rdAdvPay" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllAdvPay" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Allow settlement Discrepancy<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlstlmnt" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllstlmnt" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                             </div>
 
-
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Settlement from<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlSettlefrom" runat="server" Width="100%"
-                                            DefaultMessage="Please Select ">
+                                        <telerik:RadComboBox ID="dllSettlefrom" runat="server" Width="100%" Filter="Contains"
+                                            DefaultMessage="Please Select " RenderMode="Lightweight">
                                             <Items>
-                                                <telerik:DropDownListItem Text="App" Value="A" />
-                                                <telerik:DropDownListItem Text="Web" Value="W" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="App" Value="A" />
+                                                <telerik:RadComboBoxItem Text="Web" Value="W" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
-
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enforce Scheduled Visit</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlSchVisit" runat="server" Width="100%">
-                                            <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
-                                            </Items>
-                                        </telerik:RadDropDownList>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-lg-4 form-group">
-                                    <label class="control-label col-lg-12">Enforce JourneyPlan Seq</label>
-                                    <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlJPlanSeq" runat="server" Width="100%" OnSelectedIndexChanged="ddlJPlanSeq_SelectedIndexChanged" AutoPostBack="true">
+                                        <telerik:RadComboBox ID="dllSchVisit" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Yes" Value="Y" />
                                                 <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
@@ -558,8 +561,17 @@
                                     </div>
                                 </div>
 
-
-
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Enforce JourneyPlan Seq</label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlJPlanSeq" runat="server" Width="100%" OnSelectedIndexChanged="ddlJPlanSeq_SelectedIndexChanged" AutoPostBack="true" Filter="Contains" RenderMode="Lightweight">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+                                    </div>
+                                </div>
 
                                 <%-- <div class="col-lg-4 form-group">
                                 <label class="control-label col-lg-12">Misc Activities Name <span class="required"></span></label>
@@ -571,68 +583,69 @@
 
                                 </div>
                             </div>--%>
+
                             </div>
 
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Petty Cash</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlPettycash" runat="server" Width="100%" OnSelectedIndexChanged="ddlPettycash_SelectedIndexChanged" CausesValidation="false" AutoPostBack="true">
+                                        <telerik:RadComboBox ID="dllPettycash" RenderMode="Lightweight" Filter="Contains" runat="server" Width="100%" OnSelectedIndexChanged="dllPettycash_SelectedIndexChanged" CausesValidation="false" AutoPostBack="true">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <asp:PlaceHolder runat="server" ID="pnlPettyLimit" Visible="false">
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">Petty Cash Limit</label>
                                         <div class="col-lg-12">
-                                            <telerik:RadNumericTextBox ID="txtPettyLimit" runat="server" CssClass="form-control" Width="100%"></telerik:RadNumericTextBox>
+                                            <telerik:RadNumericTextBox ID="txtPettyLimit" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadNumericTextBox>
                                         </div>
                                     </div>
                                 </asp:PlaceHolder>
 
-
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Asset Tracking</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlAssetTracking" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllAssetTracking" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
-
                             </div>
-
 
                             <div class="col-lg-12 row" style="padding-top: 9px;">
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Service Request</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlServiceReq" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllServiceReq" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Vehicle<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlEnbVehicle" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllEnbVehicle" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
@@ -640,54 +653,60 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is Vehicle Number Mandatory<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlIsVehicleNo" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllIsVehicleNo" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
 
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Variance Limit</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadNumericTextBox ID="txtvarlimit" runat="server" CssClass="form-control" Width="100%"></telerik:RadNumericTextBox>
+                                        <telerik:RadNumericTextBox ID="txtvarlimit" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadNumericTextBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Fencing Radius</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadNumericTextBox ID="rdFence" runat="server" CssClass="form-control" Width="100%"></telerik:RadNumericTextBox>
+                                        <telerik:RadNumericTextBox ID="rdFence" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadNumericTextBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Furture Exp.Delivery Orders<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlFutExpDel" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllFutExpDel" runat="server" DefaultMessage="Please Select" Width="100%"  RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
 
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Logout after end day<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddllogoutaftr" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dlllogoutaftr" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
@@ -695,72 +714,80 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is Helper mandatory<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlHelperMand" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllHelperMand" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="1" />
-                                                <telerik:DropDownListItem Text="No" Value="0" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="1" />
+                                                <telerik:RadComboBoxItem Text="No" Value="0" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enforce Notification<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlEnforceNotification" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllEnforceNotification" runat="server" DefaultMessage="Please Select" RenderMode="Lightweight"  Filter="Contains" Width="100%" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
 
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Coupon<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlEnableCoupon" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllEnableCoupon" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is Bank Update<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlIsBankUpdate" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllIsBankUpdate" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Coupon Leaf<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlEnableCouponLeaf" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllEnableCouponLeaf" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
-                                </div>
-                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
+                            </div>
+
+                            <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">KPI Settings<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlKpi" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select KPI Settings">
+                                        <telerik:RadComboBox ID="ddlKpi" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select KPI Settings" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Journey Plan" Value="JPB" />
                                                 <telerik:RadComboBoxItem Text="Item Pricing" Value="IPB" />
@@ -784,7 +811,7 @@
                                                 <telerik:RadComboBoxItem Text="Inventory Reconfirmation" Value="INR" />
                                                 <telerik:RadComboBoxItem Text="Load Out" Value="LDO" />
                                                 <telerik:RadComboBoxItem Text="Time Duration" Value="TMD" />
-                                                <telerik:RadComboBoxItem Text="Settlement Details" Value="STD" />                                             
+                                                <telerik:RadComboBoxItem Text="Settlement Details" Value="STD" />
 
                                             </Items>
                                         </telerik:RadComboBox>
@@ -795,12 +822,12 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Override Online<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlOverride" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="ddlOverrides" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
 
                                     </div>
                                 </div>
@@ -808,8 +835,6 @@
                             </div>
 
                         </telerik:RadAjaxPanel>
-
-
 
                         <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel4" EnableEmbeddedSkins="false"
                             BackColor="Transparent"
@@ -822,120 +847,129 @@
 
                         <div class="col-lg-12 row"><b>Transactional Settings </b></div>
                         <br />
+
                         <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel5">
+
                             <div class="col-lg-12 row ">
+
                                 <span class="min-w-50px fw-semibold text-gray-800 " style="padding-bottom: 10px;"><b>Van Stock</b></span>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Good Return End Stock<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlis" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllis" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select UnLoad">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Van to Van<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rcbVantoVan" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllVantoVan" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             DefaultMessage="Please Select ">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Van to Van Approval<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlVavApproval" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllVavApproval" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             DefaultMessage="Please Select ">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Van Stock Excess Allow<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlVanstockexcessallow" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllVanstockexcessallow" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Van Stock Excess Allow">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Non-Van Stock Allow<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlNonvanstockallow" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllNonvanstockallow" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Non-Van Stock Excess Allow">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">System Stock Enable<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlsysstkenable" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllsysstkenable" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains"
                                             EmptyMessage="Select System Stock Enable">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
-
-
-
 
                             </div>
 
-
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Bad Return End Stock</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlattribute" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllattribute" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains"
                                             EmptyMessage="Select Bad Return Upload">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Weekend Days<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlWeekendDays" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllWeekendDays" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Weekend Days">
                                             <Items>
 
-                                                <telerik:DropDownListItem Text="Sunday" Value="Sun" />
+                                                <telerik:RadComboBoxItem Text="Sunday" Value="Sun" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Inventory Transactions</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlInvTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions">
+                                        <telerik:RadComboBox ID="ddlInvTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Load In" Value="LI" />
                                                 <telerik:RadComboBoxItem Text="Load Out" Value="LO" />
@@ -947,12 +981,15 @@
                                         </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Customer Transactions</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlCusTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions">
+                                        <telerik:RadComboBox ID="ddlCusTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Sales Job" Value="SJ" />
                                                 <telerik:RadComboBoxItem Text="Order Request" Value="OR" />
@@ -964,10 +1001,11 @@
                                         </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Merchandising Transactions</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlMerchTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions">
+                                        <telerik:RadComboBox ID="ddlMerchTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Deliver Check" Value="DEC" />
                                                 <telerik:RadComboBoxItem Text="Out Of Stock" Value="OOS" />
@@ -992,10 +1030,11 @@
                                         </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Field Service Transactions</label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="ddlFSTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions">
+                                        <telerik:RadComboBox ID="ddlFSTrans" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Inventort Transactions" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Asset Tracking" Value="AT" />
                                                 <telerik:RadComboBoxItem Text="Service Request" Value="SR" />
@@ -1004,31 +1043,34 @@
                                         </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable AR Manual Allocation<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlARManAalloc" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllARManAalloc" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Load Request">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Inventory Reconfirm Approval<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlInvReconfAppr" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllInvReconfAppr" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select an option">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
@@ -1036,190 +1078,209 @@
 
                             <div class="col-lg-12 row " style="padding-top: 9px;">
                                 <span class="min-w-50px fw-semibold text-gray-800" style="padding-bottom: 10px; padding-top: 10px;"><b>Load </b></span>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Load Request<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLR" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLR" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Load Request">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable loadIn Sign<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLIS" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLIS" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Enable LoadIn Sign">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">LoadIn Edit<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLEdit" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLEdit" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select LoadIn Edit">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Suggested Load Req<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rcbsugloreq" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllsugloreq" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Please Select ">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Load Rejection<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rcbLodRej" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLodRej" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             DefaultMessage="Please Select ">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Load Transfer<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLT" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLT" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Load Transfer">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Load Transfer Sign<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLTS" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLTS" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Enable Load Transfer Sign">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable LoadOut Sign<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLOS" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLOS" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Enable LoadOut Sign">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">LoadOut Edit<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLOEdit" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLOEdit" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select LoadOut Edit">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
-
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">LoadOut Excess Allow<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLOExcess" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLOExcess" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select LoadOut Excess Allow">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" Selected="true" />
-                                                <telerik:DropDownListItem Text="No" Value="N" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Load Transfer Approval<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlLTApproval" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllLTApproval" runat="server" Width="100%" RenderMode="Lightweight"  Filter="Contains"
                                             EmptyMessage="Select LoadTransfer Approval">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is LoadIn<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlIsLoadIn" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllIsLoadIn" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Load In">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is LoadOut<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlIsLoadOut" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllIsLoadOut" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Load Out">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Is Inventory<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlIsInventory" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllIsInventory" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains"
                                             EmptyMessage="Select Inventory">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
                             </div>
 
 
                         </telerik:RadAjaxPanel>
+
                         <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel5" EnableEmbeddedSkins="false"
                             BackColor="Transparent"
                             ForeColor="Blue">
@@ -1227,82 +1288,72 @@
                                 <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
                             </div>
                         </telerik:RadAjaxLoadingPanel>
+
                         <telerik:RadAjaxPanel ID="RadAjaxPanel5" runat="server" LoadingPanelID="RadAjaxLoadingPanel6">
+
                             <div class="col-lg-12 row" style="padding-top: 9px;">
                                 <span class="min-w-50px fw-semibold text-gray-800 " style="padding-bottom: 10px; padding-top: 10px;"><b>Return </b></span>
+                                
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Return Type<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="rcbreturnType" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllreturnType" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains"
                                             DefaultMessage="Please Select ">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Normal" Value="NR" Selected="true" />
-                                                <telerik:DropDownListItem Text="Controlled" Value="CR" />
+                                                <telerik:RadComboBoxItem Text="Normal" Value="NR" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Controlled" Value="CR" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Open Return Image<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlOpnRtnImg" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllOpnRtnImg" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains"
                                             EmptyMessage="Select Open Return Image">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
-
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Restricted Return Image<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlResRtnImg" runat="server" Width="100%"
-                                            EmptyMessage="Select Open Return Image">
+                                        <telerik:RadComboBox ID="dllResRtnImg" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains" EmptyMessage="Select Open Return Image">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                             </div>
 
-
-
-
-
-
-
-
-
-
                             <div class="col-lg-12 row" style="padding-top: 9px;">
-
-
-
 
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Scheduled Return Image<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlSchRtnImg" runat="server" Width="100%"
+                                        <telerik:RadComboBox ID="dllSchRtnImg" runat="server" Width="100%" Filter="Contains" RenderMode="Lightweight"
                                             EmptyMessage="Select Scheduled Return Image">
                                             <Items>
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Open Return Approval</label>
                                     <div class="col-lg-12">
 
-                                        <telerik:RadComboBox ID="ddlOpnRtnApl" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Restricted Return Approval">
+                                        <telerik:RadComboBox ID="ddlOpnRtnApl" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Restricted Return Approval" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
 
                                                 <telerik:RadComboBoxItem Text="Good Return" Value="GR" />
@@ -1316,13 +1367,11 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Restricted Return Approval</label>
                                     <div class="col-lg-12">
 
-                                        <telerik:RadComboBox ID="ddlResRtnApl" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Restricted Return Approval">
+                                        <telerik:RadComboBox ID="ddlResRtnApl" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select Restricted Return Approval" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
 
                                                 <telerik:RadComboBoxItem Text="Good Return" Value="GR" />
@@ -1339,7 +1388,6 @@
 
                             </div>
 
-
                             <div class="col-lg-12 row" style="padding-top: 9px;">
 
 
@@ -1347,7 +1395,7 @@
                                     <label class="control-label col-lg-12">GR Image</label>
                                     <div class="col-lg-12">
 
-                                        <telerik:RadComboBox ID="ddlGRImage" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select GR Image">
+                                        <telerik:RadComboBox ID="ddlGRImage" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select GR Image" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
 
                                                 <telerik:RadComboBoxItem Text="Open" Value="OP" />
@@ -1366,7 +1414,7 @@
                                     <label class="control-label col-lg-12">GR Image Mandatory</label>
                                     <div class="col-lg-12">
 
-                                        <telerik:RadComboBox ID="ddlGRImgMand" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select GR Image">
+                                        <telerik:RadComboBox ID="ddlGRImgMand" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select GR Image" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
 
                                                 <telerik:RadComboBoxItem Text="Open" Value="OP" />
@@ -1385,7 +1433,7 @@
                                     <label class="control-label col-lg-12">BR Image Mandatory</label>
                                     <div class="col-lg-12">
 
-                                        <telerik:RadComboBox ID="ddlBRimgMand" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select GR Image">
+                                        <telerik:RadComboBox ID="ddlBRimgMand" runat="server" Width="100%" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" EmptyMessage="Select GR Image" Filter="Contains" RenderMode="Lightweight">
                                             <Items>
 
                                                 <telerik:RadComboBoxItem Text="Open" Value="OP" />
@@ -1400,28 +1448,27 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-lg-4 form-group" hidden="hidden">
                                     <label class="control-label col-lg-12">Enforce Journey Plan <span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadDropDownList ID="ddlenforcejp" runat="server" Width="100%">
+                                        <telerik:RadComboBox ID="dllenforcejp" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains">
                                             <Items>
-                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
-                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
 
                                             </Items>
-                                        </telerik:RadDropDownList>
+                                        </telerik:RadComboBox>
                                     </div>
                                 </div>
 
                             </div>
+
                             <asp:PlaceHolder runat="server" ID="phERPlocs">
                                 <div class="col-lg-12 row" style="padding-top: 9px;">
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">ERP Inventory Request Location</label>
                                         <div class="col-lg-12">
-                                            <telerik:RadTextBox ID="txtInvReqLoc" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                            <telerik:RadTextBox ID="txtInvReqLoc" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                                             <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ValidationGroup="form"
                                             ControlToValidate="txtcode" ErrorMessage="Please Enter  Code" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
@@ -1431,7 +1478,7 @@
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">ERP Inventory Location</label>
                                         <div class="col-lg-12">
-                                            <telerik:RadTextBox ID="txtInvLoc" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+                                            <telerik:RadTextBox ID="txtInvLoc" runat="server" CssClass="form-control" Width="100%" RenderMode="Lightweight"></telerik:RadTextBox>
                                             <%--    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="form"
                                             ControlToValidate="txtcode" ErrorMessage="Please Enter  Code" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
@@ -1441,6 +1488,7 @@
                                 </div>
                             </asp:PlaceHolder>
                         </telerik:RadAjaxPanel>
+
                         <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel6" EnableEmbeddedSkins="false"
                             BackColor="Transparent"
                             ForeColor="Blue">
@@ -1557,25 +1605,49 @@
     <!--end::Assign user-->
     <div class="modal fade" id="kt_modal_1_7" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 555px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Change User</h5>
                 </div>
                 <div class="modal-body">
                     <span></span>
-                    <div class="col-lg-12 row" style="padding-top: 10px;">
+                    <div class="col-lg-12 row pt-4">
                         <div class="col-lg-3 form-group">
                             <label class="control-label col-lg-12">Current User : </label>
-
-
                         </div>
                         <div class="col-lg-9 form-group">
                             <asp:Label ID="lblcurrentusr" class="control-label col-lg-12" runat="server" RenderMode="Lightweight" ForeColor="#3366cc"></asp:Label>
-
-
                         </div>
                     </div>
-                    <div class="col-lg-12 row" style="padding-top: 10px;">
+
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel10" runat="server" LoadingPanelID="RadAjaxLoadingPanel11">
+
+                    <div class="col-lg-12 pt-4">
+                        <div class="col-lg-6 form-group">
+                            <label class="control-label col-lg-12">Select Type <span class="required"></span></label>
+                            <div class="col-lg-12 row pt-2">
+                                <telerik:RadRadioButtonList ID="rbActions" Direction="Horizontal" runat="server" CssClass="radioList" OnSelectedIndexChanged="rbActions_SelectedIndexChanged" AutoPostBack="true">
+                                    <Items>
+                                        <telerik:ButtonListItem Text="Immediate" Value="I" Selected="true"/>
+                                        <telerik:ButtonListItem Text="Schedule" Value="S" />                                       
+                                    </Items>   
+                                </telerik:RadRadioButtonList>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                      </telerik:RadAjaxPanel>
+                     <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel11" EnableEmbeddedSkins="false"
+                         BackColor="Transparent"
+                         ForeColor="Blue">
+                         <div class="col-lg-12 text-center mt-5">
+                             <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                         </div>
+                     </telerik:RadAjaxLoadingPanel>
+
+                    <div class="col-lg-12 row pt-4">
 
                         <div class="col-lg-6 form-group">
                             <label class="control-label col-lg-12">User<span class="required"></span></label>
@@ -1589,23 +1661,27 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-6 form-group" style="padding-top: 3px;">
-                            <label class="control-label col-lg-12">Effective Date</label>
-                            <div class="col-lg-12">
-                                <telerik:RadDatePicker RenderMode="Lightweight" ID="rdeffectivedate" DateInput-DateFormat="dd-MMM-yyyy" runat="server" Width="100%">
-                                </telerik:RadDatePicker>
+                        
+                            <div class="col-lg-6 form-group">
+                                <asp:PlaceHolder runat="server" ID="plEffDate" Visible="false">
+                                <label class="control-label col-lg-12">Effective Date</label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDatePicker RenderMode="Lightweight" Skin="Silk" ID="rdeffectivedate" DateInput-DateFormat="dd-MMM-yyyy" runat="server"  Width="100%" 
+                                        DateInput-CausesValidation="true" DateInput-ValidationGroup="frm">
+                                    </telerik:RadDatePicker>
 
-                                <asp:RequiredFieldValidator ID="l" runat="server" Display="Dynamic" ErrorMessage="Date is mandatory" ForeColor="Red" ControlToValidate="rdeffectivedate" ValidationGroup="frm"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="l" runat="server" Display="Dynamic" ErrorMessage="Date is mandatory" ForeColor="Red" ControlToValidate="rdeffectivedate" ValidationGroup="frm"></asp:RequiredFieldValidator>
+                                </div>
+                                     </asp:PlaceHolder>
+
                             </div>
-                        </div>
-
-
+                       
                     </div>
                 </div>
 
 
                 <div class="modal-footer">
-                    <telerik:RadAjaxPanel ID="RadAjaxPanel6" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel6" runat="server" LoadingPanelID="RadAjaxLoadingPanel7">
 
                         <asp:LinkButton ID="lnkChange" runat="server" CssClass="btn btn-sm fw-bold btn-success" ValidationGroup="frm" CausesValidation="true" OnClick="lnkChange_Click">
                                                 Change
@@ -1736,7 +1812,7 @@
     </div>
 
     <!--begin::FailedModal License-->
-    <div class="modal fade" id="kt_modal_1_8" tabindex="-1" role="dialog" style="height:auto"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="kt_modal_1_8" tabindex="-1" role="dialog" style="height: auto" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1753,4 +1829,11 @@
     </div>
     <!--end::FailedModal License-->
 
+    <style>
+        .radioList .rlbItem {
+    display: inline-block; /* Ensures items are displayed inline */
+    margin-right: 15px; /* Adjust spacing between items */
+}
+
+    </style>
 </asp:Content>

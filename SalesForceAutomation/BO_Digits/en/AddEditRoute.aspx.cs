@@ -20,6 +20,7 @@ using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using GoogleApi.Entities.Common.Enums;
+using Telerik.Web.UI.Calendar;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -42,6 +43,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 Users();
                 //  txtTransName.Text = "Merchandising";
                 ViewState["rotusr"] = "";
+                rdeffectivedate.SelectedDate= DateTime.Now;
                 rdeffectivedate.MinDate = DateTime.Now.AddDays(1);
                 rdeffectivedatetodel.MinDate = DateTime.Now.AddDays(1);
             }
@@ -393,86 +395,91 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
                 ViewState["rotusr"] = username.ToString();
-                ddlAssetTracking.SelectedValue = AssetTracking.ToString();
-                ddlServiceReq.SelectedValue = ServiceReq.ToString();
-                ddlPettycash.SelectedValue = pettycash.ToString();
+                dllAssetTracking.SelectedValue = AssetTracking.ToString();
+                dllServiceReq.SelectedValue = ServiceReq.ToString();
+                dllPettycash.SelectedValue = pettycash.ToString();
                 txtname.Text = name.ToString();
                 txtcode.Text = code.ToString();
                 txtcode.Enabled = false;
                 ddlname.SelectedValue = username.ToString();
                 txtpass.Text = pass.ToString();
-                ddlis.SelectedValue = unload.ToString();
+                dllis.SelectedValue = unload.ToString();
                 txtdeviceid.Text = deviceid.ToString();
-                ddlstlmnt.SelectedValue = stlmnt.ToString();
-                ddlenforcejp.SelectedValue = enforcejp.ToString();
-                ddlodometer.SelectedValue = odometer.ToString();
-                ddlStats.SelectedValue = status.ToString();
+                dllstlmnt.SelectedValue = stlmnt.ToString();
+                dllenforcejp.SelectedValue = enforcejp.ToString();
+                dllodometer.SelectedValue = odometer.ToString();
+                dllStats.SelectedValue = status.ToString();
                 txtcode.Enabled = false;
-                ddlrotType.SelectedValue = rottype.ToString();
+                dllrotType.SelectedValue = rottype.ToString();
                 txtvarlimit.Text = varlimit.ToString();
 
                 txtArabicname.Text = arabic.ToString();
-                ddlRC.SelectedValue = rotcheck.ToString();
-                ddlLIS.SelectedValue = loadinSign.ToString();
-                ddlLTS.SelectedValue = loadTransferSign.ToString();
-                ddlLOS.SelectedValue = LoadoutSign.ToString();
-                ddlLR.SelectedValue = LoadReq.ToString();
-                ddlLT.SelectedValue = LoadTransfer.ToString();
-                ddlLEdit.SelectedValue = LoadInEdit.ToString();
-                ddlLOEdit.SelectedValue = LoadOutEdit.ToString();
-                ddlLOExcess.SelectedValue = LoadOutExcessAllow.ToString();
+                dllRC.SelectedValue = rotcheck.ToString();
+                dllLIS.SelectedValue = loadinSign.ToString();
+                dllLTS.SelectedValue = loadTransferSign.ToString();
+                dllLOS.SelectedValue = LoadoutSign.ToString();
+                dllLR.SelectedValue = LoadReq.ToString();
+                dllLT.SelectedValue = LoadTransfer.ToString();
+                dllLEdit.SelectedValue = LoadInEdit.ToString();
+                dllLOEdit.SelectedValue = LoadOutEdit.ToString();
+                dllLOExcess.SelectedValue = LoadOutExcessAllow.ToString();
                 ddlDepot.SelectedValue = Depot.ToString();
-                rcbsugloreq.SelectedValue = suglodreq.ToString();
-                rcbreturnType.SelectedValue = rtntype.ToString();
-                rcbLodRej.SelectedValue = lodRej.ToString();
-                rcbVantoVan.SelectedValue = VantoVan.ToString();
-                ddlEnOpt.SelectedValue = EnOptCreation.ToString();
-                ddlEndorsement.SelectedValue = endorsement.ToString();
-                rdCusOutMode.SelectedValue = CusTransOutMode.ToString();
-                rdInvOutMode.SelectedValue = InventoryOutMode.ToString();
+                dllsugloreq.SelectedValue = suglodreq.ToString();
+                dllreturnType.SelectedValue = rtntype.ToString();
+                dllLodRej.SelectedValue = lodRej.ToString();
+                dllVantoVan.SelectedValue = VantoVan.ToString();
+                dllEnOpt.SelectedValue = EnOptCreation.ToString();
+                dllEndorsement.SelectedValue = endorsement.ToString();
+                ddlCusOutMode.SelectedValue = CusTransOutMode.ToString();
+                dllInvOutMode.SelectedValue = InventoryOutMode.ToString();
                 txtAltRotCode.Text = AltRotCode.ToString();
 
-                ddEnableHelper.SelectedValue = EnableHelper.ToString();
+                dllEnableHelper.SelectedValue = EnableHelper.ToString();
                 ddlHelper1.SelectedValue = Helper1.ToString();
                 ddlHelper2.SelectedValue = Helper2.ToString();
-                ddlVehicleID.SelectedValue = Vehicle.ToString();
+                dllVehicleID.SelectedValue = Vehicle.ToString();
                 // txtTransName.Text = TransName.ToString();
-                ddlVanstockexcessallow.SelectedValue = VanStockAllow.ToString();
-                ddlNonvanstockallow.SelectedValue = NonVanStockAllow.ToString();
-                ddlattribute.SelectedValue = RtnAplAttribute.ToString();
-                ddlOpnRtnImg.SelectedValue = OpnRtnImg.ToString();
-                ddlResRtnImg.SelectedValue = ResRtnImg.ToString();
-                ddlSchRtnImg.SelectedValue = SchRtnImg.ToString();
-                ddlLTApproval.SelectedValue = LTApprvl.ToString();
+                dllVanstockexcessallow.SelectedValue = VanStockAllow.ToString();
+                dllNonvanstockallow.SelectedValue = NonVanStockAllow.ToString();
+                dllattribute.SelectedValue = RtnAplAttribute.ToString();
+                dllOpnRtnImg.SelectedValue = OpnRtnImg.ToString();
+                dllResRtnImg.SelectedValue = ResRtnImg.ToString();
+                dllSchRtnImg.SelectedValue = SchRtnImg.ToString();
+                dllLTApproval.SelectedValue = LTApprvl.ToString();
                 ddlJPlanSeq.SelectedValue = JPSeq.ToString();
-                ddlSchVisit.SelectedValue = SchVisit.ToString();
-                ddlWeekendDays.SelectedValue = WeekEndDays.ToString();
-                ddlIsVehicleNo.SelectedValue = IsVehicleNoMand.ToString();
-                ddlEnbVehicle.SelectedValue = EnbVehicle.ToString();
-                rdAdvPay.SelectedValue = rdAdvPay.ToString();
-                ddlVavApproval.SelectedValue = VanApproval.ToString();
-                ddlSettlefrom.SelectedValue = SettleFrom.ToString();
+                dllSchVisit.SelectedValue = SchVisit.ToString();
+                dllWeekendDays.SelectedValue = WeekEndDays.ToString();
+                dllIsVehicleNo.SelectedValue = IsVehicleNoMand.ToString();
+                dllEnbVehicle.SelectedValue = EnbVehicle.ToString();
+                dllAdvPay.SelectedValue = dllAdvPay.ToString();
+                dllVavApproval.SelectedValue = VanApproval.ToString();
+                dllSettlefrom.SelectedValue = SettleFrom.ToString();
                 txtPettyLimit.Text = pettyLimit.ToString();
                 rdFence.Text = FenceRadius.ToString();
-                ddlARManAalloc.SelectedValue = ARManAlloc.ToString();
+                dllARManAalloc.SelectedValue = ARManAlloc.ToString();
                 txtInvReqLoc.Text = ERP_Inventory_Req_Location.ToString();
                 txtInvLoc.Text = ERP_Inventory_Location.ToString();
-                ddlInvReconfAppr.SelectedValue = InvReconfAppr.ToString();
-                ddlFutExpDel.SelectedValue = FutExpDel.ToString();
-                ddllogoutaftr.SelectedValue = logoutafter.ToString();
+                dllInvReconfAppr.SelectedValue = InvReconfAppr.ToString();
+                dllFutExpDel.SelectedValue = FutExpDel.ToString();
+                dlllogoutaftr.SelectedValue = logoutafter.ToString();
 
-                ddlHelperMand.SelectedValue = HelperMand.ToString();
-                ddlEnforceNotification.SelectedValue = EnforceNotification.ToString();
-                ddlEnableCoupon.SelectedValue = EnableCoupon.ToString();
-                ddlIsBankUpdate.SelectedValue = IsBankUpdate.ToString();
-                ddlEnableCouponLeaf.SelectedValue = EnableCouponLeaf.ToString();
-                ddlIsLoadIn.SelectedValue = LoadIn.ToString();
-                ddlIsLoadOut.SelectedValue = LoadOut.ToString();
-                ddlIsInventory.SelectedValue = Inventory.ToString();
+                dllHelperMand.SelectedValue = HelperMand.ToString();
+                dllEnforceNotification.SelectedValue = EnforceNotification.ToString();
+                dllEnableCoupon.SelectedValue = EnableCoupon.ToString();
+                dllIsBankUpdate.SelectedValue = IsBankUpdate.ToString();
+                dllEnableCouponLeaf.SelectedValue = EnableCouponLeaf.ToString();
+                dllIsLoadIn.SelectedValue = LoadIn.ToString();
+                dllIsLoadOut.SelectedValue = LoadOut.ToString();
+                dllIsInventory.SelectedValue = Inventory.ToString();
 
                 ddlname.Enabled = false;
-                lblcurrentusr.Text = ddlname.SelectedItem.Text.ToString();
-                ddlOverride.SelectedValue=OverrideOnline.ToString();
+                //string currentusr = ddlname.SelectedItem.Text.ToString();
+                if (!string.IsNullOrEmpty(username))
+                {
+                    lblcurrentusr.Text = ddlname.SelectedItem.Text.ToString();
+                }
+                
+                ddlOverrides.SelectedValue=OverrideOnline.ToString();
 
 
                 if ((rottype == "OR") || (rottype == "DL") || (rottype == "AR") || (rottype == "SL"))
@@ -660,47 +667,47 @@ namespace SalesForceAutomation.BO_Digits.en
                 RtnAplAttribute, OpnRtnImg, ResRtnImg, SchRtnImg, OptRtnApl, ResRtnApl, SysStock, GRImg, LTApprvl, JPSeq, SchVisit, WeekendDys, GRImgMand, BRImgMand, pettycash, AssetTracking, ServiceReq,
                 IsVehicleNo, EnbVehicle, AdvPay, VanApproval, SettleFrom, pettyLimit, InvTrans, fence, CusTrans, MerchTrans, FSTrans, ARManAlloc, ERPInvReqLoc, ERPInvLoc, InvReconfAppr, varlimit, FutExpDel,
                 logoutafter, HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline;
-            AssetTracking = ddlAssetTracking.SelectedValue.ToString();
-            ServiceReq = ddlServiceReq.SelectedValue.ToString();
+            AssetTracking = dllAssetTracking.SelectedValue.ToString();
+            ServiceReq = dllServiceReq.SelectedValue.ToString();
             name = txtname.Text.ToString();
             username = ddlname.SelectedValue.ToString();
             code = txtcode.Text.ToString();
             user = UICommon.GetCurrentUserID().ToString();
             pass = txtpass.Text.ToString();
-            unload = ddlis.SelectedValue.ToString();
-            status = ddlStats.SelectedValue.ToString();
+            unload = dllis.SelectedValue.ToString();
+            status = dllStats.SelectedValue.ToString();
             deviceid = txtdeviceid.Text.ToString();
-            enforcejp = ddlenforcejp.SelectedValue.ToString();
-            stlmnt = ddlstlmnt.SelectedValue.ToString();
-            odometer = ddlodometer.SelectedValue.ToString();
-            rottype = ddlrotType.SelectedValue.ToString();
+            enforcejp = dllenforcejp.SelectedValue.ToString();
+            stlmnt = dllstlmnt.SelectedValue.ToString();
+            odometer = dllodometer.SelectedValue.ToString();
+            rottype = dllrotType.SelectedValue.ToString();
 
             ERPInvReqLoc = txtInvReqLoc.Text.ToString();
             ERPInvLoc = txtInvLoc.Text.ToString();
 
             arabic = txtArabicname.Text.ToString();
-            rotcheck = ddlRC.SelectedValue.ToString();
-            loadinSign = ddlLIS.SelectedValue.ToString();
-            loadTransferSign = ddlLTS.SelectedValue.ToString();
-            LoadoutSign = ddlLOS.SelectedValue.ToString();
-            LoadReq = ddlLR.SelectedValue.ToString();
-            LoadTransfer = ddlLT.SelectedValue.ToString();
-            LoadInEdit = ddlLEdit.SelectedValue.ToString();
-            LoadOutEdit = ddlLOEdit.SelectedValue.ToString();
-            LoadOutExcessAllow = ddlLOExcess.SelectedValue.ToString();
+            rotcheck = dllRC.SelectedValue.ToString();
+            loadinSign = dllLIS.SelectedValue.ToString();
+            loadTransferSign = dllLTS.SelectedValue.ToString();
+            LoadoutSign = dllLOS.SelectedValue.ToString();
+            LoadReq = dllLR.SelectedValue.ToString();
+            LoadTransfer = dllLT.SelectedValue.ToString();
+            LoadInEdit = dllLEdit.SelectedValue.ToString();
+            LoadOutEdit = dllLOEdit.SelectedValue.ToString();
+            LoadOutExcessAllow = dllLOExcess.SelectedValue.ToString();
             Depot = ddlDepot.SelectedValue.ToString();
             paymode = paytmodecolumns();
-            suglodreq = rcbsugloreq.SelectedValue.ToString();
-            Rtntype = rcbreturnType.SelectedValue.ToString();
-            Lodrej = rcbLodRej.SelectedValue.ToString();
-            VantoVan = rcbVantoVan.SelectedValue.ToString();
-            EnOpt = ddlEnOpt.SelectedValue.ToString();
-            endorsement = ddlEndorsement.SelectedValue.ToString();
-            InventoryOutMode = rdInvOutMode.SelectedValue.ToString();
-            CusTransOutMode = rdCusOutMode.SelectedValue.ToString();
+            suglodreq = dllsugloreq.SelectedValue.ToString();
+            Rtntype = dllreturnType.SelectedValue.ToString();
+            Lodrej = dllLodRej.SelectedValue.ToString();
+            VantoVan = dllVantoVan.SelectedValue.ToString();
+            EnOpt = dllEnOpt.SelectedValue.ToString();
+            endorsement = dllEndorsement.SelectedValue.ToString();
+            InventoryOutMode = dllInvOutMode.SelectedValue.ToString();
+            CusTransOutMode = ddlCusOutMode.SelectedValue.ToString();
             AltRotCode = txtAltRotCode.Text.ToString();
 
-            EnableHelper = ddEnableHelper.SelectedValue.ToString();
+            EnableHelper = dllEnableHelper.SelectedValue.ToString();
             if (EnableHelper == "Y")
             {
                 Helper1 = ddlHelper1.SelectedValue.ToString();
@@ -711,30 +718,30 @@ namespace SalesForceAutomation.BO_Digits.en
                 Helper1 = "0";
                 Helper2 = "0";
             }
-            Vehicle = ddlVehicleID.SelectedValue.ToString();
+            Vehicle = dllVehicleID.SelectedValue.ToString();
             TransName = "Invoice,Order Request,AR Collection,Advance Payment,Merchandising,Field Service,Customer Insights,Customer Profile,KPI";
-            RtnAplAttribute = ddlattribute.SelectedValue.ToString();
-            VanStockAllow = ddlVanstockexcessallow.SelectedValue.ToString();
-            NonVanStockAllow = ddlNonvanstockallow.SelectedValue.ToString();
-            OpnRtnImg = ddlOpnRtnImg.SelectedValue.ToString();
-            ResRtnImg = ddlResRtnImg.SelectedValue.ToString();
-            SchRtnImg = ddlSchRtnImg.SelectedValue.ToString();
+            RtnAplAttribute = dllattribute.SelectedValue.ToString();
+            VanStockAllow = dllVanstockexcessallow.SelectedValue.ToString();
+            NonVanStockAllow = dllNonvanstockallow.SelectedValue.ToString();
+            OpnRtnImg = dllOpnRtnImg.SelectedValue.ToString();
+            ResRtnImg = dllResRtnImg.SelectedValue.ToString();
+            SchRtnImg = dllSchRtnImg.SelectedValue.ToString();
             OptRtnApl = OpnRetncolumns();
             ResRtnApl = ResRetncolumns();
-            SysStock = ddlsysstkenable.SelectedValue.ToString();
+            SysStock = dllsysstkenable.SelectedValue.ToString();
             GRImg = GRImages();
             GRImgMand = GRImagesMnad();
             BRImgMand = BRImagesMnad();
-            LTApprvl = ddlLTApproval.SelectedValue.ToString();
+            LTApprvl = dllLTApproval.SelectedValue.ToString();
             JPSeq = ddlJPlanSeq.SelectedValue.ToString();
-            SchVisit = ddlSchVisit.SelectedValue.ToString();
-            WeekendDys = ddlWeekendDays.SelectedValue.ToString();
-            pettycash = ddlPettycash.SelectedValue.ToString();
-            IsVehicleNo = ddlIsVehicleNo.SelectedValue.ToString();
-            EnbVehicle = ddlEnbVehicle.SelectedValue.ToString();
-            AdvPay = rdAdvPay.SelectedValue.ToString();
-            VanApproval = ddlVavApproval.SelectedValue.ToString();
-            SettleFrom = ddlSettlefrom.SelectedValue.ToString();
+            SchVisit = dllSchVisit.SelectedValue.ToString();
+            WeekendDys = dllWeekendDays.SelectedValue.ToString();
+            pettycash = dllPettycash.SelectedValue.ToString();
+            IsVehicleNo = dllIsVehicleNo.SelectedValue.ToString();
+            EnbVehicle = dllEnbVehicle.SelectedValue.ToString();
+            AdvPay = dllAdvPay.SelectedValue.ToString();
+            VanApproval = dllVavApproval.SelectedValue.ToString();
+            SettleFrom = dllSettlefrom.SelectedValue.ToString();
             pettyLimit = txtPettyLimit.Text.ToString();
             varlimit = txtvarlimit.Text.ToString();
             if (varlimit == "")
@@ -754,21 +761,21 @@ namespace SalesForceAutomation.BO_Digits.en
             CusTrans = CusTranscolumns();
             MerchTrans = MerchTranscolumns();
             FSTrans = FSTranscolumns();
-            ARManAlloc = ddlARManAalloc.SelectedValue.ToString();
-            InvReconfAppr = ddlInvReconfAppr.SelectedValue.ToString();
-            FutExpDel = ddlFutExpDel.SelectedValue.ToString();
-            logoutafter = ddllogoutaftr.SelectedValue.ToString();
+            ARManAlloc = dllARManAalloc.SelectedValue.ToString();
+            InvReconfAppr = dllInvReconfAppr.SelectedValue.ToString();
+            FutExpDel = dllFutExpDel.SelectedValue.ToString();
+            logoutafter = dlllogoutaftr.SelectedValue.ToString();
 
-            HelperMand = ddlHelperMand.SelectedValue.ToString();
-            EnforceNotification = ddlEnforceNotification.SelectedValue.ToString();
-            EnableCoupon = ddlEnableCoupon.SelectedValue.ToString();
-            IsBankUpdate = ddlIsBankUpdate.SelectedValue.ToString();
-            EnableCouponLeaf = ddlEnableCouponLeaf.SelectedValue.ToString();
-            LoadIn = ddlIsLoadIn.SelectedValue.ToString();
-            LoadOut = ddlIsLoadOut.SelectedValue.ToString();
-            Inventory = ddlIsInventory.SelectedValue.ToString();
+            HelperMand = dllHelperMand.SelectedValue.ToString();
+            EnforceNotification = dllEnforceNotification.SelectedValue.ToString();
+            EnableCoupon = dllEnableCoupon.SelectedValue.ToString();
+            IsBankUpdate = dllIsBankUpdate.SelectedValue.ToString();
+            EnableCouponLeaf = dllEnableCouponLeaf.SelectedValue.ToString();
+            LoadIn = dllIsLoadIn.SelectedValue.ToString();
+            LoadOut = dllIsLoadOut.SelectedValue.ToString();
+            Inventory = dllIsInventory.SelectedValue.ToString();
             KpiSettings = Kpicolumns();
-            OverrideOnline = ddlOverride.SelectedValue.ToString();
+            OverrideOnline = ddlOverrides.SelectedValue.ToString();
 
             if (rottype == "OA")
             {
@@ -862,7 +869,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     string CurrentStatus = ViewState["CurrentStatus"].ToString();
-                    string ChangedStatus = ddlStats.SelectedValue.ToString();
+                    string ChangedStatus = dllStats.SelectedValue.ToString();
 
                     if (CurrentStatus == "N" && ChangedStatus == "Y")
                     {
@@ -1173,10 +1180,10 @@ namespace SalesForceAutomation.BO_Digits.en
             DataTable lstVehicle = ObjclsFrms.loadList("SelVehicleID", "sp_Backend", ResponseID.ToString());
             if (lstVehicle.Rows.Count > 0)
             {
-                ddlVehicleID.DataSource = lstVehicle;
-                ddlVehicleID.DataValueField = "id";
-                ddlVehicleID.DataTextField = "name";
-                ddlVehicleID.DataBind();
+                dllVehicleID.DataSource = lstVehicle;
+                dllVehicleID.DataValueField = "id";
+                dllVehicleID.DataTextField = "name";
+                dllVehicleID.DataBind();
 
             }
         }
@@ -1229,37 +1236,7 @@ namespace SalesForceAutomation.BO_Digits.en
             }
         }
 
-        protected void SelectedIndexChanged_EnableHelper(object sender, Telerik.Web.UI.DropDownListEventArgs e)
-        {
-            string EnableHelper = e.Value;
-
-            if (EnableHelper == "Y")
-            {
-                aspHelper1.Visible = true;
-                ddlHelper1.Visible = true;
-
-                if (ddlHelper1.SelectedItem != null)
-                {
-                    aspHelper2.Visible = true;
-                    ddlHelper2.Visible = true;
-                }
-                else
-                {
-                    aspHelper2.Visible = false;
-                    ddlHelper2.Visible = false;
-                }
-            }
-            else
-            {
-                aspHelper1.Visible = false;
-                ddlHelper1.Visible = false;
-                aspHelper2.Visible = false;
-                ddlHelper2.Visible = false;
-            }
-        }
-
-
-
+       
         protected void ddlHelper1_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
             aspHelper2.Visible = true;
@@ -1278,59 +1255,6 @@ namespace SalesForceAutomation.BO_Digits.en
             }
         }
 
-        protected void ddlrotType_SelectedIndexChanged(object sender, DropDownListEventArgs e)
-        {
-            string type = ddlrotType.SelectedValue.ToString();
-
-            if ((type == "OR") || (type == "DL") || (type == "AR") || (type == "SL"))
-            {
-                pnlProdVisits.Visible = false;
-                pnlOA.Visible = false;
-                pnlMerch.Visible = false;
-                pnlFS.Visible = false;
-            }
-            else if ((type == "OA"))
-            {
-                pnlProdVisits.Visible = true;
-                pnlOA.Visible = true;
-                pnlMerch.Visible = false;
-                pnlFS.Visible = false;
-            }
-            else if (type == "MER")
-            {
-                pnlProdVisits.Visible = true;
-                pnlOA.Visible = false;
-                pnlMerch.Visible = true;
-                pnlFS.Visible = false;
-            }
-            else if (type == "FS")
-            {
-                pnlProdVisits.Visible = true;
-                pnlOA.Visible = false;
-                pnlMerch.Visible = false;
-                pnlFS.Visible = true;
-            }
-            else
-            {
-                pnlProdVisits.Visible = false;
-                pnlOA.Visible = false;
-                pnlMerch.Visible = false;
-                pnlFS.Visible = false;
-            }
-        }
-
-        protected void ddlPettycash_SelectedIndexChanged(object sender, DropDownListEventArgs e)
-        {
-            string type = ddlPettycash.SelectedValue.ToString();
-            if ((type == "Y"))
-            {
-                pnlPettyLimit.Visible = true;
-            }
-            else
-            {
-                pnlPettyLimit.Visible = false;
-            }
-        }
         protected void ApplyProfile_Click(object sender, EventArgs e)
         {
             try
@@ -1488,25 +1412,29 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkusrchange_Click(object sender, EventArgs e)
         {
-            string rot, chngeusr, effectivedate, user, prevusr;
+            string rot, chngeusr, effectivedate, user, prevusr , type;
             rot = ResponseID.ToString();
             chngeusr = ddluser.SelectedValue.ToString();
             prevusr = ViewState["rotusr"].ToString();
             effectivedate = DateTime.Parse(rdeffectivedate.SelectedDate.ToString()).ToString("yyyyMMdd");
             user = UICommon.GetCurrentUserID().ToString();
-            string[] arr = { chngeusr, effectivedate, user, prevusr };
-            string Value = ObjclsFrms.SaveData("sp_Backend", "InsertRouteUserChange", rot, arr);
+            type = rbActions.SelectedValue.ToString();
+
+            string[] arr = { chngeusr, effectivedate, user, prevusr , type };
+            DataTable dt = ObjclsFrms.loadList("InsertRouteUserChange", "sp_Backend", rot, arr);
 
             try
             {
-                int res = Int32.Parse(Value.ToString());
-                if (res > 0)
+                string res = dt.Rows[0]["res"].ToString();
+                string descr = dt.Rows[0]["descr"].ToString();
+
+                if (res == "1")
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('Route user change has been scheduled Successfully.');</script>", false);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('"+ descr +"');</script>", false);
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Fail('Something went wrong....!');</script>", false);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Fail('"+ descr +"');</script>", false);
 
                 }
             }
@@ -1557,9 +1485,76 @@ namespace SalesForceAutomation.BO_Digits.en
 
         }
 
-        protected void ddlStats_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+
+        //protected void rdImmediate_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if ((bool)rdImmediate.Checked)
+        //    {
+        //        plEffDate.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        plEffDate.Visible = true;
+        //    }
+        //}
+
+        //protected void rdSchedule_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if ((bool)rdImmediate.Checked)
+        //    {
+        //        plEffDate.Visible = true;
+        //    }
+        //    else 
+        //    { 
+        //        plEffDate.Visible = false; 
+        //    }
+        //}
+
+        protected void dllrotType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            string Status = ddlStats.SelectedValue.ToString();
+            string type = dllrotType.SelectedValue.ToString();
+
+            if ((type == "OR") || (type == "DL") || (type == "AR") || (type == "SL"))
+            {
+                pnlProdVisits.Visible = false;
+                pnlOA.Visible = false;
+                pnlMerch.Visible = false;
+                pnlFS.Visible = false;
+            }
+            else if ((type == "OA"))
+            {
+                pnlProdVisits.Visible = true;
+                pnlOA.Visible = true;
+                pnlMerch.Visible = false;
+                pnlFS.Visible = false;
+            }
+            else if (type == "MER")
+            {
+                pnlProdVisits.Visible = true;
+                pnlOA.Visible = false;
+                pnlMerch.Visible = true;
+                pnlFS.Visible = false;
+            }
+            else if (type == "FS")
+            {
+                pnlProdVisits.Visible = true;
+                pnlOA.Visible = false;
+                pnlMerch.Visible = false;
+                pnlFS.Visible = true;
+            }
+            else
+            {
+                pnlProdVisits.Visible = false;
+                pnlOA.Visible = false;
+                pnlMerch.Visible = false;
+                pnlFS.Visible = false;
+            }
+        }
+
+        protected void dllStats_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+
+            string Status = dllStats.SelectedValue.ToString();
 
             if (Status == "Y")
             {
@@ -1579,11 +1574,67 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('"+ ResponseMessage + "');</script>", false);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureLicense('" + ResponseMessage + "');</script>", false);
                 }
-                
-            }
 
+            }
+        }
+
+        protected void dllPettycash_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            string type = dllPettycash.SelectedValue.ToString();
+            if ((type == "Y"))
+            {
+                pnlPettyLimit.Visible = true;
+            }
+            else
+            {
+                pnlPettyLimit.Visible = false;
+            }
+        }
+
+        protected void dllEnableHelper_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+
+            string EnableHelper = e.Value;
+
+            if (EnableHelper == "Y")
+            {
+                aspHelper1.Visible = true;
+                ddlHelper1.Visible = true;
+
+                if (ddlHelper1.SelectedItem != null)
+                {
+                    aspHelper2.Visible = true;
+                    ddlHelper2.Visible = true;
+                }
+                else
+                {
+                    aspHelper2.Visible = false;
+                    ddlHelper2.Visible = false;
+                }
+            }
+            else
+            {
+                aspHelper1.Visible = false;
+                ddlHelper1.Visible = false;
+                aspHelper2.Visible = false;
+                ddlHelper2.Visible = false;
+            }
+        }
+
+        protected void rbActions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string action = rbActions.SelectedValue.ToString();
+
+            if (action == "I")
+            {
+                plEffDate.Visible = false;
+            }
+            else
+            {
+                plEffDate.Visible = true;
+            }
         }
     }
 

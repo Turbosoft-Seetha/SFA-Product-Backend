@@ -69,6 +69,24 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel1;
 
         /// <summary>
+        /// RadAjaxManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager1;
+
+        /// <summary>
+        /// AjaxManagerProxy1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxManagerProxy AjaxManagerProxy1;
+
+        /// <summary>
         /// ltrlMessage control.
         /// </summary>
         /// <remarks>
@@ -141,13 +159,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadTextBox txtArabicname;
 
         /// <summary>
-        /// ddlrotType control.
+        /// dllrotType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlrotType;
+        protected global::Telerik.Web.UI.RadComboBox dllrotType;
 
         /// <summary>
         /// RequiredFieldValidator11 control.
@@ -258,22 +276,22 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
-        /// ddlStats control.
+        /// dllStats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlStats;
+        protected global::Telerik.Web.UI.RadComboBox dllStats;
 
         /// <summary>
-        /// ddlVehicleID control.
+        /// dllVehicleID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlVehicleID;
+        protected global::Telerik.Web.UI.RadComboBox dllVehicleID;
 
         /// <summary>
         /// pnlProdVisits control.
@@ -357,67 +375,67 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel3;
 
         /// <summary>
-        /// ddlRC control.
+        /// dllRC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlRC;
+        protected global::Telerik.Web.UI.RadComboBox dllRC;
 
         /// <summary>
-        /// ddlEndorsement control.
+        /// dllEndorsement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEndorsement;
+        protected global::Telerik.Web.UI.RadComboBox dllEndorsement;
 
         /// <summary>
-        /// rdInvOutMode control.
+        /// dllInvOutMode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rdInvOutMode;
+        protected global::Telerik.Web.UI.RadComboBox dllInvOutMode;
 
         /// <summary>
-        /// rdCusOutMode control.
+        /// ddlCusOutMode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rdCusOutMode;
+        protected global::Telerik.Web.UI.RadComboBox ddlCusOutMode;
 
         /// <summary>
-        /// ddlodometer control.
+        /// dllodometer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlodometer;
+        protected global::Telerik.Web.UI.RadComboBox dllodometer;
 
         /// <summary>
-        /// ddlEnOpt control.
+        /// dllEnOpt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEnOpt;
+        protected global::Telerik.Web.UI.RadComboBox dllEnOpt;
 
         /// <summary>
-        /// ddEnableHelper control.
+        /// dllEnableHelper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddEnableHelper;
+        protected global::Telerik.Web.UI.RadComboBox dllEnableHelper;
 
         /// <summary>
         /// RequiredFieldValidator25 control.
@@ -483,40 +501,40 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator34;
 
         /// <summary>
-        /// rdAdvPay control.
+        /// dllAdvPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rdAdvPay;
+        protected global::Telerik.Web.UI.RadComboBox dllAdvPay;
 
         /// <summary>
-        /// ddlstlmnt control.
+        /// dllstlmnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlstlmnt;
+        protected global::Telerik.Web.UI.RadComboBox dllstlmnt;
 
         /// <summary>
-        /// ddlSettlefrom control.
+        /// dllSettlefrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlSettlefrom;
+        protected global::Telerik.Web.UI.RadComboBox dllSettlefrom;
 
         /// <summary>
-        /// ddlSchVisit control.
+        /// dllSchVisit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlSchVisit;
+        protected global::Telerik.Web.UI.RadComboBox dllSchVisit;
 
         /// <summary>
         /// ddlJPlanSeq control.
@@ -528,13 +546,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox ddlJPlanSeq;
 
         /// <summary>
-        /// ddlPettycash control.
+        /// dllPettycash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlPettycash;
+        protected global::Telerik.Web.UI.RadComboBox dllPettycash;
 
         /// <summary>
         /// pnlPettyLimit control.
@@ -555,40 +573,40 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadNumericTextBox txtPettyLimit;
 
         /// <summary>
-        /// ddlAssetTracking control.
+        /// dllAssetTracking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlAssetTracking;
+        protected global::Telerik.Web.UI.RadComboBox dllAssetTracking;
 
         /// <summary>
-        /// ddlServiceReq control.
+        /// dllServiceReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlServiceReq;
+        protected global::Telerik.Web.UI.RadComboBox dllServiceReq;
 
         /// <summary>
-        /// ddlEnbVehicle control.
+        /// dllEnbVehicle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEnbVehicle;
+        protected global::Telerik.Web.UI.RadComboBox dllEnbVehicle;
 
         /// <summary>
-        /// ddlIsVehicleNo control.
+        /// dllIsVehicleNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlIsVehicleNo;
+        protected global::Telerik.Web.UI.RadComboBox dllIsVehicleNo;
 
         /// <summary>
         /// txtvarlimit control.
@@ -609,67 +627,67 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadNumericTextBox rdFence;
 
         /// <summary>
-        /// ddlFutExpDel control.
+        /// dllFutExpDel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlFutExpDel;
+        protected global::Telerik.Web.UI.RadComboBox dllFutExpDel;
 
         /// <summary>
-        /// ddllogoutaftr control.
+        /// dlllogoutaftr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddllogoutaftr;
+        protected global::Telerik.Web.UI.RadComboBox dlllogoutaftr;
 
         /// <summary>
-        /// ddlHelperMand control.
+        /// dllHelperMand control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlHelperMand;
+        protected global::Telerik.Web.UI.RadComboBox dllHelperMand;
 
         /// <summary>
-        /// ddlEnforceNotification control.
+        /// dllEnforceNotification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEnforceNotification;
+        protected global::Telerik.Web.UI.RadComboBox dllEnforceNotification;
 
         /// <summary>
-        /// ddlEnableCoupon control.
+        /// dllEnableCoupon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEnableCoupon;
+        protected global::Telerik.Web.UI.RadComboBox dllEnableCoupon;
 
         /// <summary>
-        /// ddlIsBankUpdate control.
+        /// dllIsBankUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlIsBankUpdate;
+        protected global::Telerik.Web.UI.RadComboBox dllIsBankUpdate;
 
         /// <summary>
-        /// ddlEnableCouponLeaf control.
+        /// dllEnableCouponLeaf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEnableCouponLeaf;
+        protected global::Telerik.Web.UI.RadComboBox dllEnableCouponLeaf;
 
         /// <summary>
         /// ddlKpi control.
@@ -681,13 +699,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox ddlKpi;
 
         /// <summary>
-        /// ddlOverride control.
+        /// ddlOverrides control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlOverride;
+        protected global::Telerik.Web.UI.RadComboBox ddlOverrides;
 
         /// <summary>
         /// RadAjaxLoadingPanel4 control.
@@ -708,76 +726,76 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel4;
 
         /// <summary>
-        /// ddlis control.
+        /// dllis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlis;
+        protected global::Telerik.Web.UI.RadComboBox dllis;
 
         /// <summary>
-        /// rcbVantoVan control.
+        /// dllVantoVan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rcbVantoVan;
+        protected global::Telerik.Web.UI.RadComboBox dllVantoVan;
 
         /// <summary>
-        /// ddlVavApproval control.
+        /// dllVavApproval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlVavApproval;
+        protected global::Telerik.Web.UI.RadComboBox dllVavApproval;
 
         /// <summary>
-        /// ddlVanstockexcessallow control.
+        /// dllVanstockexcessallow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlVanstockexcessallow;
+        protected global::Telerik.Web.UI.RadComboBox dllVanstockexcessallow;
 
         /// <summary>
-        /// ddlNonvanstockallow control.
+        /// dllNonvanstockallow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlNonvanstockallow;
+        protected global::Telerik.Web.UI.RadComboBox dllNonvanstockallow;
 
         /// <summary>
-        /// ddlsysstkenable control.
+        /// dllsysstkenable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlsysstkenable;
+        protected global::Telerik.Web.UI.RadComboBox dllsysstkenable;
 
         /// <summary>
-        /// ddlattribute control.
+        /// dllattribute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlattribute;
+        protected global::Telerik.Web.UI.RadComboBox dllattribute;
 
         /// <summary>
-        /// ddlWeekendDays control.
+        /// dllWeekendDays control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlWeekendDays;
+        protected global::Telerik.Web.UI.RadComboBox dllWeekendDays;
 
         /// <summary>
         /// ddlInvTrans control.
@@ -816,148 +834,148 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox ddlFSTrans;
 
         /// <summary>
-        /// ddlARManAalloc control.
+        /// dllARManAalloc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlARManAalloc;
+        protected global::Telerik.Web.UI.RadComboBox dllARManAalloc;
 
         /// <summary>
-        /// ddlInvReconfAppr control.
+        /// dllInvReconfAppr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlInvReconfAppr;
+        protected global::Telerik.Web.UI.RadComboBox dllInvReconfAppr;
 
         /// <summary>
-        /// ddlLR control.
+        /// dllLR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLR;
+        protected global::Telerik.Web.UI.RadComboBox dllLR;
 
         /// <summary>
-        /// ddlLIS control.
+        /// dllLIS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLIS;
+        protected global::Telerik.Web.UI.RadComboBox dllLIS;
 
         /// <summary>
-        /// ddlLEdit control.
+        /// dllLEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLEdit;
+        protected global::Telerik.Web.UI.RadComboBox dllLEdit;
 
         /// <summary>
-        /// rcbsugloreq control.
+        /// dllsugloreq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rcbsugloreq;
+        protected global::Telerik.Web.UI.RadComboBox dllsugloreq;
 
         /// <summary>
-        /// rcbLodRej control.
+        /// dllLodRej control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rcbLodRej;
+        protected global::Telerik.Web.UI.RadComboBox dllLodRej;
 
         /// <summary>
-        /// ddlLT control.
+        /// dllLT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLT;
+        protected global::Telerik.Web.UI.RadComboBox dllLT;
 
         /// <summary>
-        /// ddlLTS control.
+        /// dllLTS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLTS;
+        protected global::Telerik.Web.UI.RadComboBox dllLTS;
 
         /// <summary>
-        /// ddlLOS control.
+        /// dllLOS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLOS;
+        protected global::Telerik.Web.UI.RadComboBox dllLOS;
 
         /// <summary>
-        /// ddlLOEdit control.
+        /// dllLOEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLOEdit;
+        protected global::Telerik.Web.UI.RadComboBox dllLOEdit;
 
         /// <summary>
-        /// ddlLOExcess control.
+        /// dllLOExcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLOExcess;
+        protected global::Telerik.Web.UI.RadComboBox dllLOExcess;
 
         /// <summary>
-        /// ddlLTApproval control.
+        /// dllLTApproval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlLTApproval;
+        protected global::Telerik.Web.UI.RadComboBox dllLTApproval;
 
         /// <summary>
-        /// ddlIsLoadIn control.
+        /// dllIsLoadIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlIsLoadIn;
+        protected global::Telerik.Web.UI.RadComboBox dllIsLoadIn;
 
         /// <summary>
-        /// ddlIsLoadOut control.
+        /// dllIsLoadOut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlIsLoadOut;
+        protected global::Telerik.Web.UI.RadComboBox dllIsLoadOut;
 
         /// <summary>
-        /// ddlIsInventory control.
+        /// dllIsInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlIsInventory;
+        protected global::Telerik.Web.UI.RadComboBox dllIsInventory;
 
         /// <summary>
         /// RadAjaxLoadingPanel5 control.
@@ -978,40 +996,40 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel5;
 
         /// <summary>
-        /// rcbreturnType control.
+        /// dllreturnType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rcbreturnType;
+        protected global::Telerik.Web.UI.RadComboBox dllreturnType;
 
         /// <summary>
-        /// ddlOpnRtnImg control.
+        /// dllOpnRtnImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlOpnRtnImg;
+        protected global::Telerik.Web.UI.RadComboBox dllOpnRtnImg;
 
         /// <summary>
-        /// ddlResRtnImg control.
+        /// dllResRtnImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlResRtnImg;
+        protected global::Telerik.Web.UI.RadComboBox dllResRtnImg;
 
         /// <summary>
-        /// ddlSchRtnImg control.
+        /// dllSchRtnImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlSchRtnImg;
+        protected global::Telerik.Web.UI.RadComboBox dllSchRtnImg;
 
         /// <summary>
         /// ddlOpnRtnApl control.
@@ -1059,13 +1077,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox ddlBRimgMand;
 
         /// <summary>
-        /// ddlenforcejp control.
+        /// dllenforcejp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlenforcejp;
+        protected global::Telerik.Web.UI.RadComboBox dllenforcejp;
 
         /// <summary>
         /// phERPlocs control.
@@ -1149,6 +1167,33 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.Label lblcurrentusr;
 
         /// <summary>
+        /// RadAjaxPanel10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel10;
+
+        /// <summary>
+        /// rbActions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadRadioButtonList rbActions;
+
+        /// <summary>
+        /// RadAjaxLoadingPanel11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel11;
+
+        /// <summary>
         /// ddluser control.
         /// </summary>
         /// <remarks>
@@ -1165,6 +1210,15 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+
+        /// <summary>
+        /// plEffDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder plEffDate;
 
         /// <summary>
         /// rdeffectivedate control.
