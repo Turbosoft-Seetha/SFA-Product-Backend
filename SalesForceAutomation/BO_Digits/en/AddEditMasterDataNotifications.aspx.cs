@@ -89,18 +89,20 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void Save()
         {
-            string route, Remarks, user, status,vanstock;
+            string route, Remarks, user, status,vanstock,logfile;
             route = GetItemFromGrid();
             Remarks = txtRemarks.Text.ToString();
             user = UICommon.GetCurrentUserID().ToString();
             status = ddlStatus.SelectedValue.ToString();
             vanstock = ddlVanStock.SelectedValue.ToString();
+            logfile = ddllogfile.SelectedValue.ToString();
+
 
             if (ResponseID.Equals("") || ResponseID == 0)
             {
 
 
-                string[] arr = { Remarks, status, user, vanstock };
+                string[] arr = { Remarks, status, user, vanstock,logfile };
                 string Value = ObjclsFrms.SaveData("sp_Masters", "InsertMasterDataNotifications", route, arr);
                 int res = Int32.Parse(Value.ToString());
                 if (res > 0)
