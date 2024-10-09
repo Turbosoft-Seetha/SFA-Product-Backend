@@ -1320,6 +1320,42 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadDropDownList ddlEnforceBuyBackfree;
 
         /// <summary>
+        /// ddlEnableLPONumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnableLPONumber;
+
+        /// <summary>
+        /// RequiredFieldValidator61 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator61;
+
+        /// <summary>
+        /// ddlLPONumberMand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlLPONumberMand;
+
+        /// <summary>
+        /// RequiredFieldValidator62 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator62;
+
+        /// <summary>
         /// ddlIsAR control.
         /// </summary>
         /// <remarks>

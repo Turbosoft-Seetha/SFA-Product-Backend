@@ -58,8 +58,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     pnlActManage.Visible = false;
                     pnlcusservice.Visible = false;
                    
-                }
-                
+                }                
                 
                 plhFilter.Visible = false;
                 Region();

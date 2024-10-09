@@ -22,6 +22,7 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class en_master : System.Web.UI.MasterPage
     {
         GeneralFunctions Obj = new GeneralFunctions();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -60,6 +61,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
             }
         }
+
         public void LicenseNotification()
         {
             try
@@ -76,6 +78,7 @@ namespace SalesForceAutomation.BO_Digits.en
             }
 
         }
+
         public string WebServiceCall(string URL, string jsonData)
         {
 
@@ -133,6 +136,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 return ex.Message.ToString();
             }
         }
+
         public void LicenseCounts(string LicenseKey, string Platform, string IsStatusChange)
         {
             Obj.TraceService(UICommon.GetLogFileName() + " en_master-1 , " + "Inside LicenseCounts()");
@@ -351,6 +355,7 @@ namespace SalesForceAutomation.BO_Digits.en
             public string BOLimit { get; set; }
 
         }
+
         public class Result
         {
             public string Res { get; set; }
@@ -359,10 +364,12 @@ namespace SalesForceAutomation.BO_Digits.en
             public string AlertMessage { get; set; }
             public List<LicenseData> LicenseData { get; set; }
         }
+
         public class ResponseData
         {
             public JArray result { get; set; }
         }
+
         public class LicenseInpara
         {
             public string LicenseKey { get; set; }
@@ -374,7 +381,6 @@ namespace SalesForceAutomation.BO_Digits.en
             public string Platform { get; set; }
             public string IsStatusChange { get; set; }
         }
-
 
         //public void LoadMenu()
         //{
