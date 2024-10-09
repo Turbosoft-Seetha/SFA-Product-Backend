@@ -82,16 +82,22 @@
                                         CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                         HeaderStyle-Font-Bold="true" UniqueName="mdn_VanStock">
                                     </telerik:GridBoundColumn>
+
                                     <telerik:GridBoundColumn DataField="Status" AllowFiltering="true" HeaderStyle-Width="80px"
                                         HeaderStyle-Font-Size="Smaller" HeaderText="Master Data Download" FilterControlWidth="100%"
                                         CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                         HeaderStyle-Font-Bold="true" UniqueName="Status">
                                     </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="mdn_LogFile" AllowFiltering="true" HeaderStyle-Width="80px"
+                                        HeaderStyle-Font-Size="Smaller" HeaderText="LogFile Download" FilterControlWidth="100%"
+                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                        HeaderStyle-Font-Bold="true" UniqueName="mdn_LogFile">
+                                    </telerik:GridBoundColumn>
                                 </Columns>
                             </MasterTableView>
                             <PagerStyle AlwaysVisible="true" />
                             <GroupingSettings CaseSensitive="false" />
-                            <ClientSettings  EnableRowHoverStyle="true" AllowColumnsReorder="True">
+                            <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="True">
                                 <Resizing AllowColumnResize="true"></Resizing>
                                 <Selecting AllowRowSelect="True" EnableDragToSelectRows="true"></Selecting>
                             </ClientSettings>

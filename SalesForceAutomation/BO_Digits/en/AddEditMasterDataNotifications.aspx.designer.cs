@@ -105,6 +105,15 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadDropDownList ddlStatus;
 
         /// <summary>
+        /// ddllogfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddllogfile;
+
+        /// <summary>
         /// RadAjaxPanel1 control.
         /// </summary>
         /// <remarks>

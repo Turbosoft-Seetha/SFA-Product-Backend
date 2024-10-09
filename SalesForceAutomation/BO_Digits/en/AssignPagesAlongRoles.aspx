@@ -30,7 +30,7 @@
                                                     <td style="vertical-align: top;">
                                                         <telerik:RadTreeView ID="treeSecurity" RenderMode="Lightweight" runat="server" OnNodeClick="treeSecurity_NodeClick"
                                                             BorderStyle="Solid" BorderWidth="1px" EnableDragAndDrop="false" Font-Size="Medium"
-                                                            EnableDragAndDropBetweenNodes="false" Width="500px">
+                                                            EnableDragAndDropBetweenNodes="false" Width="400px">
                                                         </telerik:RadTreeView>
                                                     </td>
                                                     <td style="vertical-align: top;">
@@ -51,7 +51,7 @@
                                             <telerik:RadTreeView ID="treeAssigned" RenderMode="Lightweight" runat="server"
                                                 OnNodeClick="treeAssigned_NodeClick"
                                                 BorderStyle="Solid" BorderWidth="1px" EnableDragAndDrop="false"
-                                                Font-Size="Medium" EnableDragAndDropBetweenNodes="false" Width="500px">
+                                                Font-Size="Medium" EnableDragAndDropBetweenNodes="false" Width="400px">
                                             </telerik:RadTreeView>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
