@@ -67,7 +67,7 @@
                                             </telerik:GridBoundColumn>
 
                                             <telerik:GridBoundColumn DataField="PageName" AllowFiltering="true" HeaderStyle-Width="150px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="Starting Page URL" FilterControlWidth="100%"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Starting Page" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                 HeaderStyle-Font-Bold="true" UniqueName="PageName">
                                             </telerik:GridBoundColumn>

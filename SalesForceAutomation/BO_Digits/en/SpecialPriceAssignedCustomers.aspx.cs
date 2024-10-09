@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 using Telerik.Documents.SpreadsheetStreaming;
 using Telerik.Web.UI;
 
@@ -19,6 +20,13 @@ namespace SalesForceAutomation.BO_Digits.en
             if (!Page.IsPostBack)
             {
                 spPrice();
+                int j = 1;
+                foreach (RadComboBoxItem itmss in rdsprice.Items)
+                {
+                    itmss.Checked = true;
+                    j++;
+                }
+
             }
         }
 
@@ -70,7 +78,6 @@ namespace SalesForceAutomation.BO_Digits.en
             lstUser = objfrm.loadList("AssignedCustomerforspPrice", "sp_Masters", condition);
             RadGrid1.DataSource = lstUser;
 
-            //}
         }
 
         public string mainCondition()
@@ -244,6 +251,117 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                 }
             }
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            if (RadGrid1.SelectedItems.Count > 0)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>failedModal();</script>", false);
+
+            }
+
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            DelSpclPrice();
+
+        }
+
+        public void DelSpclPrice()
+        {
+
+            try
+            {
+                string id = GetItemFromGrid();
+                DataTable lstData = new DataTable();
+                string[] arr = { };
+                string resp = objfrm.SaveData("sp_Masters", "DeleteCusSpclPrices", id.ToString(), arr);
+
+                int res = Int32.Parse(resp);
+
+                if (res > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('Deleted Successfully');</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public string GetItemFromGrid()
+        {
+            using (var sw = new StringWriter())
+            {
+                using (var writer = XmlWriter.Create(sw))
+                {
+                    writer.WriteStartDocument(true);
+                    writer.WriteStartElement("r");
+                    int c = 0;
+
+                    var ColelctionMarkets = RadGrid1.SelectedItems;
+                    string cusIDs = "";
+                    int i = 0;
+                    int MarCount = ColelctionMarkets.Count;
+                    if (ColelctionMarkets.Count > 0)
+                    {
+                        foreach (GridDataItem dr in ColelctionMarkets)
+                        {
+                            //where 1 = 1
+                            string prh_ID = dr.GetDataKeyValue("prh_ID").ToString();
+                            string crp_ID = dr["crp_ID"].Text.ToString();
+
+
+                            createNode(crp_ID, writer);
+                            c++;
+
+                        }
+                    }
+
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+                    writer.Close();
+                    if (c == 0)
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        string ss = sw.ToString();
+                        return sw.ToString();
+                    }
+                }
+            }
+        }
+
+        private void createNode(string crp_ID, XmlWriter writer)
+        {
+            writer.WriteStartElement("Values");
+
+            writer.WriteStartElement("crp_ID");
+            writer.WriteString(crp_ID);
+            writer.WriteEndElement();
+
+
+
+            writer.WriteEndElement();
+        }
+
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SpecialPriceAssignedCustomers.aspx");
         }
     }
 }
