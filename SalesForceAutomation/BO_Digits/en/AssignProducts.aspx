@@ -57,7 +57,7 @@
                 </UpdatedControls>
             </telerik:AjaxSetting>
 
-            <telerik:AjaxSetting AjaxControlID="RouteGrid">
+            <telerik:AjaxSetting AjaxControlID="ProductGrid">
                 <UpdatedControls>                  
                     <telerik:AjaxUpdatedControl ControlID="grvRpt" />
                     <telerik:AjaxUpdatedControl ControlID="RadGrid1" />
@@ -101,7 +101,7 @@
                                 <div class="col-lg-12 row">
                                    
                                
-                                    <h3 class="kt-portlet__head-title">Routes
+                                    <h3 class="kt-portlet__head-title">Products
                                     </h3>
                                      <div class="col-lg-12" style="padding-bottom: 10px; padding-right: 0px;">
                                 <div class="kt-portlet__head-actions" style="display:flex; justify-content:flex-end;">
@@ -134,9 +134,9 @@
                                      <telerik:RadAjaxPanel ID="RadAjaxPanel9" runat="server" LoadingPanelID="RadAjaxLoadingPanel11">
                                    
                                      <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="true"
-                                    ID="RouteGrid" GridLines="None"
+                                    ID="ProductGrid" GridLines="None"
                                     ShowFooter="True" AllowSorting="True"
-                                    OnNeedDataSource="RouteGrid_NeedDataSource"
+                                    OnNeedDataSource="ProductGrid_NeedDataSource"
                                     AllowFilteringByColumn="true"
                                     ClientSettings-Resizing-ClipCellContentOnResize="true"
                                     EnableAjaxSkinRendering="true"
@@ -145,23 +145,23 @@
                                         <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
                                     </ClientSettings>
                                     <MasterTableView AutoGenerateColumns="False" FilterItemStyle-Font-Size="XX-Small" CanRetrieveAllData="false"
-                                        ShowFooter="false" DataKeyNames="rot_ID"
+                                        ShowFooter="false" DataKeyNames="prd_ID"
                                         EnableHeaderContextMenu="true">
                                         <Columns>
 
                                             <telerik:GridClientSelectColumn HeaderStyle-Width="40px" UniqueName="chkAll">
                                             </telerik:GridClientSelectColumn> 
                                            
-                                            <telerik:GridBoundColumn DataField="rot_Code" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            <telerik:GridBoundColumn DataField="prd_Code" AllowFiltering="true" HeaderStyle-Width="80px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Code" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="rot_Code">
+                                                HeaderStyle-Font-Bold="true" UniqueName="prd_Code">
                                             </telerik:GridBoundColumn>
 
-                                            <telerik:GridBoundColumn DataField="rot_Name" AllowFiltering="true" HeaderStyle-Width="150px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="Route" FilterControlWidth="100%"
+                                            <telerik:GridBoundColumn DataField="prd_Name" AllowFiltering="true" HeaderStyle-Width="150px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Product" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="rot_Name">
+                                                HeaderStyle-Font-Bold="true" UniqueName="prd_Name">
                                             </telerik:GridBoundColumn>
 
                                      
@@ -197,7 +197,7 @@
                                 <div class="col-lg-12 row">
                                     <div class="col-lg-12">
                                 <div class="kt-portlet__head-label">
-                                    <h3 class="kt-portlet__head-title">Un Assigned Products
+                                    <h3 class="kt-portlet__head-title">Un Assigned Routes
                                     </h3>
                                 </div>
                                     </div>
@@ -247,49 +247,31 @@
                                         <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
                                     </ClientSettings>
                                     <MasterTableView AutoGenerateColumns="False" FilterItemStyle-Font-Size="XX-Small" CanRetrieveAllData="false"
-                                        ShowFooter="false" DataKeyNames="prd_ID"
+                                        ShowFooter="false" DataKeyNames="rot_ID"
                                         EnableHeaderContextMenu="true">
                                         <Columns>
 
                                             <telerik:GridClientSelectColumn HeaderStyle-Width="40px" UniqueName="chkAll">
                                             </telerik:GridClientSelectColumn> 
 
-                                             <telerik:GridBoundColumn DataField="prd_ID" AllowFiltering="true" HeaderStyle-Width="100px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="prd_ID" FilterControlWidth="100%"
+                                             <telerik:GridBoundColumn DataField="rot_ID" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="rot_ID" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="prd_ID" Display="false">
+                                                HeaderStyle-Font-Bold="true" UniqueName="rot_ID" Display="false">
                                             </telerik:GridBoundColumn>
 
-                                            <telerik:GridBoundColumn DataField="prd_Code" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            <telerik:GridBoundColumn DataField="rot_Code" AllowFiltering="true" HeaderStyle-Width="80px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Code" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="prd_Code">
+                                                HeaderStyle-Font-Bold="true" UniqueName="rot_Code">
                                             </telerik:GridBoundColumn>
 
-                                            <telerik:GridBoundColumn DataField="prd_Name" AllowFiltering="true" HeaderStyle-Width="150px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="Product" FilterControlWidth="100%"
+                                            <telerik:GridBoundColumn DataField="rot_Name" AllowFiltering="true" HeaderStyle-Width="150px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Route" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="prd_Name">
+                                                HeaderStyle-Font-Bold="true" UniqueName="rot_Name">
                                             </telerik:GridBoundColumn>
-
-                                            
-                                            <telerik:GridBoundColumn DataField="cat_Name" AllowFiltering="true" HeaderStyle-Width="150px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="Category" FilterControlWidth="100%"
-                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="cat_Name" Display="false">
-                                            </telerik:GridBoundColumn>
-
-                                            <telerik:GridBoundColumn DataField="sct_Name" AllowFiltering="true" HeaderStyle-Width="150px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="Sub Category" FilterControlWidth="100%"
-                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="sct_Name" Display="false">
-                                            </telerik:GridBoundColumn>
-
-                                            <telerik:GridBoundColumn DataField="brd_Name" AllowFiltering="true" HeaderStyle-Width="150px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="Brand" FilterControlWidth="100%"
-                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="brd_Name" Display="false">
-                                            </telerik:GridBoundColumn>                                            
+                                                               
                                              
 
                                         </Columns>
