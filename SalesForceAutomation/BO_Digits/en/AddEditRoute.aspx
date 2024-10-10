@@ -9,6 +9,7 @@
         }
         function Succcess(a) {
             $('#modalusrchangeConfirm').modal('hide');
+            $('#modalusrremoveConfirm').modal('hide');
             $('#modalConfirm').modal('hide');
             $('#kt_modal_1_4').modal('show');
             $('#success').text(a);
@@ -16,6 +17,7 @@
         }
         function Failure() {
             $('#modalusrchangeConfirm').modal('hide');
+            $('#modalusrremoveConfirm').modal('hide');
             $('#modalConfirm').modal('hide');
             $('#kt_modal_1_5').modal('show');
 
@@ -23,6 +25,7 @@
         function Fail(b) {
             $('#modalConfirm').modal('hide');
             $('#modalusrchangeConfirm').modal('hide');
+            $('#modalusrremoveConfirm').modal('hide');
             $('#kt_modal_1_6').modal('show');
             $('#fail').text(b);
         }
@@ -47,7 +50,7 @@
             $('#kt_modal_1_7').modal('hide');
         }
         function usrremoveConfim() {
-            $('#modalusrchangeConfirm').modal('hide');
+            $('#modalusrremoveConfirm').modal('Show');
             $('#kt_modal_1_71').modal('hide');
         }
         function FailureLicense(c) {
@@ -90,18 +93,39 @@
     </telerik:RadAjaxLoadingPanel>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
- <telerik:RadAjaxManagerProxy ID="AjaxManagerProxy1" runat="server">
-     <AjaxSettings>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server"></telerik:RadAjaxManager>
+    <telerik:RadAjaxManagerProxy ID="AjaxManagerProxy1" runat="server">
+        <AjaxSettings>
 
-         <telerik:AjaxSetting AjaxControlID="rbActions">
-             <UpdatedControls>
-                 <telerik:AjaxUpdatedControl ControlID="plEffDate" />              
-             </UpdatedControls>
-         </telerik:AjaxSetting>
-         
-     </AjaxSettings>
- </telerik:RadAjaxManagerProxy>
+            <telerik:AjaxSetting AjaxControlID="rbActions">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="plEffDate" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+
+            <telerik:AjaxSetting AjaxControlID="Edits">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="rbActions" />
+                    <telerik:AjaxUpdatedControl ControlID="plEffDate" />
+                    <telerik:AjaxUpdatedControl ControlID="plError" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+
+            <telerik:AjaxSetting AjaxControlID="rdActions">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="plDelEffDate" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+
+            <telerik:AjaxSetting AjaxControlID="Delete">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="rdActions" />
+                    <telerik:AjaxUpdatedControl ControlID="plDelEffDate" />
+                    <telerik:AjaxUpdatedControl ControlID="plDelError" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManagerProxy>
 
 
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -202,11 +226,11 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-1" style="padding-top: 20px">
-                                            <asp:ImageButton ID="Edits" Visible="true" AlternateText="Edits" runat="server" OnClick="Edits_Click" AutoPostBack="true" OnClientClick="return Assign();"
+                                            <asp:ImageButton ID="Edits" Visible="true" AlternateText="Edits" runat="server" OnClick="Edits_Click" AutoPostBack="true"
                                                 ImageUrl="../assets/media/svg/general/edit.svg"></asp:ImageButton>
                                         </div>
                                         <div class="col-lg-1" style="padding-top: 17px">
-                                            <asp:ImageButton ID="Delete" Visible="true" AlternateText="Delete" runat="server" OnClick="Delete_Click" AutoPostBack="true" OnClientClick="return DeleteUsr();"
+                                            <asp:ImageButton ID="Delete" Visible="true" AlternateText="Delete" runat="server" OnClick="Delete_Click" AutoPostBack="true"
                                                 ImageUrl="../assets/media/svg/general/Trash.svg"></asp:ImageButton>
                                         </div>
                                     </div>
@@ -583,7 +607,6 @@
 
                                 </div>
                             </div>--%>
-
                             </div>
 
                             <div class="col-lg-12 row" style="padding-top: 9px;">
@@ -684,7 +707,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enable Furture Exp.Delivery Orders<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="dllFutExpDel" runat="server" DefaultMessage="Please Select" Width="100%"  RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllFutExpDel" runat="server" DefaultMessage="Please Select" Width="100%" RenderMode="Lightweight" Filter="Contains" CausesValidation="false">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Yes" Value="Y" />
                                                 <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
@@ -727,7 +750,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Enforce Notification<span class="required"> </span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="dllEnforceNotification" runat="server" DefaultMessage="Please Select" RenderMode="Lightweight"  Filter="Contains" Width="100%" CausesValidation="false">
+                                        <telerik:RadComboBox ID="dllEnforceNotification" runat="server" DefaultMessage="Please Select" RenderMode="Lightweight" Filter="Contains" Width="100%" CausesValidation="false">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Yes" Value="Y" />
                                                 <telerik:RadComboBoxItem Text="No" Value="N" Selected="true" />
@@ -1224,7 +1247,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Load Transfer Approval<span class="required"></span></label>
                                     <div class="col-lg-12">
-                                        <telerik:RadComboBox ID="dllLTApproval" runat="server" Width="100%" RenderMode="Lightweight"  Filter="Contains"
+                                        <telerik:RadComboBox ID="dllLTApproval" runat="server" Width="100%" RenderMode="Lightweight" Filter="Contains"
                                             EmptyMessage="Select LoadTransfer Approval">
                                             <Items>
                                                 <telerik:RadComboBoxItem Text="Yes" Value="Y" />
@@ -1293,7 +1316,7 @@
 
                             <div class="col-lg-12 row" style="padding-top: 9px;">
                                 <span class="min-w-50px fw-semibold text-gray-800 " style="padding-bottom: 10px; padding-top: 10px;"><b>Return </b></span>
-                                
+
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label col-lg-12">Return Type<span class="required"></span></label>
                                     <div class="col-lg-12">
@@ -1605,13 +1628,13 @@
     <!--end::Assign user-->
     <div class="modal fade" id="kt_modal_1_7" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width: 555px;">
+            <div class="modal-content" style="width: 565px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Change User</h5>
                 </div>
                 <div class="modal-body">
                     <span></span>
-                    <div class="col-lg-12 row pt-4">
+                    <div class="col-lg-12 row">
                         <div class="col-lg-3 form-group">
                             <label class="control-label col-lg-12">Current User : </label>
                         </div>
@@ -1622,61 +1645,77 @@
 
                     <telerik:RadAjaxPanel ID="RadAjaxPanel10" runat="server" LoadingPanelID="RadAjaxLoadingPanel11">
 
-                    <div class="col-lg-12 pt-4">
-                        <div class="col-lg-6 form-group">
-                            <label class="control-label col-lg-12">Select Type <span class="required"></span></label>
-                            <div class="col-lg-12 row pt-2">
-                                <telerik:RadRadioButtonList ID="rbActions" Direction="Horizontal" runat="server" CssClass="radioList" OnSelectedIndexChanged="rbActions_SelectedIndexChanged" AutoPostBack="true">
-                                    <Items>
-                                        <telerik:ButtonListItem Text="Immediate" Value="I" Selected="true"/>
-                                        <telerik:ButtonListItem Text="Schedule" Value="S" />                                       
-                                    </Items>   
-                                </telerik:RadRadioButtonList>
+                        <div class="col-lg-12 pt-4">
+                            <div class="col-lg-6 form-group">
+                                <label class="control-label col-lg-12">Select Type <span class="required"></span></label>
+                                <div class="col-lg-12 row pt-2">
+                                    <telerik:RadRadioButtonList ID="rbActions" Direction="Horizontal" runat="server" CssClass="radioList" OnSelectedIndexChanged="rbActions_SelectedIndexChanged" AutoPostBack="true">
+                                        <Items>
+                                            <telerik:ButtonListItem Text="Immediate" Value="I" Selected="true" />
+                                            <telerik:ButtonListItem Text="Schedule" Value="S" />
+                                        </Items>
+                                    </telerik:RadRadioButtonList>
 
+                                </div>
                             </div>
+
                         </div>
 
-                    </div>
-
-                      </telerik:RadAjaxPanel>
-                     <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel11" EnableEmbeddedSkins="false"
-                         BackColor="Transparent"
-                         ForeColor="Blue">
-                         <div class="col-lg-12 text-center mt-5">
-                             <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
-                         </div>
-                     </telerik:RadAjaxLoadingPanel>
-
-                    <div class="col-lg-12 row pt-4">
-
-                        <div class="col-lg-6 form-group">
-                            <label class="control-label col-lg-12">User<span class="required"></span></label>
-                            <div class="col-lg-12">
-                                <telerik:RadComboBox ID="ddluser" runat="server" EmptyMessage="Select User" Width="100%" Filter="Contains" RenderMode="Lightweight" CausesValidation="false"></telerik:RadComboBox>
-
-
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="frm"
-                                    ControlToValidate="ddluser" ErrorMessage="Please Select User " ForeColor="Red"
-                                    SetFocusOnError="True"></asp:RequiredFieldValidator><br />
-
-                            </div>
+                    </telerik:RadAjaxPanel>
+                    <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel11" EnableEmbeddedSkins="false"
+                        BackColor="Transparent"
+                        ForeColor="Blue">
+                        <div class="col-lg-12 text-center mt-5">
+                            <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
                         </div>
-                        
+                    </telerik:RadAjaxLoadingPanel>
+
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel11" runat="server" LoadingPanelID="RadAjaxLoadingPanel12">
+                        <div class="col-lg-12 row pt-4">
+
+                            <div class="col-lg-6 form-group">
+                                <label class="control-label col-lg-12">User<span class="required"></span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadComboBox ID="ddluser" runat="server" EmptyMessage="Select User" Width="100%" Filter="Contains" RenderMode="Lightweight" CausesValidation="false"></telerik:RadComboBox>
+
+
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="frm"
+                                        ControlToValidate="ddluser" ErrorMessage="Please Select User " ForeColor="Red"
+                                        SetFocusOnError="True"></asp:RequiredFieldValidator><br />
+
+                                </div>
+                            </div>
+
                             <div class="col-lg-6 form-group">
                                 <asp:PlaceHolder runat="server" ID="plEffDate" Visible="false">
-                                <label class="control-label col-lg-12">Effective Date</label>
-                                <div class="col-lg-12">
-                                    <telerik:RadDatePicker RenderMode="Lightweight" Skin="Silk" ID="rdeffectivedate" DateInput-DateFormat="dd-MMM-yyyy" runat="server"  Width="100%" 
-                                        DateInput-CausesValidation="true" DateInput-ValidationGroup="frm">
-                                    </telerik:RadDatePicker>
+                                    <label class="control-label col-lg-12">Effective Date</label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadDatePicker RenderMode="Lightweight" Skin="Silk" ID="rdeffectivedate" DateInput-DateFormat="dd-MMM-yyyy" runat="server" Width="100%"
+                                            DateInput-CausesValidation="true" DateInput-ValidationGroup="frm">
+                                        </telerik:RadDatePicker>
 
-                                    <asp:RequiredFieldValidator ID="l" runat="server" Display="Dynamic" ErrorMessage="Date is mandatory" ForeColor="Red" ControlToValidate="rdeffectivedate" ValidationGroup="frm"></asp:RequiredFieldValidator>
-                                </div>
-                                     </asp:PlaceHolder>
+                                        <asp:RequiredFieldValidator ID="l" runat="server" Display="Dynamic" ErrorMessage="Date is mandatory" ForeColor="Red" ControlToValidate="rdeffectivedate" ValidationGroup="frm"></asp:RequiredFieldValidator>
+                                    </div>
+                                </asp:PlaceHolder>
 
                             </div>
-                       
-                    </div>
+
+                            <div class="col-lg-12 form-group pt-2" style="color: red;">
+                                <asp:PlaceHolder runat="server" ID="plError" Visible="false">Note :
+                                    <asp:Label ID="lblErrorText" class="control-label col-lg-12" runat="server" RenderMode="Lightweight" ForeColor="red" Text="Route StartDay message"></asp:Label>
+                                </asp:PlaceHolder>
+                            </div>
+
+
+                        </div>
+                    </telerik:RadAjaxPanel>
+                    <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel12" EnableEmbeddedSkins="false"
+                        BackColor="Transparent"
+                        ForeColor="Blue">
+                        <div class="col-lg-12 text-center mt-5">
+                            <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                        </div>
+                    </telerik:RadAjaxLoadingPanel>
                 </div>
 
 
@@ -1729,7 +1768,7 @@
     <!--end::Assign user-->
     <div class="modal fade" id="kt_modal_1_71" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 565px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Delete User</h5>
                 </div>
@@ -1747,21 +1786,64 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-12 row" style="padding-top: 10px;">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel12" runat="server" LoadingPanelID="RadAjaxLoadingPanel13">
 
+                        <div class="col-lg-12 pt-4">
+                            <div class="col-lg-6 form-group">
+                                <label class="control-label col-lg-12">Select Type <span class="required"></span></label>
+                                <div class="col-lg-12 row pt-2">
+                                    <telerik:RadRadioButtonList ID="rdActions" Direction="Horizontal" runat="server" CssClass="radioList" OnSelectedIndexChanged="rdActions_SelectedIndexChanged" AutoPostBack="true">
+                                        <Items>
+                                            <telerik:ButtonListItem Text="Immediate" Value="I" Selected="true" />
+                                            <telerik:ButtonListItem Text="Schedule" Value="S" />
+                                        </Items>
+                                    </telerik:RadRadioButtonList>
 
-                        <div class="col-lg-6 form-group" style="padding-top: 3px;">
-                            <label class="control-label col-lg-12">Effective Date</label>
-                            <div class="col-lg-12">
-                                <telerik:RadDatePicker RenderMode="Lightweight" ID="rdeffectivedatetodel" DateInput-DateFormat="dd-MMM-yyyy" runat="server" Width="100%">
-                                </telerik:RadDatePicker>
-
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" Display="Dynamic" ErrorMessage="Date is mandatory" ForeColor="Red" ControlToValidate="rdeffectivedate" ValidationGroup="frrm"></asp:RequiredFieldValidator>
+                                </div>
                             </div>
+
                         </div>
 
+                    </telerik:RadAjaxPanel>
+                    <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel13" EnableEmbeddedSkins="false"
+                        BackColor="Transparent"
+                        ForeColor="Blue">
+                        <div class="col-lg-12 text-center mt-5">
+                            <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                        </div>
+                    </telerik:RadAjaxLoadingPanel>
 
-                    </div>
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel13" runat="server" LoadingPanelID="RadAjaxLoadingPanel14">
+                        <div class="col-lg-12 row" style="padding-top: 10px;">
+
+
+                            <div class="col-lg-6 form-group" style="padding-top: 3px;">
+                                <asp:PlaceHolder runat="server" ID="plDelEffDate" Visible="false">
+                                    <label class="control-label col-lg-12">Effective Date</label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadDatePicker RenderMode="Lightweight" ID="rdeffectivedatetodel" DateInput-DateFormat="dd-MMM-yyyy" runat="server" Width="100%">
+                                        </telerik:RadDatePicker>
+
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" Display="Dynamic" ErrorMessage="Date is mandatory" ForeColor="Red" ControlToValidate="rdeffectivedate" ValidationGroup="frrm"></asp:RequiredFieldValidator>
+                                    </div>
+                                </asp:PlaceHolder>
+                            </div>
+
+                            <div class="col-lg-12 form-group pt-2" style="color: red;">
+                                <asp:PlaceHolder runat="server" ID="plDelError" Visible="false">Note :
+                                  <asp:Label ID="lblDelErrorText" class="control-label col-lg-12" runat="server" RenderMode="Lightweight" ForeColor="red" Text=""></asp:Label>
+                                </asp:PlaceHolder>
+                            </div>
+
+                        </div>
+                    </telerik:RadAjaxPanel>
+                    <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel14" EnableEmbeddedSkins="false"
+                        BackColor="Transparent"
+                        ForeColor="Blue">
+                        <div class="col-lg-12 text-center mt-5">
+                            <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                        </div>
+                    </telerik:RadAjaxLoadingPanel>
                 </div>
 
 
@@ -1795,7 +1877,7 @@
                     </h5>
                 </div>
                 <div class="modal-footer">
-                    <telerik:RadAjaxPanel ID="RadAjaxPanel9" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel9" runat="server" LoadingPanelID="RadAjaxLoadingPanel10">
                         <asp:LinkButton ID="lnkusrremove" runat="server" Text="Yes" OnClick="lnkusrremove_Click" CssClass="btn btn-sm fw-bold btn-primary" />
                     </telerik:RadAjaxPanel>
                     <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel10" EnableEmbeddedSkins="false"
@@ -1831,9 +1913,8 @@
 
     <style>
         .radioList .rlbItem {
-    display: inline-block; /* Ensures items are displayed inline */
-    margin-right: 15px; /* Adjust spacing between items */
-}
-
+            display: inline-block; /* Ensures items are displayed inline */
+            margin-right: 15px; /* Adjust spacing between items */
+        }
     </style>
 </asp:Content>

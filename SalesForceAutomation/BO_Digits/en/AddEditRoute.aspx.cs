@@ -44,6 +44,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 //  txtTransName.Text = "Merchandising";
                 ViewState["rotusr"] = "";
                 rdeffectivedate.SelectedDate= DateTime.Now;
+                rdeffectivedatetodel.SelectedDate= DateTime.Now;
                 rdeffectivedate.MinDate = DateTime.Now.AddDays(1);
                 rdeffectivedatetodel.MinDate = DateTime.Now.AddDays(1);
             }
@@ -477,6 +478,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 if (!string.IsNullOrEmpty(username))
                 {
                     lblcurrentusr.Text = ddlname.SelectedItem.Text.ToString();
+                    lblcrntusr.Text = ddlname.SelectedItem.Text.ToString();
                 }
                 
                 ddlOverrides.SelectedValue=OverrideOnline.ToString();
@@ -1381,15 +1383,38 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void Edits_Click(object sender, ImageClickEventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Assign();</script>", false);
+           
             Users();
+
+            string[] arr = { "Edit" };
+            DataTable dt = ObjclsFrms.loadList("SelRouteStartDayCheck", "sp_Backend", ResponseID.ToString(),arr);
+            string Res = dt.Rows[0]["Res"].ToString();
+            string Descr = dt.Rows[0]["Descr"].ToString();
+
+            if (Res == "0")
+            {
+                var immediateItem = rbActions.Items.Cast<ButtonListItem>().FirstOrDefault(item => item.Value == "I");
+                var ScheduleItem = rbActions.Items.Cast<ButtonListItem>().FirstOrDefault(item => item.Value == "S");
+                immediateItem.Enabled = false;
+                immediateItem.Selected= false;
+                ScheduleItem.Selected = true;
+                rbActions.SelectedValue = "S";
+                plEffDate.Visible = true;
+                plError.Visible = true;             
+                lblErrorText.Text = Descr;
+            }
+            else
+            {
+                plError.Visible = false;
+            }
+
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Assign();</script>", false);
 
         }
 
         protected void lnkChange_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>usrConfim();</script>", false);
-
         }
         public void Users()
         {
@@ -1453,24 +1478,28 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkusrremove_Click(object sender, EventArgs e)
         {
-            string rot, effectivedate, user, prevusr;
+            string rot, effectivedate, user, prevusr, type;
             rot = ResponseID.ToString();
             prevusr = ViewState["rotusr"].ToString();
             effectivedate = DateTime.Parse(rdeffectivedate.SelectedDate.ToString()).ToString("yyyyMMdd");
             user = UICommon.GetCurrentUserID().ToString();
-            string[] arr = { prevusr, effectivedate, user };
-            string Value = ObjclsFrms.SaveData("sp_Backend", "RemoveRouteUser", rot, arr);
+            type = rbActions.SelectedValue.ToString();
+
+            string[] arr = { prevusr, effectivedate, user , type };
+            DataTable dt = ObjclsFrms.loadList("RemoveRouteUser", "sp_Backend", rot, arr);
 
             try
             {
-                int res = Int32.Parse(Value.ToString());
-                if (res > 0)
+                string res = dt.Rows[0]["res"].ToString();
+                string descr = dt.Rows[0]["descr"].ToString();
+
+                if (res == "1")
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('Route user removal has been scheduled Successfully.');</script>", false);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('"+ descr +"');</script>", false);
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Fail('Something went wrong....!');</script>", false);
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Fail('"+ descr +"');</script>", false);
 
                 }
             }
@@ -1482,33 +1511,30 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void Delete_Click(object sender, ImageClickEventArgs e)
         {
+            string[] arr = { "Delete" };
+            DataTable dt = ObjclsFrms.loadList("SelRouteStartDayCheck", "sp_Backend", ResponseID.ToString(),arr);
+            string Res = dt.Rows[0]["Res"].ToString();
+            string Descr = dt.Rows[0]["Descr"].ToString();
 
+            if (Res == "0")
+            {
+                var immediateItem = rdActions.Items.Cast<ButtonListItem>().FirstOrDefault(item => item.Value == "I");
+                var ScheduleItem = rdActions.Items.Cast<ButtonListItem>().FirstOrDefault(item => item.Value == "S");
+                immediateItem.Enabled = false;
+                immediateItem.Selected = false;
+                ScheduleItem.Selected = true;
+                rdActions.SelectedValue = "S";
+                plDelEffDate.Visible = true;
+                plDelError.Visible = true;
+                lblDelErrorText.Text = Descr;
+            }
+            else
+            {
+                plDelError.Visible = false;
+            }
+
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>DeleteUsr();</script>", false);
         }
-
-
-        //protected void rdImmediate_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if ((bool)rdImmediate.Checked)
-        //    {
-        //        plEffDate.Visible = false;
-        //    }
-        //    else
-        //    {
-        //        plEffDate.Visible = true;
-        //    }
-        //}
-
-        //protected void rdSchedule_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if ((bool)rdImmediate.Checked)
-        //    {
-        //        plEffDate.Visible = true;
-        //    }
-        //    else 
-        //    { 
-        //        plEffDate.Visible = false; 
-        //    }
-        //}
 
         protected void dllrotType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
@@ -1634,6 +1660,20 @@ namespace SalesForceAutomation.BO_Digits.en
             else
             {
                 plEffDate.Visible = true;
+            }
+        }
+
+        protected void rdActions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string action = rdActions.SelectedValue.ToString();
+
+            if (action == "I")
+            {
+                plDelEffDate.Visible = false;
+            }
+            else
+            {
+                plDelEffDate.Visible = true;
             }
         }
     }
