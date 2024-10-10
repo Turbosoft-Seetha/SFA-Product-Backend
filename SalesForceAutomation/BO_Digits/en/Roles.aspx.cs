@@ -28,7 +28,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 grvRpt.DataSource = lstRole;
             }
         }
-
         internal static void CreateRole(string text)
         {
             throw new NotImplementedException();

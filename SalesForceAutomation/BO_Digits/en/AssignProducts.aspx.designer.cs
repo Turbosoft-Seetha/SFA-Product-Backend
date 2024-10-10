@@ -87,13 +87,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel9;
 
         /// <summary>
-        /// RouteGrid control.
+        /// ProductGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid RouteGrid;
+        protected global::Telerik.Web.UI.RadGrid ProductGrid;
 
         /// <summary>
         /// RadAjaxLoadingPanel11 control.
