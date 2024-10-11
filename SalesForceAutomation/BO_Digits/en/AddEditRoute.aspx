@@ -42,7 +42,6 @@
         function DeleteUsr() {
 
             $('#kt_modal_1_71').modal('show');
-            $('#kt_modal_1_7').modal('hide');
         }
 
         function usrConfim() {
@@ -50,8 +49,8 @@
             $('#kt_modal_1_7').modal('hide');
         }
         function usrremoveConfim() {
-            $('#modalusrremoveConfirm').modal('Show');
             $('#kt_modal_1_71').modal('hide');
+            $('#modalusrremoveConfirm').modal('show');
         }
         function FailureLicense(c) {
             $('#modalConfirm').modal('hide');
@@ -124,6 +123,7 @@
                     <telerik:AjaxUpdatedControl ControlID="plDelError" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
+
         </AjaxSettings>
     </telerik:RadAjaxManagerProxy>
 
@@ -1749,7 +1749,7 @@
                     </h5>
                 </div>
                 <div class="modal-footer">
-                    <telerik:RadAjaxPanel ID="RadAjaxPanel7" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel7" runat="server" LoadingPanelID="RadAjaxLoadingPanel8">
                         <asp:LinkButton ID="lnkusrchange" runat="server" Text="Yes" OnClick="lnkusrchange_Click" CssClass="btn btn-sm fw-bold btn-primary" />
                     </telerik:RadAjaxPanel>
                     <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel8" EnableEmbeddedSkins="false"
@@ -1848,7 +1848,7 @@
 
 
                 <div class="modal-footer">
-                    <telerik:RadAjaxPanel ID="RadAjaxPanel8" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
+                    <telerik:RadAjaxPanel ID="RadAjaxPanel8" runat="server" LoadingPanelID="RadAjaxLoadingPanel9">
 
                         <asp:LinkButton ID="lnkdeleteusr" runat="server" CssClass="btn btn-sm fw-bold btn-success" ValidationGroup="frrm" CausesValidation="true" OnClick="lnkdeleteusr_Click">
                                               Remove

@@ -21,6 +21,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using GoogleApi.Entities.Common.Enums;
 using Telerik.Web.UI.Calendar;
+using static QRCoder.PayloadGenerator;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -479,6 +480,12 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     lblcurrentusr.Text = ddlname.SelectedItem.Text.ToString();
                     lblcrntusr.Text = ddlname.SelectedItem.Text.ToString();
+                    ViewState["CurrentUser"] = ddlname.SelectedItem.Text.ToString();
+                    ViewState["RotUserID"] = ddlname.SelectedValue.ToString();
+                }
+                else
+                {
+                    ViewState["CurrentUser"] = "";
                 }
                 
                 ddlOverrides.SelectedValue=OverrideOnline.ToString();
@@ -1440,7 +1447,7 @@ namespace SalesForceAutomation.BO_Digits.en
             string rot, chngeusr, effectivedate, user, prevusr , type;
             rot = ResponseID.ToString();
             chngeusr = ddluser.SelectedValue.ToString();
-            prevusr = ViewState["rotusr"].ToString();
+            prevusr = ViewState["RotUserID"].ToString();
             effectivedate = DateTime.Parse(rdeffectivedate.SelectedDate.ToString()).ToString("yyyyMMdd");
             user = UICommon.GetCurrentUserID().ToString();
             type = rbActions.SelectedValue.ToString();
@@ -1473,17 +1480,17 @@ namespace SalesForceAutomation.BO_Digits.en
         protected void lnkdeleteusr_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>usrremoveConfim();</script>", false);
-
+           
         }
 
         protected void lnkusrremove_Click(object sender, EventArgs e)
         {
             string rot, effectivedate, user, prevusr, type;
             rot = ResponseID.ToString();
-            prevusr = ViewState["rotusr"].ToString();
+            prevusr = ViewState["RotUserID"].ToString();
             effectivedate = DateTime.Parse(rdeffectivedate.SelectedDate.ToString()).ToString("yyyyMMdd");
             user = UICommon.GetCurrentUserID().ToString();
-            type = rbActions.SelectedValue.ToString();
+            type = rdActions.SelectedValue.ToString();
 
             string[] arr = { prevusr, effectivedate, user , type };
             DataTable dt = ObjclsFrms.loadList("RemoveRouteUser", "sp_Backend", rot, arr);
@@ -1533,7 +1540,17 @@ namespace SalesForceAutomation.BO_Digits.en
                 plDelError.Visible = false;
             }
 
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>DeleteUsr();</script>", false);
+            string CurrentUser = ViewState["CurrentUser"].ToString();
+
+            if (CurrentUser != "")
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>DeleteUsr();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Fail('There are no users assigned to this route.');</script>", false);
+            }
+
         }
 
         protected void dllrotType_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
