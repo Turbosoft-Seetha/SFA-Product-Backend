@@ -34,20 +34,25 @@ namespace SalesForceAutomation.BO_Digits.en
 
             if (!Page.IsPostBack)
             {
+                ViewState["rotusr"] = "";
+                ViewState["RotUserID"] = 0;
+
+                rdeffectivedate.SelectedDate = DateTime.Now;
+                rdeffectivedatetodel.SelectedDate = DateTime.Now;
+                rdeffectivedate.MinDate = DateTime.Now.AddDays(1);
+                rdeffectivedatetodel.MinDate = DateTime.Now.AddDays(1);
+
                 user();
                 DepotSubArea();
                 Vehicles();
                 HelperinOne();
-                HelperinTwo();
-                FillForm();
+                HelperinTwo();              
                 Profile();
                 Users();
+                FillForm();
+
                 //  txtTransName.Text = "Merchandising";
-                ViewState["rotusr"] = "";
-                rdeffectivedate.SelectedDate= DateTime.Now;
-                rdeffectivedatetodel.SelectedDate= DateTime.Now;
-                rdeffectivedate.MinDate = DateTime.Now.AddDays(1);
-                rdeffectivedatetodel.MinDate = DateTime.Now.AddDays(1);
+
             }
 
         }
@@ -486,6 +491,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 else
                 {
                     ViewState["CurrentUser"] = "";
+                    ViewState["RotUserID"] = 0;
                 }
                 
                 ddlOverrides.SelectedValue=OverrideOnline.ToString();
