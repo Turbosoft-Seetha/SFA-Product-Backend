@@ -471,7 +471,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                     else if(type.Equals("FG"))
                     {
-                        mainCondition += " and sal_FreeGoodAmount <> 0.00";
+                        mainCondition += " and sld_Transtype='FC'";
                     }
                     else if(type.Equals("INV"))
                     {

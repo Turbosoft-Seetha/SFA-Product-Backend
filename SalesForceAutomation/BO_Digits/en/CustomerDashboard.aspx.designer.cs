@@ -15,6 +15,33 @@ namespace SalesForceAutomation.BO_Digits.en
     {
 
         /// <summary>
+        /// lnkToday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkToday;
+
+        /// <summary>
+        /// lnkMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkMonth;
+
+        /// <summary>
+        /// lnkYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkYear;
+
+        /// <summary>
         /// RadScriptBlock1 control.
         /// </summary>
         /// <remarks>

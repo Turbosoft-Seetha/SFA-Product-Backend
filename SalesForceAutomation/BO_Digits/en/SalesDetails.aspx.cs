@@ -106,6 +106,10 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     type = "";
                 }
+                else if (Type.ToString().Equals("FG"))
+                {
+                    type = "FC";
+                }
                 else
                 {
                     type = Type.ToString();

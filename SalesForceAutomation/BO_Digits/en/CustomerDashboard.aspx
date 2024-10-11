@@ -5,6 +5,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageHeader" runat="server">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 </asp:Content>
+<asp:Content ID="ContentAction" ContentPlaceHolderID="Actions" runat="server">
+    <div class="row" style="margin-right: auto;">
+        <ul class="nav" style="justify-content: flex-end;">
+            <li class="nav-item">
+                <asp:LinkButton ID="lnkToday" runat="server" CssClass="btn btn-sm btn-color-muted btn-active btn-active-light-primary fw-bolder px-4 me-1" OnClick="lnkToday_Click">Today</asp:LinkButton>
+            </li>
+            <li class="nav-item">
+                <asp:LinkButton ID="lnkMonth" runat="server" CssClass="nav-link btn btn-sm btn-color-muted btn-active btn-active-light-primary fw-bolder px-4 me-1" OnClick="lnkMonth_Click">Month</asp:LinkButton>
+            </li>
+            <li class="nav-item">
+                <asp:LinkButton ID="lnkYear" runat="server" CssClass="nav-link btn btn-sm btn-color-muted btn-active btn-active-light-primary fw-bolder px-4" OnClick="lnkYear_Click">Year</asp:LinkButton>
+            </li>
+        </ul>
+    </div>
+
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
       <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">

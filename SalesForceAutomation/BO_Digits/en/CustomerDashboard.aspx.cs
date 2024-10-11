@@ -30,7 +30,10 @@ namespace SalesForceAutomation.BO_Digits.en
                 try
                 {
                     Session["SelectedHeaderID"] = null;
-                    Session["SelectedCusID"] = null;                   
+                    Session["SelectedCusID"] = null;
+                    ViewState["HeaderDataSource"] = null;
+                    ViewState["OutletDataSource"] = null;
+                    lnkToday.Attributes.Add("Style", "background-color:#dae9f8; color:#60acf9");
 
                     if (Session["FromDate"] != null)
                     {
@@ -58,7 +61,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     LoadOutlets("");
                     RadGrid1.Rebind();
 
-
                     rdfromDate.MaxDate = DateTime.Now;
 
                     string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
@@ -70,7 +72,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     SelectRotDeliveredCount(fromDate, ToDate, "O");
                     SelOutstandingInvCount(fromDate, ToDate, "O");
                     EnableResetButton();
-
 
                 }
 
@@ -84,6 +85,9 @@ namespace SalesForceAutomation.BO_Digits.en
              
         protected void lnkFilter_Click(object sender, EventArgs e)
         {
+            lnkToday.Attributes.Remove("Style");
+            lnkMonth.Attributes.Remove("Style");
+            lnkYear.Attributes.Remove("Style");
             string fromDate, ToDate;
             fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
             ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
@@ -105,8 +109,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 SelSaleOrdCount(fromDate, ToDate, "O");
                 SelectRotDeliveredCount(fromDate, ToDate, "O");
                 SelOutstandingInvCount(fromDate, ToDate, "O");
-                EnableResetButton();
-           
+                EnableResetButton();           
         }
 
         public void LoadHeaders(string cus_csh_ID = "")
@@ -345,7 +348,9 @@ namespace SalesForceAutomation.BO_Digits.en
             lblTotalBReturns.Text = dtInvSales.Rows[0]["brCount"].ToString();
             lblTotalBReturnsSum.Text = "AED " + dtInvSales.Rows[0]["brSum"].ToString();
 
-           
+            lblTotalFreeGoods.Text = dtInvSales.Rows[0]["fgCount"].ToString();
+
+
         }
         public void LoadOrderARAdvance(string fromDate, string ToDate, string mode)
         {
@@ -1062,7 +1067,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
             }
 
-            Session["ARcusID"] = string.Join(",", customerIds);
+            Session["OHcusID"] = string.Join(",", customerIds);
             Session["OHrotID"] = null;
             Response.Redirect("ListAdvancePayment.aspx?mode=3");
           
@@ -1217,8 +1222,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
             Session["OutcusID"] = string.Join(",", customerIds);
             Session["KPIRoute"] = null;
-            Response.Redirect("OutstandingDashboard.aspx?OutStandingMode=2");
-           
+            Response.Redirect("OutstandingDashboard.aspx?OutStandingMode=2");           
         }
 
         protected void lnkInvMonitoring_Click(object sender, EventArgs e)
@@ -1327,8 +1331,107 @@ namespace SalesForceAutomation.BO_Digits.en
                 OutletReset.Visible = false;
             }
         }
-           
-        
 
+        protected void lnkToday_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lnkToday.Attributes.Add("Style", "background-color:#dae9f8; color:#60acf9");
+                lnkMonth.Attributes.Remove("Style");
+                lnkYear.Attributes.Remove("Style");
+                rdfromDate.SelectedDate = DateTime.Now;
+                rdendDate.SelectedDate = DateTime.Now;
+                string fromDate, ToDate;
+                fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                Session["FromDate"] = rdfromDate.SelectedDate.ToString();
+                Session["ToDate"] = rdendDate.SelectedDate.ToString();
+
+                LoadHeaders("");
+                grvRpt.Rebind();
+
+                LoadOutlets("");
+                RadGrid1.Rebind();
+
+                LoadInvoiceAndSales(fromDate, ToDate, "O");
+                LoadOrderARAdvance(fromDate, ToDate, "O");
+                SelSaleOrdCount(fromDate, ToDate, "O");
+                SelectRotDeliveredCount(fromDate, ToDate, "O");
+                SelOutstandingInvCount(fromDate, ToDate, "O");
+                EnableResetButton();
+            }            
+            catch(Exception ex)
+            {
+
+            }
+}
+
+        protected void lnkMonth_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lnkToday.Attributes.Remove("Style");
+                lnkMonth.Attributes.Add("Style", "background-color:#dae9f8; color:#60acf9");
+                lnkYear.Attributes.Remove("Style");
+                rdfromDate.SelectedDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                rdendDate.SelectedDate = DateTime.Now;
+                string fromDate, ToDate;
+                fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                Session["FromDate"] = rdfromDate.SelectedDate.ToString();
+                Session["ToDate"] = rdendDate.SelectedDate.ToString();
+
+                LoadHeaders("");
+                grvRpt.Rebind();
+
+                LoadOutlets("");
+                RadGrid1.Rebind();
+
+                LoadInvoiceAndSales(fromDate, ToDate, "O");
+                LoadOrderARAdvance(fromDate, ToDate, "O");
+                SelSaleOrdCount(fromDate, ToDate, "O");
+                SelectRotDeliveredCount(fromDate, ToDate, "O");
+                SelOutstandingInvCount(fromDate, ToDate, "O");
+                EnableResetButton();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void lnkYear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lnkToday.Attributes.Remove("Style");
+                lnkMonth.Attributes.Remove("Style");
+                lnkYear.Attributes.Add("Style", "background-color:#dae9f8; color:#60acf9");
+                rdfromDate.SelectedDate = new DateTime(DateTime.Now.Year, 1, 1);
+                rdendDate.SelectedDate = DateTime.Now;
+                string fromDate, ToDate;
+                fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                Session["FromDate"] = rdfromDate.SelectedDate.ToString();
+                Session["ToDate"] = rdendDate.SelectedDate.ToString();
+
+                LoadHeaders("");
+                grvRpt.Rebind();
+
+                LoadOutlets("");
+                RadGrid1.Rebind();
+
+                LoadInvoiceAndSales(fromDate, ToDate, "O");
+                LoadOrderARAdvance(fromDate, ToDate, "O");
+                SelSaleOrdCount(fromDate, ToDate, "O");
+                SelectRotDeliveredCount(fromDate, ToDate, "O");
+                SelOutstandingInvCount(fromDate, ToDate, "O");
+                EnableResetButton();
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
     }
 }

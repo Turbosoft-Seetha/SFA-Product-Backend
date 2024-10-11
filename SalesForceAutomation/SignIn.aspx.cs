@@ -107,6 +107,7 @@ namespace SalesForceAutomation
                 {
                     DataTable rol = ObjclsFrms.loadList("SelUserRole", "sp_User", userId);
                     string role = rol.Rows[0]["RoleName"].ToString();
+                    string PageName = rol.Rows[0]["PageName"].ToString();
                     string URLRoot;
 
                     foreach (DataRow row in cop.Rows)
@@ -118,7 +119,7 @@ namespace SalesForceAutomation
                     Session["UserID"] = dt.Rows[0]["ID"].ToString();
                     Session["UserName"] = dt.Rows[0]["UserName"].ToString() ;
                     Session["Name"] = dt.Rows[0]["Name"].ToString();
-                    Session["Role"] = rol.Rows[0]["RoleName"].ToString();
+                    Session["Role"] = rol.Rows[0]["RoleName"].ToString();                    
 
                     if (Session["lang"] == null)
                     {
@@ -152,25 +153,29 @@ namespace SalesForceAutomation
                         LoginAudit(dt.Rows[0]["ID"].ToString(), dt.Rows[0]["UserName"].ToString(), "Success");
                         if(role.Equals("Inventory"))
                         {
-                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/InventoryDashboard.aspx";
+                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/"+ PageName;
                             Response.Redirect(URLRoot);
                         }
                         else if(role.Equals("Admin"))
                         {
-                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/ChartDashboard.aspx";
+                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/" + PageName;
                             Response.Redirect(URLRoot);
                         }
                         else if (role.Equals("Warehouse"))
                         {
-                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/WarehouseTransferDashboard.aspx";
+                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/" + PageName;
                             Response.Redirect(URLRoot);
                         }
                         else if (role.Equals("Field Service"))
                         {
+                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/" + PageName;
+                            Response.Redirect(URLRoot);
+                        }
+                        else
+                        {
                             URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/ChartDashboard.aspx";
                             Response.Redirect(URLRoot);
                         }
-                        
                        
                     }
                 }
