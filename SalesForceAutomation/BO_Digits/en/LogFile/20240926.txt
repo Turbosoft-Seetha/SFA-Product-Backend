@@ -1,11 +1,12 @@
-2024-09-26 8.06.17 PM: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
-2024-09-26 8.06.20 PM: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
-2024-09-26 8.06.22 PM: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'and'. - 
-2024-09-26 10.38.44 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 10.39.37 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 10.47.06 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 11.01.10 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 11.04.19 PM: AddEditUser.aspx btnSave_Click() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 11.16.43 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 11.52.31 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
-2024-09-26 11.55.54 PM: AddEditUser.aspx Page_Load() :- Error : The specified named connection is either not found in the configuration, not intended to be used with the EntityClient provider, or not valid. - 
+26-09-2024 19:56:10: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+26-09-2024 19:56:14: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+26-09-2024 20:41:05: General Functions  :- sp_CusConSettingsError : The name 'select cac_ParentNode,cac_ChildNode node, cac_ChildNodeDesc descr 
+	from [tb_CusConAccessControl] A
+	inner join tb_CusConnectSettings B on ccs_ParentNode=cac_ParentNode and ccs_ChildNode=cac_ChildNode
+	where ccs_ChildNode not in (select distinct ccs_ChildNode from tb_CusConnectSettings where ccs_UserID=1172 ) and cac_ParentNode in ('APPR' )' is not a valid identifier. - 
+26-09-2024 20:43:54: General Functions  :- sp_CusConSettingsError : The name 'select cac_ParentNode,cac_ChildNode node, cac_ChildNodeDesc descr 
+	from [tb_CusConAccessControl] A
+	inner join tb_CusConnectSettings B on ccs_ParentNode=cac_ParentNode and ccs_ChildNode=cac_ChildNode
+	where ccs_ChildNode not in (select distinct ccs_ChildNode from tb_CusConnectSettings where ccs_UserID=1172 ) and cac_ParentNode in ('APPR' )' is not a valid identifier. - 
+26-09-2024 20:50:27: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+26-09-2024 20:54:42: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
