@@ -54,9 +54,9 @@
                 <!--begin::Portlet-->
                 <div class="kt-portlet" style="background-color: white; padding: 20px;">
 
-                      <div style="text-align: right;">
-     <asp:RadioButton ID="radSelectAllApprove" runat="server" Text="All Approve" AutoPostBack="true" OnCheckedChanged="radSelectAllApprove_CheckedChanged"/>
- </div>
+                    <div style="text-align: right;">
+                        <asp:RadioButton ID="radSelectAllApprove" runat="server" Text="All Approve" AutoPostBack="true" OnCheckedChanged="radSelectAllApprove_CheckedChanged" />
+                    </div>
 
                     <!--begin::Form-->
                     <div class="kt-form kt-form--label-right">
@@ -180,6 +180,31 @@
                                                 <ItemStyle HorizontalAlign="Right" />
                                                 <HeaderStyle HorizontalAlign="Right" />
                                             </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="pcd_HigherLimitPercent" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Higher Limit Percent" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="pcd_HigherLimitPercent">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridTemplateColumn UniqueName="txtaprvdHprice" AllowFiltering="false" HeaderStyle-Width="120px"
+                                                HeaderText="Changed Higher Price" FilterControlWidth="100%" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
+                                                <ItemTemplate>
+                                                    <telerik:RadNumericTextBox ID="txtaprvdHprice" runat="server" Filter="Contains" OnTextChanged="txtaprvdHprice_TextChanged" AutoPostBack="true"
+                                                        Width="100%" RenderMode="Lightweight">
+                                                    </telerik:RadNumericTextBox>
+                                                </ItemTemplate>
+                                            </telerik:GridTemplateColumn>
+
+                                            <telerik:GridBoundColumn DataField="pcd_ApprovedHPrice" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Approved H.Price" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="pcd_ApprovedHPrice">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
+
+
 
 
                                             <telerik:GridBoundColumn DataField="pcd_LowerUOM" AllowFiltering="true" HeaderStyle-Width="150px"
@@ -209,30 +234,14 @@
                                                 <ItemStyle HorizontalAlign="Right" />
                                                 <HeaderStyle HorizontalAlign="Right" />
                                             </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="pcd_LowerLimtPercent" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Lower Limit Percent" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="pcd_LowerLimtPercent">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
 
-                                             <telerik:GridBoundColumn DataField="pcd_HigherLimitPercent" AllowFiltering="true" HeaderStyle-Width="80px"
-     HeaderStyle-Font-Size="Smaller" HeaderText="Higher Limit Percent" FilterControlWidth="100%"
-     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-     HeaderStyle-Font-Bold="true" UniqueName="pcd_HigherLimitPercent">
-     <ItemStyle HorizontalAlign="Right" />
-     <HeaderStyle HorizontalAlign="Right" />
- </telerik:GridBoundColumn>
- <telerik:GridBoundColumn DataField="pcd_LowerLimtPercent" AllowFiltering="true" HeaderStyle-Width="80px"
-     HeaderStyle-Font-Size="Smaller" HeaderText="Lower Limit Percent" FilterControlWidth="100%"
-     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-     HeaderStyle-Font-Bold="true" UniqueName="pcd_LowerLimtPercent">
-     <ItemStyle HorizontalAlign="Right" />
-     <HeaderStyle HorizontalAlign="Right" />
- </telerik:GridBoundColumn>
-
-                                            <telerik:GridTemplateColumn UniqueName="txtaprvdHprice" AllowFiltering="false" HeaderStyle-Width="120px"
-                                                HeaderText="Changed Higher Price" FilterControlWidth="100%" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
-                                                <ItemTemplate>
-                                                    <telerik:RadNumericTextBox ID="txtaprvdHprice" runat="server" Filter="Contains" OnTextChanged="txtaprvdHprice_TextChanged" AutoPostBack="true" 
-                                                        Width="100%" RenderMode="Lightweight">
-                                                    </telerik:RadNumericTextBox>
-                                                </ItemTemplate>
-                                            </telerik:GridTemplateColumn>
 
                                             <telerik:GridTemplateColumn UniqueName="txtaprvdLprice" AllowFiltering="false" HeaderStyle-Width="120px"
                                                 HeaderText="Changed Lower Price" FilterControlWidth="100%" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
@@ -243,7 +252,13 @@
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
 
-
+                                            <telerik:GridBoundColumn DataField="pcd_ApprovedLPrice" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Approved L.Price" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="pcd_ApprovedLPrice">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
                                             <telerik:GridBoundColumn DataField="maxHigherlimit" AllowFiltering="true" HeaderStyle-Width="80px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="maxHigherlimit" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
@@ -259,19 +274,19 @@
                                                 <HeaderStyle HorizontalAlign="Right" />
                                             </telerik:GridBoundColumn>
                                             <telerik:GridBoundColumn DataField="maxLowerlimit" AllowFiltering="true" HeaderStyle-Width="80px"
-    HeaderStyle-Font-Size="Smaller" HeaderText="maxLowerlimit" FilterControlWidth="100%"
-    CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-    HeaderStyle-Font-Bold="true" UniqueName="maxLowerlimit" Display="false">
-    <ItemStyle HorizontalAlign="Right" />
-    <HeaderStyle HorizontalAlign="Right" />
-</telerik:GridBoundColumn>
-<telerik:GridBoundColumn DataField="MinLowerLimit" AllowFiltering="true" HeaderStyle-Width="80px"
-    HeaderStyle-Font-Size="Smaller" HeaderText="MinLowerLimit" FilterControlWidth="100%"
-    CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-    HeaderStyle-Font-Bold="true" UniqueName="MinLowerLimit" Display="false">
-    <ItemStyle HorizontalAlign="Right" />
-    <HeaderStyle HorizontalAlign="Right" />
-</telerik:GridBoundColumn>
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="maxLowerlimit" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="maxLowerlimit" Display="false">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="MinLowerLimit" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="MinLowerLimit" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="MinLowerLimit" Display="false">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
 
 
                                             <telerik:GridTemplateColumn UniqueName="DropDownColum" AllowFiltering="false" HeaderStyle-Width="120px"
@@ -295,7 +310,11 @@
                                                     </asp:RadioButtonList>
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
-
+                                             <telerik:GridBoundColumn DataField="pcd_ApprovalStatus" AllowFiltering="true" HeaderStyle-Width="150px"
+     HeaderStyle-Font-Size="Smaller" HeaderText="pcd_ApprovalStatus" FilterControlWidth="100%"
+     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+     HeaderStyle-Font-Bold="true" UniqueName="pcd_ApprovalStatus" Display="false">
+ </telerik:GridBoundColumn>
 
 
                                         </Columns>

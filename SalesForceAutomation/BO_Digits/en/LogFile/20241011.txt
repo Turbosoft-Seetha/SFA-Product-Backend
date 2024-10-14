@@ -1,0 +1,2 @@
+11-10-2024 20:40:45: SettlementReports.aspx  :- Error : Column 'rot_EnablePettyCash' does not belong to table TT. - 
+11-10-2024 20:42:19: SettlementReports.aspx  :- Error : Column 'rot_EnablePettyCash' does not belong to table TT. - 
