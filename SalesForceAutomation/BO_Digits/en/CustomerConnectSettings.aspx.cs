@@ -303,5 +303,6 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             ScriptManager.RegisterStartupScript(control, control.GetType(), "Open", "window.open('" + Url + "');", true);
         }
+
     }
 }
