@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
+﻿using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,9 +9,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using Telerik.Charting.Styles;
 using Telerik.Web.UI;
 using Telerik.Web.UI.Chat;
 using Telerik.Windows.Documents.Spreadsheet.Expressions.Functions;
+using System.Configuration;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -30,7 +33,8 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                ListParentNodes();               
+                ListParentNodes();
+                Profile();
             }
         }
         public void ListParentNodes()
@@ -207,7 +211,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
-            string user = Request.Params["UID"].ToString();           
+            string user = Request.Params["UID"].ToString();
             List<string> selectedIDs = new List<string>();
             foreach (GridDataItem item in grvRpt.SelectedItems)
             {
@@ -220,13 +224,84 @@ namespace SalesForceAutomation.BO_Digits.en
 
             int LID = Int32.Parse(result);
             if (LID > 0)
-            {               
+            {
                 Response.Redirect("CustomerConnectSettings.aspx?UID=" + user);
             }
             else
             {
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure('Something went wrong, Try again later.');</script>", false);
             }
+        }
+
+        public void Profile()
+        {
+            rdProfile.ClearSelection();
+
+            DataTable lstVehicle = ObjclsFrms.loadList("SelProfileHeaderforDropDown", "sp_ProfileSettings", "tb_CusConnectSettings");
+            if (lstVehicle.Rows.Count > 0)
+            {
+
+                rdProfile.DataSource = lstVehicle;
+                rdProfile.DataValueField = "pfh_ID";
+                rdProfile.DataTextField = "pfh_ProfileName";
+                rdProfile.DataBind();
+
+            }
+        }
+
+        protected void ApplyProfile_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                string pfh_Id = rdProfile.SelectedValue.ToString();
+                string UID = Request.Params["UID"].ToString();
+                string user = UICommon.GetCurrentUserID().ToString();
+                string[] arr = { UID.ToString(), user.ToString() };
+
+                string Value = ObjclsFrms.SaveData("sp_ProfileSettings", "InsCCSettingsProfile", pfh_Id, arr);
+                int res = Int32.Parse(Value.ToString());
+                if (res > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Succcess('Profile Settings Saved Successfully');</script>", false);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Failure();</script>", false);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+            }
+
+        }
+
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            string user = Request.Params["UID"].ToString();
+            Response.Redirect("CustomerConnectSettings.aspx?UID=" + user);
+        }
+
+        protected void rdProfile_SelectedIndexChanged(object sender, DropDownListEventArgs e)
+        {
+            lblPage.Visible = true;
+            string Settings = rdProfile.SelectedText.ToString();
+            lblPage.Text = "Show Settings of " + Settings + " >>";
+        }
+
+        protected void lblPage_Click(object sender, EventArgs e)
+        {
+            string pfh_id = rdProfile.SelectedValue.ToString();
+
+            string url = ConfigurationManager.AppSettings.Get("BackendURL");
+            string s = "BO_Digits/en/ListSettingsProfiles.aspx?ID=" + pfh_id;
+            url = url + s;
+
+            OpenNewBrowserWindow(url, this);
+        }
+        public static void OpenNewBrowserWindow(string Url, System.Web.UI.Control control)
+        {
+            ScriptManager.RegisterStartupScript(control, control.GetType(), "Open", "window.open('" + Url + "');", true);
         }
     }
 }
