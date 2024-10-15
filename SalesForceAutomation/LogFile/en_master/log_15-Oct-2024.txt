@@ -1,0 +1,291 @@
+15-Oct-2024 11:57:17-Exception from en page load:Session[UserID] is null 
+15-Oct-2024 11:57:18-Exception from en page load: Thread was being aborted.
+15-Oct-2024 11:57:43-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 11:57:43-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 11:57:55-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 11:57:55-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 11:57:55-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 11:57:55-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 11:57:55-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 177
+15-Oct-2024 11:57:55-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:19:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:19:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:19:19-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:19:19-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:19:19-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:19:19-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:19:19-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 177
+15-Oct-2024 12:19:19-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 177
+15-Oct-2024 12:22:23-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:49:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:52:13-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:52:21-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:52:21-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:52:33-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:52:33-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:52:33-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:52:33-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:52:33-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:52:33-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:53:34-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:57:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:58:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:58:08-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:58:08-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:58:20-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:58:20-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:58:20-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:58:20-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:58:20-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:58:20-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:58:27-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 12:59:38-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 12:59:56-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 12:59:56-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 13:00:09-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 13:00:09-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 13:00:09-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 13:00:09-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 13:00:09-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 13:00:09-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 14:14:40-Exception from en page load:Session[UserID] is null 
+15-Oct-2024 14:14:40-Exception from en page load: Thread was being aborted.
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 14:16:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 14:17:00-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 14:17:00-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 14:17:12-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 14:17:12-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 14:17:12-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 14:17:12-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 14:17:12-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 14:17:12-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 14:18:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 14:18:54-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 14:18:54-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 14:19:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  -  WebServiceCall() , Error : The remote name could not be resolved: 'license.dev-ts.online' - 
+15-Oct-2024 14:19:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 14:19:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 14:19:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : The remote name could not be resolved: 'license.dev-ts.online'
+15-Oct-2024 14:19:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Error: Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: T. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange)
+15-Oct-2024 14:19:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 15:07:35-Exception from en page load:Session[UserID] is null 
+15-Oct-2024 15:07:35-Exception from en page load: Thread was being aborted.
+15-Oct-2024 15:07:49-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 15:07:49-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 15:07:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 15:07:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 15:07:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : {"result":[{"Res":"200","Message":"Success","ResponseMessage":"Proceed","AlertMessage":"According to the DigiTS licensing policy, you have exceeded the limit. If no action is taken within the next 15 days, you may experience disruptions in accessing the application.","LicenseData":[{"ID":"6","LicenseNumber":"DL100006","LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","LicenseType":"Temporary","ProjectCode":"SFA","ProjectName":"Sales Force Automation","CustomerCode":"SFA_Product","CustomerName":"SFA Product","CreatedDate":"05 Aug 2024 19:42","StartDate":"05 Aug 2024","ExpiryDate":"26 Mar 2025","BufferPeriodInDays":"25","NeedExpiryNotification":"Yes","Prior_Exp_Notfctn_Intrvl_InDays":"5","ModifiedDate":"15 Oct 2024 12:38","Status":"Active","ContactPerson":"Ilyas","ContactNumber":"123456","Email":"sfaproduct@turbosoft.technology","UserLimit":"200","CusConnectLimit":"7","InvLimit":"5","BOLimit":"50"}]}]}
+15-Oct-2024 15:07:51-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 15:08:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 15:08:03-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 15:08:04-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 15:08:04-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 15:08:04-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : {"result":[{"Res":"200","Message":"Success","ResponseMessage":"Proceed","AlertMessage":"According to the DigiTS licensing policy, you have exceeded the limit. If no action is taken within the next 15 days, you may experience disruptions in accessing the application.","LicenseData":[{"ID":"6","LicenseNumber":"DL100006","LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","LicenseType":"Temporary","ProjectCode":"SFA","ProjectName":"Sales Force Automation","CustomerCode":"SFA_Product","CustomerName":"SFA Product","CreatedDate":"05 Aug 2024 19:42","StartDate":"05 Aug 2024","ExpiryDate":"26 Mar 2025","BufferPeriodInDays":"25","NeedExpiryNotification":"Yes","Prior_Exp_Notfctn_Intrvl_InDays":"5","ModifiedDate":"15 Oct 2024 12:38","Status":"Active","ContactPerson":"Ilyas","ContactNumber":"123456","Email":"sfaproduct@turbosoft.technology","UserLimit":"200","CusConnectLimit":"7","InvLimit":"5","BOLimit":"50"}]}]}
+15-Oct-2024 15:08:04-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 15:08:17-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 15:08:17-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 15:08:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 15:08:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 15:08:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : {"result":[{"Res":"200","Message":"Success","ResponseMessage":"Proceed","AlertMessage":"According to the DigiTS licensing policy, you have exceeded the limit. If no action is taken within the next 15 days, you may experience disruptions in accessing the application.","LicenseData":[{"ID":"6","LicenseNumber":"DL100006","LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","LicenseType":"Temporary","ProjectCode":"SFA","ProjectName":"Sales Force Automation","CustomerCode":"SFA_Product","CustomerName":"SFA Product","CreatedDate":"05 Aug 2024 19:42","StartDate":"05 Aug 2024","ExpiryDate":"26 Mar 2025","BufferPeriodInDays":"25","NeedExpiryNotification":"Yes","Prior_Exp_Notfctn_Intrvl_InDays":"5","ModifiedDate":"15 Oct 2024 12:38","Status":"Active","ContactPerson":"Ilyas","ContactNumber":"123456","Email":"sfaproduct@turbosoft.technology","UserLimit":"200","CusConnectLimit":"7","InvLimit":"5","BOLimit":"50"}]}]}
+15-Oct-2024 15:08:18-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 15:08:58-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 15:08:58-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 15:08:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 15:08:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 15:08:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : {"result":[{"Res":"200","Message":"Success","ResponseMessage":"Proceed","AlertMessage":"According to the DigiTS licensing policy, you have exceeded the limit. If no action is taken within the next 15 days, you may experience disruptions in accessing the application.","LicenseData":[{"ID":"6","LicenseNumber":"DL100006","LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","LicenseType":"Temporary","ProjectCode":"SFA","ProjectName":"Sales Force Automation","CustomerCode":"SFA_Product","CustomerName":"SFA Product","CreatedDate":"05 Aug 2024 19:42","StartDate":"05 Aug 2024","ExpiryDate":"26 Mar 2025","BufferPeriodInDays":"25","NeedExpiryNotification":"Yes","Prior_Exp_Notfctn_Intrvl_InDays":"5","ModifiedDate":"15 Oct 2024 12:38","Status":"Active","ContactPerson":"Ilyas","ContactNumber":"123456","Email":"sfaproduct@turbosoft.technology","UserLimit":"200","CusConnectLimit":"7","InvLimit":"5","BOLimit":"50"}]}]}
+15-Oct-2024 15:08:59-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
+15-Oct-2024 15:09:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+15-Oct-2024 15:09:06-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , Inside LicenseCounts()
+15-Oct-2024 15:09:07-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , JSONStr : {"LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","RouteCount":"135","InventoryUserCount":"51","BackOfficeUserCount":"42","CustomerConnectUserCount":"6","SFA_AppUserCount":"39","Platform":"","IsStatusChange":"N"}
+15-Oct-2024 15:09:07-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , url : https://license.dev-ts.online/API/License/GetLicenseDetails
+15-Oct-2024 15:09:07-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txten_master-1 , Json : {"result":[{"Res":"200","Message":"Success","ResponseMessage":"Proceed","AlertMessage":"According to the DigiTS licensing policy, you have exceeded the limit. If no action is taken within the next 15 days, you may experience disruptions in accessing the application.","LicenseData":[{"ID":"6","LicenseNumber":"DL100006","LicenseKey":"lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=","LicenseType":"Temporary","ProjectCode":"SFA","ProjectName":"Sales Force Automation","CustomerCode":"SFA_Product","CustomerName":"SFA Product","CreatedDate":"05 Aug 2024 19:42","StartDate":"05 Aug 2024","ExpiryDate":"26 Mar 2025","BufferPeriodInDays":"25","NeedExpiryNotification":"Yes","Prior_Exp_Notfctn_Intrvl_InDays":"5","ModifiedDate":"15 Oct 2024 12:38","Status":"Active","ContactPerson":"Ilyas","ContactNumber":"123456","Email":"sfaproduct@turbosoft.technology","UserLimit":"200","CusConnectLimit":"7","InvLimit":"5","BOLimit":"50"}]}]}
+15-Oct-2024 15:09:07-C:\latestturbosoftprojects\SFA Product Backoffice\SalesForceAutomation\BO_Digits\en\LogFile\20241015.txt en_master-1 , LicenseCounts() ends here.
