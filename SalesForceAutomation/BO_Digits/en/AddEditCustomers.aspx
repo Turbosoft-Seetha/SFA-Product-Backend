@@ -1440,19 +1440,94 @@
                                                                             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
                                                                     </div>
                                                                 </div>
-
-                                                                  <div class="col-lg-4 form-group" style="padding-top: 10px;">
-                                                                    <label class="control-label col-lg-12">Enforce Buy Back free<span class="required"> </span></label>
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Must sell Approval<span class="required"> </span></label>
                                                                     <div class="col-lg-12">
-                                                                        <telerik:RadDropDownList ID="ddlEnforceBuyBackfree" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" >
+                                                                        <telerik:RadDropDownList ID="ddlMustSellApproval" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
                                                                             <Items>
-                                                                                <telerik:DropDownListItem Text="Enable" Value="Y" />
-                                                                                <telerik:DropDownListItem Text="Disable" Value="N" />
+                                                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
                                                                             </Items>
                                                                         </telerik:RadDropDownList>
-                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator75" runat="server" Display="Dynamic" ValidationGroup="form"
-                                                                            ControlToValidate="ddlEnforceBuyBackfree" ErrorMessage="Please select" ForeColor="Red"
+
+                                                                    </div>
+                                                                </div>
+                                                                  
+                                                                
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Enable Instant Order Delivery<span class="required"> </span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadDropDownList ID="ddlInstDelivery" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                            <Items>
+                                                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                                            </Items>
+                                                                        </telerik:RadDropDownList>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-6">Current Security Deposit <span class="required"></span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadNumericTextBox ID="txtCurrentSecDeposit" runat="server" CssClass="form-control" Width="100%" Enabled="true"></telerik:RadNumericTextBox>
+
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator74" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                            ControlToValidate="txtCurrentSecDeposit" ErrorMessage="Please Enter Security Deposit" ForeColor="Red"
                                                                             SetFocusOnError="True"></asp:RequiredFieldValidator>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Coupon Pay Mode</label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadComboBox ID="rdCouponPayMode" runat="server" Width="100%" CheckBoxes="true" EnaeckAllItemsCheckBox="true" EmptyMessage="Select Coupon Settings">
+                                                                            <Items>
+                                                                                <telerik:RadComboBoxItem Text="Hard Cash" Value="HC" />
+                                                                                <telerik:RadComboBoxItem Text="POS" Value="POS" />
+                                                                                <telerik:RadComboBoxItem Text="Online Payment" Value="OP" />
+
+                                                                            </Items>
+                                                                        </telerik:RadComboBox>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Enable Suggested Load Request<span class="required"> </span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadDropDownList ID="ddlSuggLoadReq" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                            <Items>
+                                                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                                            </Items>
+                                                                        </telerik:RadDropDownList>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Enable Coupon<span class="required"> </span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadDropDownList ID="ddlISCouponEnable" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                            <Items>
+                                                                                <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                                            </Items>
+                                                                        </telerik:RadDropDownList>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                    <label class="control-label col-lg-12">Insight Customer Settings </label>
+                                                                    <div class="col-lg-12">
+                                                                        <telerik:RadComboBox ID="rdInsCusSetting" runat="server" Width="100%" CheckBoxes="true" EnaeckAllItemsCheckBox="true" EmptyMessage="Select Insight Customer Settings">
+                                                                            <Items>
+                                                                                <telerik:RadComboBoxItem Text="Sales " Value="SL" />
+                                                                                <telerik:RadComboBoxItem Text="Order" Value="OR" />
+                                                                                <telerik:RadComboBoxItem Text="Advance Payment" Value="AP" />
+                                                                                <telerik:RadComboBoxItem Text="Account Recievable" Value="AR" />
+
+                                                                            </Items>
+                                                                        </telerik:RadComboBox>
+
                                                                     </div>
                                                                 </div>
 
@@ -1560,6 +1635,54 @@
                                                                                     <Items>
                                                                                         <telerik:DropDownListItem Text="Enable" Value="Y" />
                                                                                         <telerik:DropDownListItem Text="Disable" Value="N" Selected="true" />
+                                                                                    </Items>
+                                                                                </telerik:RadDropDownList>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                            <label class="control-label col-lg-12">Attachments Order</label>
+                                                                            <div class="col-lg-12">
+                                                                                <telerik:RadDropDownList ID="ddlIsAttachmentsOrder" runat="server" Width="100%" DefaultMessage="Please Select">
+                                                                                    <Items>
+                                                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                        <telerik:DropDownListItem Text="No" Value="N" />
+                                                                                    </Items>
+                                                                                </telerik:RadDropDownList>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                            <label class="control-label col-lg-12">Enable Free Sample Order</label>
+                                                                            <div class="col-lg-12">
+                                                                                <telerik:RadDropDownList ID="ddlEnableFreeSampleOrder" runat="server" Width="100%" DefaultMessage="Please Select">
+                                                                                    <Items>
+                                                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                        <telerik:DropDownListItem Text="No" Value="N" />
+                                                                                    </Items>
+                                                                                </telerik:RadDropDownList>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                            <label class="control-label col-lg-12">Enable Free Sample Order Approval</label>
+                                                                            <div class="col-lg-12">
+                                                                                <telerik:RadDropDownList ID="ddlEnableFreeSampleOrderApproval" runat="server" Width="100%" DefaultMessage="Please Select">
+                                                                                    <Items>
+                                                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                        <telerik:DropDownListItem Text="No" Value="N" />
+                                                                                    </Items>
+                                                                                </telerik:RadDropDownList>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                            <label class="control-label col-lg-12">Option for Full Delivery</label>
+                                                                            <div class="col-lg-12">
+                                                                                <telerik:RadDropDownList ID="rdFulldelivery" runat="server" Width="100%" DefaultMessage="Please Select">
+                                                                                    <Items>
+                                                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                        <telerik:DropDownListItem Text="No" Value="N" />
                                                                                     </Items>
                                                                                 </telerik:RadDropDownList>
 
@@ -1814,6 +1937,21 @@
                                                                                     SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                             </div>
                                                                         </div>
+                                                                        <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                            <label class="control-label col-lg-12">Attachment Invoice<span class="required"> </span></label>
+                                                                            <div class="col-lg-12">
+                                                                                <telerik:RadDropDownList ID="ddlAttachmentInvoice" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                                    <Items>
+                                                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                        <telerik:DropDownListItem Text="No" Value="N" />
+
+                                                                                    </Items>
+                                                                                </telerik:RadDropDownList>
+                                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator73" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                                    ControlToValidate="ddlAttachmentInvoice" ErrorMessage="Please select" ForeColor="Red"
+                                                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            </div>
+                                                                        </div>
 
                                                                         <div class="col-lg-4 form-group" style="padding-top: 10px;">
                                                                             <label class="control-label col-lg-12">HC Receipt Image Mandatory<span class="required"> </span></label>
@@ -1941,21 +2079,83 @@
                                                                     </div>
 
 
-                                                                      <div class="col-lg-4 form-group" style="padding-top: 10px;">
-                                 <label class="control-label col-lg-12">Price Change Approval in Delivery <span class="required"> </span></label>
-                                 <div class="col-lg-12">
-                                     <telerik:RadDropDownList ID="ddlDelPriceChange" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" >
-                                         <Items>
-                                             <telerik:DropDownListItem Text="Enable" Value="Y" />
-                                             <telerik:DropDownListItem Text="Disable" Value="N"  Selected="true"/>
-                                         </Items>
-                                     </telerik:RadDropDownList>
-                                    
-                                 </div>
-                             </div>
+                                                                    <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                        <label class="control-label col-lg-12">Price Change Approval in Delivery <span class="required"></span></label>
+                                                                        <div class="col-lg-12">
+                                                                            <telerik:RadDropDownList ID="ddlDelPriceChange" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                                <Items>
+                                                                                    <telerik:DropDownListItem Text="Enable" Value="Y" />
+                                                                                    <telerik:DropDownListItem Text="Disable" Value="N" Selected="true" />
+                                                                                </Items>
+                                                                            </telerik:RadDropDownList>
 
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                        <label class="control-label col-lg-12">Enforce Buy Back free<span class="required"> </span></label>
+                                                                        <div class="col-lg-12">
+                                                                            <telerik:RadDropDownList ID="ddlEnforceBuyBackfree" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                                <Items>
+                                                                                    <telerik:DropDownListItem Text="Enable" Value="Y" />
+                                                                                    <telerik:DropDownListItem Text="Disable" Value="N" />
+                                                                                </Items>
+                                                                            </telerik:RadDropDownList>
+                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator75" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                                ControlToValidate="ddlEnforceBuyBackfree" ErrorMessage="Please select" ForeColor="Red"
+                                                                                SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                        </div>
+                                                                   </div>
+                                                                    <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                        <label class="control-label col-lg-12">Enable LPO Number<span class="required"> </span></label>
+                                                                        <div class="col-lg-12">
+                                                                            <telerik:RadDropDownList ID="ddlEnableLPONumber" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                                <Items>
+                                                                                    <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                    <telerik:DropDownListItem Text="No" Value="N" />
+
+                                                                                </Items>
+                                                                            </telerik:RadDropDownList>
+                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator76" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                                ControlToValidate="ddlEnableLPONumber" ErrorMessage="Please select" ForeColor="Red"
+                                                                                SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                        <label class="control-label col-lg-12">LPO Number Mandatory<span class="required"> </span></label>
+                                                                        <div class="col-lg-12">
+                                                                            <telerik:RadDropDownList ID="ddlLPONumberMand" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                                <Items>
+                                                                                    <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                    <telerik:DropDownListItem Text="No" Value="N" />
+
+                                                                                </Items>
+                                                                            </telerik:RadDropDownList>
+                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator77" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                                ControlToValidate="ddlLPONumberMand" ErrorMessage="Please select" ForeColor="Red"
+                                                                                SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                        </div>
+                                                                    </div>
+                                                                     <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                         <label class="control-label col-lg-12">Restricted Return Same Item Invoice<span class="required"> </span></label>
+                                                                         <div class="col-lg-12">
+                                                                             <telerik:RadDropDownList ID="ddlRestrictedRtnSameItmInvoice" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                                                                 <Items>
+                                                                                     <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                     <telerik:DropDownListItem Text="No" Value="N" />
+
+                                                                                 </Items>
+                                                                             </telerik:RadDropDownList>
+                                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator78" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                                 ControlToValidate="ddlRestrictedRtnSameItmInvoice" ErrorMessage="Please select" ForeColor="Red"
+                                                                                 SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                         </div>
+                                                                     </div>
 
                                                                 </div>
+                                                            
+
+
 
 
                                                                 <div class="col-lg-12 row">
@@ -2018,6 +2218,20 @@
                                                                                 </telerik:RadDropDownList>
                                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator42" runat="server" Display="Dynamic" ValidationGroup="form2"
                                                                                     ControlToValidate="ddORR" ErrorMessage="Please select Order Request Remarks" ForeColor="Red"
+                                                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                                                            <label class="control-label col-lg-12">AR Attachments<span class="required"> </span></label>
+                                                                            <div class="col-lg-12">
+                                                                                <telerik:RadDropDownList ID="IsAttachmentsAR" runat="server" Width="100%">
+                                                                                    <Items>
+                                                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                                                        <telerik:DropDownListItem Text="No" Value="N" />
+                                                                                    </Items>
+                                                                                </telerik:RadDropDownList>
+                                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator72" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                                                    ControlToValidate="IsAttachmentsAR" ErrorMessage="Please select is Attachment needed" ForeColor="Red"
                                                                                     SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                             </div>
                                                                         </div>

@@ -1255,7 +1255,21 @@
                                 </div>
                             </div>
 
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">Restricted Return Same Item Invoice<span class="required"> </span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="ddlRestrictedRtnSameItmInvoice" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                            <telerik:DropDownListItem Text="No" Value="N" />
 
+                                        </Items>
+                                    </telerik:RadDropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator63" runat="server" Display="Dynamic" ValidationGroup="form"
+                                        ControlToValidate="ddlRestrictedRtnSameItmInvoice" ErrorMessage="Please select" ForeColor="Red"
+                                        SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
 
 
                         </div>

@@ -2282,6 +2282,36 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             return retStr;
         }
+        public string CouponPaymentMode()
+        {
+            string retStr = "";
+            var checkedItems = rdCouponPayMode.CheckedItems;
+            foreach (var item in checkedItems)
+            {
+                retStr += item.Value.ToString() + "-";
+            }
+            if (retStr != "")
+            {
+                retStr = retStr.Remove(retStr.Length - 1, 1);
+
+            }
+            return retStr;
+        }
+        public string InsCusSetting()
+        {
+            string retStr = "";
+            var checkedItems = rdInsCusSetting.CheckedItems;
+            foreach (var item in checkedItems)
+            {
+                retStr += item.Value.ToString() + "-";
+            }
+            if (retStr != "")
+            {
+                retStr = retStr.Remove(retStr.Length - 1, 1);
+
+            }
+            return retStr;
+        }
         public void SaveData()
         {
             string rot, cus, IsInvoicing, IsSO, IsMerchandising, IsAR, IsI_Sales, IsI_GR, IsI_BR, IsI_FG, TCL, CDays, VoidEnable, PT, RoundAmount, UIC, PDCAmount, custCategoryType,
@@ -2289,7 +2319,9 @@ namespace SalesForceAutomation.BO_Digits.en
             Salsign, Ordsign, InvMode, AltInvReq, FGsep, Insight, FS, FSFeatures, NegativeInvAmt, profile, MinInvoiceValue, MustSellItemCount, IsArManualAllocation, GraceAmount, GracePeriod, PartialDelivery, PriceChange,
             OrdPriceChange, eInvoice, AlertDays, CusDocExpiryAlert, invhcimgmand, invposimgmand, invopimgmand, arhcimgmand, arposimgmand, arpoimgmand, archimgmand, ActManage, CusService,
             ActManageMand, CusServiceMand, IsAvtManage, IsCusService, EnableForecastSales, EnableQuotation, EnableSuggestedOrd, IsPriceChange, CusLocation, RecentSales, RecentOrder, MinOrderValue,
-            ARRemarks, GRSettings, BrSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackFree; ;
+            ARRemarks, GRSettings, BrSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackFree,MustSell, InstDelivery, AttachmentsAR, IsAttachmentOrder, AttachmentInvoice, FreeSampleOrder,
+            CouponPayMode, CurrentSecurityDeposit, FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber, LPONumberMand, ResRtnSameItmInvoice;
+
 
             GracePeriod = "0";
             GraceAmount = "0";
@@ -2306,10 +2338,12 @@ namespace SalesForceAutomation.BO_Digits.en
             MinInvoiceValue = MinInvoiceVal.Text.ToString();
             MustSellItemCount = MustSellItmCnt.Text.ToString();
             IsArManualAllocation = IsArManAllocation.SelectedValue.ToString();
+            AttachmentsAR = IsAttachmentsAR.SelectedValue.ToString();
             PartialDelivery = ddlEnablePD.SelectedValue.ToString();
             PriceChange = ddlPriceChange.SelectedValue.ToString();
             OrdPriceChange = ddlOrdPriceChange.SelectedValue.ToString();
             eInvoice = ddleInvoice.SelectedValue.ToString();
+            AttachmentInvoice = ddlAttachmentInvoice.SelectedValue.ToString();
             invhcimgmand = HCimgMand.SelectedValue.ToString();
             invposimgmand = POSimgMand.SelectedValue.ToString();
             invopimgmand = OPimgMand.SelectedValue.ToString();
@@ -2351,6 +2385,9 @@ namespace SalesForceAutomation.BO_Digits.en
             enforcecussel = ddlenforcecussel.SelectedValue.ToString();
             Salsign = ddlEnablesalsign.SelectedValue.ToString();
             Ordsign = ddlenableOrdrsign.SelectedValue.ToString();
+            IsAttachmentOrder = ddlIsAttachmentsOrder.SelectedValue.ToString();
+            FreeSampleOrder = ddlEnableFreeSampleOrder.SelectedValue.ToString();
+            FreeSampleOrderApproval = ddlEnableFreeSampleOrderApproval.SelectedValue.ToString();
             InvMode = ddlInvoiceMode.SelectedValue.ToString();
             AltInvReq = rdAltInvReq.SelectedValue.ToString();
             FS = ddlFS.SelectedValue.ToString();
@@ -2358,6 +2395,7 @@ namespace SalesForceAutomation.BO_Digits.en
             NegativeInvAmt = ddlnegativeInvAmt.SelectedValue.ToString();
             FSFeatures = FSFeature();
             MerchColumns = Mandcolumns();
+            InsCusSettings = InsCusSetting();
             ActManage = ActivityManage();
             CusService = CustomerService();
             ActManageMand = ActivityManageMand();
@@ -2384,9 +2422,17 @@ namespace SalesForceAutomation.BO_Digits.en
 
             string productgroup = ddlproductgroup.SelectedValue.ToString();
             ARPayMode = ARPaymentMode();
+            CouponPayMode = CouponPaymentMode();
             rcs_EnforceBuyBackFree = ddlEnforceBuyBackfree.SelectedValue.ToString();
-
-
+            MustSell = ddlMustSellApproval.SelectedValue.ToString();
+            InstDelivery = ddlInstDelivery.SelectedValue.ToString();
+            SuggestedLoadReq = ddlSuggLoadReq.SelectedValue.ToString();
+            CouponEnable = ddlISCouponEnable.SelectedValue.ToString();
+            CurrentSecurityDeposit = txtCurrentSecDeposit.Text.ToString();
+            fulldelivery = rdFulldelivery.SelectedValue.ToString();
+            EnableLPONumber = ddlEnableLPONumber.SelectedValue.ToString();
+            LPONumberMand = ddlLPONumberMand.SelectedValue.ToString();
+            ResRtnSameItmInvoice = ddlRestrictedRtnSameItmInvoice.SelectedValue.ToString();
             if ((cusType == "CS" && Session["CusID"].ToString() == "0") || (cusType == "CS" && txtGraceamount.Text.ToString() == ""))
             {
                 TCL = "0";
@@ -2435,7 +2481,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     Mandfeatures,enforcecussel,Ordsign,Salsign,InvMode,AltInvReq,usr,FGsep,Insight,FS,FSFeatures,NegativeInvAmt,profile,
                     MinInvoiceValue,MustSellItemCount,IsArManualAllocation,GraceAmount,GracePeriod,PartialDelivery,PriceChange,OrdPriceChange,
                     eInvoice,CusDocExpiryAlert,AlertDays,invhcimgmand,invposimgmand,invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,
-                    ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackFree};
+                    ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackFree,
+                    MustSell, InstDelivery, AttachmentsAR, IsAttachmentOrder, AttachmentInvoice, FreeSampleOrder,CouponPayMode, CurrentSecurityDeposit, FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber, LPONumberMand,ResRtnSameItmInvoice};
                 string[] array = { cus, ddlrot.SelectedValue.ToString() };
 
                 string Value = ObjclsFrms.SaveData("sp_Merchandising", "InsertCusRoute", rot, arr);
@@ -2465,7 +2512,9 @@ namespace SalesForceAutomation.BO_Digits.en
                             Ordsign,Salsign,InvMode,AltInvReq,usr,FGsep,Insight,FS,FSFeatures,NegativeInvAmt,profile,
                     MinInvoiceValue, MustSellItemCount,IsArManualAllocation,GraceAmount,GracePeriod,PartialDelivery,PriceChange,OrdPriceChange,eInvoice,CusDocExpiryAlert,AlertDays,invhcimgmand,invposimgmand,
                     invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales,
-                    EnableQuotation, EnableSuggestedOrd,IsPriceChange, CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackFree};
+                    EnableQuotation, EnableSuggestedOrd,IsPriceChange, CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackFree,
+                     MustSell, InstDelivery, AttachmentsAR, IsAttachmentOrder, AttachmentInvoice, FreeSampleOrder,CouponPayMode, CurrentSecurityDeposit, FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber, LPONumberMand,ResRtnSameItmInvoice};
+            
                 string value = ObjclsFrms.SaveData("sp_Merchandising", "UpdateCusRoute", id, arr);
                 int res = Int32.Parse(value.ToString());
                 if (res > 0)
@@ -3048,7 +3097,10 @@ namespace SalesForceAutomation.BO_Digits.en
                             Insight, FS, FSFeatures, NegativeInvAmt, profile, MinInvoiceValue, MustSellItemCount, IsArManualAllocation, GracePeriod, GraceAmount, PartialDelivery, PriceChange, OrdPriceChange, eInvoive,
                             CusDocExpiryAlert, AlertDays, invhcimgmand, invposimgmand, invopimgmand, arhcimgmand, arposimgmand, arpoimgmand, archimgmand, ActvityManage, CusService,
                             ActManageMand, CusServiceMand, IsActivityManage, IsCustomerService, rcs_EnableForecastSales, rcs_EnableQuotation, EnableSuggestedOrd, IsPriceChange, CusLocation,
-                            RecentSales, RecentOrder, MinOrderValue, ARRemark, GRSettings, BRSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackfree;
+                            RecentSales, RecentOrder, MinOrderValue, ARRemark, GRSettings, BRSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackfree, MustSell,
+                            InstDelivery, AttachmentsAR, IsAttachmentOrder, AttachmentInvoice, FreeSampleOrder, CouponPayMode, CurrentSecurityDeposit, FreeSampleOrderApproval, SuggestedLoadReq,
+                            CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber, LPONumberMand, ResRtnSameItmInvoice;
+
 
                             invhcimgmand = lstDatas.Rows[0]["rcs_INV_HCRcpt_Img_Mand"].ToString();
                             invposimgmand = lstDatas.Rows[0]["rcs_INV_POSRcpt_Img_Mand"].ToString();
@@ -3094,8 +3146,11 @@ namespace SalesForceAutomation.BO_Digits.en
                             IsActivityManage = lstDatas.Rows[0]["IsActivityManagement"].ToString();//IsActivityManagement
                             IsCustomerService = lstDatas.Rows[0]["IsCustomerService"].ToString();
                             eInvoive = lstDatas.Rows[0]["rcs_EInvoiceSend"].ToString();
-
-                            VoidEnable = lstDatas.Rows[0]["rcs_VoidEnable"].ToString();
+                        AttachmentInvoice = lstDatas.Rows[0]["rcs_IsAttachmentsInvoice"].ToString();
+                        EnableLPONumber = lstDatas.Rows[0]["rcs_EnableLPONumber"].ToString();
+                        LPONumberMand = lstDatas.Rows[0]["rcs_LPONumberMand"].ToString();
+                        ResRtnSameItmInvoice = lstDatas.Rows[0]["rcs_RestrictedRtnSingleItemInvoice"].ToString();
+                        VoidEnable = lstDatas.Rows[0]["rcs_VoidEnable"].ToString();
                             RoundAmount = lstDatas.Rows[0]["rcs_RoundAmount"].ToString();
                             IsPO = lstDatas.Rows[0]["rcs_IsPrintOut"].ToString();
                             signatureinvoice = lstDatas.Rows[0]["rcs_IsSignatureInvoice"].ToString();
@@ -3114,7 +3169,10 @@ namespace SalesForceAutomation.BO_Digits.en
                             enforcecussel = lstDatas.Rows[0]["rcs_EnforceCustSelection"].ToString();
                             SalSign = lstDatas.Rows[0]["rcs_EnableSalesSign"].ToString();
                             OrdSign = lstDatas.Rows[0]["rcs_EnableOrderSign"].ToString();
-                            InvMode = lstDatas.Rows[0]["rcs_InvoiceMode"].ToString();
+                        IsAttachmentOrder = lstDatas.Rows[0]["rcs_IsAttachmentsOrder"].ToString();
+                        FreeSampleOrder = lstDatas.Rows[0]["rcs_EnableFreeSampleOrder"].ToString();
+                        FreeSampleOrderApproval = lstDatas.Rows[0]["rcs_EnableFreeSampleOrderApproval"].ToString(); 
+                        InvMode = lstDatas.Rows[0]["rcs_InvoiceMode"].ToString();
                             Cheque = lstDatas.Rows[0]["Cheque_Amount"].ToString();
                             AltInvReq = lstDatas.Rows[0]["AltInvReq"].ToString();
                             Insight = lstDatas.Rows[0]["rcs_EnableInsight"].ToString();
@@ -3124,7 +3182,8 @@ namespace SalesForceAutomation.BO_Digits.en
                             profile = lstDatas.Rows[0]["rcs_CusProfileSettings"].ToString();
                             GraceAmount = lstDatas.Rows[0]["rcs_GraceAmount"].ToString();
                             GracePeriod = lstDatas.Rows[0]["rcs_GracePeriod"].ToString();
-                            string[] ary = profile.Split('-');
+                        InsCusSettings = lstDatas.Rows[0]["rcs_InsightCustomerSettings"].ToString();
+                        string[] ary = profile.Split('-');
                             string[] arry = MerchColumns.Split('-');
                             string[] array = mandcolumns.Split('-');
                             string[] ar = paymode.Split('-');
@@ -3135,14 +3194,15 @@ namespace SalesForceAutomation.BO_Digits.en
                             string[] CusServiceMandArray = CusServiceMand.Split('-');
                             string[] GRSettingsArray = GRSettings.Split(',');
                             string[] BRSettingsArray = BRSettings.Split(',');
-
-                            FGsep = lstDatas.Rows[0]["rcs_FGSeperate"].ToString();
+                        string[] InsCusSettingsArray = InsCusSettings.Split('-');
+                        FGsep = lstDatas.Rows[0]["rcs_FGSeperate"].ToString();
 
 
 
                             MinInvoiceValue = lstDatas.Rows[0]["rcs_MinInvoiceValue"].ToString();
                             MustSellItemCount = lstDatas.Rows[0]["rcs_MustSellItemCount"].ToString();
                             IsArManualAllocation = lstDatas.Rows[0]["rcs_IsArManualAllocation"].ToString();
+                            AttachmentsAR = lstDatas.Rows[0]["rcs_IsAttachmentsAR"].ToString();
                             PartialDelivery = lstDatas.Rows[0]["rcs_EnablePD"].ToString();
                             PriceChange = lstDatas.Rows[0]["rcs_EnablePriceChange"].ToString();
                             OrdPriceChange = lstDatas.Rows[0]["rcs_EnableOrdPriceChange"].ToString();
@@ -3158,12 +3218,28 @@ namespace SalesForceAutomation.BO_Digits.en
                             VoidEnableCusInsight = lstDatas.Rows[0]["rcs_VoidEnableInsightCustomer"].ToString();
                             EnableDelPriceChange = lstDatas.Rows[0]["rcs_EnableDelPriceChange"].ToString();//rcs_EnableDelPriceChange
                             ARPayMode = lstDatas.Rows[0]["rcs_ArPaymodes"].ToString();
+
                             string[] ARPayModeArray = ARPayMode.Split('-');
-                            rcs_EnforceBuyBackfree = lstDatas.Rows[0]["rcs_EnforceBuyBackfree"].ToString();
-
-                            ddlEnforceBuyBackfree.SelectedValue = rcs_EnforceBuyBackfree.ToString();
-
-                            ddARRemarks.SelectedValue = ARRemark.ToString();
+                        CouponPayMode = lstDatas.Rows[0]["rcs_CouponPayMode"].ToString();
+                        string[] CouponPayModeArray = CouponPayMode.Split('-');
+                        rcs_EnforceBuyBackfree = lstDatas.Rows[0]["rcs_EnforceBuyBackfree"].ToString();
+                            MustSell = lstDatas.Rows[0]["rcs_IsMustSellApproval"].ToString();
+                            InstDelivery = lstDatas.Rows[0]["rcs_EnableInstantDelivery"].ToString();
+                        CurrentSecurityDeposit = lstDatas.Rows[0]["rcs_CurrentSecurityDeposit"].ToString();
+                        SuggestedLoadReq = lstDatas.Rows[0]["EnableSuggestedLODReq"].ToString();
+                        CouponEnable = lstDatas.Rows[0]["rcs_IsCoupon"].ToString();
+                        fulldelivery = lstDatas.Rows[0]["rcs_OptionForFullDelivery"].ToString();
+                        ddlEnforceBuyBackfree.SelectedValue = rcs_EnforceBuyBackfree.ToString();
+                        ddlMustSellApproval.SelectedValue = MustSell.ToString();
+                        ddlInstDelivery.SelectedValue = InstDelivery.ToString();
+                        txtCurrentSecDeposit.Text = CurrentSecurityDeposit.ToString();
+                        ddlSuggLoadReq.SelectedValue = SuggestedLoadReq.ToString();
+                        ddlISCouponEnable.SelectedValue = CouponEnable.ToString();
+                        ddlEnableLPONumber.SelectedValue = EnableLPONumber.ToString();
+                        ddlLPONumberMand.SelectedValue = LPONumberMand.ToString();
+                        ddlRestrictedRtnSameItmInvoice.SelectedValue = ResRtnSameItmInvoice.ToString();
+                        rdFulldelivery.SelectedValue = fulldelivery.ToString();
+                        ddARRemarks.SelectedValue = ARRemark.ToString();
                             HCimgMand.SelectedValue = invhcimgmand.ToString();
                             POSimgMand.SelectedValue = invposimgmand.ToString();
                             OPimgMand.SelectedValue = invopimgmand.ToString();
@@ -3214,7 +3290,10 @@ namespace SalesForceAutomation.BO_Digits.en
                             ddlenforcecussel.SelectedValue = enforcecussel.ToString();
                             ddlEnablesalsign.SelectedValue = SalSign.ToString();
                             ddlenableOrdrsign.SelectedValue = OrdSign.ToString();
-                            ddlInvoiceMode.SelectedValue = InvMode.ToString();
+                        ddlIsAttachmentsOrder.SelectedValue = IsAttachmentOrder.ToString();
+                        ddlEnableFreeSampleOrder.SelectedValue = FreeSampleOrder.ToString();
+                        ddlEnableFreeSampleOrderApproval.SelectedValue = FreeSampleOrderApproval.ToString();
+                        ddlInvoiceMode.SelectedValue = InvMode.ToString();
                             rdAltInvReq.SelectedValue = AltInvReq.ToString();
 
                             ddlEnableInsight.SelectedValue = Insight.ToString();
@@ -3227,13 +3306,15 @@ namespace SalesForceAutomation.BO_Digits.en
                             MinInvoiceVal.Text = MinInvoiceValue.ToString();
                             MustSellItmCnt.Text = MustSellItemCount.ToString();
                             IsArManAllocation.SelectedValue = IsArManualAllocation.ToString();
-                            txtGraceamount.Text = GraceAmount.ToString();
+                        IsAttachmentsAR.SelectedValue = AttachmentsAR.ToString();
+                        txtGraceamount.Text = GraceAmount.ToString();
                             txtGracePeriod.Text = GracePeriod.ToString();
                             ddlEnablePD.SelectedValue = PartialDelivery.ToString();
                             ddlPriceChange.SelectedValue = PriceChange.ToString();
                             ddlOrdPriceChange.SelectedValue = OrdPriceChange.ToString();
                             ddleInvoice.SelectedValue = eInvoive.ToString();
-                            ddlCusDocExpiryAlert.SelectedValue = CusDocExpiryAlert.ToString();
+                        ddlAttachmentInvoice.SelectedValue = AttachmentInvoice.ToString();
+                        ddlCusDocExpiryAlert.SelectedValue = CusDocExpiryAlert.ToString();
                             txtAlertDay.Text = AlertDays.ToString();
                             ddlISCusService.SelectedValue = IsCustomerService.ToString();
                             ddlIsActManage.SelectedValue = IsActivityManage.ToString();
@@ -3375,6 +3456,26 @@ namespace SalesForceAutomation.BO_Digits.en
                                     {
                                         items.Checked = true;
                                     }
+                                }
+                            }
+                            for (int i = 0; i < CouponPayModeArray.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdCouponPayMode.Items)
+                                {
+                                    if (items.Value == CouponPayModeArray[i])
+                                    {
+                                    items.Checked = true;
+                                    }
+                                }
+                            }
+                            for (int i = 0; i < InsCusSettingsArray.Length; i++)
+                            {
+                                foreach (RadComboBoxItem items in rdInsCusSetting.Items)
+                                {
+                                   if (items.Value == InsCusSettingsArray[i])
+                                   {
+                                    items.Checked = true;
+                                   }
                                 }
                             }
 
