@@ -13406,6 +13406,7 @@
     <Content Include="BO_Digits\en\ItemNotAvailable.aspx" />
     <Content Include="BO_Digits\en\ItemNotAvailableDetail.aspx" />
     <Content Include="BO_Digits\en\ItemPricingAnalysis.aspx" />
+    <Content Include="BO_Digits\en\ItemWiseDashboard.aspx" />
     <Content Include="BO_Digits\en\JourneyPlanSeqApproval.aspx" />
     <Content Include="BO_Digits\en\LicenseManagement.aspx" />
     <Content Include="BO_Digits\en\ListActivityManagementTransactions.aspx" />
@@ -16893,6 +16894,13 @@
     </Compile>
     <Compile Include="BO_Digits\en\ItemPricingAnalysis.aspx.designer.cs">
       <DependentUpon>ItemPricingAnalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\ItemWiseDashboard.aspx.cs">
+      <DependentUpon>ItemWiseDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\ItemWiseDashboard.aspx.designer.cs">
+      <DependentUpon>ItemWiseDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\JourneyPlanSeqApproval.aspx.cs">
       <DependentUpon>JourneyPlanSeqApproval.aspx</DependentUpon>
@@ -21855,6 +21863,9 @@
     <TypeScriptCompile Include="assets\vendors\general\popper.js\index.d.ts" />
     <TypeScriptCompile Include="assets\vendors\general\sweetalert2\sweetalert2.d.ts" />
     <TypeScriptCompile Include="assets\vendors\general\tooltip.js\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
