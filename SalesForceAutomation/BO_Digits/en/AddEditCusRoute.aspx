@@ -22,7 +22,9 @@
             window.location.href = "ListCustomerRoute.aspx?ID=" + c;
         }
 
+
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Actions" runat="server">
     <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
@@ -182,6 +184,7 @@
 
                                     </div>
                                 </div>
+
 
                                 <div class="col-lg-4 form-group" style="padding-top: 10px;">
                                     <label class="control-label col-lg-6">Grace Amount <span class="required"></span></label>

@@ -28,6 +28,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 return Mode;
             }
         }
+
         public int ResponseID
         {
             get
