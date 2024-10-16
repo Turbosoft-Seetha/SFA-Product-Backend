@@ -6,10 +6,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Documents.SpreadsheetStreaming;
 using Telerik.Licensing;
 using Telerik.Web.UI;
 using Telerik.Web.UI.Skins;
@@ -64,6 +66,9 @@ namespace SalesForceAutomation.BO_Digits.en
                     LoadCustomers("");
                     CustGrid.Rebind();
 
+                    LoadInvoices("", "");
+                    InvoiceGrid.Rebind();
+
                 }
                 catch (Exception ex)
                 {
@@ -77,7 +82,7 @@ namespace SalesForceAutomation.BO_Digits.en
             DataTable lstItem = default(DataTable);
             string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
             string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
-            string[] arr = {  ToDate.ToString() };
+            string[] arr = { ToDate.ToString() };
 
             lstItem = ObjclsFrms.loadList("ListItems", "sp_ItemwiseDashboard", fromDate.ToString(), arr);
             if (lstItem.Rows.Count > 0)
@@ -122,12 +127,12 @@ namespace SalesForceAutomation.BO_Digits.en
             lstItem = ObjclsFrms.loadList("ListInvoices", "sp_ItemwiseDashboard", cus_ID, arr);
             if (lstItem.Rows.Count > 0)
             {
-                CustGrid.DataSource = lstItem;
+                InvoiceGrid.DataSource = lstItem;
                 ViewState["InvoiceGrid"] = lstItem;
             }
             else
             {
-                CustGrid.DataSource = new DataTable();
+                InvoiceGrid.DataSource = new DataTable();
             }
 
         }
@@ -150,6 +155,9 @@ namespace SalesForceAutomation.BO_Digits.en
 
             LoadCustomers("");
             CustGrid.Rebind();
+
+            LoadInvoices("", "");
+            InvoiceGrid.Rebind();
         }
         protected void lnkToday_Click(object sender, EventArgs e)
         {
@@ -171,6 +179,9 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 LoadCustomers("");
                 CustGrid.Rebind();
+
+                LoadInvoices("", "");
+                InvoiceGrid.Rebind();
             }
             catch (Exception ex)
             {
@@ -199,6 +210,9 @@ namespace SalesForceAutomation.BO_Digits.en
                 LoadCustomers("");
                 CustGrid.Rebind();
 
+                LoadInvoices("", "");
+                InvoiceGrid.Rebind();
+
             }
             catch (Exception ex)
             {
@@ -226,6 +240,9 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 LoadCustomers("");
                 CustGrid.Rebind();
+
+                LoadInvoices("", "");
+                InvoiceGrid.Rebind();
             }
             catch (Exception ex)
             {
@@ -235,20 +252,48 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void ItemGrid_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            LoadItems();            
+            LoadItems();
         }
         protected void CustGrid_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
             LoadCustomers("");
         }
 
+        protected void ItemGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ItemGrid.SelectedItems.Count > 0)
+            {
+                GridDataItem selectedItem = (GridDataItem)ItemGrid.SelectedItems[0];
+                string prd_ID = selectedItem.GetDataKeyValue("prd_ID").ToString();
+                Session["SelectedPrdID"] = prd_ID;
+                Session["SelectedCusID"] = null;
 
+                LoadCustomers(prd_ID);
+                CustGrid.Rebind();
+
+                LoadInvoices("", prd_ID);
+                InvoiceGrid.Rebind();
+
+            }
+        }
+        protected void CustGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CustGrid.SelectedItems.Count > 0)
+            {
+                GridDataItem selectedItem = (GridDataItem)CustGrid.SelectedItems[0];
+                string cus_ID = selectedItem.GetDataKeyValue("cus_ID").ToString();
+                string prd_ID = selectedItem["prd_ID"].Text.ToString();
+                Session["SelectedCusID"] = cus_ID;
+
+                LoadInvoices(cus_ID, prd_ID);
+                InvoiceGrid.Rebind();
+
+            }
+        }
         protected void ItemGrid_ItemCommand(object sender, GridCommandEventArgs e)
         {
             if (e.CommandName.Equals("ItemClick"))
             {
-
-
                 int itemIndex = System.Convert.ToInt32(e.CommandArgument);
                 GridDataItem item = ItemGrid.MasterTableView.Items[itemIndex] as GridDataItem;
 
@@ -267,7 +312,9 @@ namespace SalesForceAutomation.BO_Digits.en
 
                     LoadCustomers(prd_ID);
                     CustGrid.Rebind();
-                   
+
+                    LoadInvoices("", prd_ID);
+                    InvoiceGrid.Rebind();
                 }
 
             }
@@ -287,7 +334,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 string cus_ID = item.GetDataKeyValue("cus_ID").ToString();
                 string cus_csh_ID = item["cus_csh_ID"].Text.ToString();
-                Session["SelectedCusID"] = cus_ID;             
+                Session["SelectedCusID"] = cus_ID;
 
             }
         }
@@ -295,58 +342,407 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void InvoiceGrid_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-
+            LoadInvoices("", "");
         }
 
         protected void InvoiceGrid_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
 
-        }       
-        protected void InvoiceReset_Click(object sender, ImageClickEventArgs e)
-        {
-
         }
-
+        
         protected void OutletReset_Click(object sender, ImageClickEventArgs e)
         {
+            CustGrid.SelectedIndexes.Clear();
+            InvoiceGrid.SelectedIndexes.Clear();
 
+            Session["SelectedCusID"] = null;
+            string prd_ID = Session["SelectedPrdID"].ToString();            
+
+            LoadCustomers(prd_ID);
+            CustGrid.Rebind();
+
+            LoadInvoices("", prd_ID);
+            InvoiceGrid.Rebind();
         }
 
         protected void ItemReset_Click(object sender, ImageClickEventArgs e)
         {
+            ItemGrid.SelectedIndexes.Clear();
+            CustGrid.SelectedIndexes.Clear();
+            InvoiceGrid.SelectedIndexes.Clear();
 
+            Session["SelectedPrdID"] = null;
+            Session["SelectedCusID"] = null;            
+
+            LoadItems();
+            ItemGrid.Rebind();
+
+            LoadCustomers("");
+            CustGrid.Rebind();
+
+            LoadInvoices("","");
+            InvoiceGrid.Rebind();
         }
 
-        protected void ItemGrid_SelectedIndexChanged(object sender, EventArgs e)
+        protected void OutletExcel_Click(object sender, ImageClickEventArgs e)
         {
-            if (ItemGrid.SelectedItems.Count > 0)
+            DataTable dt = new DataTable();
+            int columncount = 0;
+            foreach (GridColumn column in CustGrid.MasterTableView.Columns)
             {
-                GridDataItem selectedItem = (GridDataItem)ItemGrid.SelectedItems[0];
-                string prd_ID = selectedItem.GetDataKeyValue("prd_ID").ToString();
-                Session["SelectedPrdID"] = prd_ID;
-                Session["SelectedCusID"] = null;
+                if (!string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText)
+                    && !column.HeaderText.Equals("Detail") && !column.HeaderText.Equals("Image"))
+                {
+                    if (column.Display == true)
+                    {
+                        columncount++;
+                        dt.Columns.Add(column.HeaderText.Replace("<br>", " "), typeof(string));
+                    }
+                }
+            }
+            foreach (GridDataItem item in CustGrid.MasterTableView.Items)
+            {
+                if (item.Visible)
+                {
+                    DataRow dr = dt.NewRow();
+                    int j = 0;
+                    for (int i = 0; i < CustGrid.MasterTableView.Columns.Count; i++)
+                    {
+                        if (CustGrid.MasterTableView.Columns[i].Display == true)
+                        {
+                            if (!item[CustGrid.MasterTableView.Columns[i].UniqueName].Text.Contains("Detail")
+                                && !CustGrid.MasterTableView.Columns[i].HeaderText.Equals("Image"))
+                            {
+                                dr[j] = !item[CustGrid.MasterTableView.Columns[i].UniqueName].Text.Contains("&nbsp;")
+                                    ? item[CustGrid.MasterTableView.Columns[i].UniqueName].Text
+                                    : " ";
+                                j++;
+                            }
+                        }
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            SpreadStreamProcessingForXLSXAndCSVOutlet(dt);
+        }
 
-                string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
-                string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+        protected void InvoiceExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            foreach (GridColumn column in InvoiceGrid.MasterTableView.Columns)
+            {
+                if (!string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText)
+                    && !column.HeaderText.Equals("Detail") && !column.HeaderText.Equals("Image"))
+                {
+                    if (column.Display)
+                    {
+                        dt.Columns.Add(column.HeaderText.Replace("<br>", " "), typeof(string));
+                    }
+                }
+            }
 
-                LoadCustomers(prd_ID);
-                CustGrid.Rebind();
-               
+            foreach (GridDataItem item in InvoiceGrid.MasterTableView.Items)
+            {
+                if (item.Visible) 
+                {
+                    DataRow dr = dt.NewRow();
+                    int j = 0;
+                    for (int i = 0; i < InvoiceGrid.MasterTableView.Columns.Count; i++)
+                    {
+                        if (InvoiceGrid.MasterTableView.Columns[i].Display)
+                        {
+                            if (!item[InvoiceGrid.MasterTableView.Columns[i].UniqueName].Text.Contains("Detail")
+                                && !InvoiceGrid.MasterTableView.Columns[i].HeaderText.Equals("Image"))
+                            {
+                                dr[j] = !item[InvoiceGrid.MasterTableView.Columns[i].UniqueName].Text.Contains("&nbsp;")
+                                    ? item[InvoiceGrid.MasterTableView.Columns[i].UniqueName].Text
+                                    : " ";
+                                j++;
+                            }
+                        }
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            SpreadStreamProcessingForXLSXAndCSVInvoice(dt);
+        }
+
+        protected void ItemExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            foreach (GridColumn column in ItemGrid.MasterTableView.Columns)
+            {
+                if (!string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText)
+                    && !column.HeaderText.Equals("Detail") && !column.HeaderText.Equals("Image"))
+                {
+                    if (column.Display)
+                    {
+                        dt.Columns.Add(column.HeaderText.Replace("<br>", " "), typeof(string));
+                    }
+                }
+            }
+
+            foreach (GridDataItem item in ItemGrid.MasterTableView.Items)
+            {
+                if (item.Visible) 
+                {
+                    DataRow dr = dt.NewRow();
+                    int j = 0;
+                    for (int i = 0; i < ItemGrid.MasterTableView.Columns.Count; i++)
+                    {
+                        if (ItemGrid.MasterTableView.Columns[i].Display)
+                        {
+                            if (!item[ItemGrid.MasterTableView.Columns[i].UniqueName].Text.Contains("Detail")
+                                && !ItemGrid.MasterTableView.Columns[i].HeaderText.Equals("Image"))
+                            {
+                                dr[j] = !item[ItemGrid.MasterTableView.Columns[i].UniqueName].Text.Contains("&nbsp;")
+                                    ? item[ItemGrid.MasterTableView.Columns[i].UniqueName].Text
+                                    : " ";
+                                j++;
+                            }
+                        }
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            SpreadStreamProcessingForXLSXAndCSV(dt);
+        }
+
+        private void SpreadStreamProcessingForXLSXAndCSV(DataTable dt, SpreadDocumentFormat docFormat = SpreadDocumentFormat.Xlsx, string sheetName = "Sheet1")
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (IWorkbookExporter workbook = SpreadExporter.CreateWorkbookExporter(docFormat, stream))
+                {
+                    using (IWorksheetExporter worksheetExporter = workbook.CreateWorksheetExporter(sheetName))
+                    {
+                        // Exporting the header
+                        for (int i = 0; i < dt.Columns.Count; i++)
+                        {
+                            using (IColumnExporter columnExporter = worksheetExporter.CreateColumnExporter())
+                            {
+                                columnExporter.SetWidthInPixels(100);
+                            }
+                        }
+                        ExportHeaderRows(worksheetExporter, dt);
+
+                        // Exporting the data
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+                            {
+                                foreach (var item in row.ItemArray)
+                                {
+                                    SpreadCellFormat normalFormat = new SpreadCellFormat
+                                    {
+                                        FontSize = 10,
+                                        VerticalAlignment = SpreadVerticalAlignment.Center,
+                                        HorizontalAlignment = SpreadHorizontalAlignment.Center
+                                    };
+                                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                                    {
+                                        cellExporter.SetValue(item.ToString());
+                                        cellExporter.SetFormat(normalFormat);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Sending the file for download
+                byte[] output = stream.ToArray();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Items.xlsx");
+                Response.BinaryWrite(output);
+                Response.Flush();
+                Response.SuppressContent = true;
+                HttpContext.Current.ApplicationInstance.CompleteRequest();  // Avoid using Response.End()
             }
         }
-
-        protected void CustGrid_SelectedIndexChanged(object sender, EventArgs e)
+        private void ExportHeaderRows(IWorksheetExporter worksheetExporter, DataTable dt)
         {
-            if (CustGrid.SelectedItems.Count > 0)
+            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
             {
-                GridDataItem selectedItem = (GridDataItem)CustGrid.SelectedItems[0];
-                string cus_ID = selectedItem.GetDataKeyValue("cus_ID").ToString();
-                string prd_ID = selectedItem["prd_ID"].Text.ToString();
-                Session["SelectedCusID"] = cus_ID;
+                double HeaderRowHeight = 30;
+                rowExporter.SetHeightInPoints(HeaderRowHeight);
 
-                string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
-                string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                SpreadCellFormat format = new SpreadCellFormat
+                {
+                    IsBold = true,
+                    Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(128, 128, 128)),
+                    ForeColor = new SpreadThemableColor(new SpreadColor(255, 255, 255)),
+                    HorizontalAlignment = SpreadHorizontalAlignment.Center,
+                    VerticalAlignment = SpreadVerticalAlignment.Center
+                };
 
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                    {
+                        cellExporter.SetFormat(format);
+                        cellExporter.SetValue(dt.Columns[i].ColumnName);
+                    }
+                }
+            }
+        }
+        private void SpreadStreamProcessingForXLSXAndCSVOutlet(DataTable dt, SpreadDocumentFormat docFormat = SpreadDocumentFormat.Xlsx, string sheetName = "Sheet1")
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (IWorkbookExporter workbook = SpreadExporter.CreateWorkbookExporter(docFormat, stream))
+                {
+                    using (IWorksheetExporter worksheetExporter = workbook.CreateWorksheetExporter(sheetName))
+                    {
+                        // Exporting the header
+                        for (int i = 0; i < dt.Columns.Count; i++)
+                        {
+                            using (IColumnExporter columnExporter = worksheetExporter.CreateColumnExporter())
+                            {
+                                columnExporter.SetWidthInPixels(100);
+                            }
+                        }
+                        ExportHeaderRowsOutlet(worksheetExporter, dt);
+
+                        // Exporting the data
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+                            {
+                                foreach (var item in row.ItemArray)
+                                {
+                                    SpreadCellFormat normalFormat = new SpreadCellFormat
+                                    {
+                                        FontSize = 10,
+                                        VerticalAlignment = SpreadVerticalAlignment.Center,
+                                        HorizontalAlignment = SpreadHorizontalAlignment.Center
+                                    };
+                                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                                    {
+                                        cellExporter.SetValue(item.ToString());
+                                        cellExporter.SetFormat(normalFormat);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Sending the file for download
+                byte[] output = stream.ToArray();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Item-Wise Outlets.xlsx");
+                Response.BinaryWrite(output);
+                Response.Flush();
+                Response.SuppressContent = true;
+                HttpContext.Current.ApplicationInstance.CompleteRequest();  // Avoid using Response.End()
+            }
+        }
+        private void ExportHeaderRowsOutlet(IWorksheetExporter worksheetExporter, DataTable dt)
+        {
+            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+            {
+                double HeaderRowHeight = 30;
+                rowExporter.SetHeightInPoints(HeaderRowHeight);
+
+                SpreadCellFormat format = new SpreadCellFormat
+                {
+                    IsBold = true,
+                    Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(128, 128, 128)),
+                    ForeColor = new SpreadThemableColor(new SpreadColor(255, 255, 255)),
+                    HorizontalAlignment = SpreadHorizontalAlignment.Center,
+                    VerticalAlignment = SpreadVerticalAlignment.Center
+                };
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                    {
+                        cellExporter.SetFormat(format);
+                        cellExporter.SetValue(dt.Columns[i].ColumnName);
+                    }
+                }
+            }
+        }
+        private void SpreadStreamProcessingForXLSXAndCSVInvoice(DataTable dt, SpreadDocumentFormat docFormat = SpreadDocumentFormat.Xlsx, string sheetName = "Sheet1")
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (IWorkbookExporter workbook = SpreadExporter.CreateWorkbookExporter(docFormat, stream))
+                {
+                    using (IWorksheetExporter worksheetExporter = workbook.CreateWorksheetExporter(sheetName))
+                    {
+                        // Exporting the header
+                        for (int i = 0; i < dt.Columns.Count; i++)
+                        {
+                            using (IColumnExporter columnExporter = worksheetExporter.CreateColumnExporter())
+                            {
+                                columnExporter.SetWidthInPixels(100);
+                            }
+                        }
+                        ExportHeaderRowsInvoice(worksheetExporter, dt);
+
+                        // Exporting the data
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+                            {
+                                foreach (var item in row.ItemArray)
+                                {
+                                    SpreadCellFormat normalFormat = new SpreadCellFormat
+                                    {
+                                        FontSize = 10,
+                                        VerticalAlignment = SpreadVerticalAlignment.Center,
+                                        HorizontalAlignment = SpreadHorizontalAlignment.Center
+                                    };
+                                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                                    {
+                                        cellExporter.SetValue(item.ToString());
+                                        cellExporter.SetFormat(normalFormat);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Sending the file for download
+                byte[] output = stream.ToArray();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Item-Wise Invoices.xlsx");
+                Response.BinaryWrite(output);
+                Response.Flush();
+                Response.SuppressContent = true;
+                HttpContext.Current.ApplicationInstance.CompleteRequest();  // Avoid using Response.End()
+            }
+        }
+        private void ExportHeaderRowsInvoice(IWorksheetExporter worksheetExporter, DataTable dt)
+        {
+            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+            {
+                double HeaderRowHeight = 30;
+                rowExporter.SetHeightInPoints(HeaderRowHeight);
+
+                SpreadCellFormat format = new SpreadCellFormat
+                {
+                    IsBold = true,
+                    Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(128, 128, 128)),
+                    ForeColor = new SpreadThemableColor(new SpreadColor(255, 255, 255)),
+                    HorizontalAlignment = SpreadHorizontalAlignment.Center,
+                    VerticalAlignment = SpreadVerticalAlignment.Center
+                };
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                    {
+                        cellExporter.SetFormat(format);
+                        cellExporter.SetValue(dt.Columns[i].ColumnName);
+                    }
+                }
             }
         }
     }
