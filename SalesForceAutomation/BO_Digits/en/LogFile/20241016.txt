@@ -1,0 +1,32 @@
+16-10-2024 10:26:28: General Functions  :- sp_ItemwiseDashboardError : The name ' SELECT prd_ID, prd_Code, prd_Name, cus_ID,cus_Code,cus_Name,  CAST(SUM([Qty]) AS INT) AS TotalQty,
+	dbo.CurrencyFormat(SUM(CAST([Sales] AS DECIMAL(18, 2)))) AS TotalSales  
+	FROM (	SELECT prd_ID, prd_Code,  prd_Name, cus_ID,cus_Code,cus_Name, COUNT(inv_InvoiceID) AS [InvoiceCount],  
+		CAST([dbo].[getItemTotalPcs](I.ind_itm_ID, I.ind_HigherUOM, I.ind_HigherQty, I.ind_LowerUOM, I.ind_LowerQty) AS INT) AS [Qty],  
+		CAST([dbo].[getItemPrice](sld_itm_ID, sld_HigherUOM, sld_HigherQty, sld_LowerUOM, sld_LowerQty) AS DECIMAL(18, 2)) AS [Sales] 
+		FROM  tb_InvoiceDetail I
+		INNER JOIN tb_invoiceHeader J ON J.inv_ID = I.ind_inv_ID 
+		IN' is not a valid identifier. - 
+16-10-2024 10:30:03: General Functions  :- sp_ItemwiseDashboardError : The name ' SELECT prd_ID, prd_Code, prd_Name, cus_ID,cus_Code,cus_Name,  CAST(SUM([Qty]) AS INT) AS TotalQty,
+	dbo.CurrencyFormat(SUM(CAST([Sales] AS DECIMAL(18, 2)))) AS TotalSales  
+	FROM (	SELECT prd_ID, prd_Code,  prd_Name, cus_ID,cus_Code,cus_Name, COUNT(inv_InvoiceID) AS [InvoiceCount],  
+		CAST([dbo].[getItemTotalPcs](I.ind_itm_ID, I.ind_HigherUOM, I.ind_HigherQty, I.ind_LowerUOM, I.ind_LowerQty) AS INT) AS [Qty],  
+		CAST([dbo].[getItemPrice](sld_itm_ID, sld_HigherUOM, sld_HigherQty, sld_LowerUOM, sld_LowerQty) AS DECIMAL(18, 2)) AS [Sales] 
+		FROM  tb_InvoiceDetail I
+		INNER JOIN tb_invoiceHeader J ON J.inv_ID = I.ind_inv_ID 
+		IN' is not a valid identifier. - 
+16-10-2024 10:30:05: General Functions  :- sp_ItemwiseDashboardError : The name ' SELECT prd_ID, prd_Code, prd_Name, cus_ID,cus_Code,cus_Name,  CAST(SUM([Qty]) AS INT) AS TotalQty,
+	dbo.CurrencyFormat(SUM(CAST([Sales] AS DECIMAL(18, 2)))) AS TotalSales  
+	FROM (	SELECT prd_ID, prd_Code,  prd_Name, cus_ID,cus_Code,cus_Name, COUNT(inv_InvoiceID) AS [InvoiceCount],  
+		CAST([dbo].[getItemTotalPcs](I.ind_itm_ID, I.ind_HigherUOM, I.ind_HigherQty, I.ind_LowerUOM, I.ind_LowerQty) AS INT) AS [Qty],  
+		CAST([dbo].[getItemPrice](sld_itm_ID, sld_HigherUOM, sld_HigherQty, sld_LowerUOM, sld_LowerQty) AS DECIMAL(18, 2)) AS [Sales] 
+		FROM  tb_InvoiceDetail I
+		INNER JOIN tb_invoiceHeader J ON J.inv_ID = I.ind_inv_ID 
+		IN' is not a valid identifier. - 
+16-10-2024 10:38:43: General Functions  :- sp_ItemwiseDashboardError : The name ' SELECT prd_ID, prd_Code, prd_Name, cus_ID,cus_Code,cus_Name,  CAST(SUM([Qty]) AS INT) AS TotalQty,
+	dbo.CurrencyFormat(SUM(CAST([Sales] AS DECIMAL(18, 2)))) AS TotalSales  
+	FROM (	SELECT prd_ID, prd_Code,  prd_Name, cus_ID,cus_Code,cus_Name, COUNT(inv_InvoiceID) AS [InvoiceCount],  
+		CAST([dbo].[getItemTotalPcs](I.ind_itm_ID, I.ind_HigherUOM, I.ind_HigherQty, I.ind_LowerUOM, I.ind_LowerQty) AS INT) AS [Qty],  
+		CAST([dbo].[getItemPrice](sld_itm_ID, sld_HigherUOM, sld_HigherQty, sld_LowerUOM, sld_LowerQty) AS DECIMAL(18, 2)) AS [Sales] 
+		FROM  tb_InvoiceDetail I
+		INNER JOIN tb_invoiceHeader J ON J.inv_ID = I.ind_inv_ID 
+		IN' is not a valid identifier. - 

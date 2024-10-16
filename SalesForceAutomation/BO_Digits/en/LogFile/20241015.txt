@@ -1,0 +1,22 @@
+15-10-2024 15:42:00: General Functions  :- sp_ExcelReportError : Invalid column name 'ld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'. - 
+15-10-2024 15:42:34: General Functions  :- sp_ExcelReportError : Invalid column name 'ld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'.
+Invalid column name 'sld_TransType'. - 
