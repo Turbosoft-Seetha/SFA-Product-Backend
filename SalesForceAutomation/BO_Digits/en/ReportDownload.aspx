@@ -583,7 +583,7 @@
             <%--<div>
                 <asp:Label ID="lblSchVisNoTrans" runat="server" CssClass="text-white fw-bold fs-2 mb-2 mt-5" Text="0"></asp:Label>
             </div>--%>
-            <div class="text-white fw-bold fs-2 mb-2">Item-Wise Summary<br />Report</div>
+            <div class="text-white fw-bold fs-2 mb-2">Daily Summary<br />Report</div>
             <div class="fw-semibold text-white">Click here to download report</div>
         </div>
         <!--end::Body-->
