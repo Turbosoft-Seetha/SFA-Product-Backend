@@ -29,6 +29,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     ViewState["ItemGrid"] = null;
                     ViewState["CustomerGrid"] = null;
+                    ViewState["InvoiceGrid"] = null;
 
                     lnkToday.Attributes.Add("Style", "background-color:#dae9f8; color:#60acf9");
 
@@ -62,6 +63,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                     LoadCustomers("");
                     CustGrid.Rebind();
+
                 }
                 catch (Exception ex)
                 {
@@ -110,6 +112,25 @@ namespace SalesForceAutomation.BO_Digits.en
 
         }
 
+        public void LoadInvoices(string cus_ID = "", string itm_ID = "")
+        {
+            DataTable lstItem = default(DataTable);
+            string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            string[] arr = { fromDate.ToString(), ToDate.ToString(), itm_ID.ToString() };
+
+            lstItem = ObjclsFrms.loadList("ListInvoices", "sp_ItemwiseDashboard", cus_ID, arr);
+            if (lstItem.Rows.Count > 0)
+            {
+                CustGrid.DataSource = lstItem;
+                ViewState["InvoiceGrid"] = lstItem;
+            }
+            else
+            {
+                CustGrid.DataSource = new DataTable();
+            }
+
+        }
         protected void lnkFilter_Click(object sender, EventArgs e)
         {
             lnkToday.Attributes.Remove("Style");
@@ -296,5 +317,37 @@ namespace SalesForceAutomation.BO_Digits.en
 
         }
 
+        protected void ItemGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ItemGrid.SelectedItems.Count > 0)
+            {
+                GridDataItem selectedItem = (GridDataItem)ItemGrid.SelectedItems[0];
+                string prd_ID = selectedItem.GetDataKeyValue("prd_ID").ToString();
+                Session["SelectedPrdID"] = prd_ID;
+                Session["SelectedCusID"] = null;
+
+                string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+
+                LoadCustomers(prd_ID);
+                CustGrid.Rebind();
+               
+            }
+        }
+
+        protected void CustGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CustGrid.SelectedItems.Count > 0)
+            {
+                GridDataItem selectedItem = (GridDataItem)CustGrid.SelectedItems[0];
+                string cus_ID = selectedItem.GetDataKeyValue("cus_ID").ToString();
+                string prd_ID = selectedItem["prd_ID"].Text.ToString();
+                Session["SelectedCusID"] = cus_ID;
+
+                string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+                string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+
+            }
+        }
     }
 }
