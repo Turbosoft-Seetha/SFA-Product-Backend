@@ -68,23 +68,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 if (!Page.IsPostBack)
                 {
                     Route();
-                    if (ViewState["coupen"].ToString().Equals("Y"))
-                    {
-                           pnlcoupen.Visible = true;
-                    }
-                    else
-                    {
-                        pnlcoupen.Visible = false;
-                    }
-                    if (ViewState["pettycash"].ToString().Equals("Y"))
-                    {
-                        btnpettycash.Enabled = true;
-                    }
-                    else
-                    {
-                        btnpettycash.Enabled = false;
-                    }
-
                     TotalVariance();
                     try
                     {
@@ -228,15 +211,10 @@ namespace SalesForceAutomation.BO_Digits.en
             string route = dtRoute.Rows[0]["rot_Name"].ToString();
             string settlementFrom= dtRoute.Rows[0]["rot_SettlementFrom"].ToString();
             string varlimit= dtRoute.Rows[0]["rot_SetlmntVarLimit"].ToString();
-            string coupen = dtRoute.Rows[0]["rot_EnableCoupon"].ToString();
-            string pettycash = dtRoute.Rows[0]["rot_EnablePettyCash"].ToString();
-
             lblvarlimit.Text = varlimit;
             lblRoute.Text = route.ToString();
             ViewState["settlmntFrom"] = settlementFrom.ToString(); 
             ViewState["VarLimit"]=varlimit.ToString();
-            ViewState["coupen"] = coupen.ToString();
-            ViewState["pettycash"] = pettycash.ToString();
             if (settlementFrom.ToString()=="A")
             {
                 lblsettlementInfo.Text = "(Settlement From App)";

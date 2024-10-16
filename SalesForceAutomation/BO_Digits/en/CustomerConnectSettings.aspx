@@ -31,13 +31,6 @@
             $('#kt_modal_1_9').modal('hide');
             $('#success').text(b);
         }
-        function Succcess(a) {           
-            $('#kt_modal_1_4').modal('show');
-            $('#kt_modal_1_5').modal('hide');
-            $('#kt_modal_1_6').modal('hide');
-            $('#kt_modal_1_9').modal('hide');
-            $('#Profilesuccess').text(a);
-        }
 
     </script>
 </asp:Content>
@@ -61,7 +54,7 @@
                                             Filter="Contains" CheckBoxes="true" EnableCheckAllItemsCheckBox="true" AutoPostBack="true" OnSelectedIndexChanged="ddlParNode_SelectedIndexChanged">
                                         </telerik:RadComboBox>
                                         <br />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="form"
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="form" 
                                             ControlToValidate="ddlParNode" ErrorMessage="Please Select Parent Node" ForeColor="Red" Display="Dynamic"
                                             SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
@@ -78,7 +71,7 @@
                                             SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
-
+                               
                                 <div class="col-lg-2" style="top: 10px; text-align: center; padding-top: 15px; width: auto;">
                                     <asp:LinkButton ID="Add" runat="server" CssClass="btn btn-sm fw-bold btn-success" OnClick="Add_Click" RenderMode="Lightweight">Add
                                     </asp:LinkButton>
@@ -87,40 +80,10 @@
                                 <div class="col-lg-2" style="top: 10px; text-align: center; padding-top: 15px; width: auto;">
                                     <asp:LinkButton ID="Remove" runat="server" CssClass="btn btn-sm fw-bold btn-danger" Text="Remove" OnClick="Remove_Click">
                                     </asp:LinkButton>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-12 row form-group mb-4 pt-7">
-                                <div class="col-lg-3">
-                                    <label class="control-label col-lg-12">Settings Profile<span class="required"></span></label>
-                                    <div class="col-lg-12">
-                                        <div style="display: flex; align-items: center; position: relative;">
-                                            <telerik:RadDropDownList ID="rdProfile" runat="server" CausesValidation="false" Width="100%" Filter="Contains" RenderMode="Lightweight"
-                                                OnSelectedIndexChanged="rdProfile_SelectedIndexChanged" AutoPostBack="true">
-                                                <Items>
-                                                    <telerik:DropDownListItem Text="Select Profile" Value="0" Selected="true" />
-                                                </Items>
-                                            </telerik:RadDropDownList>
-                                            <asp:LinkButton ID="ApplyProfile" runat="server"
-                                                Text="Apply" CssClass="btn btn-sm fw-bold btn-secondary"
-                                                CausesValidation="false" OnClick="ApplyProfile_Click" ValidationGroup="addcus"
-                                                Style="margin-left: 10px; height: 30px; padding: 5px 10px; line-height: 20px;" RenderMode="Lightweight" />
-
-                                            <!-- Loader Element -->
-                                            <div id="loader" style="display: none; position: absolute; right: 0;">
-                                                <img src="../assets/media/icons/loader.gif" alt="Loading..." style="height: 30px;" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 form-group mb-4 pt-7">
-                                    <asp:LinkButton ID="lblPage" runat="server" OnClick="lblPage_Click" CssClass="control-label col-lg-12" Visible="false">
-                                    </asp:LinkButton>
+                                   
                                 </div>
                             </div>
                         </div>
-
-
                         <div style="padding: 20px;">
 
                             <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Material" />
@@ -263,23 +226,6 @@
      </div>
  </div>
  <!--end::ValidationModal-->
-     <!--begin::SuccessModal-->
- <div class="modal fade" id="kt_modal_1_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="height:auto;">
-     <div class="modal-dialog" role="document">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title">Success</h5>
-             </div>
-             <div class="modal-body">
-                 <span id="Profilesuccess"></span>
-             </div>
-             <div class="modal-footer">
-                 <asp:LinkButton ID="btnOK" runat="server" OnClick="btnOK_Click" CssClass="btn btn-sm fw-bold btn-secondary">OK</asp:LinkButton>
-             </div>
-         </div>
-     </div>
- </div>
- <!--end::SuccessModal-->
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="footerScripts" runat="server">

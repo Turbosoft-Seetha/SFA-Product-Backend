@@ -1302,7 +1302,7 @@
                                                                         <asp:Label ID="lblsuc" Style="font-family: 'Segoe UI'; color: green;" runat="server"></asp:Label>
                                                                     </div>
                                                                 </div>
-                                                                 <asp:Panel ID="pnlcoupen" runat="server">
+                                                                 
                                                                 <div class="col-lg-12 row" style="padding-top: 20px; padding-bottom: 20px; border-bottom: 1px solid darkgrey;">
      <div class="col-lg-5">
          <div class="col-lg-12 row" style="padding-left: 0px;">
@@ -1345,7 +1345,6 @@
  </div>
 
  </div>
-        </asp:Panel>
                                                                 <div class="col-lg-12 row" style="padding-top: 20px; padding-bottom: 20px;">
                                                                     <div class="col-lg-6">
                                                                         <div class="col-lg-12 row" style="padding-left: 0px;">

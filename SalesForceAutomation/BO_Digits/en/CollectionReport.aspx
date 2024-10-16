@@ -19,7 +19,7 @@
                    
                     <div class="kt-form kt-form--label-right">
                         <div class="kt-portlet__body">
-                            <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                           <%-- <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">--%>
                                   
                                 <div class=" col-lg-12 row" style=" padding-bottom:10px;">
 
@@ -66,14 +66,29 @@
             <div class="col-lg-6">
                 <!--begin::Portlet-->
                 <div class="kt-portlet">
-                     <div class="kt-portlet__head" style="margin-bottom:20px;">
+                     <%--<div class="kt-portlet__head" style="margin-bottom:20px;">
                         <div class="kt-portlet__head-label">
                             <h6 class="kt-portlet__head-title"><asp:Literal ID="Literal1" Text="Invoice" runat="server"></asp:Literal> 
                             </h6>
                         </div>
-                      
+                         
                     </div>
-                   
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="../assets/media/icons/excel.png" Style="height: 50px;" ToolTip="Download Grid 1" OnClick="ImageButton1_Click" AlternateText="Xlsx" />--%>
+
+                    <div class="kt-portlet__head" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="kt-portlet__head-label">
+                            <h6 class="kt-portlet__head-title">
+                                <asp:Literal ID="Literal5" Text="Invoice" runat="server"></asp:Literal>
+                            </h6>
+                        </div>
+                        <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="../assets/media/icons/excel.png"
+                            Style="height: 50px;" ToolTip="Download Invoice" OnClick="ImageButton1_Click" AlternateText="Xlsx" />
+                    </div>
+                    
+                    
+                    
+                    
+                    
                     <!--end: Search Form -->
                     <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
                     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
@@ -104,7 +119,7 @@
                                         HeaderStyle-Font-Bold="true" UniqueName="rot_code">
                                     </telerik:GridBoundColumn>
 
-                                    <telerik:GridBoundColumn DataField="Inv_InvoiceID" AllowFiltering="true" HeaderStyle-Width="100px"
+                                    <telerik:GridBoundColumn DataField="Inv_InvoiceID" AllowFiltering="true" HeaderStyle-Width="150px"
                                         HeaderStyle-Font-Size="Smaller" HeaderText="Invoice ID" FilterControlWidth="100%"
                                         CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                         HeaderStyle-Font-Bold="true" UniqueName="Inv_InvoiceID">
@@ -149,14 +164,26 @@
               <div class="col-lg-6">
                 <!--begin::Portlet-->
                 <div class="kt-portlet">
-                     <div class="kt-portlet__head" style="margin-bottom:20px;">
+<%--                     <div class="kt-portlet__head" style="margin-bottom:20px;">
                         <div class="kt-portlet__head-label">
                             <h6 class="kt-portlet__head-title"><asp:Literal ID="Literal3" Text="Account Receivable" runat="server"></asp:Literal> 
                             </h6>
                         </div>
                       
                     </div>
-                   
+                   <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="../assets/media/icons/excel.png" Style="height: 50px;" ToolTip="Download Grid 1" OnClick="ImageButton2_Click" AlternateText="Xlsx" />--%>
+                    <div class="kt-portlet__head" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="kt-portlet__head-label">
+                            <h6 class="kt-portlet__head-title">
+                                <asp:Literal ID="Literal3" Text="Account Receivable" runat="server"></asp:Literal>
+                            </h6>
+                        </div>
+                        <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="../assets/media/icons/excel.png"
+                            Style="height: 50px;" ToolTip="Download AR" OnClick="ImageButton2_Click" AlternateText="Xlsx" />
+                    </div>
+                    
+                    
+                    
                     <!--end: Search Form -->
                     <telerik:RadAjaxPanel ID="RadAjaxPanel3" runat="server" LoadingPanelID="RadAjaxLoadingPanel3">
                     <asp:Literal ID="Literal4" runat="server"></asp:Literal>
@@ -191,7 +218,7 @@
                                         HeaderStyle-Font-Bold="true" UniqueName="rot_code">
                                     </telerik:GridBoundColumn>
 
-                                    <telerik:GridBoundColumn DataField="arh_ARNumber" AllowFiltering="true" HeaderStyle-Width="100px"
+                                    <telerik:GridBoundColumn DataField="arh_ARNumber" AllowFiltering="true" HeaderStyle-Width="150px"
                                         HeaderStyle-Font-Size="Smaller" HeaderText="AR Number" FilterControlWidth="100%"
                                         CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                         HeaderStyle-Font-Bold="true" UniqueName="arh_ARNumber">
@@ -213,6 +240,16 @@
                                         CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                         HeaderStyle-Font-Bold="true" UniqueName="InvoiceID">
                                     </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="arh_PayMode" AllowFiltering="true" HeaderStyle-Width="100px"
+                                        HeaderStyle-Font-Size="Smaller" HeaderText="Pay Mode" FilterControlWidth="100%"
+                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                        HeaderStyle-Font-Bold="true" UniqueName="arh_PayMode">
+                                    </telerik:GridBoundColumn>
+                                    <telerik:GridBoundColumn DataField="arh_PayType" AllowFiltering="true" HeaderStyle-Width="100px"
+                                        HeaderStyle-Font-Size="Smaller" HeaderText="Pay Type" FilterControlWidth="100%"
+                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                        HeaderStyle-Font-Bold="true" UniqueName="arh_PayType">
+                                    </telerik:GridBoundColumn>
                                    
                                 </Columns>
                             </MasterTableView>
@@ -225,26 +262,29 @@
                         </telerik:RadGrid>
                     </div>
                     </telerik:RadAjaxPanel>
-                        <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel3" EnableEmbeddedSkins="false"
+                        <%--<telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel3" EnableEmbeddedSkins="false"
                             BackColor="Transparent"
                             ForeColor="Blue">
                             <div class="col-lg-12 text-center mt-5">
                                 <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
                             </div>
-                        </telerik:RadAjaxLoadingPanel>
+                        </telerik:RadAjaxLoadingPanel>--%>
                 </div>
             </div>
         </div>
-                            </telerik:RadAjaxPanel>
+                          <%--  </telerik:RadAjaxPanel>--%>
 
 
-                            <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel1" EnableEmbeddedSkins="false"
+                            
+                                
+                            <%--<telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel1" EnableEmbeddedSkins="false"
                                 BackColor="Transparent"
                                 ForeColor="Blue">
+
                                 <div class="col-lg-12 text-center mt-5">
                                     <img alt="Loading..." src="../assets/media/icons/loader.gif" style="border: 0px;" />
                                 </div>
-                            </telerik:RadAjaxLoadingPanel>
+                            </telerik:RadAjaxLoadingPanel>--%>
                         </div>
                     </div>
 

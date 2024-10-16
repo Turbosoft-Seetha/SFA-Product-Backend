@@ -70,10 +70,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     lnkConfirm.Visible = false;
                     grvRpt.MasterTableView.GetColumnSafe("btn").Visible = false;
                     radSelectAllApprove.Visible = false;
-                    grvRpt.MasterTableView.GetColumn("pcd_ApprovedHPrice").Display = true;
-                    grvRpt.MasterTableView.GetColumn("pcd_ApprovedLPrice").Display = true;
-                   
-                    
 
                 }
                 else
@@ -81,8 +77,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     lnkConfirm.Visible = true;
                     grvRpt.MasterTableView.GetColumnSafe("btn").Visible = true;
                     radSelectAllApprove.Visible = true;
-                    grvRpt.MasterTableView.GetColumn("pcd_ApprovedHPrice").Display = false;
-                    grvRpt.MasterTableView.GetColumn("pcd_ApprovedLPrice").Display = false;
                 }
 
 
@@ -393,21 +387,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                 }
 
-                if (dataItem["pcd_ApprovalStatus"].ToString ().Equals("A"))
-                {
-                    apprvdHigherprice.Enabled=false;
-                    apprvdLowerprice.Enabled=false;
-                }
-                else if (dataItem["pcd_ApprovalStatus"].ToString().Equals("R"))
-                {
-                    apprvdHigherprice.Enabled = false;
-                    apprvdLowerprice.Enabled = false;
-                }
-                else
-                {
-                    apprvdHigherprice.Enabled = true;
-                    apprvdLowerprice.Enabled = true;
-                }
+
 
 
 

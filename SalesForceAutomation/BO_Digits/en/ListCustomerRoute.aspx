@@ -44,6 +44,7 @@
 
      </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Actions" runat="server">
                             
        <asp:ImageButton ID="imgExcel" runat="server" ImageUrl="../assets/media/icons/excel.png" Height="50" ToolTip="Download" OnClick="imgExcel_Click" AlternateText="Xlsx" />
@@ -702,6 +703,11 @@
                                             HeaderStyle-Font-Size="Smaller" HeaderText="LPO Number Mandatory" FilterControlWidth="100%"
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rcs_LPONumberMand" Visible="true">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rcs_RestrictedRtnSingleItemInvoice" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Restricted Return Single Item invoice" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rcs_RestrictedRtnSingleItemInvoice" Visible="true">
                                         </telerik:GridBoundColumn>
 
                                     </Columns>

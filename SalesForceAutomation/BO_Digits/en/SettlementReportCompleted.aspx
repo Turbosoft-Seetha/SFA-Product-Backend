@@ -1105,7 +1105,6 @@
                                                                         </div>
                                                                     </div>
                                                                     </div>
-                                                                <asp:Panel ID="pnlcoupen" runat="server">
                                                                 <div class="col-lg-12 row" style="padding-top: 20px; padding-bottom: 20px;">
                                                                     <div class="col-lg-5">
                                                                         <div class="col-lg-12 row" style="padding-left: 0px;">
@@ -1148,7 +1147,6 @@
                                                                         </asp:LinkButton>
                                                                     </div>
                                                                 </div>
-                                                                </asp:Panel>
                                                                 <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="true"
                                                                     ID="grvPayment" GridLines="None"
                                                                     ShowFooter="True" AllowSorting="True"

@@ -563,35 +563,6 @@
            </telerik:RadAjaxPanel>
         </div>
 
-        <div class="col-xl-4">
-            <telerik:RadAjaxPanel ID="RadAjaxPanel16" runat="server" LoadingPanelID="RadAjaxLoadingPanel3">
-                <!--begin::Statistics Widget 5-->
-                <asp:LinkButton ID="ItemWise" runat="server" CssClass="card hoverable card-xl-stretch mb-xl-8" OnClick="ItemWise_Click" BackColor="#ff9999">
-        <!--begin::Body-->
-        <div class="card-body" style="background-image: url('../assets/media/icons/Icon-feather-download.svg'); background-repeat: no-repeat; text-align: right;">
-            <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
-           <%-- <span class="svg-icon svg-icon-white svg-icon-3x ms-n1" style="margin-right: -10px;">
-                <svg width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.0021 10.9128V3.01281C13.0021 2.41281 13.5021 1.91281 14.1021 2.01281C16.1021 2.21281 17.9021 3.11284 19.3021 4.61284C20.7021 6.01284 21.6021 7.91285 21.9021 9.81285C22.0021 10.4129 21.5021 10.9128 20.9021 10.9128H13.0021Z" fill="currentColor" />
-                    <path opacity="0.3" d="M11.0021 13.7128V4.91283C11.0021 4.31283 10.5021 3.81283 9.90208 3.91283C5.40208 4.51283 1.90209 8.41284 2.00209 13.1128C2.10209 18.0128 6.40208 22.0128 11.3021 21.9128C13.1021 21.8128 14.7021 21.3128 16.0021 20.4128C16.5021 20.1128 16.6021 19.3128 16.1021 18.9128L11.0021 13.7128Z" fill="currentColor" />
-                    <path opacity="0.3" d="M21.9021 14.0128C21.7021 15.6128 21.1021 17.1128 20.1021 18.4128C19.7021 18.9128 19.0021 18.9128 18.6021 18.5128L13.0021 12.9128H20.9021C21.5021 12.9128 22.0021 13.4128 21.9021 14.0128Z" fill="currentColor" />
-                </svg>
-                
-            </span>--%>
-            <h4 class="text-white fw-bold fs-1 mb-2">16</h4>
-            <!--end::Svg Icon-->
-            <%--<div>
-                <asp:Label ID="lblSchVisNoTrans" runat="server" CssClass="text-white fw-bold fs-2 mb-2 mt-5" Text="0"></asp:Label>
-            </div>--%>
-            <div class="text-white fw-bold fs-2 mb-2">Item-Wise Summary<br />Report</div>
-            <div class="fw-semibold text-white">Click here to download report</div>
-        </div>
-        <!--end::Body-->
-                </asp:LinkButton>
-                <!--end::Statistics Widget 5-->
-            </telerik:RadAjaxPanel>
-        </div>
-
     </div>
     <!--end::Row-->
 

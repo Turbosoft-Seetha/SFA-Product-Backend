@@ -78,33 +78,6 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.LinkButton Remove;
 
         /// <summary>
-        /// rdProfile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rdProfile;
-
-        /// <summary>
-        /// ApplyProfile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ApplyProfile;
-
-        /// <summary>
-        /// lblPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lblPage;
-
-        /// <summary>
         /// RadSkinManager1 control.
         /// </summary>
         /// <remarks>
@@ -157,14 +130,5 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel10;
-
-        /// <summary>
-        /// btnOK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnOK;
     }
 }

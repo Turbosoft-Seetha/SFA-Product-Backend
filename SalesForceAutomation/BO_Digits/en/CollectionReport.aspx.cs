@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProcessExcel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -518,6 +519,43 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 Response.Redirect("~/SignIn.aspx");
             }
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            string rotID = Rot();
+            string mainCondition = "";
+            mainCondition = mainConditions(rotID);
+            DataTable dt = new DataTable();
+            dt = ObjclsFrms.loadList("SelInvoiceforExcel", "sp_Masters", mainCondition);
+
+            BuildExcel excel = new BuildExcel();
+            byte[] output = excel.SpreadSheetProcess(dt, "Invoice");
+            Response.ContentType = ContentType;
+            Response.Headers.Remove("Content-Disposition");
+            Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}.{1}", "Invoice", "Xlsx"));
+            Response.BinaryWrite(output);
+            Response.End();
+
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            
+                string rotID = Rot();
+                string mainCondition = "";
+                mainCondition = mainConditions(rotID);
+                DataTable dt = new DataTable();
+                dt = ObjclsFrms.loadList("SelARforExcel", "sp_Masters", mainCondition);
+
+                BuildExcel excel = new BuildExcel();
+                byte[] output = excel.SpreadSheetProcess(dt, "Account Receivable");
+                Response.ContentType = ContentType;
+                Response.Headers.Remove("Content-Disposition");
+                Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}.{1}", "Account Receivable", "Xlsx"));
+                Response.BinaryWrite(output);
+                Response.End();
+           
         }
     }
 }

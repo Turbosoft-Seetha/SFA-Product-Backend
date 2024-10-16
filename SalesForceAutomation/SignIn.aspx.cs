@@ -173,9 +173,10 @@ namespace SalesForceAutomation
                         }
                         else
                         {
-                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/" + PageName;
+                            URLRoot = ConfigurationManager.AppSettings.Get("WebURL") + Session["lang"] + "/ChartDashboard.aspx";
                             Response.Redirect(URLRoot);
-                        }                       
+                        }
+                       
                     }
                 }
             }
