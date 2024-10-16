@@ -126,6 +126,24 @@ namespace SalesForceAutomation.BO_Digits.en
                 RadWizard1.ProgressBarPosition = (RadWizardProgressBarPosition)Enum.Parse(typeof(RadWizardProgressBarPosition), "Left");
                 RadWizard1.ActiveStepIndex = 6;
                 Route();
+
+                if (ViewState["coupen"].ToString().Equals("Y"))
+                {
+                    pnlcoupen.Visible = true;
+                }
+                else
+                {
+                    pnlcoupen.Visible = false;
+                }
+                if (ViewState["pettycash"].ToString().Equals("Y"))
+                {
+                    btnpettycash.Enabled = true;
+                }
+                else
+                {
+                    btnpettycash.Enabled = false;
+                }
+
                 HeaderData();
                 //LoadOutStatus();
                 AppComplitionStatus();
@@ -178,7 +196,11 @@ namespace SalesForceAutomation.BO_Digits.en
             DataTable dtRoute = ObjclsFrms.loadList("SelectRoute", "sp_Settlement", ResponseID.ToString());
             string route = dtRoute.Rows[0]["rot_Name"].ToString();
             lblRoute.Text = route.ToString();
-            lblvarlimit.Text= dtRoute.Rows[0]["rot_SetlmntVarLimit"].ToString(); 
+            lblvarlimit.Text= dtRoute.Rows[0]["rot_SetlmntVarLimit"].ToString();
+            string coupen = dtRoute.Rows[0]["rot_EnableCoupon"].ToString();
+            string pettycash = dtRoute.Rows[0]["rot_EnablePettyCash"].ToString();
+            ViewState["coupen"] = coupen.ToString();
+            ViewState["pettycash"] = pettycash.ToString();
         }
         //public void LoadOutStatus()
         //{

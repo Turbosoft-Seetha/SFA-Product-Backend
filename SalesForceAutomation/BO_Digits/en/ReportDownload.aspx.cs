@@ -2360,10 +2360,10 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 var reports = new List<(string sheetName, string dataQuery, string reportName)>
                     {
-                        ("Item-wise Sales Report", "GetItemWiseSalesReport", "(Item-wise Sales Report)"),
-                        ("Item-wise AR Report", "GetItemWiseARReport", "(Item-wise AR Report)"),
-                        ("Item-wise Order Report", "GetItemWiseOrderReport", "(Item-wise Order Report)"),
-                        ("Item-wise Van Load Report", "GetItemWiseVanLoadReport", "(Item-wise Van Load Report)")
+                        ("Sales Report", "GetItemWiseSalesReport", "(Sales Report)"),
+                        ("AR Report", "GetItemWiseARReport", "(AR Report)"),
+                        ("Order Report", "GetItemWiseOrderReport", "(Order Report)"),
+                        ("Van Load Report", "GetItemWiseVanLoadReport", "(Van Load Report)")
                     };
 
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;  

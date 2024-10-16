@@ -25,7 +25,6 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-
                 try
                 {
                     ViewState["ItemGrid"] = null;

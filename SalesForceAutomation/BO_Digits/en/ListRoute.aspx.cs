@@ -240,7 +240,6 @@ namespace SalesForceAutomation.BO_Digits.en
             public string IsStatusChange { get; set; }
         }
 
-
         public void LoadList()
         {
             DataTable lstUser = default(DataTable);
