@@ -1,0 +1,63 @@
+08-Oct-2024 16:14:19-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:14:19-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:14:19-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:14:19-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:16:07-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:16:07-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:16:07-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:16:07-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:44:34-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:44:34-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:44:35-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:44:35-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:45:03-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:45:03-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:45:03-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:45:03-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:45:29-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:45:29-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:45:29-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:45:29-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:45:54-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:45:54-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:45:55-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:45:55-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:46:18-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:46:18-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:46:19-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:46:19-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:46:39-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:46:39-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:46:39-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:46:39-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.
+08-Oct-2024 16:51:40-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master  , LicenseKey : lWnXQTujzOO+47+I+R2DwPGbRpUjc6YrKrHTXU0ajIU=
+08-Oct-2024 16:51:40-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Inside LicenseCounts()
+08-Oct-2024 16:51:40-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , Error: System.IndexOutOfRangeException: There is no row at position 0.
+   at System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   at System.Data.DataRowCollection.get_Item(Int32 index)
+   at SalesForceAutomation.BO_Digits.en.en_master.LicenseCounts(String LicenseKey, String Platform, String IsStatusChange) in C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\en_master.Master.cs:line 143
+08-Oct-2024 16:51:40-C:\Turbosoft\Product SFA Backend\SalesForceAutomation\BO_Digits\en\LogFile\20241008.txt en_master-1 , LicenseCounts() ends here.

@@ -16721,6 +16721,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\ListCompanies.aspx.cs">
       <DependentUpon>ListCompanies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\ListCompanies.aspx.designer.cs">
       <DependentUpon>ListCompanies.aspx</DependentUpon>
@@ -21337,6 +21338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\LogFile\" />
+    <Folder Include="bin\" />
     <Folder Include="BO_Digits\en\LogFile\" />
     <Folder Include="LogFile\" />
     <Folder Include="UploadFiles\CustomerActivity\" />

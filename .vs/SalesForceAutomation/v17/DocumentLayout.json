@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Turbosoft\\Product SFA Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SalesForceAutomation||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|c:\\turbosoft\\product sfa backend\\salesforceautomation\\bo_digits\\en\\addeditcusroute.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|solutionrelative:salesforceautomation\\bo_digits\\en\\addeditcusroute.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|C:\\Turbosoft\\Product SFA Backend\\salesforceautomation\\bo_digits\\en\\addloadin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|solutionrelative:salesforceautomation\\bo_digits\\en\\addloadin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|C:\\Turbosoft\\Product SFA Backend\\salesforceautomation\\bo_digits\\en\\addloadin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|solutionrelative:salesforceautomation\\bo_digits\\en\\addloadin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B600C89F-6A58-4A9F-844A-E224DBD4E1AD}|SalesForceAutomation\\SalesForceAutomation.csproj|c:\\turbosoft\\product sfa backend\\salesforceautomation\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SalesForceAutomation",
+              "DocumentMoniker": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\SalesForceAutomation.csproj",
+              "RelativeDocumentMoniker": "SalesForceAutomation\\SalesForceAutomation.csproj",
+              "ToolTip": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\SalesForceAutomation.csproj",
+              "RelativeToolTip": "SalesForceAutomation\\SalesForceAutomation.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-15T07:44:14.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddEditCusRoute.aspx.cs",
+              "DocumentMoniker": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\BO_Digits\\en\\AddEditCusRoute.aspx.cs",
+              "RelativeDocumentMoniker": "SalesForceAutomation\\BO_Digits\\en\\AddEditCusRoute.aspx.cs",
+              "ToolTip": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\BO_Digits\\en\\AddEditCusRoute.aspx.cs",
+              "RelativeToolTip": "SalesForceAutomation\\BO_Digits\\en\\AddEditCusRoute.aspx.cs",
+              "ViewState": "AgIAAP4DAAAAAAAAAAAawBYEAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T13:11:51.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddLoadIn.aspx.cs",
+              "DocumentMoniker": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx.cs",
+              "RelativeDocumentMoniker": "SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx.cs",
+              "ToolTip": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx.cs",
+              "RelativeToolTip": "SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwFUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T06:26:09.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddLoadIn.aspx",
+              "DocumentMoniker": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx",
+              "RelativeDocumentMoniker": "SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx",
+              "ToolTip": "C:\\Turbosoft\\Product SFA Backend\\SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx",
+              "RelativeToolTip": "SalesForceAutomation\\BO_Digits\\en\\AddLoadIn.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-11T06:26:05.384Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
