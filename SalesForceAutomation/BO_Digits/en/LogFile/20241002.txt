@@ -1,0 +1,27 @@
+02-10-2024 00:49:20: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'tb_Orders'. - 
+02-10-2024 00:49:45: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'tb_Orders'. - 
+02-10-2024 00:50:12: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'tb_Orders'. - 
+02-10-2024 00:50:46: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'tb_Orders'. - 
+02-10-2024 00:58:40: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+02-10-2024 00:58:41: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+02-10-2024 00:58:41: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'.
+Incorrect syntax near the keyword 'and'. - 
+02-10-2024 01:08:34: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ')'. - 
+02-10-2024 01:09:20: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ')'. - 
+02-10-2024 01:09:35: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ')'. - 
+02-10-2024 01:10:00: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ')'. - 
+02-10-2024 01:13:50: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'ord_cus_ID'. - 
+02-10-2024 01:14:08: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'ord_cus_ID'. - 
+02-10-2024 01:16:22: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'ord_cus_ID'. - 
+02-10-2024 01:24:30: General Functions  :- sp_ReportError : Incorrect syntax near 'A'.
+Incorrect syntax near 'A'.
+Incorrect syntax near 'A'. - 
+02-10-2024 01:31:35: General Functions  :- sp_ReportError : Incorrect syntax near the keyword 'outer'. - 
+02-10-2024 11:05:29: LoadHeaders() :- Error: String was not recognized as a valid DateTime. - 
+02-10-2024 11:05:50: LoadHeaders() :- Error: String was not recognized as a valid DateTime. - 
+02-10-2024 11:06:55: LoadOutlets() :- Error: String was not recognized as a valid DateTime. - 

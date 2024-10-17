@@ -1,0 +1,55 @@
+03-10-2024 17:04:34: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+03-10-2024 18:20:17: CustomerDashboard.aspx :- Error: Cannot find a cell bound to column name 'cus_ID' - 
+03-10-2024 18:20:22: CustomerDashboard.aspx :- Error: Cannot find a cell bound to column name 'cus_ID' - 
+03-10-2024 18:21:05: CustomerDashboard.aspx :- Error: Cannot find a cell bound to column name 'cus_ID' - 
+03-10-2024 18:21:45: CustomerDashboard.aspx :- Error: Cannot find a cell bound to column name 'cus_ID' - 
+03-10-2024 19:07:33: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ')'. - 
+03-10-2024 19:07:45: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ')'. - 
+03-10-2024 19:09:44: LoadHeaders() :- Error: Object reference not set to an instance of an object. - 
+03-10-2024 20:53:56: General Functions  :- sp_CustomerDashboardError : Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'. - 
+03-10-2024 20:53:59: General Functions  :- sp_CustomerDashboardError : Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'. - 
+03-10-2024 20:54:24: General Functions  :- sp_CustomerDashboardError : Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'. - 
+03-10-2024 20:57:57: General Functions  :- sp_CustomerDashboardError : Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'.
+Invalid column name 'cus_csh_ID'. - 
+03-10-2024 20:58:15: General Functions  :- sp_CustomerDashboardError : Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'.
+The multi-part identifier "A.adp_cus_ID" could not be bound.
+Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'. - 
+03-10-2024 20:58:22: General Functions  :- sp_CustomerDashboardError : Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'.
+The multi-part identifier "A.adp_cus_ID" could not be bound.
+Ambiguous column name 'CreatedDate'.
+Ambiguous column name 'CreatedDate'. - 
+03-10-2024 21:19:02: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 

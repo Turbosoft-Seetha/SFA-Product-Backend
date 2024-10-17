@@ -11,6 +11,7 @@ namespace SalesForceAutomation.BO_Digits.en
 {
 
 
+
     public partial class AddEditCustomers
     {
 
@@ -285,13 +286,13 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox ddlCusCom;
 
         /// <summary>
-        /// RequiredFieldValidator72 control.
+        /// RequiredFieldValidator99 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator72;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator99;
 
         /// <summary>
         /// ddlStatuses control.
@@ -1230,22 +1231,76 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator55;
 
         /// <summary>
-        /// ddlEnforceBuyBackfree control.
+        /// ddlMustSellApproval control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlEnforceBuyBackfree;
+        protected global::Telerik.Web.UI.RadDropDownList ddlMustSellApproval;
 
         /// <summary>
-        /// RequiredFieldValidator75 control.
+        /// ddlInstDelivery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator75;
+        protected global::Telerik.Web.UI.RadDropDownList ddlInstDelivery;
+
+        /// <summary>
+        /// txtCurrentSecDeposit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadNumericTextBox txtCurrentSecDeposit;
+
+        /// <summary>
+        /// RequiredFieldValidator74 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator74;
+
+        /// <summary>
+        /// rdCouponPayMode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox rdCouponPayMode;
+
+        /// <summary>
+        /// ddlSuggLoadReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlSuggLoadReq;
+
+        /// <summary>
+        /// ddlISCouponEnable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlISCouponEnable;
+
+        /// <summary>
+        /// rdInsCusSetting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox rdInsCusSetting;
 
         /// <summary>
         /// plsSalesorder control.
@@ -1354,6 +1409,42 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadDropDownList ddlEnableSuggestedOrd;
+
+        /// <summary>
+        /// ddlIsAttachmentsOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlIsAttachmentsOrder;
+
+        /// <summary>
+        /// ddlEnableFreeSampleOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnableFreeSampleOrder;
+
+        /// <summary>
+        /// ddlEnableFreeSampleOrderApproval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnableFreeSampleOrderApproval;
+
+        /// <summary>
+        /// rdFulldelivery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList rdFulldelivery;
 
         /// <summary>
         /// ddlIsInvoicing control.
@@ -1653,6 +1744,24 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator37;
 
         /// <summary>
+        /// ddlAttachmentInvoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlAttachmentInvoice;
+
+        /// <summary>
+        /// RequiredFieldValidator73 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator73;
+
+        /// <summary>
         /// HCimgMand control.
         /// </summary>
         /// <remarks>
@@ -1761,6 +1870,78 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadDropDownList ddlDelPriceChange;
 
         /// <summary>
+        /// ddlEnforceBuyBackfree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnforceBuyBackfree;
+
+        /// <summary>
+        /// RequiredFieldValidator75 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator75;
+
+        /// <summary>
+        /// ddlEnableLPONumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnableLPONumber;
+
+        /// <summary>
+        /// RequiredFieldValidator76 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator76;
+
+        /// <summary>
+        /// ddlLPONumberMand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlLPONumberMand;
+
+        /// <summary>
+        /// RequiredFieldValidator77 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator77;
+
+        /// <summary>
+        /// ddlRestrictedRtnSameItmInvoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlRestrictedRtnSameItmInvoice;
+
+        /// <summary>
+        /// RequiredFieldValidator78 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator78;
+
+        /// <summary>
         /// ddlIsAR control.
         /// </summary>
         /// <remarks>
@@ -1840,6 +2021,24 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator42;
+
+        /// <summary>
+        /// IsAttachmentsAR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList IsAttachmentsAR;
+
+        /// <summary>
+        /// RequiredFieldValidator72 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator72;
 
         /// <summary>
         /// ARHCingmand control.

@@ -1,0 +1,2 @@
+11-10-2024 15:58:23: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+11-10-2024 15:58:23: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 

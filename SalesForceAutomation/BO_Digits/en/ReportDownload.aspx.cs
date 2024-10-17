@@ -2,6 +2,7 @@
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Vml;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +17,7 @@ using Telerik.Documents.SpreadsheetStreaming;
 using Telerik.Web.UI;
 using Telerik.Web.UI.ImageEditor;
 using Telerik.Windows.Documents.Spreadsheet.Expressions.Functions;
+using Telerik.Windows.Zip;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -2346,7 +2348,74 @@ namespace SalesForceAutomation.BO_Digits.en
                 mainCondition = mainCond(rotID);
                 GenerateExcel10(fileName, dataQuery, reportName, reportSubName, mainCondition);
             }
+
+            else if (ViewState["mode"].ToString().Equals("16"))
+            {
+                lblMessage.Visible = false;
+                lblMessage.Text = "";
+                string fileName = "16-DailySummaryReport";                
+                string rotID = Rot();
+                string mainCondition = "";
+                mainCondition = mainCond(rotID);
+
+                var reports = new List<(string sheetName, string dataQuery, string reportName)>
+                    {
+                        ("Sales Report", "GetItemWiseSalesReport", "(Sales Report)"),
+                        ("AR Report", "GetItemWiseARReport", "(AR Report)"),
+                        ("Order Report", "GetItemWiseOrderReport", "(Order Report)"),
+                        ("Van Load Report", "GetItemWiseVanLoadReport", "(Van Load Report)")
+                    };
+
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;  
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    foreach (var report in reports)
+                    {
+                        string sheetName = report.sheetName;
+                        string dataQuery = report.dataQuery;
+                        string reportName = report.reportName;
+
+                        string[] arr = { DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd"), mainCondition };
+                        DataTable dtReportData = ObjclsFrms.loadList(dataQuery, "sp_ExcelReport", DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd"), arr);
+
+                        ExcelWorksheet sheet = package.Workbook.Worksheets.Add(sheetName);
+
+                        sheet.Cells["A1"].LoadFromDataTable(dtReportData, true);
+
+                        int totalColumns = dtReportData.Columns.Count;
+                        string lastColumn = GetExcelColumnName(totalColumns);
+                        sheet.Cells[$"A1:{lastColumn}1"].Style.Font.Bold = true;
+                    }
+
+                    byte[] output = package.GetAsByteArray();
+
+                    Response.Clear();
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.Headers.Remove("Content-Disposition");
+                    Response.AppendHeader("Content-Disposition", $"attachment; filename={fileName}.xlsx");
+                    Response.BinaryWrite(output);
+                    Response.End();
+                }            
+            }
         }
+       
+        public static string GetExcelColumnName(int columnNumber)
+        {
+            int dividend = columnNumber;
+            string columnName = String.Empty;
+            int modifier;
+
+            while (dividend > 0)
+            {
+                modifier = (dividend - 1) % 26;
+                columnName = System.Convert.ToChar(65 + modifier).ToString() + columnName;
+                dividend = (dividend - modifier) / 26;
+            }
+
+            return columnName;
+        }
+
 
         protected void getItemwiseSales_Click(object sender, EventArgs e)
         {
@@ -2415,5 +2484,34 @@ namespace SalesForceAutomation.BO_Digits.en
                 k = k + 1;
             }
         }
+
+        protected void ItemWise_Click(object sender, EventArgs e)
+        {
+            ViewState["mode"] = "16";
+            int rotcount = Int32.Parse(ddlRoute.CheckedItems.Count.ToString());
+            string fromDateStr = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            string endDateStr = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            DateTime fromDate = DateTime.ParseExact(fromDateStr, "yyyyMMdd", null);
+            DateTime endDate = DateTime.ParseExact(endDateStr, "yyyyMMdd", null);
+            TimeSpan difference = endDate - fromDate;
+            int numberOfDays = difference.Days;
+
+
+
+            if (rotcount == 0)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureAlert(' Please select routes..');</script>", false);
+            }
+            else if (numberOfDays <= 31)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>Confim();</script>", false);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>FailureAlert('Date range exeeded.You can only select a maximum of one month at a time');</script>", false);
+
+            }
+        }       
+
     }
 }

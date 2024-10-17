@@ -13203,6 +13203,9 @@
     <Content Include="BO_Digits\en\CreditNoteReqApprovalDetail.aspx" />
     <Content Include="BO_Digits\en\CreditNoteReqApprovalHeader.aspx" />
     <Content Include="BO_Digits\en\CustomerConnectSettings.aspx" />
+    <Content Include="BO_Digits\en\CustomerDashboard.aspx" />
+    <Content Include="BO_Digits\en\CustomerFOCApproval.aspx" />
+    <Content Include="BO_Digits\en\CustomerFOCApprovalDetail.aspx" />
     <Content Include="BO_Digits\en\CustomerInventoryAnalysis.aspx" />
     <Content Include="BO_Digits\en\CustomerNotAvailable.aspx" />
     <Content Include="BO_Digits\en\CustomerNotAvailableDetail.aspx" />
@@ -13231,10 +13234,13 @@
     <Content Include="BO_Digits\en\FieldServiceHeader.aspx" />
     <Content Include="BO_Digits\en\FieldServiceHeader.aspx.cs.txt" />
     <Content Include="BO_Digits\en\FieldServiceTransaction.aspx" />
+    <Content Include="BO_Digits\en\FreeSampleApprovalDetail.aspx" />
+    <Content Include="BO_Digits\en\FreeSampleApprovalHeader.aspx" />
     <Content Include="BO_Digits\en\GeoCodeMisMatches.aspx" />
     <Content Include="BO_Digits\en\GRNDetail.aspx" />
     <Content Include="BO_Digits\en\GRNHeader.aspx" />
     <Content Include="BO_Digits\en\ImageCaptures.aspx" />
+    <Content Include="BO_Digits\en\InitiateSettlementBypass.aspx" />
     <Content Include="BO_Digits\en\IntegrationPending.aspx" />
     <Content Include="BO_Digits\en\IntegrationRun.aspx" />
     <Content Include="BO_Digits\en\InventoryDashboard.aspx" />
@@ -13254,6 +13260,7 @@
     <Content Include="BO_Digits\en\ItemNotAvailable.aspx" />
     <Content Include="BO_Digits\en\ItemNotAvailableDetail.aspx" />
     <Content Include="BO_Digits\en\ItemPricingAnalysis.aspx" />
+    <Content Include="BO_Digits\en\ItemWiseDashboard.aspx" />
     <Content Include="BO_Digits\en\JourneyPlanSeqApproval.aspx" />
     <Content Include="BO_Digits\en\LicenseManagement.aspx" />
     <Content Include="BO_Digits\en\ListActivityManagementTransactions.aspx" />
@@ -13262,6 +13269,7 @@
     <Content Include="BO_Digits\en\ListAssets.aspx" />
     <Content Include="BO_Digits\en\ListAssignedCustomersForPromotionHeader.aspx" />
     <Content Include="BO_Digits\en\ListAssignedSurvey.aspx" />
+    <Content Include="BO_Digits\en\ListAudit.aspx" />
     <Content Include="BO_Digits\en\ListBalanceStock.aspx" />
     <Content Include="BO_Digits\en\ListBatchdetails.aspx" />
     <Content Include="BO_Digits\en\ListCompanies.aspx" />
@@ -13386,6 +13394,7 @@
     <Content Include="BO_Digits\en\ReturnReqApprovalHeader.aspx" />
     <Content Include="BO_Digits\en\ReturnReqApprovalWorkflow.aspx" />
     <Content Include="BO_Digits\en\RevertLoadIn.aspx" />
+    <Content Include="BO_Digits\en\RevertUserDailyProcess.aspx" />
     <Content Include="BO_Digits\en\RouteCustomerSettings.aspx" />
     <Content Include="BO_Digits\en\RouteDashboards.aspx" />
     <Content Include="BO_Digits\en\RouteDeliveries.aspx" />
@@ -16299,6 +16308,27 @@
     <Compile Include="BO_Digits\en\CustomerConnectSettings.aspx.designer.cs">
       <DependentUpon>CustomerConnectSettings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\CustomerDashboard.aspx.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\CustomerDashboard.aspx.designer.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\CustomerFOCApproval.aspx.cs">
+      <DependentUpon>CustomerFOCApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\CustomerFOCApproval.aspx.designer.cs">
+      <DependentUpon>CustomerFOCApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\CustomerFOCApprovalDetail.aspx.cs">
+      <DependentUpon>CustomerFOCApprovalDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\CustomerFOCApprovalDetail.aspx.designer.cs">
+      <DependentUpon>CustomerFOCApprovalDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\CustomerInventoryAnalysis.aspx.cs">
       <DependentUpon>CustomerInventoryAnalysis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16488,6 +16518,20 @@
     <Compile Include="BO_Digits\en\FieldServiceTransaction.aspx.designer.cs">
       <DependentUpon>FieldServiceTransaction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\FreeSampleApprovalDetail.aspx.cs">
+      <DependentUpon>FreeSampleApprovalDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\FreeSampleApprovalDetail.aspx.designer.cs">
+      <DependentUpon>FreeSampleApprovalDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\FreeSampleApprovalHeader.aspx.cs">
+      <DependentUpon>FreeSampleApprovalHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\FreeSampleApprovalHeader.aspx.designer.cs">
+      <DependentUpon>FreeSampleApprovalHeader.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\GeoCodeMisMatches.aspx.cs">
       <DependentUpon>GeoCodeMisMatches.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16515,6 +16559,13 @@
     </Compile>
     <Compile Include="BO_Digits\en\ImageCaptures.aspx.designer.cs">
       <DependentUpon>ImageCaptures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\InitiateSettlementBypass.aspx.cs">
+      <DependentUpon>InitiateSettlementBypass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\InitiateSettlementBypass.aspx.designer.cs">
+      <DependentUpon>InitiateSettlementBypass.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\IntegrationPending.aspx.cs">
       <DependentUpon>IntegrationPending.aspx</DependentUpon>
@@ -16649,6 +16700,13 @@
     <Compile Include="BO_Digits\en\ItemPricingAnalysis.aspx.designer.cs">
       <DependentUpon>ItemPricingAnalysis.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\ItemWiseDashboard.aspx.cs">
+      <DependentUpon>ItemWiseDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\ItemWiseDashboard.aspx.designer.cs">
+      <DependentUpon>ItemWiseDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\JourneyPlanSeqApproval.aspx.cs">
       <DependentUpon>JourneyPlanSeqApproval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16705,6 +16763,13 @@
     <Compile Include="BO_Digits\en\ListAssignedSurvey.aspx.designer.cs">
       <DependentUpon>ListAssignedSurvey.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\ListAudit.aspx.cs">
+      <DependentUpon>ListAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\ListAudit.aspx.designer.cs">
+      <DependentUpon>ListAudit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\ListBalanceStock.aspx.cs">
       <DependentUpon>ListBalanceStock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16721,6 +16786,7 @@
     </Compile>
     <Compile Include="BO_Digits\en\ListCompanies.aspx.cs">
       <DependentUpon>ListCompanies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BO_Digits\en\ListCompanies.aspx.designer.cs">
       <DependentUpon>ListCompanies.aspx</DependentUpon>
@@ -17571,6 +17637,13 @@
     </Compile>
     <Compile Include="BO_Digits\en\RevertLoadIn.aspx.designer.cs">
       <DependentUpon>RevertLoadIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\RevertUserDailyProcess.aspx.cs">
+      <DependentUpon>RevertUserDailyProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\RevertUserDailyProcess.aspx.designer.cs">
+      <DependentUpon>RevertUserDailyProcess.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\RouteCustomerSettings.aspx.cs">
       <DependentUpon>RouteCustomerSettings.aspx</DependentUpon>

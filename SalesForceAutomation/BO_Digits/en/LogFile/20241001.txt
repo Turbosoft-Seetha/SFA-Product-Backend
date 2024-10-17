@@ -1,0 +1,50 @@
+01-10-2024 00:09:17: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:18:19: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:28:28: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:29:58: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:32:16: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:32:59: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'.
+Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:33:20: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:34:30: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'.
+Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:35:44: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'.
+Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:36:34: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'.
+Invalid column name 'sal_rot_ID'. - 
+01-10-2024 00:37:52: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'group'. - 
+01-10-2024 00:38:31: General Functions  :- sp_MastersError : Incorrect syntax near the keyword 'group'. - 
+01-10-2024 00:38:55: General Functions  :- sp_MastersError : Incorrect syntax near 'where1'. - 
+01-10-2024 00:40:55: General Functions  :- sp_MastersError : Incorrect syntax near 'where1'. - 
+01-10-2024 12:26:43: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 12:26:56: General Functions  :- sp_MastersError : Invalid column name 'sal_rot_ID'. - 
+01-10-2024 14:31:57: General Functions  :- sp_ReportError : A transport-level error has occurred when sending the request to the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) - An existing connection was forcibly closed by the remote host
+01-10-2024 16:05:17: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 16:09:53: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 16:10:35: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 16:31:21: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 19:47:18: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 20:21:12: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+01-10-2024 20:35:34: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+01-10-2024 20:35:44: General Functions  :- sp_MastersError : Invalid column name 'udp_rot_ID'. - 
+01-10-2024 20:36:34: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 20:37:07: General Functions  :- sp_MastersError : Invalid column name 'ord_rot_ID'. - 
+01-10-2024 23:07:18: General Functions  :- sp_CustomerDashboardError : Conversion failed when converting the nvarchar value '670,675,681,674,665,1928,2189,1752' to data type int. - 
+01-10-2024 23:08:14: General Functions  :- sp_CustomerDashboardError : Conversion failed when converting the nvarchar value '670,675,681,674,665,1928,2189,1752' to data type int. - 
+01-10-2024 23:08:44: General Functions  :- sp_CustomerDashboardError : Explicit conversion from data type int to date is not allowed. - 
+01-10-2024 23:09:02: General Functions  :- sp_CustomerDashboardError : Explicit conversion from data type int to date is not allowed. - 
+01-10-2024 23:18:34: General Functions  :- sp_CustomerDashboardError : Must declare the scalar variable "@Para2". - 
+01-10-2024 23:18:40: General Functions  :- sp_CustomerDashboardError : Must declare the scalar variable "@Para2". - 
+01-10-2024 23:20:01: General Functions  :- sp_CustomerDashboardError : Must declare the scalar variable "@Para2". - 
+01-10-2024 23:21:20: General Functions  :- sp_CustomerDashboardError : Must declare the scalar variable "@Para2". - 
+01-10-2024 23:22:46: General Functions  :- sp_CustomerDashboardError : Explicit conversion from data type int to date is not allowed. - 
+01-10-2024 23:27:22: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ','. - 
+01-10-2024 23:28:09: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ','. - 
+01-10-2024 23:30:46: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ','. - 
+01-10-2024 23:30:59: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ','. - 
+01-10-2024 23:31:13: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ','. - 
+01-10-2024 23:32:35: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near ','. - 
+01-10-2024 23:38:14: General Functions  :- sp_DashboardError : Incorrect syntax near ')'. - 
+01-10-2024 23:51:15: General Functions  :- sp_CustomerDashboardError : Incorrect syntax near 'ord_cus_ID'. - 
+01-10-2024 23:51:20: General Functions  :- sp_CustomerDashboardError : Explicit conversion from data type int to date is not allowed. - 
+01-10-2024 23:51:48: General Functions  :- sp_CustomerDashboardError : Explicit conversion from data type int to date is not allowed. - 
