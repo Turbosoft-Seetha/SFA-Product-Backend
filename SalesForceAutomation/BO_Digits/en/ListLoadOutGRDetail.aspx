@@ -93,6 +93,14 @@
                                                     ImageUrl="assets/media/icons/svg/General/Clipboard.svg"></asp:ImageButton>
                                             </ItemTemplate>
                                         </telerik:GridTemplateColumn>--%>
+                                        
+                                            <telerik:GridTemplateColumn HeaderStyle-Width="100px" AllowFiltering="false" HeaderText="Batch/Serial" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
+                                                <ItemTemplate>
+                                                    <asp:ImageButton CommandName="Batch" ID="Batch" Visible="true" AlternateText="Item" runat="server"
+                                                        ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                                </ItemTemplate>
+                                            </telerik:GridTemplateColumn>
+
                                         <telerik:GridBoundColumn DataField="prd_Code" AllowFiltering="true" HeaderStyle-Width="90px"
                                             HeaderStyle-Font-Size="Smaller" HeaderText="Item Code" FilterControlWidth="100%"
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"

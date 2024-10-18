@@ -75,9 +75,16 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
+            if (e.CommandName.Equals("Batch"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("lod_ID").ToString();
 
+
+                Response.Redirect("ListBadDetails.aspx?ID=" + ID + "&&HID=" + ResponseID.ToString());
+
+            }
         }
-
         protected void imgExcel_Click(object sender, ImageClickEventArgs e)
         {
             DataTable dt = new DataTable();
