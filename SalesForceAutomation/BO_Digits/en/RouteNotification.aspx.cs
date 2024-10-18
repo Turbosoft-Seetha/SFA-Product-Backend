@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
-using System.Web.Routing;
+using System.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
+
+
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -283,6 +286,13 @@ namespace SalesForceAutomation.BO_Digits.en
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("rnt_ID").ToString();
                 Response.Redirect("RouteNotificationDetail.aspx?ID=" + ID);
+            }
+            if (e.CommandName.Equals("PushNot"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("rnt_ID").ToString();
+                ViewState["ID"] = ID.ToString();
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>PushConfim();</script>", false);
             }
         }
 
@@ -682,5 +692,55 @@ namespace SalesForceAutomation.BO_Digits.en
             ddlmode.SelectedValue = "A";
             ddlreadflag.SelectedValue = "A";
         }
+
+       
+
+        protected void Run_Click(object sender, EventArgs e)
+        {
+            
+            string url = ConfigurationManager.AppSettings.Get("PushNotification");
+            // Make the web service call
+            string responseJson = WebServiceCall(url);
+            string Response = responseJson.Trim();
+
+            string successMessage = "Response: " + responseJson;
+
+
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>successPushModal('" + successMessage + "');</script>", false);
+
+        }
+
+        protected void lnkOK_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManualIntegration.aspx");
+        }
+
+        public string WebServiceCall(string url)
+        {
+            try
+            {
+                string ID = ViewState["ID"].ToString();
+                using (WebClient client = new WebClient())
+                {
+                    string Method = "POST";
+                    client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                    string response = client.UploadString(url+"?ID="+ID, Method, "");
+                    return client.UploadString(url, Method, "");
+                }
+            }
+            catch (WebException webEx)
+            {
+                // Log or handle specific web exception details
+                ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "RouteNotification.aspx PageLoad()", "WebException: " + webEx.Message);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Log or handle general exception details
+                ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "RouteNotification.aspx PageLoad()", "Error : " + ex.Message + " - " + ex.InnerException?.Message);
+                return null;
+            }
+        }
+
     }
 }

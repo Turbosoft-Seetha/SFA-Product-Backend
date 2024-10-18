@@ -119,6 +119,19 @@
                                     </div>
                                 </div>
                             </asp:PlaceHolder>
+
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">Mode<span class="required"> </span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="ddlMode" runat="server" Width="100%">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="SFA" Value="S" Selected="true" />
+                                            <telerik:DropDownListItem Text="Customer Connect" Value="C" />
+                                        </Items>
+                                    </telerik:RadDropDownList>
+                                </div>
+                            </div>
+
                         </div>
 
                        

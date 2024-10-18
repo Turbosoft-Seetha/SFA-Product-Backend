@@ -11,6 +11,20 @@
             $('#modalConfirm').modal('hide');
             $('#kt_modal_1_4').modal('show');
         }
+        function PushConfim() {
+            $('#modalPushConfirm').modal('show');
+        }
+        function successPushModal(a) {
+            $('#modalPushConfirm').modal('hide');
+            $('#kt_modal_1_8').modal('show');
+            $('#delsuccess').text(a);
+        }
+        function failedModals() {
+            $('#modalPushConfirm').modal('hide');
+            $('#kt_modal_1_9').modal('show');
+            ('#response').text(a);
+
+        }
     </script>
 </asp:Content>
 
@@ -263,6 +277,12 @@
                                                         ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
+                                            <telerik:GridTemplateColumn HeaderStyle-Width="50px" AllowFiltering="false" HeaderText="Push Notification" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
+                                                <ItemTemplate>
+                                                    <asp:ImageButton CommandName="PushNot" ID="PushNotBtn" Visible="true" AlternateText="PushNot" runat="server"
+                                                        ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                                </ItemTemplate>
+                                            </telerik:GridTemplateColumn>
 
                                             <telerik:GridBoundColumn DataField="rnt_Mode" AllowFiltering="true" HeaderStyle-Width="150px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Mode" FilterControlWidth="100%"
@@ -410,5 +430,65 @@
         </div>
     </div>
     <!--end::SuccessModal-->
+
+       <div class="modal fade modal-center" id="modalPushConfirm" style="height: auto;" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="exampleModalLabels" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="Confirm">Are you sure you want to send Push Notification??
+                   </h5>
+               </div>
+               <div class="modal-footer">
+                   <telerik:RadAjaxPanel ID="RadAjaxPanel4" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                       <asp:LinkButton ID="Run" runat="server" Text="Yes" OnClick="Run_Click" CssClass="btn btn-sm fw-bold btn-primary" />
+                   </telerik:RadAjaxPanel>
+                   <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel4" EnableEmbeddedSkins="false"
+                       BackColor="Transparent"
+                       ForeColor="Blue">
+                       <div class="col-lg-12 text-center mt-5">
+                           <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                       </div>
+                   </telerik:RadAjaxLoadingPanel>
+                   <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(modalConfirm);">Cancel</button>
+               </div>
+           </div>
+       </div>
+   </div>
+
+     <div class="modal fade" id="kt_modal_1_8" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title">Response</h5>
+             </div>
+             <div class="modal-body">
+                 <span id="delsuccess"></span>
+             </div>
+             <div class="modal-footer">
+                 <asp:LinkButton ID="lnkOK" runat="server" OnClick="lnkOK_Click" CssClass="btn btn-sm fw-bold btn-secondary">Ok</asp:LinkButton>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--end::SuccessModal-->
+
+ <div class="clearfix"></div>
+ <div class="modal fade" id="kt_modal_1_9" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title">Oops..!</h5>
+             </div>
+             <div class="modal-body">
+                 <p>Something Went Wrong.</p>
+                 <span id="response"></span>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(kt_modal_1_9);">OK</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
 
 </asp:Content>
