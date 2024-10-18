@@ -6,10 +6,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Documents.SpreadsheetStreaming;
 using Telerik.Licensing;
 using Telerik.Web.UI;
 using Telerik.Web.UI.Skins;
@@ -1316,19 +1318,24 @@ namespace SalesForceAutomation.BO_Digits.en
             if (Session["SelectedHeaderID"] != null)
             {
                 HeaderReset.Visible = true;
+                HeaderReset.Enabled = true;
             }
             else
             {
-                HeaderReset.Visible = false;
-                OutletReset.Visible = false;
+                HeaderReset.Visible = true;
+                HeaderReset.Enabled = false;
+                OutletReset.Enabled = false;
+                OutletReset.Visible = true;
             }
             if (Session["SelectedCusID"] != null)
             {
                 OutletReset.Visible = true;
+                OutletReset.Enabled = true;
             }
             else
             {
-                OutletReset.Visible = false;
+                OutletReset.Visible = true;
+                OutletReset.Enabled = false;
             }
         }
 
@@ -1431,6 +1438,239 @@ namespace SalesForceAutomation.BO_Digits.en
             catch(Exception ex)
             {
 
+            }
+        }
+
+        protected void HeaderExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            foreach (GridColumn column in grvRpt.MasterTableView.Columns)
+            {
+                if (!string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText)
+                    && !column.HeaderText.Equals("Detail") && !column.HeaderText.Equals("Image"))
+                {
+                    if (column.Display)
+                    {
+                        dt.Columns.Add(column.HeaderText.Replace("<br>", " "), typeof(string));
+                    }
+                }
+            }
+
+            foreach (GridDataItem item in grvRpt.MasterTableView.Items)
+            {
+                if (item.Visible)
+                {
+                    DataRow dr = dt.NewRow();
+                    int j = 0;
+                    for (int i = 0; i < grvRpt.MasterTableView.Columns.Count; i++)
+                    {
+                        if (grvRpt.MasterTableView.Columns[i].Display)
+                        {
+                            if (!item[grvRpt.MasterTableView.Columns[i].UniqueName].Text.Contains("Detail")
+                                && !grvRpt.MasterTableView.Columns[i].HeaderText.Equals("Image"))
+                            {
+                                dr[j] = !item[grvRpt.MasterTableView.Columns[i].UniqueName].Text.Contains("&nbsp;")
+                                    ? item[grvRpt.MasterTableView.Columns[i].UniqueName].Text
+                                    : " ";
+                                j++;
+                            }
+                        }
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            SpreadStreamProcessingForXLSXAndCSV(dt);
+        }
+        private void SpreadStreamProcessingForXLSXAndCSV(DataTable dt, SpreadDocumentFormat docFormat = SpreadDocumentFormat.Xlsx, string sheetName = "Sheet1")
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (IWorkbookExporter workbook = SpreadExporter.CreateWorkbookExporter(docFormat, stream))
+                {
+                    using (IWorksheetExporter worksheetExporter = workbook.CreateWorksheetExporter(sheetName))
+                    {
+                        for (int i = 0; i < dt.Columns.Count; i++)
+                        {
+                            using (IColumnExporter columnExporter = worksheetExporter.CreateColumnExporter())
+                            {
+                                columnExporter.SetWidthInPixels(100);
+                            }
+                        }
+                        ExportHeaderRows(worksheetExporter, dt);
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+                            {
+                                foreach (var item in row.ItemArray)
+                                {
+                                    SpreadCellFormat normalFormat = new SpreadCellFormat
+                                    {
+                                        FontSize = 10,
+                                        VerticalAlignment = SpreadVerticalAlignment.Center,
+                                        HorizontalAlignment = SpreadHorizontalAlignment.Center
+                                    };
+                                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                                    {
+                                        cellExporter.SetValue(item.ToString());
+                                        cellExporter.SetFormat(normalFormat);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                byte[] output = stream.ToArray();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Customer Headers.xlsx");
+                Response.BinaryWrite(output);
+                Response.Flush();
+                Response.SuppressContent = true;
+                HttpContext.Current.ApplicationInstance.CompleteRequest();  
+            }
+        }
+        private void ExportHeaderRows(IWorksheetExporter worksheetExporter, DataTable dt)
+        {
+            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+            {
+                double HeaderRowHeight = 30;
+                rowExporter.SetHeightInPoints(HeaderRowHeight);
+
+                SpreadCellFormat format = new SpreadCellFormat
+                {
+                    IsBold = true,
+                    Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(128, 128, 128)),
+                    ForeColor = new SpreadThemableColor(new SpreadColor(255, 255, 255)),
+                    HorizontalAlignment = SpreadHorizontalAlignment.Center,
+                    VerticalAlignment = SpreadVerticalAlignment.Center
+                };
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                    {
+                        cellExporter.SetFormat(format);
+                        cellExporter.SetValue(dt.Columns[i].ColumnName);
+                    }
+                }
+            }
+        }
+        protected void OutletExcel_Click(object sender, ImageClickEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            foreach (GridColumn column in RadGrid1.MasterTableView.Columns)
+            {
+                if (!string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText)
+                    && !column.HeaderText.Equals("Detail") && !column.HeaderText.Equals("Image"))
+                {
+                    if (column.Display)
+                    {
+                        dt.Columns.Add(column.HeaderText.Replace("<br>", " "), typeof(string));
+                    }
+                }
+            }
+
+            foreach (GridDataItem item in RadGrid1.MasterTableView.Items)
+            {
+                if (item.Visible)
+                {
+                    DataRow dr = dt.NewRow();
+                    int j = 0;
+                    for (int i = 0; i < RadGrid1.MasterTableView.Columns.Count; i++)
+                    {
+                        if (RadGrid1.MasterTableView.Columns[i].Display)
+                        {
+                            if (!item[RadGrid1.MasterTableView.Columns[i].UniqueName].Text.Contains("Detail")
+                                && !RadGrid1.MasterTableView.Columns[i].HeaderText.Equals("Image"))
+                            {
+                                dr[j] = !item[RadGrid1.MasterTableView.Columns[i].UniqueName].Text.Contains("&nbsp;")
+                                    ? item[RadGrid1.MasterTableView.Columns[i].UniqueName].Text
+                                    : " ";
+                                j++;
+                            }
+                        }
+                    }
+                    dt.Rows.Add(dr);
+                }
+            }
+            SpreadStreamProcessingForXLSXAndCSVOutlet(dt);
+        }
+        private void SpreadStreamProcessingForXLSXAndCSVOutlet(DataTable dt, SpreadDocumentFormat docFormat = SpreadDocumentFormat.Xlsx, string sheetName = "Sheet1")
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                using (IWorkbookExporter workbook = SpreadExporter.CreateWorkbookExporter(docFormat, stream))
+                {
+                    using (IWorksheetExporter worksheetExporter = workbook.CreateWorksheetExporter(sheetName))
+                    {
+                        for (int i = 0; i < dt.Columns.Count; i++)
+                        {
+                            using (IColumnExporter columnExporter = worksheetExporter.CreateColumnExporter())
+                            {
+                                columnExporter.SetWidthInPixels(100);
+                            }
+                        }
+                        ExportHeaderRowsOutlet(worksheetExporter, dt);
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+                            {
+                                foreach (var item in row.ItemArray)
+                                {
+                                    SpreadCellFormat normalFormat = new SpreadCellFormat
+                                    {
+                                        FontSize = 10,
+                                        VerticalAlignment = SpreadVerticalAlignment.Center,
+                                        HorizontalAlignment = SpreadHorizontalAlignment.Center
+                                    };
+                                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                                    {
+                                        cellExporter.SetValue(item.ToString());
+                                        cellExporter.SetFormat(normalFormat);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                byte[] output = stream.ToArray();
+                Response.Clear();
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Customer Outlets.xlsx");
+                Response.BinaryWrite(output);
+                Response.Flush();
+                Response.SuppressContent = true;
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
+            }
+        }
+        private void ExportHeaderRowsOutlet(IWorksheetExporter worksheetExporter, DataTable dt)
+        {
+            using (IRowExporter rowExporter = worksheetExporter.CreateRowExporter())
+            {
+                double HeaderRowHeight = 30;
+                rowExporter.SetHeightInPoints(HeaderRowHeight);
+
+                SpreadCellFormat format = new SpreadCellFormat
+                {
+                    IsBold = true,
+                    Fill = SpreadPatternFill.CreateSolidFill(new SpreadColor(128, 128, 128)),
+                    ForeColor = new SpreadThemableColor(new SpreadColor(255, 255, 255)),
+                    HorizontalAlignment = SpreadHorizontalAlignment.Center,
+                    VerticalAlignment = SpreadVerticalAlignment.Center
+                };
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    using (ICellExporter cellExporter = rowExporter.CreateCellExporter())
+                    {
+                        cellExporter.SetFormat(format);
+                        cellExporter.SetValue(dt.Columns[i].ColumnName);
+                    }
+                }
             }
         }
     }

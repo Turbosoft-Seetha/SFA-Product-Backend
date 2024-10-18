@@ -335,7 +335,6 @@ namespace SalesForceAutomation.BO_Digits.en
                     details = "";
                 }
 
-
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showDetails", $"showDetailsModalRej('{details}');", true);                
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "Confim3('Selected Request will be rejected, do you want to continue?');", true);
                 
