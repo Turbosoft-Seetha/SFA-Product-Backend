@@ -24,60 +24,56 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
       <telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
-      <script type="text/javascript"> 
-          function HeaderRowClick(sender, args) {
-              var ClickedIndex = args._itemIndexHierarchical; // Get the index of the clicked row
-              var grid = $find("<%= grvRpt.ClientID %>"); // Find the RadGrid instance
-
-    if (grid) {
-        var MasterTable = grid.get_masterTableView(); // Access the MasterTable
-        var Rows = MasterTable.get_dataItems(); // Get all rows
-
-        // Show the loading panel before triggering the postback
-                  var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
-                  if (loadingPanel) {
-                      loadingPanel.show(); // Show the loading panel
-                  }
-
-                  for (var i = 0; i < Rows.length; i++) {
-                      var row = Rows[i];
-                      if (ClickedIndex != null && ClickedIndex == i) { // Check if the index matches the clicked row
-                          MasterTable.fireCommand("HeaderClick", ClickedIndex); // Trigger the server-side command
-                          break; // Exit the loop after firing the command
-                      }
-                  }
-              }
-          }
-
-          function OutletRowClick(sender, args) {
-              var ClickedIndex = args._itemIndexHierarchical;
-              var grid = $find("<%= RadGrid1.ClientID %>");
-
-    // Find the loading panel
-              var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
+          <script type="text/javascript"> 
+              function HeaderRowClick(sender, args) {
+                  var ClickedIndex = args._itemIndexHierarchical;
+                  var grid = $find("<%= grvRpt.ClientID %>");
 
               if (grid) {
                   var MasterTable = grid.get_masterTableView();
                   var Rows = MasterTable.get_dataItems();
 
-                  for (var i = 0; i < Rows.length; i++) {
-                      var row = Rows[i];
-                      if (ClickedIndex != null && ClickedIndex == i) {
-                          // Show the loading panel
-                          if (loadingPanel) {
-                              loadingPanel.show();
-                          }
+                  var loadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID %>");
+                      if (loadingPanel) {
+                          loadingPanel.show();
+                      }
 
-                          // Fire the command
-                          MasterTable.fireCommand("OutletClick", ClickedIndex);
-                          break; // Exit the loop after firing the command
+                      for (var i = 0; i < Rows.length; i++) {
+                          var row = Rows[i];
+                          if (ClickedIndex != null && ClickedIndex == i) {
+                              MasterTable.fireCommand("HeaderClick", ClickedIndex);
+                              break;
+                          }
                       }
                   }
               }
-          }
+
+              function OutletRowClick(sender, args) {
+                  var ClickedIndex = args._itemIndexHierarchical;
+                  var grid = $find("<%= RadGrid1.ClientID %>");
+
+              var loadingPanel = $find("<%= RadAjaxLoadingPanel2.ClientID %>");
+
+                  if (grid) {
+                      var MasterTable = grid.get_masterTableView();
+                      var Rows = MasterTable.get_dataItems();
+
+                      for (var i = 0; i < Rows.length; i++) {
+                          var row = Rows[i];
+                          if (ClickedIndex != null && ClickedIndex == i) {
+                              if (loadingPanel) {
+                                  loadingPanel.show();
+                              }
+
+                              MasterTable.fireCommand("OutletClick", ClickedIndex);
+                              break;
+                          }
+                      }
+                  }
+              }
 
 
-      </script>
+          </script>
   </telerik:RadScriptBlock>
 
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
@@ -181,7 +177,7 @@
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="col-lg-12">
-            <telerik:RadAjaxPanel ID="RadAjaxPanel3" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+           
                 <div class="row">
 
                     <!-- Add a row container -->
@@ -196,56 +192,73 @@
                                         <telerik:RadSkinManager ID="RadSkinManager1" runat="server" Skin="Material" />
                                         <div class="d-flex justify-content-between align-items-center">
                                             <h4>Customer Headers</h4>
-                                            <asp:ImageButton ID="HeaderReset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="20"
-                                                AlternateText="reset" OnClick="HeaderReset_Click" />
+                                            <div class="button-group" style="display: flex; align-items: center; gap: 10px;">
+                                                <asp:ImageButton ID="HeaderExcel" runat="server" ImageUrl="../assets/media/icons/excel.png" Height="40"
+                                                    ToolTip="Download" OnClick="HeaderExcel_Click" AlternateText="Xlsx"
+                                                    Style="padding: 0; margin: 0; vertical-align: middle;" />
+
+                                                <asp:ImageButton ID="HeaderReset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="20"
+                                                    AlternateText="reset" OnClick="HeaderReset_Click"
+                                                    Style="padding: 0; margin: 0; vertical-align: middle;" />
+                                            </div>
+
                                         </div>
-                                        <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="false"
-                                            ID="grvRpt" GridLines="None"
-                                            ShowFooter="True" AllowSorting="True"
-                                            OnNeedDataSource="grvRpt_NeedDataSource"
-                                            OnItemCommand="grvRpt_ItemCommand"
-                                            AllowFilteringByColumn="true"
-                                            ClientSettings-Resizing-ClipCellContentOnResize="true"
-                                            EnableAjaxSkinRendering="true"
-                                            AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" AutoGenerateColumns="false"
-                                            OnSelectedIndexChanged="grvRpt_SelectedIndexChanged">
-                                            <ClientSettings EnablePostBackOnRowClick="true">
-                                                <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px" ></Scrolling>    
-                                                <ClientEvents OnRowClick="HeaderRowClick" /> 
-                                            </ClientSettings>
-                                            <MasterTableView FilterItemStyle-Font-Size="Small" CanRetrieveAllData="false"
-                                                ShowFooter="false" DataKeyNames="csh_ID"
-                                                EnableHeaderContextMenu="true">
-                                                <Columns>
-                                                    <telerik:GridBoundColumn DataField="csh_Code" AllowFiltering="true" HeaderStyle-Width="80px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Code" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="csh_Code">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="csh_Name" AllowFiltering="true" HeaderStyle-Width="200px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Name" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="csh_Name">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="TotalInvoice" AllowFiltering="true" HeaderStyle-Width="120px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Inv. No/ Amount" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="TotalInvoice">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="csh_ID" AllowFiltering="true" HeaderStyle-Width="80px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="csh_ID" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="csh_ID" Display="false">
-                                                    </telerik:GridBoundColumn>
-                                                </Columns>
-                                            </MasterTableView>
-                                            <PagerStyle AlwaysVisible="true" />
-                                            <GroupingSettings CaseSensitive="false" />
-                                            <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="True">
-                                                <Resizing AllowColumnResize="true"></Resizing>
-                                                <Selecting AllowRowSelect="True" EnableDragToSelectRows="true"></Selecting>
-                                            </ClientSettings>
-                                        </telerik:RadGrid>
+                                        <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                                            <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="false"
+                                                ID="grvRpt" GridLines="None"
+                                                ShowFooter="True" AllowSorting="True"
+                                                OnNeedDataSource="grvRpt_NeedDataSource"
+                                                OnItemCommand="grvRpt_ItemCommand"
+                                                AllowFilteringByColumn="true"
+                                                ClientSettings-Resizing-ClipCellContentOnResize="true"
+                                                EnableAjaxSkinRendering="true"
+                                                AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" AutoGenerateColumns="false"
+                                                OnSelectedIndexChanged="grvRpt_SelectedIndexChanged">
+                                                <ClientSettings EnablePostBackOnRowClick="true">
+                                                    <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
+                                                    <ClientEvents OnRowClick="HeaderRowClick" />
+                                                </ClientSettings>
+                                                <MasterTableView FilterItemStyle-Font-Size="Small" CanRetrieveAllData="false"
+                                                    ShowFooter="false" DataKeyNames="csh_ID"
+                                                    EnableHeaderContextMenu="true">
+                                                    <Columns>
+                                                        <telerik:GridBoundColumn DataField="csh_Code" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Code" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="csh_Code">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="csh_Name" AllowFiltering="true" HeaderStyle-Width="200px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Name" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="csh_Name">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="TotalInvoice" AllowFiltering="true" HeaderStyle-Width="120px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Inv. No/ Amount" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="TotalInvoice">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="csh_ID" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="csh_ID" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="csh_ID" Display="false">
+                                                        </telerik:GridBoundColumn>
+                                                    </Columns>
+                                                </MasterTableView>
+                                                <PagerStyle AlwaysVisible="true" />
+                                                <GroupingSettings CaseSensitive="false" />
+                                                <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="True">
+                                                    <Resizing AllowColumnResize="true"></Resizing>
+                                                    <Selecting AllowRowSelect="True" EnableDragToSelectRows="true"></Selecting>
+                                                </ClientSettings>
+                                            </telerik:RadGrid>
+                                        </telerik:RadAjaxPanel>
+                                        <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel1" EnableEmbeddedSkins="false"
+                                            BackColor="Transparent"
+                                            ForeColor="Blue">
+                                            <div class="col-lg-12 text-center mt-5">
+                                                <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                                            </div>
+                                        </telerik:RadAjaxLoadingPanel>
                                     </div>
 
                                 </div>
@@ -262,67 +275,85 @@
                                     <div class="kt-portlet__body" style="margin-top: 10px;">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <h4>Customer Outlets</h4>
-                                            <asp:ImageButton ID="OutletReset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="20"
-                                                AlternateText="reset" OnClick="OutletReset_Click" />
+                                            <div class="button-group" style="display: flex; align-items: center; gap: 10px;">
+                                                <asp:ImageButton ID="OutletExcel" runat="server" ImageUrl="../assets/media/icons/excel.png" Height="40"
+                                                    ToolTip="Download" OnClick="OutletExcel_Click" AlternateText="Xlsx"
+                                                    Style="padding: 0; margin: 0; vertical-align: middle;" />
+
+                                                <asp:ImageButton ID="OutletReset" runat="server" ImageUrl="../assets/media/UDP/reset.png" Height="20"
+                                                    AlternateText="reset" OnClick="OutletReset_Click"
+                                                    Style="padding: 0; margin: 0; vertical-align: middle;" />
+                                            </div>
+
+
                                         </div>
-                                        <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="false"
-                                            ID="RadGrid1" GridLines="None"
-                                            ShowFooter="True" AllowSorting="True"
-                                            OnNeedDataSource="RadGrid1_NeedDataSource"
-                                            OnItemCommand="RadGrid1_ItemCommand"
-                                            AllowFilteringByColumn="true"
-                                            ClientSettings-Resizing-ClipCellContentOnResize="true"
-                                            EnableAjaxSkinRendering="true"
-                                            AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true" 
-                                            OnSelectedIndexChanged="RadGrid1_SelectedIndexChanged" AutoGenerateColumns="false">
-                                            <ClientSettings EnablePostBackOnRowClick="true">
-                                                 <Selecting AllowRowSelect="true" />
-                                                <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
-                                                <ClientEvents OnRowClick="OutletRowClick" />                                               
-                                            </ClientSettings>
-                                            <MasterTableView FilterItemStyle-Font-Size="Small" CanRetrieveAllData="false"
-                                                ShowFooter="false" DataKeyNames="cus_ID"
-                                                EnableHeaderContextMenu="true">
-                                                <Columns>
-                                                    <telerik:GridBoundColumn DataField="csh_Code" AllowFiltering="true" HeaderStyle-Width="90px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Header" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="csh_Code">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="cus_Code" AllowFiltering="true" HeaderStyle-Width="90px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Out. Code" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="cus_Code">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="cus_Name" AllowFiltering="true" HeaderStyle-Width="180px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Outlet" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="cus_Name">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="InvoiceTotal" AllowFiltering="true" HeaderStyle-Width="120px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="Inv. No/ Amount" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="InvoiceTotal">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="cus_csh_ID" AllowFiltering="true" HeaderStyle-Width="80px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="cus_csh_ID" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="cus_csh_ID" Display="false">
-                                                    </telerik:GridBoundColumn>
-                                                    <telerik:GridBoundColumn DataField="cus_ID" AllowFiltering="true" HeaderStyle-Width="80px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText="cus_ID" FilterControlWidth="100%"
-                                                        CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                        HeaderStyle-Font-Bold="true" UniqueName="cus_ID" Display="false">
-                                                    </telerik:GridBoundColumn>
-                                                </Columns>
-                                            </MasterTableView>
-                                            <PagerStyle AlwaysVisible="true" />
-                                            <GroupingSettings CaseSensitive="false" />
-                                            <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="True">
-                                                <Resizing AllowColumnResize="true"></Resizing>
-                                                <Selecting AllowRowSelect="True" EnableDragToSelectRows="true"></Selecting>
-                                            </ClientSettings>
-                                        </telerik:RadGrid>
+                                        <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
+                                            <telerik:RadGrid RenderMode="Lightweight" runat="server" EnableLinqExpressions="false" AllowMultiRowSelection="false"
+                                                ID="RadGrid1" GridLines="None"
+                                                ShowFooter="True" AllowSorting="True"
+                                                OnNeedDataSource="RadGrid1_NeedDataSource"
+                                                OnItemCommand="RadGrid1_ItemCommand"
+                                                AllowFilteringByColumn="true"
+                                                ClientSettings-Resizing-ClipCellContentOnResize="true"
+                                                EnableAjaxSkinRendering="true"
+                                                AllowPaging="true" PageSize="10" CellSpacing="0" PagerStyle-AlwaysVisible="true"
+                                                OnSelectedIndexChanged="RadGrid1_SelectedIndexChanged" AutoGenerateColumns="false">
+                                                <ClientSettings EnablePostBackOnRowClick="true">
+                                                    <Selecting AllowRowSelect="true" />
+                                                    <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
+                                                    <ClientEvents OnRowClick="OutletRowClick" />
+                                                </ClientSettings>
+                                                <MasterTableView FilterItemStyle-Font-Size="Small" CanRetrieveAllData="false"
+                                                    ShowFooter="false" DataKeyNames="cus_ID"
+                                                    EnableHeaderContextMenu="true">
+                                                    <Columns>
+                                                        <telerik:GridBoundColumn DataField="csh_Code" AllowFiltering="true" HeaderStyle-Width="90px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Header" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="csh_Code">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="cus_Code" AllowFiltering="true" HeaderStyle-Width="90px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Out. Code" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="cus_Code">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="cus_Name" AllowFiltering="true" HeaderStyle-Width="180px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Outlet" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="cus_Name">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="InvoiceTotal" AllowFiltering="true" HeaderStyle-Width="120px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="Inv. No/ Amount" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="InvoiceTotal">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="cus_csh_ID" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="cus_csh_ID" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="cus_csh_ID" Display="false">
+                                                        </telerik:GridBoundColumn>
+                                                        <telerik:GridBoundColumn DataField="cus_ID" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                            HeaderStyle-Font-Size="Smaller" HeaderText="cus_ID" FilterControlWidth="100%"
+                                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                            HeaderStyle-Font-Bold="true" UniqueName="cus_ID" Display="false">
+                                                        </telerik:GridBoundColumn>
+                                                    </Columns>
+                                                </MasterTableView>
+                                                <PagerStyle AlwaysVisible="true" />
+                                                <GroupingSettings CaseSensitive="false" />
+                                                <ClientSettings EnableRowHoverStyle="true" AllowColumnsReorder="True">
+                                                    <Resizing AllowColumnResize="true"></Resizing>
+                                                    <Selecting AllowRowSelect="True" EnableDragToSelectRows="true"></Selecting>
+                                                </ClientSettings>
+                                            </telerik:RadGrid>
+                                        </telerik:RadAjaxPanel>
+                                        <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel2" EnableEmbeddedSkins="false"
+                                            BackColor="Transparent"
+                                            ForeColor="Blue">
+                                            <div class="col-lg-12 text-center mt-5">
+                                                <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
+                                            </div>
+                                        </telerik:RadAjaxLoadingPanel>
                                     </div>
 
                                 </div>
@@ -331,14 +362,7 @@
                     </div>
 
                 </div>
-            </telerik:RadAjaxPanel>
-            <telerik:RadAjaxLoadingPanel runat="server" Skin="Sunset" ID="RadAjaxLoadingPanel1" EnableEmbeddedSkins="false"
-                BackColor="Transparent"
-                ForeColor="Blue">
-                <div class="col-lg-12 text-center mt-5">
-                    <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
-                </div>
-            </telerik:RadAjaxLoadingPanel>
+            
         </div>
     </div>
 
@@ -924,6 +948,18 @@
 
     </asp:PlaceHolder>
 
+    <style>
+        .button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+
+.button-group img {
+    vertical-align: middle;
+}
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerScripts" runat="server">
 </asp:Content>
