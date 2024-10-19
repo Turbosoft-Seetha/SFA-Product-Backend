@@ -257,16 +257,22 @@ namespace SalesForceAutomation.BO_Digits.en
                     {
                         details = transIDHeading +
                                   "Override Type: <b>" + lstDetail.Rows[0]["Type"].ToString() + "</b><br/>" +
-                                  "Credit Limit: <b>" + lstDetail.Rows[0]["CreditLimit"].ToString() + "</b><br/>" +
-                                  "Available Limit: <b>" + lstDetail.Rows[0]["AvailableLimit"].ToString() + "</b><br/>" +
-                                  "Total Limit: <b>" + lstDetail.Rows[0]["TotalLimit"].ToString() + "</b>";
+                                  "Total Inv. Amount: <b>" + lstDetail.Rows[0]["TotInvAmt"].ToString() + "</b><br/>" +
+                                  "Available CR Limit: <b>" + lstDetail.Rows[0]["AvlCrLimit"].ToString() + "</b><br/>" +
+                                  "Total CR Limit: <b>" + lstDetail.Rows[0]["TotCrLimit"].ToString() + "</b><br/>" +
+                                  "Total Outstanding: <b>" + lstDetail.Rows[0]["TotOutstnd"].ToString() + "</b><br/>" +
+                                  "Total CR Days: <b>" + lstDetail.Rows[0]["TotCrDays"].ToString() + "</b>";
+                     
                     }
                     else if (ViewState["ooa_Type"].ToString() == "Credit Days")
                     {
                         details = transIDHeading +
                                   "Override Type: <b>" + lstDetail.Rows[0]["Type"].ToString() + "</b><br/>" +
-                                  "Credit Days: <b>" + lstDetail.Rows[0]["CreditDays"].ToString() + "</b><br/>" +
-                                  "Available Days: <b>" + lstDetail.Rows[0]["AvailableDays"].ToString() + "</b>";
+                                  "Total Inv. Amount: <b>" + lstDetail.Rows[0]["TotInvAmt"].ToString() + "</b><br/>" +
+                                  "Available CR Limit: <b>" + lstDetail.Rows[0]["AvlCrLimit"].ToString() + "</b><br/>" +
+                                  "Total CR Limit: <b>" + lstDetail.Rows[0]["TotCrLimit"].ToString() + "</b><br/>" +
+                                  "Total Outstanding: <b>" + lstDetail.Rows[0]["TotOutstnd"].ToString() + "</b><br/>" +
+                                  "Total CR Days: <b>" + lstDetail.Rows[0]["TotCrDays"].ToString() + "</b>";
                     }
                     else if (ViewState["ooa_Type"].ToString() == "Fencing Radius")
                     {
