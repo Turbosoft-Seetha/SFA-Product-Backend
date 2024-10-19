@@ -113,21 +113,21 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void Save()
         {
-            string route, header, desc, user, status, Ismand;
+            string route, header, desc, user, status, Ismand,mode;
             route = GetItemFromGrid();
             header = txtheader.Text.ToString();
             desc = txtdesc.Text.ToString();
             user = UICommon.GetCurrentUserID().ToString();
             status = ddlStatus.SelectedValue.ToString();
 			Ismand = ddlType.SelectedValue.ToString();
-
+            mode=ddlMode.SelectedValue.ToString();
 
 
 			if (ResponseID.Equals("") || ResponseID == 0)
             {
 
 
-                string[] arr = { header, desc, user, status, Ismand };
+                string[] arr = { header, desc, user, status, Ismand,mode };
                 string Value = ObjclsFrms.SaveData("sp_Masters_UOM", "InsertRouteNotifications", route, arr);
                 int res = Int32.Parse(Value.ToString());
                 if (res > 0)
