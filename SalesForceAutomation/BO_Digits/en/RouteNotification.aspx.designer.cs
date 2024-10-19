@@ -231,33 +231,6 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadGrid grvRpt;
 
         /// <summary>
-        /// Deletebtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton Deletebtn;
-
-        /// <summary>
-        /// DetailBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton DetailBtn;
-
-        /// <summary>
-        /// PushNotBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton PushNotBtn;
-
-        /// <summary>
         /// RadAjaxLoadingPanel1 control.
         /// </summary>
         /// <remarks>

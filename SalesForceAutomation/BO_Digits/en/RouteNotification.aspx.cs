@@ -8,6 +8,9 @@ using System.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
+using System.IO;
+using System.Text;
+using Newtonsoft.Json;
 
 
 
@@ -291,7 +294,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("rnt_ID").ToString();
-                ViewState["ID"] = ID.ToString();
+                ViewState["rnt_ID"] = ID.ToString();
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>PushConfim();</script>", false);
             }
         }
@@ -697,10 +700,13 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void Run_Click(object sender, EventArgs e)
         {
-            
+
+            string rnt_ID = ViewState["rnt_ID"].ToString();
+            var jsonObject = new { rnt_ID = rnt_ID };  // Anonymous object
+            string json = JsonConvert.SerializeObject(jsonObject);
             string url = ConfigurationManager.AppSettings.Get("PushNotification");
             // Make the web service call
-            string responseJson = WebServiceCall(url);
+            string responseJson = WebServiceCal(url,json);
             string Response = responseJson.Trim();
 
             string successMessage = "Response: " + responseJson;
@@ -712,35 +718,66 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkOK_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ManualIntegration.aspx");
+            Response.Redirect("RouteNotification.aspx");
         }
 
-        public string WebServiceCall(string url)
+
+
+        public string WebServiceCal(string URL, string jsonData)
         {
+
             try
             {
-                string ID = ViewState["ID"].ToString();
-                using (WebClient client = new WebClient())
+
+
+                // Create a request using a URL that can receive a post.
+                WebRequest request = WebRequest.Create(URL);
+                // Set the Method property of the request to POST.
+                request.Method = "POST";
+                request.ContentType = "application/json";
+
+                byte[] postData = Encoding.UTF8.GetBytes(jsonData);
+
+                // Set the ContentLength property of the request to the length of the data
+                request.ContentLength = postData.Length;
+
+                // Get the request stream and write the data to it
+                using (Stream requestStream = request.GetRequestStream())
                 {
-                    string Method = "POST";
-                    client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                    string response = client.UploadString(url+"?ID="+ID, Method, "");
-                    return client.UploadString(url, Method, "");
+                    requestStream.Write(postData, 0, postData.Length);
                 }
-            }
-            catch (WebException webEx)
-            {
-                // Log or handle specific web exception details
-                ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "RouteNotification.aspx PageLoad()", "WebException: " + webEx.Message);
-                return null;
+
+                WebResponse response = request.GetResponse();
+                // Display the status.
+                Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+
+                // Get the stream containing content returned by the server.
+                // The using block ensures the stream is automatically closed.
+                using (Stream dataStream = response.GetResponseStream())
+                {
+                    // Open the stream using a StreamReader for easy access.
+                    StreamReader reader = new StreamReader(dataStream);
+                    // Read the content.
+                    string responseFromServer = reader.ReadToEnd();
+                    // Display the content.
+                    ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "RouteNotification.aspx", "WebserviceCall-Success-" + responseFromServer);
+                    response.Close();
+                    return responseFromServer;
+                }
+
+
+
             }
             catch (Exception ex)
             {
-                // Log or handle general exception details
-                ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "RouteNotification.aspx PageLoad()", "Error : " + ex.Message + " - " + ex.InnerException?.Message);
-                return null;
+                String innerMessage = (ex.InnerException != null) ? ex.InnerException.Message : "";
+                ObjclsFrms.LogMessageToFile(UICommon.GetLogFileName(), "RouteNotification.aspx", "Error : " + ex.Message.ToString() + " - " + innerMessage);
+                return ex.Message.ToString();
             }
         }
+
+
+        
 
     }
 }

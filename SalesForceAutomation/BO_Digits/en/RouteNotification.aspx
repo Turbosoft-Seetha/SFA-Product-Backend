@@ -277,10 +277,10 @@
                                                         ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
-                                            <telerik:GridTemplateColumn HeaderStyle-Width="50px" AllowFiltering="false" HeaderText="Push Notification" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
+                                            <telerik:GridTemplateColumn HeaderStyle-Width="80px" AllowFiltering="false" HeaderText="Push Notification" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
                                                 <ItemTemplate>
                                                     <asp:ImageButton CommandName="PushNot" ID="PushNotBtn" Visible="true" AlternateText="PushNot" runat="server"
-                                                        ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                                        ImageUrl="../assets/media/icons/notification.png"></asp:ImageButton>
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
 
@@ -449,7 +449,7 @@
                            <img alt="Loading..." src="../assets/media/bg/loader.gif" style="border: 0px;" />
                        </div>
                    </telerik:RadAjaxLoadingPanel>
-                   <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(modalConfirm);">Cancel</button>
+                   <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(modalPushConfirm);">Cancel</button>
                </div>
            </div>
        </div>
