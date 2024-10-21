@@ -110,16 +110,14 @@ namespace SalesForceAutomation.BO_Digits.en
         protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
         {
             DataTable dt = new DataTable();
-
             int columncount = 0;
 
+           
             foreach (GridColumn column in RadGrid1.MasterTableView.Columns)
-
             {
-                if (!string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText) && !column.HeaderText.Equals("Detail"))
-
+                // Skip GridClientSelectColumn and ensure valid columns are included
+                if (!(column is GridClientSelectColumn) && !string.IsNullOrEmpty(column.UniqueName) && !string.IsNullOrEmpty(column.HeaderText) && !column.HeaderText.Equals("Detail"))
                 {
-
                     if (column.Display == true)
                     {
                         columncount++;
@@ -134,40 +132,40 @@ namespace SalesForceAutomation.BO_Digits.en
             RadGrid dd = RadGrid1;
             dd.AllowPaging = false;
             dd.Rebind();
-            int x = RadGrid1.MasterTableView.Items.Count;
+
+           
             foreach (GridDataItem item in dd.MasterTableView.Items)
             {
                 dr = dt.NewRow();
                 int j = 0;
+
+                // Loop through columns and skip GridClientSelectColumn while filling row data
                 for (int i = 0; i < RadGrid1.MasterTableView.Columns.Count; i++)
                 {
-                    if (RadGrid1.MasterTableView.Columns[i].Display == true)
+                    GridColumn column = RadGrid1.MasterTableView.Columns[i];
+
+                    // Skip GridClientSelectColumn and other excluded columns
+                    if (column.Display == true && !(column is GridClientSelectColumn))
                     {
+                        string cellText = item[column.UniqueName].Text;
 
-                        if (!item[RadGrid1.MasterTableView.Columns[i].UniqueName].Text.Contains("Detail"))
+                        if (!string.IsNullOrEmpty(cellText) && !cellText.Contains("&nbsp;"))
                         {
-                            if ((!RadGrid1.MasterTableView.Columns[i].HeaderText.Equals("Asset")) && (!RadGrid1.MasterTableView.Columns[i].HeaderText.Equals("Documents"))
-                                && (!RadGrid1.MasterTableView.Columns[i].HeaderText.Equals("Location")) && (!RadGrid1.MasterTableView.Columns[i].HeaderText.Equals("GeoCode"))
-                                && (!RadGrid1.MasterTableView.Columns[i].HeaderText.Equals("Detail")))
-                            {
-                                if (!item[RadGrid1.MasterTableView.Columns[i].UniqueName].Text.Contains("&nbsp;"))
-                                {
-                                    dr[j] = item[RadGrid1.MasterTableView.Columns[i].UniqueName].Text;
-                                }
-                                else
-                                {
-                                    dr[j] = " ";
-                                }
-
-
-                                j++;
-                            }
-
+                            dr[j] = cellText;
                         }
+                        else
+                        {
+                            dr[j] = " ";
+                        }
+
+                        j++;
                     }
                 }
+
                 dt.Rows.Add(dr);
             }
+
+            
             string sheetName = "SpecialPriceAssignedCustomers";
             SpreadStreamProcessingForXLSXAndCSV(dt, sheetName);
         }

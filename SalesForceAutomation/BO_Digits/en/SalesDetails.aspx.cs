@@ -285,7 +285,15 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
+            if (e.CommandName.Equals("Batch"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("sld_ID").ToString();
 
+
+                Response.Redirect("ListBatchSales.aspx?ID=" + ID + "&&HID=" + ResponseID.ToString());
+
+            }
         }
 
         protected void BtnEmail_Click(object sender, ImageClickEventArgs e)

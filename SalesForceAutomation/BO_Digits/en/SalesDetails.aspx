@@ -10,9 +10,9 @@
               $('#kt_modal_1_4').modal('show');
               $('#msg').text(a);
           }
-      
-        function DateModal() {
-            $('#kt_modal_1_1').modal('show');
+
+          function DateModal() {
+              $('#kt_modal_1_1').modal('show');
           }
 
           function Success() {
@@ -169,7 +169,12 @@
                                         EnableHeaderContextMenu="true">
                                         <Columns>
 
-
+                                            <telerik:GridTemplateColumn HeaderStyle-Width="100px" AllowFiltering="false" HeaderText="Batch/Serial" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
+                                                <ItemTemplate>
+                                                    <asp:ImageButton CommandName="Batch" ID="Batch" Visible="true" AlternateText="Item" runat="server"
+                                                        ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                                </ItemTemplate>
+                                            </telerik:GridTemplateColumn>
 
 
                                             <telerik:GridBoundColumn DataField="sld_TransType" AllowFiltering="false" HeaderStyle-Width="50px"

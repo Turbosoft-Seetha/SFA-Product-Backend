@@ -13270,6 +13270,7 @@
     <Content Include="BO_Digits\en\ListAssignedCustomersForPromotionHeader.aspx" />
     <Content Include="BO_Digits\en\ListAssignedSurvey.aspx" />
     <Content Include="BO_Digits\en\ListAudit.aspx" />
+    <Content Include="BO_Digits\en\ListBadDetails.aspx" />
     <Content Include="BO_Digits\en\ListBalanceStock.aspx" />
     <Content Include="BO_Digits\en\ListBatchdetails.aspx" />
     <Content Include="BO_Digits\en\ListCompanies.aspx" />
@@ -13297,6 +13298,7 @@
     <Content Include="BO_Digits\en\ListFieldServiceTransactions.aspx" />
     <Content Include="BO_Digits\en\ListFSAccessories.aspx" />
     <Content Include="BO_Digits\en\ListGeneralComplaintss.aspx" />
+    <Content Include="BO_Digits\en\ListGoodDetails.aspx" />
     <Content Include="BO_Digits\en\ListHelper.aspx" />
     <Content Include="BO_Digits\en\ListInvMonitoringTransactions.aspx" />
     <Content Include="BO_Digits\en\ListInvReceivingBatch.aspx" />
@@ -13358,6 +13360,7 @@
     <Content Include="BO_Digits\en\OutOfStocks.aspx" />
     <Content Include="BO_Digits\en\OutstandingDashboard.aspx" />
     <Content Include="BO_Digits\en\OutstandingManage.aspx" />
+    <Content Include="BO_Digits\en\OverrideOnlineApproval.aspx" />
     <Content Include="BO_Digits\en\PartialDeliveryApprovalDetail.aspx" />
     <Content Include="BO_Digits\en\PartialDeliveryApprovalHeader.aspx" />
     <Content Include="BO_Digits\en\PartialDeliveryDetailApproval.aspx" />
@@ -16770,6 +16773,13 @@
     <Compile Include="BO_Digits\en\ListAudit.aspx.designer.cs">
       <DependentUpon>ListAudit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BO_Digits\en\ListBadDetails.aspx.cs">
+      <DependentUpon>ListBadDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\ListBadDetails.aspx.designer.cs">
+      <DependentUpon>ListBadDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BO_Digits\en\ListBalanceStock.aspx.cs">
       <DependentUpon>ListBalanceStock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -16958,6 +16968,13 @@
     </Compile>
     <Compile Include="BO_Digits\en\ListGeneralComplaintss.aspx.designer.cs">
       <DependentUpon>ListGeneralComplaintss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\ListGoodDetails.aspx.cs">
+      <DependentUpon>ListGoodDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\ListGoodDetails.aspx.designer.cs">
+      <DependentUpon>ListGoodDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\ListHelper.aspx.cs">
       <DependentUpon>ListHelper.aspx</DependentUpon>
@@ -17385,6 +17402,13 @@
     </Compile>
     <Compile Include="BO_Digits\en\OutstandingManage.aspx.designer.cs">
       <DependentUpon>OutstandingManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BO_Digits\en\OverrideOnlineApproval.aspx.cs">
+      <DependentUpon>OverrideOnlineApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BO_Digits\en\OverrideOnlineApproval.aspx.designer.cs">
+      <DependentUpon>OverrideOnlineApproval.aspx</DependentUpon>
     </Compile>
     <Compile Include="BO_Digits\en\PartialDeliveryApprovalDetail.aspx.cs">
       <DependentUpon>PartialDeliveryApprovalDetail.aspx</DependentUpon>
