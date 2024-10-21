@@ -31,7 +31,8 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             get
             {
-                string Mode = Request.Params["Mode"].ToString();
+                //string Mode = Request.Params["Mode"].ToString();
+                string Mode = Request.Params["Mode"] ?? string.Empty;
 
 
                 return Mode;

@@ -46,7 +46,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     if (lstDatas.Rows.Count > 0)
                     {
 
-                        string pname, pcode, pcat, psubcat, pbrd, rtndays, itemlong, arabicName, arabicItemlong, Status, itmSalHold,itmRtnHold,itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb;                                          //Declare the variables
+                        string pname, pcode, pcat, psubcat, pbrd, rtndays, itemlong, arabicName, arabicItemlong, Status,
+                            itmSalHold,itmRtnHold,itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb, IsBatchItem;                                          //Declare the variables
                         pname = lstDatas.Rows[0]["prd_Name"].ToString();
                         pcode = lstDatas.Rows[0]["prd_Code"].ToString();
                         arabicName = lstDatas.Rows[0]["prd_NameArabic"].ToString();
@@ -66,6 +67,7 @@ namespace SalesForceAutomation.BO_Digits.en
 						prdChargable = lstDatas.Rows[0]["prd_Chargable"].ToString();
                         rtnreqhold = lstDatas.Rows[0]["prd_EnableReturnReqHold"].ToString();
                         EnableRb= lstDatas.Rows[0]["prd_EnableRb"].ToString();
+                        IsBatchItem = lstDatas.Rows[0]["prd_IsBatchItem"].ToString();
 
 
                         txtPName.Text = pname.ToString();
@@ -86,6 +88,8 @@ namespace SalesForceAutomation.BO_Digits.en
 						ddprdChargable.SelectedValue = prdChargable.ToString();
                         ddlrtnreqhold.SelectedValue= rtnreqhold.ToString();
                         ddlEnableRb.SelectedValue= EnableRb.ToString();
+                        ddlIsBatchItem.SelectedValue = IsBatchItem.ToString();
+
 
                         if (prd_Type.SelectedValue == "FS")
 						{
@@ -110,7 +114,8 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         public void SaveData()
         {
-            string pname, arabicName, pcode, pcat, psubcat, pbrd, rtndays, itemlong, Status, user, uom, stdprice, UPC, Default, arabicItemlong,itmSalHold, itmRtnHold, itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb;
+            string pname, arabicName, pcode, pcat, psubcat, pbrd, rtndays, itemlong, Status, user, uom, stdprice,
+          UPC, Default, arabicItemlong,itmSalHold, itmRtnHold, itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb, IsBatchItem;
             pname = txtPName.Text.ToString();
             arabicName = txtArabic.Text.ToString();
             pcode = txtCode.Text.ToString();
@@ -122,7 +127,7 @@ namespace SalesForceAutomation.BO_Digits.en
             itemlong = txtitemlong.Text.ToString();
             Status = ddlStat.SelectedValue.ToString();
             itmSalHold = ddlSalHold.SelectedValue.ToString();
-            itmRtnHold = ddlRtnHold.SelectedValue.ToString();
+            itmRtnHold = ddlRtnHold.SelectedValue.ToString(); 
             itmOrdHold = ddlOrdHold.SelectedValue.ToString();
             uom = ddlUom.SelectedValue.ToString();
             stdprice = txtStdPrice.Text.ToString();
@@ -133,6 +138,8 @@ namespace SalesForceAutomation.BO_Digits.en
 			prdChargable= ddprdChargable.SelectedValue.ToString();
             rtnreqhold=ddlrtnreqhold.SelectedValue.ToString();
             EnableRb= ddlEnableRb.SelectedValue.ToString();
+            IsBatchItem = ddlIsBatchItem.SelectedValue.ToString();
+
             if (prd_Type.SelectedValue == "FS")
 			{
 				ddprdChargable.Visible = true;
@@ -155,7 +162,8 @@ namespace SalesForceAutomation.BO_Digits.en
                     {
 
                     
-                    string[] arr = { pcode, pcat, psubcat, pbrd, rtndays, user, itemlong, Status, arabicName, arabicItemlong,itmSalHold,itmRtnHold,itmOrdHold , prdType , prdChargable,rtnreqhold, EnableRb };
+                    string[] arr = { pcode, pcat, psubcat, pbrd, rtndays, user, itemlong, Status, arabicName, arabicItemlong,itmSalHold,itmRtnHold,itmOrdHold ,
+                            prdType , prdChargable,rtnreqhold, EnableRb, IsBatchItem };
                     string Value = ob.SaveData("sp_Masters_UOM", "InsertProducts", pname, arr);
                     int res = Int32.Parse(Value.ToString());
                     ViewState["pid"] = res.ToString();
@@ -186,7 +194,8 @@ namespace SalesForceAutomation.BO_Digits.en
                 {
                     
                     string ID = ResponseID.ToString();
-                    string[] arr = { pcode, pcat, psubcat, pbrd, rtndays, user, itemlong, Status, arabicName, arabicItemlong, ID,itmSalHold,itmRtnHold,itmOrdHold, prdType , prdChargable, rtnreqhold , EnableRb };
+                    string[] arr = { pcode, pcat, psubcat, pbrd, rtndays, user, itemlong, Status, arabicName, arabicItemlong, ID,itmSalHold,itmRtnHold,
+                        itmOrdHold, prdType , prdChargable, rtnreqhold , EnableRb, IsBatchItem };
                     string value = ob.SaveData("sp_Masters_UOM", "UpdateProducts", pname, arr);
                     int res = Int32.Parse(value.ToString());
                     if (res > 0)

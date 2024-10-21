@@ -222,7 +222,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-lg-12 row" >
+                                    <div class="col-lg-12 row">
                                         <div class="col-lg-4 mt-1 form-group">
                                             <label class="control-label col-lg-12">Return Request Hold<span class="required"></span></label>
                                             <div class="col-lg-12">
@@ -280,21 +280,37 @@
                                                     SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
-<div class="col-lg-4 mt-1 form-group">
-         <label class="control-label col-lg-12">Enable Rb<span class="required"> </span></label>
-         <div class="col-lg-12">
-           <telerik:RadDropDownList ID="ddlEnableRb" runat="server" Width="100%" DefaultMessage="Please select">
-            <Items>
-             <telerik:DropDownListItem Text="Yes" Value="Y" />
-              <telerik:DropDownListItem Text="No" Value="N" Selected="true"/>
-            </Items>
-            </telerik:RadDropDownList>
-              <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Display="Dynamic" ValidationGroup="form"
-                  ControlToValidate="ddlEnableRb" ErrorMessage="Please select " ForeColor="Red"
-                       SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        <div class="col-lg-4 mt-1 form-group">
+                                            <label class="control-label col-lg-12">Enable Rb<span class="required"> </span></label>
+                                            <div class="col-lg-12">
+                                                <telerik:RadDropDownList ID="ddlEnableRb" runat="server" Width="100%" DefaultMessage="Please select">
+                                                    <Items>
+                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                        <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                    </Items>
+                                                </telerik:RadDropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                    ControlToValidate="ddlEnableRb" ErrorMessage="Please select " ForeColor="Red"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
 
-             </div>
- </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 mt-1 form-group">
+                                            <label class="control-label col-lg-12">IsBatchItem<span class="required"> </span></label>
+                                            <div class="col-lg-12">
+                                                <telerik:RadDropDownList ID="ddlIsBatchItem" runat="server" Width="100%" DefaultMessage="Please select">
+                                                    <Items>
+                                                        <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                                        <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                                    </Items>
+                                                </telerik:RadDropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" Display="Dynamic" ValidationGroup="form"
+                                                    ControlToValidate="ddlIsBatchItem" ErrorMessage="Please select " ForeColor="Red"
+                                                    SetFocusOnError="True"></asp:RequiredFieldValidator>
+
+                                            </div>
+                                        </div>
 
 
                                     </div>
@@ -404,7 +420,7 @@
 
                                             </div>
                                         </div>
-                                           
+
                                         <div class="col-lg-3 form-group" style="padding-top: 10px; padding-bottom: 20px;">
                                             <div class="col-lg-12">
                                                 <telerik:RadAjaxPanel ID="RadAjaxPanel5" runat="server" LoadingPanelID="RadAjaxLoadingPanel4">
