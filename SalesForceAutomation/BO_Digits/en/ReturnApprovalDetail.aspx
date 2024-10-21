@@ -49,19 +49,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
- <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
- </telerik:RadAjaxManager>
- <telerik:RadAjaxManagerProxy ID="AjaxManagerProxy1" runat="server">
-     <AjaxSettings>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxManagerProxy ID="AjaxManagerProxy1" runat="server">
+        <AjaxSettings>
 
-         <telerik:AjaxSetting AjaxControlID="radSelectAllApprove">
-             <UpdatedControls>               
-                 <telerik:AjaxUpdatedControl ControlID="grvRpt" />
-             </UpdatedControls>
-         </telerik:AjaxSetting>
-         </AjaxSettings>
-     </telerik:RadAjaxManagerProxy>
-    
+            <telerik:AjaxSetting AjaxControlID="radSelectAllApprove">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="grvRpt" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManagerProxy>
+
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -296,6 +296,26 @@
                                                 <HeaderStyle HorizontalAlign="Right" />
                                             </telerik:GridBoundColumn>
 
+                                            <telerik:GridBoundColumn DataField="HUnitPrice" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="HUnitPrice" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="HUnitPrice">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="LUnitPrice" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="LUnitPrice" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="LUnitPrice">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="rad_VAT" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="VAT" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="rad_VAT">
+                                            </telerik:GridBoundColumn>
+                                            <telerik:GridBoundColumn DataField="rad_GrandTotal" AllowFiltering="true" HeaderStyle-Width="100px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Total" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="rad_GrandTotal">
+                                            </telerik:GridBoundColumn>
                                             <telerik:GridBoundColumn DataField="rsn_Name" AllowFiltering="true" HeaderStyle-Width="100px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="User Reason" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
@@ -336,7 +356,7 @@
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
 
-                                            
+
                                             <telerik:GridBoundColumn DataField="counts" AllowFiltering="true" HeaderStyle-Width="100px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="counts" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"

@@ -101,6 +101,12 @@
                                         ShowFooter="false" DataKeyNames="lid_ID"
                                         EnableHeaderContextMenu="true">
                                         <Columns>
+                                            <telerik:GridTemplateColumn HeaderStyle-Width="100px" AllowFiltering="false" HeaderText="Detail" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true" UniqueName="Detail">
+                                                <ItemTemplate>
+                                                    <asp:ImageButton CommandName="Detail" ID="lnkLink" Visible="true" AlternateText="Detail" runat="server"
+                                                        ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                                </ItemTemplate>
+                                            </telerik:GridTemplateColumn>
 
                                                   <telerik:GridBoundColumn DataField="prd_Code" AllowFiltering="true" HeaderStyle-Width="150px"
                                                     HeaderStyle-Font-Size="Smaller" HeaderText="Item Code" FilterControlWidth="100%"

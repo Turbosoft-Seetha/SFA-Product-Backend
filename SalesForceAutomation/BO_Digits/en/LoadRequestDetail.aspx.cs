@@ -331,7 +331,12 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, GridCommandEventArgs e)
         {
-
+            if (e.CommandName.Equals("Detail"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("lrd_ID").ToString();
+                Response.Redirect("LoadRequestBatchDetail.aspx?ID=" + ID + "&&LRH" + ResponseID);
+            }
         }
 
         protected void withapqty_Click(object sender, EventArgs e)
