@@ -156,6 +156,12 @@
                                                 </asp:CheckBox>
                                             </ItemTemplate>
                                         </telerik:GridTemplateColumn>--%>
+                                        <telerik:GridTemplateColumn HeaderStyle-Width="100px" AllowFiltering="false" HeaderText="Detail" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true" UniqueName="Detail">
+                                            <ItemTemplate>
+                                                <asp:ImageButton CommandName="Detail" ID="lnkLink" Visible="true" AlternateText="Detail" runat="server"
+                                                    ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                            </ItemTemplate>
+                                        </telerik:GridTemplateColumn>
                                            <telerik:GridBoundColumn DataField="lrd_ID" AllowFiltering="true" HeaderStyle-Width="80px"
                                             HeaderStyle-Font-Size="Smaller" HeaderText="lrd_ID" FilterControlWidth="100%"
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"

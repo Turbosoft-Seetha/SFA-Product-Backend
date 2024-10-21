@@ -25,6 +25,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 return ResponseID;
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -75,6 +76,16 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             
             Response.Redirect("VanToVanWorkFlow.aspx?ID="+ResponseID.ToString());
+        }
+
+        protected void grvRpt_ItemCommand(object sender, GridCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("Detail"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("vvd_ID").ToString();
+                Response.Redirect("VanToVanBatchDetail.aspx?ID=" + ID + "&&VVH" + ResponseID);
+            }
         }
     }
 }

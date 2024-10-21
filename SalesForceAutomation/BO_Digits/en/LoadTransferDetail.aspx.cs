@@ -73,7 +73,12 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-
+            if (e.CommandName.Equals("Detail"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("ltd_ID").ToString();
+                Response.Redirect("LoadTransferBatchDetail.aspx?ID=" + ID + "&&LTH" + ResponseID);
+            }
         }
 
         protected void imgExcel_Click(object sender, ImageClickEventArgs e)
@@ -237,5 +242,6 @@ namespace SalesForceAutomation.BO_Digits.en
             }
         }
 
+      
     }
 }

@@ -75,7 +75,12 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-
+            if (e.CommandName.Equals("Detail"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("lid_ID").ToString();
+                Response.Redirect("LoadInCompletedBatchDetail.aspx?ID=" + ID + "&&LIH" + LIH);
+            }
         }
 
         //protected void Adjusted_Click(object sender, EventArgs e)
