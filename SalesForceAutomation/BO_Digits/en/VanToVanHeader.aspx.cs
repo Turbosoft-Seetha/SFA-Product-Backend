@@ -179,7 +179,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("vvh_ID").ToString();
-                Response.Redirect("VanToVanDetail.aspx?ID=" + ID );
+                Response.Redirect("VanToVanDetail.aspx?VVH=" + ID );
             }
             if (e.CommandName.Equals("WorkFlow"))
             {

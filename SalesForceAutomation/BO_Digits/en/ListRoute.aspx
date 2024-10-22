@@ -563,6 +563,12 @@
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rot_OverrideOnline">
                                         </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rot_EnableDeviceID" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Enable Device ID" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_EnableDeviceID">
+                                        </telerik:GridBoundColumn>
+
 
 
                                     </Columns>

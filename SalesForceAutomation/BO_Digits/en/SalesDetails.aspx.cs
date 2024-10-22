@@ -291,7 +291,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 string ID = dataItem.GetDataKeyValue("sld_ID").ToString();
 
 
-                Response.Redirect("ListBatchSales.aspx?ID=" + ID + "&&HID=" + ResponseID.ToString());
+                Response.Redirect("ListBatchSales.aspx?HID=" + ResponseID + "&&ID=" + ID);
 
             }
         }

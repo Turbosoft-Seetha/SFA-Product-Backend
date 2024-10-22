@@ -291,7 +291,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     RtnAplAttribute, OpnRtnImg, ResRtnImg, SchRtnImg, OptRtnApl, ResRtnApl, SysStock, GRImag, LTApprvl, JPSeq, SchVisit, WeekEndDays, GRImgMand, BRImgMand, pettycash, AssetTracking, ServiceReq,
                     IsVehicleNoMand, EnbVehicle, AdvPay, VanApproval, SettleFrom, pettyLimit, InvTrans, FenceRadius, CusTrans, MerchTrans, FSTrans, ARManAlloc, ERP_Inventory_Req_Location, ERP_Inventory_Location,
                     InvReconfAppr, varlimit, FutExpDel, logoutafter, HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory,
-                    KpiSettings, OverrideOnline;
+                    KpiSettings, OverrideOnline,EnableDeviceID;
 
                 AssetTracking = lstDatas.Rows[0]["rot_EnableKPIAstTracking"].ToString();
                 ServiceReq = lstDatas.Rows[0]["rot_EnableKPIServReq"].ToString();
@@ -398,7 +398,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 string[] ks = KpiSettings.Split('-');
 
                 OverrideOnline = lstDatas.Rows[0]["rot_OverrideOnline"].ToString();
-
+                EnableDeviceID = lstDatas.Rows[0]["rot_EnableDeviceID"].ToString();
 
 
                 ViewState["rotusr"] = username.ToString();
@@ -478,7 +478,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 dllIsLoadIn.SelectedValue = LoadIn.ToString();
                 dllIsLoadOut.SelectedValue = LoadOut.ToString();
                 dllIsInventory.SelectedValue = Inventory.ToString();
-
+                ddlEnableDeviceId.SelectedValue= EnableDeviceID.ToString();
                 ddlname.Enabled = false;
                 //string currentusr = ddlname.SelectedItem.Text.ToString();
                 if (!string.IsNullOrEmpty(username))
@@ -681,7 +681,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 suglodreq, endorsement, InventoryOutMode, CusTransOutMode, AltRotCode, EnableHelper, Helper1, Helper2, Vehicle, TransName, VanStockAllow, NonVanStockAllow,
                 RtnAplAttribute, OpnRtnImg, ResRtnImg, SchRtnImg, OptRtnApl, ResRtnApl, SysStock, GRImg, LTApprvl, JPSeq, SchVisit, WeekendDys, GRImgMand, BRImgMand, pettycash, AssetTracking, ServiceReq,
                 IsVehicleNo, EnbVehicle, AdvPay, VanApproval, SettleFrom, pettyLimit, InvTrans, fence, CusTrans, MerchTrans, FSTrans, ARManAlloc, ERPInvReqLoc, ERPInvLoc, InvReconfAppr, varlimit, FutExpDel,
-                logoutafter, HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline;
+                logoutafter, HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline, EnableDeviceID;
             AssetTracking = dllAssetTracking.SelectedValue.ToString();
             ServiceReq = dllServiceReq.SelectedValue.ToString();
             name = txtname.Text.ToString();
@@ -791,6 +791,7 @@ namespace SalesForceAutomation.BO_Digits.en
             Inventory = dllIsInventory.SelectedValue.ToString();
             KpiSettings = Kpicolumns();
             OverrideOnline = ddlOverrides.SelectedValue.ToString();
+            EnableDeviceID = ddlEnableDeviceId.SelectedValue.ToString();
 
             if (rottype == "OA")
             {
@@ -848,7 +849,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     RtnAplAttribute,OpnRtnImg,ResRtnImg,SchRtnImg,  OptRtnApl,ResRtnApl,SysStock,GRImg,LTApprvl,JPSeq,
                     SchVisit,  WeekendDys,GRImgMand,BRImgMand,pettycash,AssetTracking, ServiceReq,IsVehicleNo,EnbVehicle,AdvPay,
                     SettleFrom, InvTrans,pettyLimit,fence,CusTrans,MerchTrans,FSTrans,VanApproval,ARManAlloc, ERPInvReqLoc, ERPInvLoc, InvReconfAppr,varlimit,FutExpDel,logoutafter,
-                     HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings,OverrideOnline
+                     HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings,OverrideOnline,EnableDeviceID
                 };
 
                     string Value = ObjclsFrms.SaveData("sp_Backend", "InsertRoutes", name, arr);
@@ -906,7 +907,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             RtnAplAttribute,OpnRtnImg,ResRtnImg,SchRtnImg, OptRtnApl,ResRtnApl,SysStock,GRImg,LTApprvl,JPSeq, //51
                             SchVisit,WeekendDys,GRImgMand,BRImgMand,pettycash,AssetTracking, ServiceReq,IsVehicleNo,EnbVehicle,AdvPay, //61
                             SettleFrom, InvTrans,pettyLimit,fence,CusTrans,MerchTrans,FSTrans,VanApproval,ARManAlloc, ERPInvReqLoc, ERPInvLoc, InvReconfAppr,varlimit,FutExpDel, user,logoutafter,
-                            HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline};
+                            HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline,EnableDeviceID};
                             string Value = ObjclsFrms.SaveData("sp_Backend", "UpdateRoutes", name, arr);
                             int res = Int32.Parse(Value.ToString());
                             try
@@ -940,7 +941,7 @@ namespace SalesForceAutomation.BO_Digits.en
                         RtnAplAttribute,OpnRtnImg,ResRtnImg,SchRtnImg, OptRtnApl,ResRtnApl,SysStock,GRImg,LTApprvl,JPSeq, //51
                         SchVisit,WeekendDys,GRImgMand,BRImgMand,pettycash,AssetTracking, ServiceReq,IsVehicleNo,EnbVehicle,AdvPay, //61
                         SettleFrom, InvTrans,pettyLimit,fence,CusTrans,MerchTrans,FSTrans,VanApproval,ARManAlloc, ERPInvReqLoc, ERPInvLoc, InvReconfAppr,varlimit,FutExpDel, user,logoutafter,
-                        HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline};
+                        HelperMand, EnforceNotification, EnableCoupon, IsBankUpdate, EnableCouponLeaf, LoadIn, LoadOut, Inventory, KpiSettings, OverrideOnline, EnableDeviceID};
                         string Value = ObjclsFrms.SaveData("sp_Backend", "UpdateRoutes", name, arr);
                         int res = Int32.Parse(Value.ToString());
                         try

@@ -39,7 +39,19 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 if (Id.Equals("") || Id == "0")                                //To check whether there is a value for ResponseID or not. For adding there won't be a value.
                 {
-                    
+                    string FS = rdappUsrtypes.SelectedValue.ToString();
+
+                    if (FS.Equals("SFA"))
+                    {
+                        Tracking.Visible = true;
+                        Stoke.Visible = false;
+                    }
+
+                    else
+                    {
+                        Tracking.Visible = false;
+                        Stoke.Visible = true;
+                    }
                 }
                 else                                                                        //If we are editing there will be a value and the following code will be executed.
                 {

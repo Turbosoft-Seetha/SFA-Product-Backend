@@ -79,7 +79,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("lid_ID").ToString();
-                Response.Redirect("LoadInCompletedBatchDetail.aspx?ID=" + ID + "&&LIH" + LIH);
+                Response.Redirect("LoadInCompletedBatchDetail.aspx?LIH=" + LIH + "&&ID=" + ID);
             }
         }
 

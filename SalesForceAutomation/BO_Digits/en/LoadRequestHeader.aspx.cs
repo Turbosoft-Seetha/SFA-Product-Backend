@@ -269,7 +269,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("lrh_ID").ToString();
-                Response.Redirect("LoadRequestDetail.aspx?Id=" + ID);
+                Response.Redirect("LoadRequestDetail.aspx?LRH=" + ID);
             }
         }
 

@@ -319,7 +319,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("lth_ID").ToString();
-                Response.Redirect("LoadTransferDetail.aspx?Id=" + ID);
+                Response.Redirect("LoadTransferDetail.aspx?LTH=" + ID);
             }
         }
 
