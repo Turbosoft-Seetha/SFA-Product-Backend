@@ -295,7 +295,23 @@ namespace SalesForceAutomation.BO_Digits.en
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("rnt_ID").ToString();
                 ViewState["rnt_ID"] = ID.ToString();
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>PushConfim();</script>", false);
+                string mode = dataItem["rnt_Mode"].ToString();
+                string[] ar = {mode};
+                DataTable dt = new DataTable();
+                dt= ObjclsFrms.loadList("SelToken", "sp_Notifications", ID,ar);
+                if(dt.Rows.Count > 0)
+                {
+                    if (dt.Rows[0]["Token"].ToString() == "N")
+                    {
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>TokenModal();</script>", false); 
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "tmp", "<script type='text/javascript'>PushConfim();</script>", false);
+                    }
+                }
+                
+                
             }
         }
 

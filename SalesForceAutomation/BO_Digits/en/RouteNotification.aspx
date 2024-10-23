@@ -25,6 +25,10 @@
             ('#response').text(a);
 
         }
+        function TokenModal() {
+            $('#kt_modal_1_11').modal('show');
+
+        }
     </script>
 </asp:Content>
 
@@ -489,6 +493,22 @@
          </div>
      </div>
  </div>
+    <div class="clearfix"></div>
+<div class="modal fade" id="kt_modal_1_11" style="height: auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Oops..!</h5>
+            </div>
+            <div class="modal-body">
+                <p>There is No Token for this Route/User</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm fw-bold btn-secondary" onclick="cancelModal(kt_modal_1_11);">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </asp:Content>
