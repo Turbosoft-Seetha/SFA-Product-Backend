@@ -386,8 +386,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 DataTable lstData = ObjclsFrms.loadList("SelUserTypeByID", "sp_Masters", ddlUserType.SelectedValue.ToString());
                 if (lstData.Rows.Count > 0)
                 {
-
-
                     string Usertype = lstData.Rows[0]["ust_Value"].ToString();
 
                     ViewState["UserType"] = Usertype;

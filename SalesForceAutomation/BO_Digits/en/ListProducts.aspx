@@ -169,7 +169,7 @@
                                                 </telerik:GridBoundColumn>
 
                                                 <telerik:GridBoundColumn DataField="prd_IsBatchItem" AllowFiltering="true" HeaderStyle-Width="120px"
-                                                    HeaderStyle-Font-Size="Smaller" HeaderText=" IsBatchItem" FilterControlWidth="100%"
+                                                    HeaderStyle-Font-Size="Smaller" HeaderText="Enable Batch" FilterControlWidth="100%"
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                     HeaderStyle-Font-Bold="true" UniqueName="prd_IsBatchItem">
                                                 </telerik:GridBoundColumn>
@@ -351,7 +351,7 @@
                                                     </telerik:GridBoundColumn>
 
                                                     <telerik:GridBoundColumn DataField="prd_IsBatchItem" AllowFiltering="true" HeaderStyle-Width="120px"
-                                                        HeaderStyle-Font-Size="Smaller" HeaderText=" IsBatchItem" FilterControlWidth="100%"
+                                                        HeaderStyle-Font-Size="Smaller" HeaderText=" Enable Batch" FilterControlWidth="100%"
                                                         CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                         HeaderStyle-Font-Bold="true" UniqueName="prd_IsBatchItem">
                                                     </telerik:GridBoundColumn>

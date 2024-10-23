@@ -71,7 +71,7 @@
 									<h1 class="text-dark mb-3 fs-3x" data-kt-translate="password-reset-title">Forgot Password ?</h1>
 									<!--end::Title-->
 									<!--begin::Text-->
-									<div class="text-gray-400 fw-semibold fs-6" data-kt-translate="password-reset-desc">Enter your email to reset your password.</div>
+									<div class="text-gray-400 fw-semibold fs-6" data-kt-translate="password-reset-desc">Enter your email or username to reset your password.</div>
 									<!--end::Link-->
 								</div>
 								<!--begin::Heading-->
@@ -80,31 +80,31 @@
 									<asp:Literal ID="ltrlMessage" runat="server" ></asp:Literal>
 								<div class="fv-row mb-10">
 									
-									<asp:TextBox ID="txtUsername" runat="server" autocomplete="off" placeholder="Email" class="form-control form-control-solid" ></asp:TextBox>
-											<asp:RequiredFieldValidator ID="reqPass" runat="server" ControlToValidate="txtUsername" ErrorMessage="Enter Email" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
+									<asp:TextBox ID="txtUsername" runat="server" autocomplete="off" placeholder="Enter here" class="form-control form-control-solid" ></asp:TextBox>
+											<asp:RequiredFieldValidator ID="reqPass" runat="server" ControlToValidate="txtUsername" ErrorMessage="Enter Email or Username" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
 
 
 								</div>
 								<!--end::Input group-->
 								<!--begin::Actions-->
-								<div class="d-flex flex-stack">
-									<!--begin::Link-->
-									<div class="m-0">
-										<asp:LinkButton ID="lnkReset" runat="server" CausesValidation="true" OnClick="lnkReset_Click" >
-										<button class="btn btn-primary me-2" data-kt-translate="password-reset-submit">
-											<!--begin::Indicator label-->
-											<span class="indicator-label">Submit</span>
-											<!--end::Indicator label-->
-											<!--begin::Indicator progress-->
-											<span class="indicator-progress">Please wait...
-											<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-											<!--end::Indicator progress-->
-										</button>
-											</asp:LinkButton>
-										<a href="SignIn.aspx" class="btn btn-lg btn-light-primary fw-bold" data-kt-translate="password-reset-cancel">Cancel</a>
-									</div>
-									<!--end::Link-->
-								</div>
+                                    <div class="d-flex flex-stack">
+                                        <!--begin::Link-->
+                                        <div class="m-0">
+                                            <asp:LinkButton ID="lnkReset" runat="server" CausesValidation="true" OnClick="lnkReset_Click" CssClass="btn btn-primary me-2" data-kt-translate="password-reset-submit">
+            <!--begin::Indicator label-->
+            <span class="indicator-label">Submit</span>
+            <!--end::Indicator label-->
+            <!--begin::Indicator progress-->
+            <span class="indicator-progress">Please wait...
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+            </span>
+            <!--end::Indicator progress-->
+                                            </asp:LinkButton>
+                                            <a href="SignIn.aspx" class="btn btn-lg btn-light-primary fw-bold" data-kt-translate="password-reset-cancel">Cancel</a>
+                                        </div>
+                                        <!--end::Link-->
+                                    </div>
+
 								<!--end::Actions-->
 											<div class="modal fade" id="kt_modal_1_8" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">

@@ -1,12 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BO_Digits/en/en_master.Master" AutoEventWireup="true" CodeBehind="LoadTransferBatchDetail.aspx.cs" Inherits="SalesForceAutomation.BO_Digits.en.LoadTransferBatchDetail" %>
-<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BO_Digits/en/en_master.Master" AutoEventWireup="true" CodeBehind="ListBatchReturn.aspx.cs" Inherits="SalesForceAutomation.BO_Digits.en.ListBatchReturn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageHeader" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Actions" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-        <div class="card-body" style="background-color: white; padding: 20px;">
+    <div class="card-body" style="background-color: white; padding: 20px;">
 
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
             <div class="row">
@@ -17,7 +16,6 @@
                     
                     
                  </div>--%>
-
 
 
 
@@ -35,7 +33,7 @@
                                                 <table>
 
                                                     <td style="width: 56%">
-                                                      
+
                                                         <div class="col-lg-12 mb-2">
                                                             <label class="col-lg-2 col-form-label" style="display: contents;">Product Code:</label>
                                                             <label class="col-lg-4 col-form-label" style="display: contents;">
@@ -70,7 +68,6 @@
                                     ID="grvRpt" GridLines="None"
                                     ShowFooter="True" AllowSorting="True"
                                     OnNeedDataSource="grvRpt_NeedDataSource"
-                                    
                                     AllowFilteringByColumn="true"
                                     ClientSettings-Resizing-ClipCellContentOnResize="true"
                                     EnableAjaxSkinRendering="true"
@@ -79,25 +76,38 @@
                                         <Scrolling AllowScroll="True" UseStaticHeaders="True" SaveScrollPosition="true" ScrollHeight="500px"></Scrolling>
                                     </ClientSettings>
                                     <MasterTableView AutoGenerateColumns="False" FilterItemStyle-Font-Size="XX-Small" CanRetrieveAllData="false"
-                                        ShowFooter="false" DataKeyNames="ltb_ID"
+                                        ShowFooter="false" DataKeyNames="rrb_ID"
                                         EnableHeaderContextMenu="true">
                                         <Columns>
 
-                                            <telerik:GridBoundColumn DataField="ltb_BatchNum" AllowFiltering="true" HeaderStyle-Width="80px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="BatchNum" FilterControlWidth="100%"
+                                            <telerik:GridBoundColumn DataField="rrb_Number" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Number" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="ltb_BatchNum">
+                                                HeaderStyle-Font-Bold="true" UniqueName="rrb_Number">
                                             </telerik:GridBoundColumn>
 
-
-                                     
-
-                                            <telerik:GridBoundColumn DataField="ltb_BatchQty" AllowFiltering="true" HeaderStyle-Width="60px"
-                                                HeaderStyle-Font-Size="Smaller" HeaderText="BatchQty" FilterControlWidth="100%"
+                                            <telerik:GridBoundColumn DataField="rrb_BaseUOM" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="BaseUOM" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                HeaderStyle-Font-Bold="true" UniqueName="ltb_BatchQty">
+                                                HeaderStyle-Font-Bold="true" UniqueName="rrb_BaseUOM">
                                             </telerik:GridBoundColumn>
-                                           
+
+                                            <telerik:GridBoundColumn DataField="rrb_ExpiryDate" AllowFiltering="true" HeaderStyle-Width="60px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="Expiry Date" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="rrb_ExpiryDate">
+                                            </telerik:GridBoundColumn>
+
+                                            <telerik:GridBoundColumn DataField="rrb_Qty" AllowFiltering="true" HeaderStyle-Width="60px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText=" Qty" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="rrb_Qty">
+                                                <ItemStyle HorizontalAlign="Right" />
+                                                <HeaderStyle HorizontalAlign="Right" />
+                                            </telerik:GridBoundColumn>
+
+                                            
+                                            
 
 
                                         </Columns>

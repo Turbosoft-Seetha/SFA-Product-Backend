@@ -15,17 +15,26 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class VanToVanDetail : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
-        public int ResponseID
+        //public int ResponseID
+        //{
+        //    get
+        //    {
+        //        int ResponseID;
+        //        int.TryParse(Request.Params["VVH"], out ResponseID);
+
+        //        return ResponseID;
+        //    }
+        //}
+        public int VVH
         {
             get
             {
-                int ResponseID;
-                int.TryParse(Request.Params["ID"], out ResponseID);
+                int VVH;
+                int.TryParse(Request.Params["VVH"], out VVH);
 
-                return ResponseID;
+                return VVH;
             }
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -36,7 +45,7 @@ namespace SalesForceAutomation.BO_Digits.en
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("SelectVanToVanHeaderByID", "sp_Transaction", ResponseID.ToString());
+            lstDatas = ObjclsFrms.loadList("SelectVanToVanHeaderByID", "sp_Transaction", VVH.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];
@@ -62,7 +71,7 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         public void Data()
         {
-            DataTable lstdata = ObjclsFrms.loadList("SelectVanToVanDetail", "sp_Transaction", ResponseID.ToString());
+            DataTable lstdata = ObjclsFrms.loadList("SelectVanToVanDetail", "sp_Transaction", VVH.ToString());
             grvRpt.DataSource = lstdata;
         }
       
@@ -75,7 +84,7 @@ namespace SalesForceAutomation.BO_Digits.en
         protected void lnkFlow_Click(object sender, EventArgs e)
         {
             
-            Response.Redirect("VanToVanWorkFlow.aspx?ID="+ResponseID.ToString());
+            Response.Redirect("VanToVanWorkFlow.aspx?ID="+ VVH.ToString());
         }
 
         protected void grvRpt_ItemCommand(object sender, GridCommandEventArgs e)
@@ -84,7 +93,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("vvd_ID").ToString();
-                Response.Redirect("VanToVanBatchDetail.aspx?ID=" + ID + "&&VVH" + ResponseID);
+                Response.Redirect("VanToVanBatchDetail.aspx?VVH=" + VVH + "&&ID=" + ID);
             }
         }
     }

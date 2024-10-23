@@ -9,7 +9,7 @@ using Telerik.Web.UI;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
-    public partial class ListBatchSales : System.Web.UI.Page
+    public partial class ListBatchReturn : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
         public int ResID
@@ -22,29 +22,36 @@ namespace SalesForceAutomation.BO_Digits.en
                 return ResID;
             }
         }
+        //public int HID
+        //{
+        //    get
+        //    {
+        //        int HID;
+        //        int.TryParse(Request.Params["HID"], out HID);
+
+        //        return HID;
+        //    }
+        //}
         public int ResponseID
         {
             get
             {
                 int ResponseID;
-                int.TryParse(Request.Params["ID"], out ResponseID);
-
+                int.TryParse(Request.Params["HID"], out ResponseID);
                 return ResponseID;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!Page.IsPostBack)
             {
                 HeaderData();
             }
-
         }
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("ListSalesDetailsHeader", "sp_Merchandising_UOM", ResID.ToString());
+            lstDatas = ObjclsFrms.loadList("ListReturnDetailsHeader", "sp_ReturnRequest", ResID.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];
@@ -53,7 +60,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
 
-                rp.Text = "Picking No: " + lstDatas.Rows[0]["sal_number"].ToString();
+                rp.Text = "Picking No: " + lstDatas.Rows[0]["rrh_RequestNumber"].ToString();
                 lblprdcode.Text = lstDatas.Rows[0]["prd_Code"].ToString();
                 lblprdname.Text = lstDatas.Rows[0]["prd_Name"].ToString();
 
@@ -64,7 +71,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("LoadBatchSales", "sp_Merchandising_UOM", ResID.ToString());
+            lstDatas = ObjclsFrms.loadList("LoadBatchReturn", "sp_ReturnRequest", ResID.ToString());
             grvRpt.DataSource = lstDatas;
 
 
@@ -73,7 +80,5 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             LoadData();
         }
-
-
     }
 }

@@ -15,6 +15,7 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class VanToVanBatchDetail
     {
 
+
         /// <summary>
         /// RadPanelBar0 control.
         /// </summary>

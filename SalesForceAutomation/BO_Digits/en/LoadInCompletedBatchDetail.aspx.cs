@@ -26,19 +26,23 @@ namespace SalesForceAutomation.BO_Digits.en
             get
             {
                 int LIH;
-                int.TryParse(Request.Params["ID"], out LIH);
+                int.TryParse(Request.Params["LIH"], out LIH);
 
                 return LIH;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderData();
+            if (!Page.IsPostBack)
+            {
+                HeaderData();
+
+            }
         }
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("LoadInCompletedBatchHeader", "sp_InventoryTransaction", LIH.ToString());
+            lstDatas = ObjclsFrms.loadList("LoadInCompletedBatchHeader", "sp_InventoryTransaction", ResID.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];

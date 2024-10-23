@@ -854,6 +854,18 @@
 
                                     </div>
                                 </div>
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Enable Device ID<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlEnableDeviceId" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+
+                                    </div>
+                                </div>
 
                             </div>
 

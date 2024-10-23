@@ -14,6 +14,7 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class LoadInCompletedBatchDetail
     {
 
+
         /// <summary>
         /// RadPanelBar0 control.
         /// </summary>

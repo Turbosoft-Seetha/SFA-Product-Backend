@@ -22,24 +22,36 @@ namespace SalesForceAutomation.BO_Digits.en
                 return ResID;
             }
         }
+        //public int ResponseID
+        //{
+        //    get
+        //    {
+        //        int ResponseID;
+        //        int.TryParse(Request.Params["LTH"], out ResponseID);
+        //        return ResponseID;
+        //    }
+        //}
         public int LTH
         {
             get
             {
                 int LTH;
-                int.TryParse(Request.Params["ID"], out LTH);
+                int.TryParse(Request.Params["LTH"], out LTH);
 
                 return LTH;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderData();
+            if (!Page.IsPostBack)
+            {
+                HeaderData();
+            }
         }
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("LoadTransferBatchHeader", "sp_InventoryTransaction", LTH.ToString());
+            lstDatas = ObjclsFrms.loadList("LoadTransferBatchHeader", "sp_InventoryTransaction", ResID.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];

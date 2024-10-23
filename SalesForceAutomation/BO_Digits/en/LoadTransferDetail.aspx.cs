@@ -14,13 +14,24 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class LoadTransferDetail : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
-        public int ResponseID
+        //public int ResponseID
+        //{
+        //    get
+        //    {
+        //        int ResponseID;
+        //        int.TryParse(Request.Params["ID"], out ResponseID);
+        //        return ResponseID;
+        //    }
+        //}
+
+        public int LTH
         {
             get
             {
-                int ResponseID;
-                int.TryParse(Request.Params["ID"], out ResponseID);
-                return ResponseID;
+                int LTH;
+                int.TryParse(Request.Params["LTH"], out LTH);
+
+                return LTH;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -36,7 +47,7 @@ namespace SalesForceAutomation.BO_Digits.en
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("selLoadTransferHeaderById", "sp_InventoryTransaction", ResponseID.ToString());
+            lstDatas = ObjclsFrms.loadList("selLoadTransferHeaderById", "sp_InventoryTransaction", LTH.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];
@@ -61,7 +72,7 @@ namespace SalesForceAutomation.BO_Digits.en
         public void LoadData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("LoadTransferDetail", "sp_InventoryTransaction", ResponseID.ToString());
+            lstDatas = ObjclsFrms.loadList("LoadTransferDetail", "sp_InventoryTransaction", LTH.ToString());
             grvRpt.DataSource = lstDatas;
             ViewState["dd"] = lstDatas;
         }
@@ -77,7 +88,8 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("ltd_ID").ToString();
-                Response.Redirect("LoadTransferBatchDetail.aspx?ID=" + ID + "&&LTH" + ResponseID);
+                Response.Redirect("LoadTransferBatchDetail.aspx?LTH=" + LTH + "&&ID=" + ID);
+               
             }
         }
 

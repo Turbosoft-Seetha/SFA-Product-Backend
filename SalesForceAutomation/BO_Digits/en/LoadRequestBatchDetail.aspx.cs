@@ -22,24 +22,37 @@ namespace SalesForceAutomation.BO_Digits.en
                 return ResID;
             }
         }
+
+        //public int ResponseID
+        //{
+        //    get
+        //    {
+        //        int ResponseID;
+        //        int.TryParse(Request.Params["LRH"], out ResponseID);
+        //        return ResponseID;
+        //    }
+        //}
         public int LRH
         {
             get
             {
                 int LRH;
-                int.TryParse(Request.Params["ID"], out LRH);
+                int.TryParse(Request.Params["LRH"], out LRH);
 
                 return LRH;
             }
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderData();
+            if (!Page.IsPostBack)
+            {
+                HeaderData();
+            }
         }
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("LoadRequestBatchHeader", "sp_InventoryTransaction", LRH.ToString());
+            lstDatas = ObjclsFrms.loadList("LoadRequestBatchHeader", "sp_InventoryTransaction", ResID.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];
@@ -47,7 +60,6 @@ namespace SalesForceAutomation.BO_Digits.en
                 Label lblprdname = (Label)rp.FindControl("lblprdname");
                 lblprdcode.Text = lstDatas.Rows[0]["prd_Code"].ToString();
                 lblprdname.Text = lstDatas.Rows[0]["prd_Name"].ToString();
-
 
 
             }

@@ -109,9 +109,17 @@ namespace SalesForceAutomation.BO_Digits.en
 
 		protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
 		{
-            
+
+            if (e.CommandName.Equals("Batch"))
+            {
+                GridDataItem dataItem = e.Item as GridDataItem;
+                string ID = dataItem.GetDataKeyValue("rrd_ID").ToString();
+                 
+
+                    Response.Redirect("ListBatchReturn.aspx?HID=" + ResponseID + "&&ID=" +ID );
                 
-            
+            }
+
 
         }
         protected void grvRpt_ItemDataBound(object sender, GridItemEventArgs e)
@@ -119,10 +127,11 @@ namespace SalesForceAutomation.BO_Digits.en
             if (e.Item is GridDataItem)
             {
                 GridDataItem item = (GridDataItem)e.Item;
+
                 RadComboBox reasonDrop = (RadComboBox)item.FindControl("ddlReason");
                 RadioButtonList rbActions = (RadioButtonList)item.FindControl("rbActions");
                 GridTemplateColumn DropDownColum = (GridTemplateColumn)grvRpt.MasterTableView.GetColumn("DropDownColum");
-                
+
                 reasonDrop.DataSource = ObjclsFrms.loadList("SelectReasonforReurnReq", "sp_ReturnRequest");
                 reasonDrop.DataTextField = "rsn_Name";
                 reasonDrop.DataValueField = "rsn_ID";
@@ -154,6 +163,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
 
                 catch (Exception ex) { }
+                
 
             }
 

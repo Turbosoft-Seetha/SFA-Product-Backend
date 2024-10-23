@@ -20,16 +20,25 @@ namespace SalesForceAutomation.BO_Digits.en
     public partial class LoadRequestDetail : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
-        public int ResponseID
+        //public int ResponseID
+        //{
+        //    get
+        //    {
+        //        int ResponseID;
+        //        int.TryParse(Request.Params["LRH"], out ResponseID);
+        //        return ResponseID;
+        //    }
+        //}
+        public int LRH
         {
             get
             {
-                int ResponseID;
-                int.TryParse(Request.Params["id"], out ResponseID);
-                return ResponseID;
+                int LRH;
+                int.TryParse(Request.Params["LRH"], out LRH);
+
+                return LRH;
             }
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -41,7 +50,7 @@ namespace SalesForceAutomation.BO_Digits.en
         public void HeaderData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("selLoadRequestHeaderById", "sp_InventoryTransaction", ResponseID.ToString());
+            lstDatas = ObjclsFrms.loadList("selLoadRequestHeaderById", "sp_InventoryTransaction", LRH.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 RadPanelItem rp = RadPanelBar0.Items[0];
@@ -83,7 +92,7 @@ namespace SalesForceAutomation.BO_Digits.en
         public void LoadData()
         {
             DataTable lstDatas = new DataTable();
-            lstDatas = ObjclsFrms.loadList("selLoadRequestDetail", "sp_InventoryTransaction", ResponseID.ToString());
+            lstDatas = ObjclsFrms.loadList("selLoadRequestDetail", "sp_InventoryTransaction", LRH.ToString());
             if (lstDatas.Rows.Count > 0)
             {
                 ViewState["prdid"] = lstDatas.Rows[0]["lrd_prd_ID"].ToString();
@@ -247,7 +256,7 @@ namespace SalesForceAutomation.BO_Digits.en
             string lrdID = GetSelectedItemsFromGrid();
             string nectlvl = ViewState["nextLevel"].ToString();
 
-            string[] arr = { ResponseID.ToString(), user, rtid, "","","", nectlvl };
+            string[] arr = { LRH.ToString(), user, rtid, "","","", nectlvl };
             lstData = ObjclsFrms.loadList("UpdateLoadReqDetail", "sp_InventoryTransaction", lrdID.ToString(), arr);
             int res = Int32.Parse(lstData.Rows[0]["Res"].ToString());
 
@@ -289,7 +298,7 @@ namespace SalesForceAutomation.BO_Digits.en
             string lrdID = GetSelectedItemsFromGrid();
             string user = UICommon.GetCurrentUserID().ToString();
             //string remark = this.txtRejRem.Text.ToString();
-            string lrhid = ResponseID.ToString();
+            string lrhid = LRH.ToString();
 
             string[] arr = { lrhid.ToString(), user };
             string resp = ObjclsFrms.SaveData("sp_InventoryTransaction", "RejectLoadReq", lrdID.ToString(), arr);
@@ -335,7 +344,7 @@ namespace SalesForceAutomation.BO_Digits.en
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
                 string ID = dataItem.GetDataKeyValue("lrd_ID").ToString();
-                Response.Redirect("LoadRequestBatchDetail.aspx?ID=" + ID + "&&LRH" + ResponseID);
+                Response.Redirect("LoadRequestBatchDetail.aspx?LRH=" + LRH + "&&ID=" + ID);
             }
         }
 
@@ -352,7 +361,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
 
-            string mrhID = ResponseID.ToString();
+            string mrhID = LRH.ToString();
             report["@Para1"] = mrhID.ToString();
 
 
@@ -385,7 +394,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
 
 
-            string mrhID = ResponseID.ToString();
+            string mrhID = LRH.ToString();
             report["@Para1"] = mrhID.ToString();
 
 

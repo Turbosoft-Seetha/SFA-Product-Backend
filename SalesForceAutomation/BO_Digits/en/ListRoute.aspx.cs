@@ -25,7 +25,17 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             if (!Page.IsPostBack)
             {
-                
+                try
+                {
+                    GetGridSession(grvRpt, "LR");
+
+                    grvRpt.Rebind();
+                }
+
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/SignIn.aspx");
+                }
             }
         }
 
@@ -253,6 +263,17 @@ namespace SalesForceAutomation.BO_Digits.en
         }
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
+            try
+            {
+                RadGrid grd = (RadGrid)sender;
+
+                SetGridSession(grd, "LR");
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/SignIn.aspx");
+            }
+
             if (e.CommandName.Equals("Edits"))
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
@@ -505,5 +526,119 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             Response.Redirect("AssignProducts.aspx");
         }
+        public void SetGridSession(RadGrid grd, string SessionPrefix)
+
+        {
+
+            try
+
+            {
+
+                foreach (GridColumn column in grd.MasterTableView.Columns)
+
+                {
+
+                    if (column is GridBoundColumn boundColumn)
+
+                    {
+
+                        string columnName = boundColumn.UniqueName;
+
+                        string filterValue = column.CurrentFilterValue;
+
+                        Session[SessionPrefix + columnName] = filterValue;
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                Response.Redirect("~/SignIn.aspx");
+
+
+            }
+
+
+
+        }
+        public void GetGridSession(RadGrid grd, string SessionPrefix)
+
+        {
+
+            try
+
+            {
+
+                string filterExpression = string.Empty;
+
+                foreach (GridColumn column in grd.MasterTableView.Columns)
+
+                {
+
+                    if (column is GridBoundColumn boundColumn)
+
+                    {
+
+                        string columnName = boundColumn.UniqueName;
+
+                        if (Session[SessionPrefix + columnName] != null)
+
+                        {
+
+                            string filterValue = Session[SessionPrefix + columnName].ToString();
+
+
+
+                            if (filterValue != "")
+                            {
+
+                                column.CurrentFilterValue = filterValue;
+
+
+
+                                if (!string.IsNullOrEmpty(filterExpression))
+
+                                {
+
+                                    filterExpression += " AND ";
+
+                                }
+
+                                filterExpression += string.Format("{0} LIKE '%{1}%'", column.UniqueName, column.CurrentFilterValue);
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                if (filterExpression != string.Empty)
+
+                {
+
+                    grvRpt.MasterTableView.FilterExpression = filterExpression;
+
+                }
+
+
+
+            }
+
+            catch (Exception ex)
+
+            {
+                Response.Redirect("~/SignIn.aspx");
+
+            }
+
+        }
+
     }
 }

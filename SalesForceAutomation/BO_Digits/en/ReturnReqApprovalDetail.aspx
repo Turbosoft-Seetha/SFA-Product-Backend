@@ -127,7 +127,13 @@
                                     ShowFooter="false" DataKeyNames="rrd_ID"
                                     EnableHeaderContextMenu="true">
                                     <Columns>
-                                      
+
+                                        <telerik:GridTemplateColumn HeaderStyle-Width="100px" AllowFiltering="false" HeaderText="Batch/Serial" HeaderStyle-Font-Size="Smaller" HeaderStyle-Font-Bold="true">
+                                            <ItemTemplate>
+                                                <asp:ImageButton CommandName="Batch" ID="Batch" Visible="true" AlternateText="Item" runat="server"
+                                                    ImageUrl="../assets/media/icons/details.png"></asp:ImageButton>
+                                            </ItemTemplate>
+                                        </telerik:GridTemplateColumn>
 
                                         <telerik:GridBoundColumn DataField="prd_Code" AllowFiltering="true" HeaderStyle-Width="150px"
                                             HeaderStyle-Font-Size="Smaller" HeaderText="Product Code" FilterControlWidth="100%"
@@ -168,7 +174,8 @@
                                             <ItemStyle HorizontalAlign="Right" />
                                             <HeaderStyle HorizontalAlign="Right" />
                                         </telerik:GridBoundColumn>
-                                                                      <telerik:GridTemplateColumn AllowFiltering="false" HeaderStyle-Width="80px" HeaderText="Attached Image" HeaderStyle-Font-Size="Smaller"
+
+                    <telerik:GridTemplateColumn AllowFiltering="false" HeaderStyle-Width="80px" HeaderText="Attached Image" HeaderStyle-Font-Size="Smaller"
     HeaderStyle-Font-Bold="true">
     <ItemTemplate>
         <asp:HyperLink ID="pp" runat="server" NavigateUrl=' <%#  Eval("rrd_Image") %>' Target="_blank" >
@@ -213,6 +220,12 @@
                                                 </ItemTemplate>
                                         </telerik:GridTemplateColumn>
                                         
+                                            
+                                            <%--<telerik:GridBoundColumn DataField="prd_IsBatchItem" AllowFiltering="true" HeaderStyle-Width="80px"
+                                                HeaderStyle-Font-Size="Smaller" HeaderText="prd_IsBatchItem" FilterControlWidth="100%"
+                                                CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                HeaderStyle-Font-Bold="true" UniqueName="prd_IsBatchItem" Display="false">
+                                            </telerik:GridBoundColumn>--%>
                                     </Columns>
                                 </MasterTableView>
                                 <GroupingSettings CaseSensitive="false" />

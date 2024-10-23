@@ -11,9 +11,8 @@ namespace SalesForceAutomation.BO_Digits.en
 {
 
 
-    public partial class LoadRequestBatchDetail
+    public partial class ListBatchReturn
     {
-
 
         /// <summary>
         /// RadPanelBar0 control.

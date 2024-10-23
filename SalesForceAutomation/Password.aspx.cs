@@ -28,8 +28,6 @@ namespace SalesForceAutomation
         public void Reset()
         {
             string mail = this.txtUsername.Text.ToString();
-
-
             string password = Membership.GeneratePassword(8, 1);
             MembershipUser user;
             user = Membership.GetUser(this.txtUsername.Text);
@@ -47,11 +45,35 @@ namespace SalesForceAutomation
 
                     MailService(dtLogin, NewPass);
                 }
+                else if (mail != null)
+                {
+                    DataTable dtpass = ObjclsFrms.loadList("SelPasswordResetType", "sp_User", txtUsername.Text.ToString());
+                    if (dtpass.Rows.Count > 0)
+                    {
+                        string type = dtpass.Rows[0]["PasswordReset"].ToString();
+                        string ID = dtpass.Rows[0]["ID"].ToString();
+                        if (type == "Request from IT")
+                        {
+                            string[] ar = { type.ToString() };
+                            string save = ObjclsFrms.SaveData("sp_User", "InsPasswordResetRequest", ID.ToString(), ar);
+                            int res = Int32.Parse(save.ToString());
+                            if (res > 0)
+                            {
+                                this.ltrlMessage.Text = UICommon.GetErrorMessage("Request has been sent");
+                            }
+                        }
+                        else
+                        {
+                            this.ltrlMessage.Text = UICommon.GetErrorMessage("Please check your mail for new password");
+                        }
+                    }
+                }
                 else
                 {
                     this.ltrlMessage.Text = UICommon.GetErrorMessage("We are facing some technical issues, please try again later");
                 }
-            }
+               
+            }           
             else
             {
                 this.ltrlMessage.Text = UICommon.GetErrorMessage("User along with this account not Found");
@@ -85,5 +107,6 @@ namespace SalesForceAutomation
         {
             Response.Redirect("SignIn.aspx");
         }
+
     }
 }

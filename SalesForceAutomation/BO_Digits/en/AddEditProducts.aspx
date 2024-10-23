@@ -297,7 +297,7 @@
                                         </div>
 
                                         <div class="col-lg-4 mt-1 form-group">
-                                            <label class="control-label col-lg-12">IsBatchItem<span class="required"> </span></label>
+                                            <label class="control-label col-lg-12">Enable Batch<span class="required"> </span></label>
                                             <div class="col-lg-12">
                                                 <telerik:RadDropDownList ID="ddlIsBatchItem" runat="server" Width="100%" DefaultMessage="Please select">
                                                     <Items>
