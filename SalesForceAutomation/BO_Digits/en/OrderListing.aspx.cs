@@ -449,7 +449,7 @@ namespace SalesForceAutomation.BO_Digits.en
         protected void Linkbtn1_Click(object sender, EventArgs e)
         {
             string UID = UICommon.GetCurrentUserID().ToString();
-            OpenNewBrowserWindow("https://order.dev-ts.online/Order/NewOrder?mode=DIGITS-SFA" + "&&userID=" + UID, this);
+            OpenNewBrowserWindow("https://dev-order.dev-ts.online/Order/NewOrder?mode=DIGITS-SFA" + "&&userID=" + UID, this);
 
         }
         public void Route(string DposubAreaCondition)
