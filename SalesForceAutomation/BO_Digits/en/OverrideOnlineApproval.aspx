@@ -180,13 +180,13 @@
                                                 </ItemTemplate>
                                             </telerik:GridTemplateColumn>
 
-                                            <telerik:GridBoundColumn DataField="rot_Code" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            <telerik:GridBoundColumn DataField="rot_Code" AllowFiltering="true" HeaderStyle-Width="80px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Route Code" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                 HeaderStyle-Font-Bold="true" UniqueName="rot_Code">
                                             </telerik:GridBoundColumn>
 
-                                            <telerik:GridBoundColumn DataField="rot_Name" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            <telerik:GridBoundColumn DataField="rot_Name" AllowFiltering="true" HeaderStyle-Width="120px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Route" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                 HeaderStyle-Font-Bold="true" UniqueName="rot_Name">
@@ -223,7 +223,7 @@
                                                 HeaderStyle-Font-Bold="true" UniqueName="CreatedDate">
                                             </telerik:GridBoundColumn>
 
-                                            <telerik:GridBoundColumn DataField="ooa_ApprovalStatus" AllowFiltering="true" HeaderStyle-Width="150px"
+                                            <telerik:GridBoundColumn DataField="ooa_ApprovalStatus" AllowFiltering="true" HeaderStyle-Width="120px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Status" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                 HeaderStyle-Font-Bold="true" UniqueName="ooa_ApprovalStatus">
@@ -236,7 +236,7 @@
                                                 HeaderStyle-Font-Bold="true" UniqueName="ModifiedBy">
                                             </telerik:GridBoundColumn>
 
-                                            <telerik:GridBoundColumn DataField="ModifiedDate" AllowFiltering="true" HeaderStyle-Width="120px"
+                                            <telerik:GridBoundColumn DataField="ModifiedDate" AllowFiltering="true" HeaderStyle-Width="150px"
                                                 HeaderStyle-Font-Size="Smaller" HeaderText="Approved Date" FilterControlWidth="100%"
                                                 CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                                 HeaderStyle-Font-Bold="true" UniqueName="ModifiedDate">

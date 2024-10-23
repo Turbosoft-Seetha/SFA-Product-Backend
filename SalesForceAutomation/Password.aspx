@@ -77,7 +77,7 @@
 								<!--begin::Heading-->
 								<!--begin::Input group-->
 
-									<asp:Literal ID="ltrlMessage" runat="server" ></asp:Literal>
+									<asp:Literal ID="ltrlMessage" runat="server"></asp:Literal>
 								<div class="fv-row mb-10">
 									
 									<asp:TextBox ID="txtUsername" runat="server" autocomplete="off" placeholder="Enter here" class="form-control form-control-solid" ></asp:TextBox>

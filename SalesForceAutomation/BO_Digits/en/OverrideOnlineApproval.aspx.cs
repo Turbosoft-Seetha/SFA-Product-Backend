@@ -28,7 +28,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                     else
                     {
-                        rdfromDate.SelectedDate = DateTime.Parse(DateTime.Now.ToString("MMM-yyyy"));
+                        rdfromDate.SelectedDate = DateTime.Now;
                     }
                     if (Session["OOATODate"] != null)
                     {
@@ -36,9 +36,9 @@ namespace SalesForceAutomation.BO_Digits.en
                     }
                     else
                     {
-                        rdendDate.SelectedDate = DateTime.Now; ;
+                        rdendDate.SelectedDate = DateTime.Now; 
                     }
-
+                    rdendDate.MaxDate = DateTime.Now;
                     Route();
                     if (Session["OOARoute"] != null)
                     {

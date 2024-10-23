@@ -72,10 +72,11 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             
             string rot = ddlRoute.SelectedValue.ToString();
+            string[] arr = { ResponseID.ToString() };
             if (!rot.Equals(""))
             {
                 DataTable lstuser = default(DataTable);
-                lstuser = obj.loadList("UnAssignedCusPMG", "sp_Masters", rot);                            
+                lstuser = obj.loadList("UnAssignedCusPMG", "sp_Masters", rot, arr);                            
                 RadGrid1.DataSource = lstuser;              
             }
         }
