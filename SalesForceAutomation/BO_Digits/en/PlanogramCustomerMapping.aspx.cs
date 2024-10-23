@@ -55,8 +55,8 @@ namespace SalesForceAutomation.BO_Digits.en
 
         public void Customers()
         {
-
-            DataTable dt = ObjclsFrms.loadList("SelCustomers", "sp_MerchandisingWebServices", RouteID.ToString());
+            string[] arr = { ResponseID.ToString()};
+            DataTable dt = ObjclsFrms.loadList("SelCustomers", "sp_MerchandisingWebServices", RouteID.ToString(),arr);
             ddlCustomer.DataSource = dt;
             ddlCustomer.DataTextField = "cus_Name";
             ddlCustomer.DataValueField = "cus_ID";

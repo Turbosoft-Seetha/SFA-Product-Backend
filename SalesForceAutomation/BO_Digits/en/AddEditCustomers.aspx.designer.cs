@@ -11,7 +11,6 @@ namespace SalesForceAutomation.BO_Digits.en
 {
 
 
-
     public partial class AddEditCustomers
     {
 
@@ -1303,6 +1302,33 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadComboBox rdInsCusSetting;
 
         /// <summary>
+        /// rdFulldelivery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList rdFulldelivery;
+
+        /// <summary>
+        /// ddlEnableCD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnableCD;
+
+        /// <summary>
+        /// ddlEnableRtnReqBatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlEnableRtnReqBatch;
+
+        /// <summary>
         /// plsSalesorder control.
         /// </summary>
         /// <remarks>
@@ -1436,15 +1462,6 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadDropDownList ddlEnableFreeSampleOrderApproval;
-
-        /// <summary>
-        /// rdFulldelivery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList rdFulldelivery;
 
         /// <summary>
         /// ddlIsInvoicing control.
