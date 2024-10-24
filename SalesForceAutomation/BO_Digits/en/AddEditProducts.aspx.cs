@@ -47,7 +47,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     {
 
                         string pname, pcode, pcat, psubcat, pbrd, rtndays, itemlong, arabicName, arabicItemlong, Status,
-                            itmSalHold,itmRtnHold,itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb, IsBatchItem;                                          //Declare the variables
+                            itmSalHold,itmRtnHold,itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb, IsBatchItem, ShortName;                                          //Declare the variables
                         pname = lstDatas.Rows[0]["prd_Name"].ToString();
                         pcode = lstDatas.Rows[0]["prd_Code"].ToString();
                         arabicName = lstDatas.Rows[0]["prd_NameArabic"].ToString();
@@ -68,7 +68,7 @@ namespace SalesForceAutomation.BO_Digits.en
                         rtnreqhold = lstDatas.Rows[0]["prd_EnableReturnReqHold"].ToString();
                         EnableRb= lstDatas.Rows[0]["prd_EnableRb"].ToString();
                         IsBatchItem = lstDatas.Rows[0]["prd_IsBatchItem"].ToString();
-
+                        ShortName = lstDatas.Rows[0]["prd_ShortName"].ToString();
 
                         txtPName.Text = pname.ToString();
                         txtArabic.Text = arabicName.ToString();
@@ -89,6 +89,7 @@ namespace SalesForceAutomation.BO_Digits.en
                         ddlrtnreqhold.SelectedValue= rtnreqhold.ToString();
                         ddlEnableRb.SelectedValue= EnableRb.ToString();
                         ddlIsBatchItem.SelectedValue = IsBatchItem.ToString();
+                        txtShortName.Text = ShortName.ToString();
 
 
                         if (prd_Type.SelectedValue == "FS")
@@ -115,7 +116,7 @@ namespace SalesForceAutomation.BO_Digits.en
         public void SaveData()
         {
             string pname, arabicName, pcode, pcat, psubcat, pbrd, rtndays, itemlong, Status, user, uom, stdprice,
-          UPC, Default, arabicItemlong,itmSalHold, itmRtnHold, itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb, IsBatchItem;
+          UPC, Default, arabicItemlong,itmSalHold, itmRtnHold, itmOrdHold, prdType, prdChargable,rtnreqhold, EnableRb, IsBatchItem, ShortName;
             pname = txtPName.Text.ToString();
             arabicName = txtArabic.Text.ToString();
             pcode = txtCode.Text.ToString();
@@ -139,6 +140,7 @@ namespace SalesForceAutomation.BO_Digits.en
             rtnreqhold=ddlrtnreqhold.SelectedValue.ToString();
             EnableRb= ddlEnableRb.SelectedValue.ToString();
             IsBatchItem = ddlIsBatchItem.SelectedValue.ToString();
+            ShortName = txtShortName.Text.ToString();
 
             if (prd_Type.SelectedValue == "FS")
 			{
@@ -163,7 +165,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
                     
                     string[] arr = { pcode, pcat, psubcat, pbrd, rtndays, user, itemlong, Status, arabicName, arabicItemlong,itmSalHold,itmRtnHold,itmOrdHold ,
-                            prdType , prdChargable,rtnreqhold, EnableRb, IsBatchItem };
+                            prdType , prdChargable,rtnreqhold, EnableRb, IsBatchItem, ShortName };
                     string Value = ob.SaveData("sp_Masters_UOM", "InsertProducts", pname, arr);
                     int res = Int32.Parse(Value.ToString());
                     ViewState["pid"] = res.ToString();
@@ -195,7 +197,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     
                     string ID = ResponseID.ToString();
                     string[] arr = { pcode, pcat, psubcat, pbrd, rtndays, user, itemlong, Status, arabicName, arabicItemlong, ID,itmSalHold,itmRtnHold,
-                        itmOrdHold, prdType , prdChargable, rtnreqhold , EnableRb, IsBatchItem };
+                        itmOrdHold, prdType , prdChargable, rtnreqhold , EnableRb, IsBatchItem, ShortName };
                     string value = ob.SaveData("sp_Masters_UOM", "UpdateProducts", pname, arr);
                     int res = Int32.Parse(value.ToString());
                     if (res > 0)

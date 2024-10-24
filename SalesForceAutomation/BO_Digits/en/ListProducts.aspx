@@ -103,6 +103,12 @@
                                                     HeaderStyle-Font-Bold="true" UniqueName="prd_NameArabic">
                                                 </telerik:GridBoundColumn>
 
+                                                <telerik:GridBoundColumn DataField="prd_ShortName" AllowFiltering="true" HeaderStyle-Width="150px"
+                                                    HeaderStyle-Font-Size="Smaller" HeaderText="Short Name" FilterControlWidth="100%"
+                                                    CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                                    HeaderStyle-Font-Bold="true" UniqueName="prd_ShortName">
+                                                </telerik:GridBoundColumn>
+
                                                 <telerik:GridBoundColumn DataField="cat_Name" AllowFiltering="true" HeaderStyle-Width="130px"
                                                     HeaderStyle-Font-Size="Smaller" HeaderText="Category" FilterControlWidth="100%"
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"

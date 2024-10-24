@@ -141,6 +141,15 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::Telerik.Web.UI.RadTextBox txtArabic;
 
         /// <summary>
+        /// txtShortName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtShortName;
+
+        /// <summary>
         /// ddlcatid control.
         /// </summary>
         /// <remarks>
@@ -339,15 +348,6 @@ namespace SalesForceAutomation.BO_Digits.en
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator20;
 
         /// <summary>
-        /// ddlStat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadDropDownList ddlStat;
-
-        /// <summary>
         /// ddlEnableRb control.
         /// </summary>
         /// <remarks>
@@ -382,6 +382,15 @@ namespace SalesForceAutomation.BO_Digits.en
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
+
+        /// <summary>
+        /// ddlStat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDropDownList ddlStat;
 
         /// <summary>
         /// RadAjaxPanel5 control.

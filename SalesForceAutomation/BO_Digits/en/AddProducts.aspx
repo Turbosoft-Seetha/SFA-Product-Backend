@@ -125,8 +125,18 @@
                                         </div>
                                     </div>
 
+                                    
+
                                 </div>
                                 <div class="col-lg-12 row" style="padding-top: 10px;">
+
+                                                                        <div class="col-lg-4 form-group">
+    <label class="control-label col-lg-6">Short Name </label>
+    <div class="col-lg-12">
+        <telerik:RadTextBox ID="txtShortName" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+
+    </div>
+</div>
 
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">Category <span class="required"></span></label>
@@ -149,18 +159,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 form-group">
-                                        <label class="control-label col-lg-12">Brand <span class="required"></span></label>
-                                        <div class="col-lg-12">
-                                            <telerik:RadComboBox ID="ddlbrdid" runat="server" EmptyMessage="Select Sub Brand" CausesValidation="false" Width="100%" Filter="Contains" OnSelectedIndexChanged="ddlbrdid_SelectedIndexChanged" AutoPostBack="true"></telerik:RadComboBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="form"
-                                                ControlToValidate="ddlbrdid" ErrorMessage="Please Select Brand" ForeColor="Red" Display="Dynamic"
-                                                SetFocusOnError="True"></asp:RequiredFieldValidator><br />
-                                        </div>
-                                    </div>
+                                   
 
                                 </div>
                                 <div class="col-lg-12 row" style="padding-top: 10px;">
+
+                                     <div class="col-lg-4 form-group">
+     <label class="control-label col-lg-12">Brand <span class="required"></span></label>
+     <div class="col-lg-12">
+         <telerik:RadComboBox ID="ddlbrdid" runat="server" EmptyMessage="Select Sub Brand" CausesValidation="false" Width="100%" Filter="Contains" OnSelectedIndexChanged="ddlbrdid_SelectedIndexChanged" AutoPostBack="true"></telerik:RadComboBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="form"
+             ControlToValidate="ddlbrdid" ErrorMessage="Please Select Brand" ForeColor="Red" Display="Dynamic"
+             SetFocusOnError="True"></asp:RequiredFieldValidator><br />
+     </div>
+ </div>
 
                                     <div class="col-lg-4 form-group">
 
@@ -181,15 +193,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 form-group">
-                                        <label class="control-label col-lg-12">Arabic Item long Description </label>
-                                        <div class="col-lg-12">
-                                            <telerik:RadTextBox ID="txtARitemlong" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
-                                        </div>
-                                    </div>
+                                   
 
                                 </div>
                                 <div class="col-lg-12 row" style="padding-top: 10px;">
+
+                                     <div class="col-lg-4 form-group">
+     <label class="control-label col-lg-12">Arabic Item long Description </label>
+     <div class="col-lg-12">
+         <telerik:RadTextBox ID="txtARitemlong" runat="server" CssClass="form-control" Width="100%"></telerik:RadTextBox>
+     </div>
+ </div>
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label col-lg-12">Sales Hold<span class="required"></span></label>
                                         <div class="col-lg-12">
@@ -218,22 +232,24 @@
                                                 SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 form-group">
-                                        <label class="control-label col-lg-12">Order Hold<span class="required"></span></label>
-                                        <div class="col-lg-12">
-                                            <telerik:RadDropDownList ID="ddlOrdHold" runat="server" Width="100%" DefaultMessage="Please select">
-                                                <Items>
-                                                    <telerik:DropDownListItem Text="Yes" Value="Y" />
-                                                    <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
-                                                </Items>
-                                            </telerik:RadDropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" Display="Dynamic" ValidationGroup="form"
-                                                ControlToValidate="ddlOrdHold" ErrorMessage="Please select " ForeColor="Red"
-                                                SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                                 <div class="col-lg-12 row">
+
+                                     <div class="col-lg-4 form-group">
+     <label class="control-label col-lg-12">Order Hold<span class="required"></span></label>
+     <div class="col-lg-12">
+         <telerik:RadDropDownList ID="ddlOrdHold" runat="server" Width="100%" DefaultMessage="Please select">
+             <Items>
+                 <telerik:DropDownListItem Text="Yes" Value="Y" />
+                 <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+             </Items>
+         </telerik:RadDropDownList>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" Display="Dynamic" ValidationGroup="form"
+             ControlToValidate="ddlOrdHold" ErrorMessage="Please select " ForeColor="Red"
+             SetFocusOnError="True"></asp:RequiredFieldValidator>
+     </div>
+ </div>
                                     <div class="col-lg-4 mt-1 form-group">
                                         <label class="control-label col-lg-12">Return Request Hold<span class="required"></span></label>
                                         <div class="col-lg-12">
@@ -276,20 +292,9 @@
                                             </div>
                                         </div>
                                     </asp:PlaceHolder>
+                                    
                                     <div class="col-lg-4 mt-1 form-group">
-                                        <label class="control-label col-lg-12">Status</label>
-                                        <div class="col-lg-12">
-                                            <telerik:RadDropDownList ID="ddlStat" runat="server" Width="100%" DefaultMessage="Please select">
-                                                <Items>
-                                                    <telerik:DropDownListItem Text="Active" Value="Y" Selected="true" />
-                                                    <telerik:DropDownListItem Text="Inactive" Value="N" />
-                                                </Items>
-                                            </telerik:RadDropDownList>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 mt-1 form-group">
-                                        <label class="control-label col-lg-12">Enable Rb<span class="required"> </span></label>
+                                        <label class="control-label col-lg-12">Enable Return Batch<span class="required"> </span></label>
                                         <div class="col-lg-12">
                                             <telerik:RadDropDownList ID="ddlEnableRb" runat="server" Width="100%" DefaultMessage="Please select">
                                                 <Items>
@@ -319,6 +324,19 @@
 
                                         </div>
                                     </div>
+
+                                    <div class="col-lg-4 mt-1 form-group">
+    <label class="control-label col-lg-12">Status</label>
+    <div class="col-lg-12">
+        <telerik:RadDropDownList ID="ddlStat" runat="server" Width="100%" DefaultMessage="Please select">
+            <Items>
+                <telerik:DropDownListItem Text="Active" Value="Y" Selected="true" />
+                <telerik:DropDownListItem Text="Inactive" Value="N" />
+            </Items>
+        </telerik:RadDropDownList>
+
+    </div>
+</div>
                                 </div>
                             </telerik:RadAjaxPanel>
                         </div>
