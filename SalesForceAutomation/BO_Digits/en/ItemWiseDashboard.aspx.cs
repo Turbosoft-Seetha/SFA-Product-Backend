@@ -349,14 +349,27 @@ namespace SalesForceAutomation.BO_Digits.en
         {
 
         }
-        
+
         protected void OutletReset_Click(object sender, ImageClickEventArgs e)
         {
             CustGrid.SelectedIndexes.Clear();
             InvoiceGrid.SelectedIndexes.Clear();
 
+            string prd_ID = "";
             Session["SelectedCusID"] = null;
-            string prd_ID = Session["SelectedPrdID"].ToString();            
+
+            if (ItemGrid.SelectedIndexes.Count == 0)
+            {
+                Session["SelectedPrdID"] = null; 
+            }
+            else if (Session["SelectedPrdID"].ToString() != "")
+            {
+                prd_ID = Session["SelectedPrdID"].ToString();
+            }
+            else
+            {
+                prd_ID = "";
+            }
 
             LoadCustomers(prd_ID);
             CustGrid.Rebind();
@@ -364,6 +377,7 @@ namespace SalesForceAutomation.BO_Digits.en
             LoadInvoices("", prd_ID);
             InvoiceGrid.Rebind();
         }
+
 
         protected void ItemReset_Click(object sender, ImageClickEventArgs e)
         {
