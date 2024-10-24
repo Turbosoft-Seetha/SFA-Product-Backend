@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using static Telerik.Web.Apoc.Render.Pdf.PdfRendererOptions;
 using Telerik.Web.UI;
-using System.Data;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
-    public partial class CouponCollectionHeader : System.Web.UI.Page
+    public partial class CouponReturnHeader : System.Web.UI.Page
     {
         GeneralFunctions ObjclsFrms = new GeneralFunctions();
 
@@ -22,37 +21,37 @@ namespace SalesForceAutomation.BO_Digits.en
 
                 try
                 {
-                   
-                        if (Session["LOFDate"] != null)
-                        {
 
-                            rdfromDate.SelectedDate = DateTime.Parse(Session["LOFDate"].ToString());
-                        }
-                        else
-                        {
-                            rdfromDate.SelectedDate = DateTime.Now;
-
-
-                        }
-                        rdfromDate.MaxDate = DateTime.Now;
-
-                        if (Session["LOTDate"] != null)
-                        {
-
-                            rdendDate.SelectedDate = DateTime.Parse(Session["LOTDate"].ToString());
-                        }
-                        else
-                        {
-                            rdendDate.SelectedDate = DateTime.Now;
-
-                        }
-                        rdendDate.MaxDate = DateTime.Now;
-                }
-                   
-                catch (Exception ex)
+                    if (Session["COFDate"] != null)
                     {
-                        Response.Redirect("~/SignIn.aspx");
+
+                        rdfromDate.SelectedDate = DateTime.Parse(Session["COFDate"].ToString());
                     }
+                    else
+                    {
+                        rdfromDate.SelectedDate = DateTime.Now;
+
+
+                    }
+                    rdfromDate.MaxDate = DateTime.Now;
+
+                    if (Session["COTDate"] != null)
+                    {
+
+                        rdendDate.SelectedDate = DateTime.Parse(Session["COTDate"].ToString());
+                    }
+                    else
+                    {
+                        rdendDate.SelectedDate = DateTime.Now;
+
+                    }
+                    rdendDate.MaxDate = DateTime.Now;
+                }
+
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/SignIn.aspx");
+                }
 
                 try
                 {
@@ -67,16 +66,8 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
 
             }
-         
-
-
-
-
-
-
 
         }
-
         public void SetGridSession(RadGrid grd, string SessionPrefix)
 
         {
@@ -191,7 +182,6 @@ namespace SalesForceAutomation.BO_Digits.en
             }
 
         }
-
         protected void rdfromDate_SelectedDateChanged(object sender, Telerik.Web.UI.Calendar.SelectedDateChangedEventArgs e)
         {
             if (rdfromDate.SelectedDate != null && rdendDate.SelectedDate != null)
@@ -227,18 +217,19 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
             }
         }
-
         public void LoadData()
-        {
-          
-                string mainCondition = "";
-                mainCondition = mainConditions();
-                DataTable lstDatas = new DataTable();
-                lstDatas = ObjclsFrms.loadList("SelectCouponCollectionHeader", "sp_CouponCollection", mainCondition);
-                grvRpt.DataSource = lstDatas;
-            
+          {
+
+            string mainCondition = "";
+            mainCondition = mainConditions();
+            DataTable lstDatas = new DataTable();
+            lstDatas = ObjclsFrms.loadList("SelectCouponReturnHeader", "sp_CouponCollection", mainCondition);
+            grvRpt.DataSource = lstDatas;
+
 
         }
+
+        
 
         public string Rot()
         {
@@ -268,10 +259,9 @@ namespace SalesForceAutomation.BO_Digits.en
             }
             else
             {
-                return "cph_rot_ID";
+                return "crh_rot_ID";
             }
         }
-
         public string mainConditions()
         {
             string RotID = Rot();
@@ -289,7 +279,7 @@ namespace SalesForceAutomation.BO_Digits.en
                 }
                 else
                 {
-                    customerCondition = " and cph_rot_ID in (" + RotID + ")";
+                    customerCondition = " and crh_rot_ID in (" + RotID + ")";
                 }
             }
             catch (Exception ex)
@@ -306,8 +296,6 @@ namespace SalesForceAutomation.BO_Digits.en
         {
 
         }
-
-
         public void Route()
         {
             rdRoute.DataSource = ObjclsFrms.loadList("SelectRotForCoupon", "sp_CouponCollection");
@@ -320,43 +308,43 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             try
             {
-                if (Session["LOFDate"] != null)
+                if (Session["COFDate"] != null)
                 {
                     string fromdate = rdfromDate.SelectedDate.ToString();
-                    if (fromdate == Session["LOFDate"].ToString())
+                    if (fromdate == Session["COFDate"].ToString())
                     {
-                        rdfromDate.SelectedDate = DateTime.Parse(Session["LOFDate"].ToString());
+                        rdfromDate.SelectedDate = DateTime.Parse(Session["COFDate"].ToString());
                     }
                     else
                     {
-                        Session["LOFDate"] = DateTime.Parse(rdfromDate.SelectedDate.ToString());
+                        Session["COFDate"] = DateTime.Parse(rdfromDate.SelectedDate.ToString());
                     }
                 }
                 else
                 {
                     rdfromDate.SelectedDate = DateTime.Parse(rdfromDate.SelectedDate.ToString());
-                    Session["LOFDate"] = DateTime.Parse(rdfromDate.SelectedDate.ToString());
+                    Session["COFDate"] = DateTime.Parse(rdfromDate.SelectedDate.ToString());
 
                 }
                 rdfromDate.MaxDate = DateTime.Now;
 
-                if (Session["LOTDate"] != null)
+                if (Session["COTDate"] != null)
                 {
                     string todate = rdendDate.SelectedDate.ToString();
-                    if (todate == Session["LOTDate"].ToString())
+                    if (todate == Session["COTDate"].ToString())
                     {
-                        rdendDate.SelectedDate = DateTime.Parse(Session["LOTDate"].ToString());
+                        rdendDate.SelectedDate = DateTime.Parse(Session["COTDate"].ToString());
                     }
                     else
                     {
-                        Session["LOTDate"] = DateTime.Parse(rdendDate.SelectedDate.ToString());
+                        Session["COTDate"] = DateTime.Parse(rdendDate.SelectedDate.ToString());
                     }
 
                 }
                 else
                 {
                     rdendDate.SelectedDate = DateTime.Parse(rdendDate.SelectedDate.ToString());
-                    Session["LOTDate"] = DateTime.Parse(rdendDate.SelectedDate.ToString());
+                    Session["COTDate"] = DateTime.Parse(rdendDate.SelectedDate.ToString());
                 }
                 rdendDate.MaxDate = DateTime.Now.AddDays(1);
 
@@ -398,6 +386,7 @@ namespace SalesForceAutomation.BO_Digits.en
         {
             LoadData();
         }
+        
 
         protected void grvRpt_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
@@ -414,14 +403,11 @@ namespace SalesForceAutomation.BO_Digits.en
             if (e.CommandName.Equals("Detail"))
             {
                 GridDataItem dataItem = e.Item as GridDataItem;
-                string ID = dataItem.GetDataKeyValue("cph_ID").ToString();
-                Response.Redirect("CouponCollectionDetails.aspx?ID=" + ID);
+                string ID = dataItem.GetDataKeyValue("crh_ID").ToString();
+                Response.Redirect("CouponReturnDetail.aspx?ID=" + ID);
             }
         }
 
-        protected void LnkAdd_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddCouponCollections.aspx");
-        }
+       
     }
 }

@@ -55,9 +55,11 @@ namespace SalesForceAutomation.BO_Digits.en
 
         public void ListData()
         {
-            string[] arr = {rdendDate.SelectedDate.ToString()};
+            string fromDate = DateTime.Parse(rdfromDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            string ToDate = DateTime.Parse(rdendDate.SelectedDate.ToString()).ToString("yyyyMMdd");
+            string[] arr = { ToDate.ToString()};
             DataTable lstUser = default(DataTable);
-            lstUser = ObjclsFrms.loadList("SelResetRequestList", "sp_User", rdfromDate.SelectedDate.ToString(), arr);
+            lstUser = ObjclsFrms.loadList("SelResetRequestList", "sp_User", fromDate.ToString(), arr);
             grvRpt.DataSource = lstUser;
         }
         protected void lnkFilter_Click(object sender, EventArgs e)
