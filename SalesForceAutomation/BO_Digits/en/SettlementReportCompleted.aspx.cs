@@ -831,6 +831,7 @@ namespace SalesForceAutomation.BO_Digits.en
 
         protected void lnkrjectaprv_Click(object sender, EventArgs e)
         {
+            Save();
             string Id = ResponseID.ToString();
             string[] arr = { };
             string Value = ObjclsFrms.SaveData("sp_Settlement", "RejectSettlementApproval", Id, arr);
