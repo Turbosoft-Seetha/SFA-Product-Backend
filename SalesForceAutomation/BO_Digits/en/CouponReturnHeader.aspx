@@ -130,7 +130,7 @@
                                                 <telerik:GridBoundColumn DataField="crh_Number" AllowFiltering="true" HeaderStyle-Width="150px"
                                                     HeaderStyle-Font-Size="Smaller" HeaderText="Coupon Numer" FilterControlWidth="100%"
                                                     CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
-                                                    HeaderStyle-Font-Bold="true" UniqueName="cph_Number">
+                                                    HeaderStyle-Font-Bold="true" UniqueName="crh_Number">
                                                 </telerik:GridBoundColumn>   
                                             
                                              <telerik:GridBoundColumn DataField="CreatedDate" AllowFiltering="true" HeaderStyle-Width="150px"
