@@ -866,6 +866,54 @@
 
                                     </div>
                                 </div>
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Allow Zero Item Pricing<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlZeroItmPricing" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Customer Exit Enforce<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlCusExitEnforce" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Van Stock Checking<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlVanStockCheking" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label col-lg-12">Settlement Assessment<span class="required"> </span></label>
+                                    <div class="col-lg-12">
+                                        <telerik:RadComboBox ID="ddlSettlementAssessment" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false" Filter="Contains" RenderMode="Lightweight">
+                                            <Items>
+                                                <telerik:RadComboBoxItem Text="Yes" Value="Y" />
+                                                <telerik:RadComboBoxItem Text="No" Value="N" />
+                                            </Items>
+                                        </telerik:RadComboBox>
+
+                                    </div>
+                                </div>
 
                             </div>
 

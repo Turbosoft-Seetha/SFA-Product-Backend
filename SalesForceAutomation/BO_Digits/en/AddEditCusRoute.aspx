@@ -1655,7 +1655,7 @@
                                                     <telerik:RadComboBoxItem Text="Credit Note Request" Value="CNR" />
                                                     <telerik:RadComboBoxItem Text="Dispute Note Request" Value="DIS" />
                                                     <telerik:RadComboBoxItem Text="Scheduled Return Request" Value="SRR" />
-                                                    <telerik:RadComboBoxItem Text="Planogram" Value="PNG" />
+                                                    <telerik:RadComboBoxItem Text="Planogram" Value="PLG" />
                                                      <telerik:RadComboBoxItem Text="Customer Foc" Value="CFOC" />
 
                                                 </Items>
@@ -1672,7 +1672,7 @@
                                                     <telerik:RadComboBoxItem Text="Credit Note Request" Value="CNR" />
                                                     <telerik:RadComboBoxItem Text="Dispute Note Request" Value="DIS" />
                                                     <telerik:RadComboBoxItem Text="Scheduled Return Request" Value="SRR" />
-                                                    <telerik:RadComboBoxItem Text="Planogram" Value="PNG" />
+                                                    <telerik:RadComboBoxItem Text="Planogram" Value="PLG" />
                                                     <telerik:RadComboBoxItem Text="Customer Foc" Value="CFOC" />
 
                                                 </Items>

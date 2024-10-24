@@ -568,6 +568,26 @@
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rot_EnableDeviceID">
                                         </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rot_AllowZeroItemPricing" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Allow Zero Item Pricing" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_AllowZeroItemPricing">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rot_CustomerExitEnforce" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Customer Exit Enforce" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_CustomerExitEnforce">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rot_VanStockChecking" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Van Stock Checking" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_VanStockChecking">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rot_SettlementAssessment" AllowFiltering="true" HeaderStyle-Width="80px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Settlement Assessment" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rot_SettlementAssessment">
+                                        </telerik:GridBoundColumn>
 
 
 
