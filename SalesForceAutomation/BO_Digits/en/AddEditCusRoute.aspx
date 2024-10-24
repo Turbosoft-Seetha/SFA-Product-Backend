@@ -645,6 +645,45 @@
 
                                 </div>
                             </div>
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">Option for Full Delivery</label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="rdFulldelivery" runat="server" Width="100%" DefaultMessage="Please Select">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                            <telerik:DropDownListItem Text="No" Value="N" />
+                                        </Items>
+                                    </telerik:RadDropDownList>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">Enable Cash Deposit<span class="required"> </span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="ddlEnableCD" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                            <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                        </Items>
+                                    </telerik:RadDropDownList>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                <label class="control-label col-lg-12">Enable Return Request Batch<span class="required"> </span></label>
+                                <div class="col-lg-12">
+                                    <telerik:RadDropDownList ID="ddlEnableRtnReqBatch" runat="server" DefaultMessage="Please Select" Width="100%" CausesValidation="false">
+                                        <Items>
+                                            <telerik:DropDownListItem Text="Yes" Value="Y" />
+                                            <telerik:DropDownListItem Text="No" Value="N" Selected="true" />
+                                        </Items>
+                                    </telerik:RadDropDownList>
+
+                                </div>
+                            </div>
+
+
 
 
                         </div>
@@ -796,7 +835,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="col-lg-4 form-group" style="padding-top: 10px;">
+                                    <%--<div class="col-lg-4 form-group" style="padding-top: 10px;">
                                         <label class="control-label col-lg-12">Option for Full Delivery</label>
                                         <div class="col-lg-12">
                                             <telerik:RadDropDownList ID="rdFulldelivery" runat="server" Width="100%" DefaultMessage="Please Select">
@@ -807,7 +846,7 @@
                                             </telerik:RadDropDownList>
 
                                         </div>
-                                    </div>
+                                    </div>--%>
 
                                 </div>
 
@@ -1617,6 +1656,7 @@
                                                     <telerik:RadComboBoxItem Text="Dispute Note Request" Value="DIS" />
                                                     <telerik:RadComboBoxItem Text="Scheduled Return Request" Value="SRR" />
                                                     <telerik:RadComboBoxItem Text="Planogram" Value="PNG" />
+                                                     <telerik:RadComboBoxItem Text="Customer Foc" Value="CFOC" />
 
                                                 </Items>
                                             </telerik:RadComboBox>
@@ -1633,6 +1673,7 @@
                                                     <telerik:RadComboBoxItem Text="Dispute Note Request" Value="DIS" />
                                                     <telerik:RadComboBoxItem Text="Scheduled Return Request" Value="SRR" />
                                                     <telerik:RadComboBoxItem Text="Planogram" Value="PNG" />
+                                                    <telerik:RadComboBoxItem Text="Customer Foc" Value="CFOC" />
 
                                                 </Items>
                                             </telerik:RadComboBox>

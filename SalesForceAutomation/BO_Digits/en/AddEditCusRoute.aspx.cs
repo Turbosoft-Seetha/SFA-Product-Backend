@@ -14,6 +14,8 @@ using Telerik.Windows.Documents.Fixed.Model.Common;
 using DocumentFormat.OpenXml.Presentation;
 using System.Reflection;
 using System.ComponentModel;
+using System.Security.Policy;
+using Telerik.Windows.Documents.Fixed.Model.Objects;
 
 namespace SalesForceAutomation.BO_Digits.en
 {
@@ -126,7 +128,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             ActManageMand, CusServiceMand, IsActivityManage, IsCustomerService, rcs_EnableForecastSales, rcs_EnableQuotation, EnableSuggestedOrd, IsPriceChange, CusLocation,
                             RecentSales, RecentOrder, MinOrderValue, ARRemark, GRSettings, BRSettings, VoidEnableCusInsight, EnableDelPriceChange, ARPayMode, rcs_EnforceBuyBackfree, MustSell,
                             InstDelivery, AttachmentsAR,IsAttachmentOrder,AttachmentInvoice,FreeSampleOrder,CouponPayMode, CurrentSecurityDeposit, FreeSampleOrderApproval,SuggestedLoadReq, 
-                            CouponEnable, InsCusSettings,fulldelivery, EnableLPONumber , LPONumberMand , ResRtnSameItmInvoice;
+                            CouponEnable, InsCusSettings,fulldelivery, EnableLPONumber , LPONumberMand , ResRtnSameItmInvoice, EnableCashDeposit,EnableReturnRequestBatch;
 
                             invhcimgmand = lstDatas.Rows[0]["rcs_INV_HCRcpt_Img_Mand"].ToString();
                             invposimgmand = lstDatas.Rows[0]["rcs_INV_POSRcpt_Img_Mand"].ToString();
@@ -257,6 +259,9 @@ namespace SalesForceAutomation.BO_Digits.en
                             SuggestedLoadReq = lstDatas.Rows[0]["EnableSuggestedLODReq"].ToString();
                             CouponEnable = lstDatas.Rows[0]["rcs_IsCoupon"].ToString();
                             fulldelivery = lstDatas.Rows[0]["rcs_OptionForFullDelivery"].ToString();
+                            EnableCashDeposit = lstDatas.Rows[0]["rcs_EnableCashDeposit"].ToString();
+
+                            EnableReturnRequestBatch = lstDatas.Rows[0]["rcs_EnableReturnRequestBatch"].ToString();
 
 
                             rdFulldelivery.SelectedValue = fulldelivery.ToString();
@@ -270,7 +275,7 @@ namespace SalesForceAutomation.BO_Digits.en
                             ARCHimgMnad.SelectedValue = archimgmand.ToString();
                             ddlRecentSale.SelectedValue = RecentSales.ToString();
                             ddlRecentOder.SelectedValue = RecentOrder.ToString();
-
+                           
 
                             ddlroute.SelectedValue = rot.ToString();
                             ddlcus.SelectedValue = cus.ToString();
@@ -354,6 +359,8 @@ namespace SalesForceAutomation.BO_Digits.en
                             ddlEnableLPONumber.SelectedValue = EnableLPONumber.ToString();
                             ddlLPONumberMand.SelectedValue = LPONumberMand.ToString();
                             ddlRestrictedRtnSameItmInvoice.SelectedValue = ResRtnSameItmInvoice.ToString();
+                            ddlEnableCD.SelectedValue = EnableCashDeposit.ToString();
+                            ddlEnableRtnReqBatch.SelectedValue = EnableReturnRequestBatch.ToString();
 
 
 
@@ -873,7 +880,7 @@ namespace SalesForceAutomation.BO_Digits.en
             OrdPriceChange, eInvoice, AlertDays,CusDocExpiryAlert,invhcimgmand,invposimgmand,invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,
             ActManageMand, CusServiceMand, IsAvtManage, IsCusService, EnableForecastSales, EnableQuotation, EnableSuggestedOrd, IsPriceChange , CusLocation, RecentSales, RecentOrder, MinOrderValue,
             ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight, EnableDelPriceChange,ARPayMode, rcs_EnforceBuyBackfree, MustSell, InstDelivery, AttachmentsAR, IsAttachmentOrder, AttachmentInvoice,FreeSampleOrder,
-            CouponPayMode, CurrentSecurityDeposit,FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber,LPONumberMand,ResRtnSameItmInvoice;
+            CouponPayMode, CurrentSecurityDeposit,FreeSampleOrderApproval, SuggestedLoadReq, CouponEnable, InsCusSettings, fulldelivery, EnableLPONumber,LPONumberMand,ResRtnSameItmInvoice, EnableCashDeposit, EnableReturnRequestBatch;
 
             GracePeriod = "0";
             GraceAmount= "0";
@@ -986,6 +993,10 @@ namespace SalesForceAutomation.BO_Digits.en
 
             ResRtnSameItmInvoice = ddlRestrictedRtnSameItmInvoice.SelectedValue.ToString();
 
+            EnableCashDeposit = ddlEnableCD.SelectedValue.ToString();
+
+            EnableReturnRequestBatch = ddlEnableRtnReqBatch.SelectedValue.ToString();
+
             if ((cusType == "CS" && ResponseID.ToString() == "0")|| (cusType == "CS" && txtGraceamount.Text.ToString()==""))
             {
                 TCL = "0";
@@ -1032,7 +1043,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, EnableQuotation, EnableSuggestedOrd,IsPriceChange , CusLocation,RecentSales,
                     RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackfree,MustSell, InstDelivery,
                     AttachmentsAR,IsAttachmentOrder,AttachmentInvoice,FreeSampleOrder,CouponPayMode,CurrentSecurityDeposit,FreeSampleOrderApproval,SuggestedLoadReq,CouponEnable,
-                    InsCusSettings,fulldelivery,EnableLPONumber,LPONumberMand,ResRtnSameItmInvoice};
+                    InsCusSettings,fulldelivery,EnableLPONumber,LPONumberMand,ResRtnSameItmInvoice,EnableCashDeposit,EnableReturnRequestBatch};
 
                 string Value = ob.SaveData("sp_Merchandising", "InsertCusRoute", RouteID.ToString(), arr);
                 
@@ -1057,7 +1068,7 @@ namespace SalesForceAutomation.BO_Digits.en
                     invopimgmand,arhcimgmand,arposimgmand,arpoimgmand,archimgmand,ActManage,CusService,ActManageMand, CusServiceMand, IsAvtManage, IsCusService,EnableForecastSales, 
                     EnableQuotation, EnableSuggestedOrd,IsPriceChange, CusLocation,RecentSales,RecentOrder,MinOrderValue,ARRemarks,GRSettings,BrSettings,VoidEnableCusInsight,
                     EnableDelPriceChange,ARPayMode,rcs_EnforceBuyBackfree,MustSell, InstDelivery,AttachmentsAR,IsAttachmentOrder,AttachmentInvoice,FreeSampleOrder,CouponPayMode,CurrentSecurityDeposit,
-                    FreeSampleOrderApproval,SuggestedLoadReq,CouponEnable,InsCusSettings,fulldelivery,EnableLPONumber,LPONumberMand,ResRtnSameItmInvoice};
+                    FreeSampleOrderApproval,SuggestedLoadReq,CouponEnable,InsCusSettings,fulldelivery,EnableLPONumber,LPONumberMand,ResRtnSameItmInvoice,EnableCashDeposit,EnableReturnRequestBatch};
                 string value = ob.SaveData("sp_Merchandising", "UpdateCusRoute", id, arr);
                 int res = Int32.Parse(value.ToString());
                 if (res > 0)

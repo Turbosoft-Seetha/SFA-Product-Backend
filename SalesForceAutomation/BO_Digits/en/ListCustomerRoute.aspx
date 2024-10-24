@@ -694,11 +694,17 @@
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rcs_InsightCustomerSettings" Visible="true">
                                         </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rcs_OptionForFullDelivery" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Option for Full Delivery" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rcs_OptionForFullDelivery" Visible="true">
+                                        </telerik:GridBoundColumn>
                                         <telerik:GridBoundColumn DataField="rcs_EnableLPONumber" AllowFiltering="true" HeaderStyle-Width="100px"
                                             HeaderStyle-Font-Size="Smaller" HeaderText="Enable LPO Number" FilterControlWidth="100%"
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rcs_EnableLPONumber" Visible="true">
                                         </telerik:GridBoundColumn>
+
                                         <telerik:GridBoundColumn DataField="rcs_LPONumberMand" AllowFiltering="true" HeaderStyle-Width="100px"
                                             HeaderStyle-Font-Size="Smaller" HeaderText="LPO Number Mandatory" FilterControlWidth="100%"
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
@@ -708,6 +714,16 @@
                                             HeaderStyle-Font-Size="Smaller" HeaderText="Restricted Return Single Item invoice" FilterControlWidth="100%"
                                             CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
                                             HeaderStyle-Font-Bold="true" UniqueName="rcs_RestrictedRtnSingleItemInvoice" Visible="true">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rcs_EnableCashDeposit" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Enable Cash Deposit" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rcs_EnableCashDeposit" Visible="true">
+                                        </telerik:GridBoundColumn>
+                                        <telerik:GridBoundColumn DataField="rcs_EnableReturnRequestBatch" AllowFiltering="true" HeaderStyle-Width="100px"
+                                            HeaderStyle-Font-Size="Smaller" HeaderText="Enable Return Request Batch" FilterControlWidth="100%"
+                                            CurrentFilterFunction="Contains" AutoPostBackOnFilter="true" ShowFilterIcon="false"
+                                            HeaderStyle-Font-Bold="true" UniqueName="rcs_EnableReturnRequestBatch" Visible="true">
                                         </telerik:GridBoundColumn>
 
                                     </Columns>
